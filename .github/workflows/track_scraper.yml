@@ -29,6 +29,6 @@ jobs:
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
-          git add ./track_details.json ./track_scraper.log # include the log file
+          git add track_details.json track_scraper.log 
           git commit -m "Update track details"
           git push
