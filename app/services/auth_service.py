@@ -1,9 +1,12 @@
 from ..models.user import User
+from ..models.guid import GUID
 from ..extensions import db
 from werkzeug.security import generate_password_hash, check_password_hash
 import jwt
 from datetime import datetime, timedelta
 from ..config import Config
+import uuid
+
 
 def create_user(data):
     if User.query.filter_by(username=data['username']).first():
@@ -25,3 +28,9 @@ def authenticate_user(username, password):
         }, Config.SECRET_KEY, algorithm='HS256')
         return token
     return None
+
+def add_guid(discord_user_id, guid):
+        new_guid = GUID(discord_user_id=discord_user_id, guid=guid)
+        db.session.add(new_guid)
+        db.session.commit()
+        return new_guid
