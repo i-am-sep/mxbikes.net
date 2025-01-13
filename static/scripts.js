@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-  const path = window.location.pathname;
+    const path = window.location.pathname;
       if(path === '/downloads.html'){
           const modContainer = document.querySelector('.container:last-of-type'); // Select the last container with mods
           const categories = document.querySelectorAll('.category');
