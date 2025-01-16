@@ -1,124 +1,122 @@
-```html
+<!DOCTYPE html>
 <html>
 <head>
-    <base href="//unpkg.com">
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/styles.css">
-     <title>MXBikes.net - Downloads</title>
+    <link rel="stylesheet" href="styles.css">
+    <title>MXBikes.net - Downloads</title>
 </head>
 <body class="bg-gray-900 text-white">
     <div class="header">
-    <div class="tabs">
-        <a href="/home.html" class="tab">Home</a>
-        <a href="/tracks.html" class="tab">Tracks</a>
-        <a href="/bikes.html" class="tab">Bikes</a>
-        <a href="/rider.html" class="tab">Rider</a>
-        <a href="/ranked.html" class="tab">Ranked</a>
-        <a href="/championship.html" class="tab">Championship</a>
-        <a href="/downloads.html" class="tab downloads active">Downloads</a>
-    </div>
-    <div class="search-container">
-        <input type="text" class="search-bar" placeholder="Search for mods, tracks, gear...">
-        <div class="categories">
-            <div class="category active" data-category="all">All</div>
-            <div class="category" data-category="tracks">Tracks</div>
-            <div class="category" data-category="bikes">Bikes</div>
-            <div class="category" data-category="gear">Gear</div>
-            <div class="category" data-category="misc">Misc</div>
+        <div class="tabs">
+            <a href="index.html" class="tab">Home</a>
+            <a href="tracks.html" class="tab">Tracks</a>
+            <a href="bikes.html" class="tab">Bikes</a>
+            <a href="rider.html" class="tab">Rider</a>
+            <a href="ranked.html" class="tab">Ranked</a>
+            <a href="championship.html" class="tab">Championship</a>
+            <a href="downloads.html" class="tab downloads active">Downloads</a>
         </div>
-    </div>
-</div>
-
-<div id="infoModal" class="modal" onclick="closeModal()">
-    <div class="modal-content" onclick="event.stopPropagation()">
-        <button onclick="closeModal()" class="float-right text-gray-400 hover:text-white">× Close</button>
-        <h2 class="text-3xl font-bold mb-6">What's Special About These Bikes?</h2>
-        <div class="space-y-6 text-center">
-        <div>
-            <p class="text-gray-300">Every bike in the same category has the <strong>exact same weight</strong>, suspension settings, shift patterns, engine files, and model files. <strong>However</strong>, the location of the chassis mass is slightly different for each brand. This means no two bikes feel exactly the same.</p>
-            <p class="text-gray-300 mt-4">The goal was simple: <strong>no favoritism for any manufacturer</strong>. No bike was designed to feel better or worse on purpose. Everything was shuffled and randomized until <strong>every bike became someone's favorite</strong>.</p>
-        </div>
-        
-        <div>
-            <h3 class="text-2xl font-bold mb-4">Paint System & Customization</h3>
-            <table class="mx-auto">
-            <tr>
-                <th>Abbreviation</th>
-                <th>Part</th>
-            </tr>
-            <tr>
-                <td>CB</td>
-                <td>Cross Bar</td>
-            </tr>
-            <tr>
-                <td>FB</td>
-                <td>Fat Bar</td>
-            </tr>
-            <tr>
-                <td>HG</td>
-                <td>Handguards</td>
-            </tr>
-            <tr>
-                <td>Ak</td>
-                <td>Akrapovic</td>
-            </tr>
-            <tr>
-                <td>Yosh</td>
-                <td>Yoshimura</td>
-            </tr>
-            <tr>
-                <td>PC</td>
-                <td>Pro Circuit</td>
-            </tr>
-            <tr>
-                <td>FMF</td>
-                <td>FMF</td>
-            </tr>
-            </table>
-        </div>
-
-        <div>
-            <h3 class="text-2xl font-bold mb-4">Model Credits</h3>
-            <ul class="list-disc list-inside text-gray-300 ml-4">
-            <li><strong>Daniele</strong> (d1istraction on Discord) – Ducati</li>
-            <li><strong>Julien</strong> (Julien113 on Discord) – Yamaha, Kawasaki, Stark, and Fantic 250/450</li>
-            <li><strong>Isaiah</strong> (Eyezaya on Discord) – Honda, KTM, Husky, Suzuki, Beta, Triumph</li>
-            <li><strong>Caden</strong> (cadens on Discord) – GasGas</li>
-            <li><strong>TM Factory Racing</strong> – TM 250/450</li>
-            </ul>
-            <p class="text-gray-300 mt-4 italic">Note: Kawasaki, Yamaha 4JUdGzvrMFDWrUUwY3toJATSeNwjn54LkCnKBPRzDuhzi5vSepHfUckJNxRL2gjkNrSqtCoRUrEDAgRwsQvVCjZbRyFTLRNyDmT1a1boZVyou can, please <strong>support model makers</strong> to keep them creating content for the community.</p>
-        </div>
-
-        <div>
-            <h3 class="text-2xl font-bold mb-4">File Breakdown</h3>
-            <table class="mx-auto">
-            <tr>
-                <th>File</th>
-                <th>What It Does</th>
-            </tr>
-            <tr>
-                <td>bike.tga</td>
-                <td>Bike texture files</td>
-            </tr>
-            <tr>
-                <td>bars.tga</td>
-                <td>Handlebars and handguards</td>
-            </tr>
-            <tr>
-                <td>pipes.tga</td>
-                <td>Pipe swaps</td>
-            </tr>
-            </table>
-        </div>
+        <div class="search-container">
+            <input type="text" class="search-bar" placeholder="Search for mods, tracks, gear...">
+            <div class="categories">
+                <div class="category active" data-category="all">All</div>
+                <div class="category" data-category="tracks">Tracks</div>
+                <div class="category" data-category="bikes">Bikes</div>
+                <div class="category" data-category="gear">Gear</div>
+                <div class="category" data-category="misc">Misc</div>
+            </div>
         </div>
     </div>
 
-    <div class="container mx-auto px-4 py-8">
+    <div id="infoModal" class="modal" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button onclick="closeModal()" class="float-right text-gray-400 hover:text-white">× Close</button>
+            <h2 class="text-3xl font-bold mb-6">What's Special About These Bikes?</h2>
+            <div class="space-y-6 text-center">
+                <div>
+                    <p class="text-gray-300">Every bike in the same category has the <strong>exact same weight</strong>, suspension settings, shift patterns, engine files, and model files. <strong>However</strong>, the location of the chassis mass is slightly different for each brand. This means no two bikes feel exactly the same.</p>
+                    <p class="text-gray-300 mt-4">The goal was simple: <strong>no favoritism for any manufacturer</strong>. No bike was designed to feel better or worse on purpose. Everything was shuffled and randomized until <strong>every bike became someone's favorite</strong>.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Paint System & Customization</h3>
+                    <table class="mx-auto">
+                        <tr>
+                            <th>Abbreviation</th>
+                            <th>Part</th>
+                        </tr>
+                        <tr>
+                            <td>CB</td>
+                            <td>Cross Bar</td>
+                        </tr>
+                        <tr>
+                            <td>FB</td>
+                            <td>Fat Bar</td>
+                        </tr>
+                        <tr>
+                            <td>HG</td>
+                            <td>Handguards</td>
+                        </tr>
+                        <tr>
+                            <td>Ak</td>
+                            <td>Akrapovic</td>
+                        </tr>
+                        <tr>
+                            <td>Yosh</td>
+                            <td>Yoshimura</td>
+                        </tr>
+                        <tr>
+                            <td>PC</td>
+                            <td>Pro Circuit</td>
+                        </tr>
+                        <tr>
+                            <td>FMF</td>
+                            <td>FMF</td>
+                        </tr>
+                    </table>
+                </div>
 
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Model Credits</h3>
+                    <ul class="list-disc list-inside text-gray-300 ml-4">
+                        <li><strong>Daniele</strong> (d1istraction on Discord) – Ducati</li>
+                        <li><strong>Julien</strong> (Julien113 on Discord) – Yamaha, Kawasaki, Stark, and Fantic 250/450</li>
+                        <li><strong>Isaiah</strong> (Eyezaya on Discord) – Honda, KTM, Husky, Suzuki, Beta, Triumph</li>
+                        <li><strong>Caden</strong> (cadens on Discord) – GasGas</li>
+                        <li><strong>TM Factory Racing</strong> – TM 250/450</li>
+                    </ul>
+                    <p class="text-gray-300 mt-4 italic">Note: Kawasaki, Yamaha 450, and Fantic use the same models as those in the E10 pack. If you can, please <strong>support model makers</strong> to keep them creating content for the community.</p>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">File Breakdown</h3>
+                    <table class="mx-auto">
+                        <tr>
+                            <th>File</th>
+                            <th>What It Does</th>
+                        </tr>
+                        <tr>
+                            <td>bike.tga</td>
+                            <td>Bike texture files</td>
+                        </tr>
+                        <tr>
+                            <td>bars.tga</td>
+                            <td>Handlebars and handguards</td>
+                        </tr>
+                        <tr>
+                            <td>pipes.tga</td>
+                            <td>Pipe swaps</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 
+    <div class="container mx-auto px-4 py-8 mt-20">
+        <!-- Content will be dynamically loaded here -->
+    </div>
 
-<script src="scripts.js"></script>
+    <script src="scripts.js"></script>
 </body>
 </html>
-```
