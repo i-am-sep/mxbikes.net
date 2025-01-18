@@ -1,0 +1,77 @@
+2024-12-28 21:02:03,643 - INFO - Scraping: https://mxb-mods.com/tcs-session-supercross/, index: 0
+2024-12-28 21:02:04,955 - INFO - Scraping: https://mxb-mods.com/smoksta-flowsdale-mx/, index: 1
+2024-12-28 21:02:05,512 - INFO - Scraping: https://mxb-mods.com/steezy93-snow-hills-freeride/, index: 2
+2024-12-28 21:02:06,081 - INFO - Scraping: https://mxb-mods.com/30-starter-maps/, index: 3
+2024-12-28 21:02:07,192 - INFO - Scraping: https://mxb-mods.com/reix-2021-resolute-enduro-indoor-extreme/, index: 4
+2024-12-28 21:02:08,278 - INFO - Scraping: https://mxb-mods.com/cw-pitbike-rd5/, index: 5
+2024-12-28 21:02:09,118 - INFO - Scraping: https://mxb-mods.com/2025-racecraft-sx-preseason-test-track/, index: 6
+2024-12-28 21:02:10,068 - INFO - Scraping: https://mxb-mods.com/nhmx/, index: 7
+2024-12-28 21:02:11,199 - INFO - Scraping: https://mxb-mods.com/macau/, index: 8
+2024-12-28 21:02:11,509 - INFO - Scraping: https://mxb-mods.com/mountain-florest/, index: 9
+2024-12-28 21:02:12,505 - INFO - Scraping: https://mxb-mods.com/mxb-city-2/, index: 10
+2024-12-28 21:02:13,459 - INFO - Scraping: https://mxb-mods.com/sx-stuttgart-2023-2024/, index: 11
+2024-12-28 21:02:14,653 - INFO - Scraping: https://mxb-mods.com/procworks-snocross-rd-6/, index: 12
+2024-12-28 21:02:15,897 - INFO - Scraping: https://mxb-mods.com/uzelle-mx-2024/, index: 13
+2024-12-28 21:02:17,142 - INFO - Scraping: https://mxb-mods.com/besthorpemx/, index: 14
+2024-12-28 21:02:30,574 - INFO - Continuing from index 14, url https://mxb-mods.com/uzelle-mx-2024/
+2024-12-28 21:02:30,574 - INFO - Scraping: https://mxb-mods.com/besthorpemx/, index: 14
+2024-12-28 21:02:31,995 - INFO - Scraping: https://mxb-mods.com/beaston/, index: 15
+2024-12-28 21:02:32,316 - INFO - Scraping: https://mxb-mods.com/2024-ocerl-sx-round-5-melbourne/, index: 16
+2024-12-28 21:02:33,346 - INFO - Scraping: https://mxb-mods.com/the-aspect-proving-grounds-beta/, index: 17
+2024-12-28 21:02:34,463 - INFO - Scraping: https://mxb-mods.com/cw-pitbike-rd4/, index: 18
+2024-12-28 21:02:35,274 - INFO - Scraping: https://mxb-mods.com/las-vegas-smx-one-one-smx-finale/, index: 19
+2024-12-28 21:02:36,564 - INFO - Scraping: https://mxb-mods.com/outpost/, index: 20
+2024-12-28 21:02:36,892 - INFO - Scraping: https://mxb-mods.com/temecula-creek/, index: 21
+2024-12-28 21:02:37,627 - INFO - Scraping: https://mxb-mods.com/2024-ocerl-sx-round-4-adelaide/, index: 22
+2024-12-28 21:02:38,631 - INFO - Scraping: https://mxb-mods.com/bemis-hill/, index: 23
+2024-12-28 21:02:39,644 - INFO - Ctrl+C detected, pausing process...
+2024-12-28 21:02:50,591 - INFO - Continuing process
+2024-12-28 21:02:50,591 - INFO - Continuing from index 23, url https://mxb-mods.com/2024-ocerl-sx-round-4-adelaide/
+2024-12-28 21:02:50,592 - INFO - Scraping: https://mxb-mods.com/bemis-hill/, index: 23
+2024-12-28 21:02:51,159 - INFO - Scraping: https://mxb-mods.com/mnsr-raceway/, index: 24
+2024-12-28 21:02:51,965 - INFO - Scraping: https://mxb-mods.com/velocity-vista/, index: 25
+2024-12-28 21:02:52,914 - INFO - Scraping: https://mxb-mods.com/virollet-1986/, index: 26
+2024-12-28 21:02:53,892 - INFO - Scraping: https://mxb-mods.com/texas-motorplex-smx-one-one-smx-r2/, index: 27
+2024-12-28 21:02:55,060 - INFO - Scraping: https://mxb-mods.com/pck-test-track/, index: 28
+2024-12-28 21:02:56,087 - INFO - Scraping: https://mxb-mods.com/cw-pitbike-rd3/, index: 29
+2024-12-28 21:02:56,974 - INFO - Scraping: https://mxb-mods.com/the-room/, index: 30
+2024-12-28 21:02:57,556 - INFO - Scraping: https://mxb-mods.com/22-test-track/, index: 31
+2024-12-28 21:02:58,459 - INFO - Scraping: https://mxb-mods.com/velyaminovo-moto-park/, index: 32
+2024-12-28 21:02:59,399 - INFO - Scraping: https://mxb-mods.com/2024-ocerl-sx-round-2-wollongong/, index: 33
+2024-12-28 21:03:00,448 - INFO - Scraping: https://mxb-mods.com/keystone-raceway-smx-one-one-smx-r1/, index: 34
+2024-12-28 21:03:01,041 - INFO - Scraping: https://mxb-mods.com/24aksmx-r2-ft-worth/, index: 35
+2024-12-28 21:03:01,861 - INFO - Ctrl+C detected, pausing process...
+2024-12-28 21:04:16,685 - INFO - Continuing process
+2024-12-28 21:04:16,686 - INFO - Continuing from index 35, url https://mxb-mods.com/keystone-raceway-smx-one-one-smx-r1/
+2024-12-28 21:07:19,414 - INFO - Continuing from index 186, url https://mxb-mods.com/tihemetsa-mx/
+2024-12-28 21:08:25,752 - INFO - Continuing from index 242, url https://mxb-mods.com/b3-outdoor/
+2024-12-28 21:08:37,849 - INFO - Continuing from index 246, url https://mxb-mods.com/bigboobsmx/
+2024-12-28 21:09:32,162 - INFO - First Run, starting from beginning
+2024-12-28 21:20:06,005 - INFO - Continuing from index 351, url https://mxb-mods.com/twotwo-ax-facility/
+2024-12-28 21:22:11,747 - INFO - Ctrl+C detected, pausing process...
+2024-12-28 21:35:45,611 - INFO - Continuing process
+2024-12-28 21:35:45,617 - INFO - Continuing from index 469, url https://mxb-mods.com/2023-cusses-gorse-mx-park/
+2024-12-28 21:36:24,235 - ERROR - Failed to fetch https://mxb-mods.com/bakedminotaurs-virtual-backyard-dirt-course/ (Error: 403 Client Error: Forbidden for url: https://mxb-mods.com/bakedminotaurs-virtual-backyard-dirt-course/)
+2024-12-28 21:37:06,601 - INFO - Continuing from index 538, url https://mxb-mods.com/dillons-mx-park/
+2024-12-28 21:37:11,382 - INFO - Ctrl+C detected, pausing process...
+2024-12-28 21:41:21,164 - INFO - Continuing from index 547, url https://mxb-mods.com/tcs-the-warehouse-but-its-now-free/
+2024-12-28 21:43:52,816 - INFO - Continuing from index 550, url https://mxb-mods.com/malvern-mx/
+2024-12-28 21:43:54,518 - INFO - Ctrl+C detected, pausing process...
+2024-12-28 21:48:35,339 - INFO - Ctrl+C detected, pausing process...
+2024-12-28 21:48:41,361 - INFO - Continuing process
+2024-12-28 21:48:41,362 - INFO - Continuing from index 551, url https://mxb-mods.com/desertmartin/
+2024-12-28 21:48:44,283 - INFO - Ctrl+C detected, pausing process...
+2024-12-28 22:51:24,920 - INFO - New data only, saving for first time
+2024-12-28 22:51:24,920 - INFO - Track details updated and saved to track_details.json.
+2024-12-28 22:53:24,390 - INFO - Adding new track: https://mxb-mods.com/racine-mx-unleashed-version-2/
+2024-12-28 22:53:24,390 - INFO - Adding new track: https://mxb-mods.com/country-sx/
+2024-12-28 22:53:24,390 - INFO - Adding new track: https://mxb-mods.com/onetwosix-proving-grounds/
+2024-12-28 22:53:24,391 - INFO - Track details updated and saved to track_details.json.
+2024-12-28 22:55:52,723 - INFO - Adding new track: https://mxb-mods.com/coblens-mx/
+2024-12-28 22:55:54,008 - INFO - Adding new track: https://mxb-mods.com/reaper-doc-1-week-challenge/
+2024-12-28 22:55:55,112 - INFO - Adding new track: https://mxb-mods.com/austinstestsx/
+2024-12-28 22:55:55,114 - INFO - Track details updated and saved to track_details.json.
+2024-12-28 22:56:12,509 - INFO - Adding new track: https://mxb-mods.com/frozen-creek-mx-one-one-mx-r10/
+2024-12-28 22:56:13,508 - INFO - Adding new track: https://mxb-mods.com/fort-red/
+2024-12-28 22:56:14,700 - INFO - Adding new track: https://mxb-mods.com/lockdown-pro/
+2024-12-28 22:56:14,701 - INFO - Track details updated and saved to track_details.json.

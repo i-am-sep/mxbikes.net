@@ -1,8 +1,22 @@
 [
     {
-        "name": "24AKSMX \u2013 R2 \u2013 Ft Worth",        
-        "category": "track",
-        "downloads": [            {
+        "name": "24AKSMX \u2013 R2 \u2013 Ft Worth",
+        "description": "Home of mods for MX Bikes with over 8000 submissions!",
+        "category": null,
+        "downloads": [
+            {
+                "url": "https://mxb-mods.com/oem-additional-downloads-patches-and-templates/",
+                "label": "OEM \u2013 Additional Downloads, Patches and Templates"
+            },
+            {
+                "url": "https://mxb-mods.com/oem-additional-downloads-patches-and-templates/",
+                "label": "OEM \u2013 Additional Downloads, Patches and Templates"
+            },
+            {
+                "url": "#download",
+                "label": "Downloads"
+            },
+            {
                 "url": "https://drive.google.com/file/d/1FRc_GqlrvaZ8DOOzSdfzpyoOuNZl7-y-/view?usp=drive_link",
                 "label": "Download from drive.google.com"
             },
@@ -22,6 +36,10 @@
                 "url": "https://mega.nz/file/t9ZmlYLZ#iuDZwFcC74mDRgpy3GVm7ojIhOw5GBKuDk6IQOPVVAU",
                 "label": "Download from mega.nz"
             },
+            {
+                "url": "https://twitter.com/intent/tweet?text=Update i downloaded both verisons now and both have no traction i cant slow down... &url=https%3A%2F%2Fmxb-mods.com%2F24aksmx-r2-ft-worth%2F%23comment-46274",
+                "label": ""
+            }
         ],
         "images": [
             "https://cdn.mxb-mods.com/wp-content/uploads/2019/05/MXB-Mods-Logo.png?height=15",
@@ -69,9 +87,22 @@
         ]
     },
     {
-        "name": "24AKSMX \u2013 R1 \u2013 Concord",        
-        "category": "track",
+        "name": "24AKSMX \u2013 R1 \u2013 Concord",
+        "description": "Home of mods for MX Bikes with over 8000 submissions!",
+        "category": null,
         "downloads": [
+            {
+                "url": "https://mxb-mods.com/oem-additional-downloads-patches-and-templates/",
+                "label": "OEM \u2013 Additional Downloads, Patches and Templates"
+            },
+            {
+                "url": "https://mxb-mods.com/oem-additional-downloads-patches-and-templates/",
+                "label": "OEM \u2013 Additional Downloads, Patches and Templates"
+            },
+            {
+                "url": "#download",
+                "label": "Downloads"
+            },
             {
                 "url": "https://drive.google.com/file/d/1pkoNeF0q0Og8HHPq4MrQ4mZAKeA149OP/view?usp=sharing",
                 "label": "Download from drive.google.com"
@@ -135,9 +166,22 @@
         ]
     },
     {
-        "name": "A-Kit Bike Pack Production Build",        
+        "name": "A-Kit Bike Pack Production Build",
+        "description": "Home of mods for MX Bikes with over 8000 submissions!",
         "category": null,
         "downloads": [
+            {
+                "url": "https://mxb-mods.com/oem-additional-downloads-patches-and-templates/",
+                "label": "OEM \u2013 Additional Downloads, Patches and Templates"
+            },
+            {
+                "url": "https://mxb-mods.com/oem-additional-downloads-patches-and-templates/",
+                "label": "OEM \u2013 Additional Downloads, Patches and Templates"
+            },
+            {
+                "url": "#download",
+                "label": "Downloads"
+            },
             {
                 "url": "https://www.mediafire.com/file/pb6bd6tonr1v4ho/bikes.zip/file",
                 "label": "Download from mediafire.com"
@@ -162,7 +206,22 @@
                 "url": "https://www.mediafire.com/file/ayyvxvdmhkm9hc6/TSX+-+AKit+Training+Grounds.zip/file",
                 "label": "Download from mediafire.com"
             },
-
+            {
+                "url": "https://twitter.com/intent/tweet?text=Do I have to download the OEM pack to download these, or can I just... &url=https%3A%2F%2Fmxb-mods.com%2Fa-kit-bike-pack-production-build%2F%23comment-46558",
+                "label": ""
+            },
+            {
+                "url": "https://twitter.com/intent/tweet?text=im confused on how to download the mod. if anyone could help it wou... &url=https%3A%2F%2Fmxb-mods.com%2Fa-kit-bike-pack-production-build%2F%23comment-45822",
+                "label": ""
+            },
+            {
+                "url": "https://twitter.com/intent/tweet?text=hi, just downloaded the pack and the first thing i can say that the... &url=https%3A%2F%2Fmxb-mods.com%2Fa-kit-bike-pack-production-build%2F%23comment-45022",
+                "label": ""
+            },
+            {
+                "url": "https://twitter.com/intent/tweet?text=I need help. every time i go to download the bikes i go into a trac... &url=https%3A%2F%2Fmxb-mods.com%2Fa-kit-bike-pack-production-build%2F%23comment-43973",
+                "label": ""
+            }
         ],
         "images": [
             "https://cdn.mxb-mods.com/wp-content/uploads/2019/05/MXB-Mods-Logo.png?height=15",
@@ -253,9 +312,22 @@
         ]
     },
     {
-        "name": "Haiden Deegan #1 SMX Replica",        
+        "name": "Haiden Deegan #1 SMX Replica",
+        "description": "Home of mods for MX Bikes with over 8000 submissions!",
         "category": null,
         "downloads": [
+            {
+                "url": "https://mxb-mods.com/oem-additional-downloads-patches-and-templates/",
+                "label": "OEM \u2013 Additional Downloads, Patches and Templates"
+            },
+            {
+                "url": "https://mxb-mods.com/oem-additional-downloads-patches-and-templates/",
+                "label": "OEM \u2013 Additional Downloads, Patches and Templates"
+            },
+            {
+                "url": "#download",
+                "label": "Downloads"
+            },
             {
                 "url": "https://mega.nz/folder/19BCFY5T#ej0StYY0fNkApPX0DxqNlA",
                 "label": "Download from mega.nz"
@@ -314,9 +386,22 @@
         ]
     },
     {
-        "name": "Nike 6.0 Boots",        
+        "name": "Nike 6.0 Boots",
+        "description": "Home of mods for MX Bikes with over 8000 submissions!",
         "category": null,
         "downloads": [
+            {
+                "url": "https://mxb-mods.com/oem-additional-downloads-patches-and-templates/",
+                "label": "OEM \u2013 Additional Downloads, Patches and Templates"
+            },
+            {
+                "url": "https://mxb-mods.com/oem-additional-downloads-patches-and-templates/",
+                "label": "OEM \u2013 Additional Downloads, Patches and Templates"
+            },
+            {
+                "url": "#download",
+                "label": "Downloads"
+            },
             {
                 "url": "https://www.mediafire.com/file/8jjfs5nhod460tc/AJN_NikeBoots.zip/file",
                 "label": "Download from mediafire.com"
@@ -357,9 +442,22 @@
         ]
     },
     {
-        "name": "Chase Sexton 2025 RedBull KTM Skin (A-Kit)",        
+        "name": "Chase Sexton 2025 RedBull KTM Skin (A-Kit)",
+        "description": "Home of mods for MX Bikes with over 8000 submissions!",
         "category": null,
         "downloads": [
+            {
+                "url": "https://mxb-mods.com/oem-additional-downloads-patches-and-templates/",
+                "label": "OEM \u2013 Additional Downloads, Patches and Templates"
+            },
+            {
+                "url": "https://mxb-mods.com/oem-additional-downloads-patches-and-templates/",
+                "label": "OEM \u2013 Additional Downloads, Patches and Templates"
+            },
+            {
+                "url": "#download",
+                "label": "Downloads"
+            },
             {
                 "url": "https://download1478.mediafire.com/5sm7neg678ag5S9rqtLZrGc2d0ueuoNwRUfQeb2a8hpDr5Uc9lmgg4geS0xNvFjLZyYH7cTJtHBgjOqcxLOj43EtvbAgahrrUNmVUoSvF_D9Lo8K4sxeXv-jxVXgJilCpjiRpRaXlfl5onXxpJs3uWwM1WVqlPj-MOZIyNjas65FBA/w6nbmce3o22s2c3/RB_KTM.zip",
                 "label": "Download from download1478.mediafire.com"
@@ -394,9 +492,22 @@
         ]
     },
     {
-        "name": "RidePark MX",        
+        "name": "RidePark MX",
+        "description": "Home of mods for MX Bikes with over 8000 submissions!",
         "category": null,
         "downloads": [
+            {
+                "url": "https://mxb-mods.com/oem-additional-downloads-patches-and-templates/",
+                "label": "OEM \u2013 Additional Downloads, Patches and Templates"
+            },
+            {
+                "url": "https://mxb-mods.com/oem-additional-downloads-patches-and-templates/",
+                "label": "OEM \u2013 Additional Downloads, Patches and Templates"
+            },
+            {
+                "url": "#download",
+                "label": "Downloads"
+            },
             {
                 "url": "https://www.mediafire.com/file/g8gaynyku2uwpkw/RidePark_MX.pkz/file",
                 "label": "Download from mediafire.com"
@@ -469,44 +580,5 @@
             "https://logodb.mxb-mods.com/assets/LogoDB_white_rect.png",
             "https://gpb-mods.com/wp-content/uploads/2021/10/cropped-gpbmods_small.png"
         ]
-    },
-    {
-        "name": "Frozen Creek MX (One-One MX R10)",
-        "description": "DescriptionDownloadsBring your jackets! We\u2019re racing the final round of the One-One MX series in Anchorage, Alaska. If you want to race this track on Monday, Nov. 11, 2024, find the One-One server or myself on Discord and we\u2019ll help get you signed up. We accept any level of rider, from beginner to pro, so don\u2019t be shy.This track is entirely conceptual, built to look like a race-ready track after a bit of snowfall. The majority of the terrain is dirt with some mud and snow in some areas around the track, along with some areas that are completely snow or starting to melt. I spent countless hours on getting the textures to look realistic and change as they\u2019re ridden on. The snow will look like its compacting down from the weight of the bike riding over it, while the dirt will start to look a little slick and muddy from the snow mixing with the dirt. Throw on some erode and it looks wonderful.This track isn\u2019t too difficult, but features ruts and bumps, a few big sends, along with some technical areas and multiple line choices in the corners. It\u2019s also been adapted and tested extensively to ride well with the new OEMS. Lastly, the snow has sand physics so it will pull the bike in and slow it down just as you\u2019d expect.There\u2019s been some recent reports from locals spotting Bigfoot and the Abominable Snowman in the area, so keep an eye out.Special thanks \u2013One-One SMX SeriesNewSkool for doing the race data/camera/marshals and helping me ideate and build some of the trackLynds, RedRider, Resolute Kraken, AGMX, Giopanda, Mouk Lab, Kellz, Cody James, PHANTOMZ, TFC, Navo, L0wpoly and anyone else I forgot for their awesome tutorials, assets, and whatever else got me this point. Couldn\u2019t have made this without you all!Track InfoSoil Types (track materials)Soft SoilDownloadsTotal downloads: 3498Made for Beta 19.Recommended MediafireDownload from mediafire.comhttps://www.mediafire.com/file/4qpbkw2ns3xy7j7/Frozen_Creek_MX.pkz/fileOptional Google DriveDownload from drive.google.comhttps://drive.google.com/file/d/1fuh-WhD2FY3yfevP5nnQzz3rHJs87uMu/view?usp=sharingMod Instructions (DEFAULT)Put the PKZ file or folder into your \"mods/tracks/*category*\" folder.",
-        
-        "category": null,
-        "type": "track",
-        "downloads": [],
-        "images": {
-            "cover": "https://cdn.mxb-mods.com/wp-content/uploads/2024/11/thumb-jpg.webp",
-            "additional": []
-        },
-        "url": "https://mxb-mods.com/frozen-creek-mx-one-one-mx-r10/"
-    },
-    {
-        "name": "Fort Red",
-        "description": "DescriptionDownloadsWelcome to Fort Red! (Fort Dodge round 2 from Reflex)I\u2019m excited to finally finish a track project again for the community, it\u2019s a combination of Reflex and MXB style where I tried to stay true to Reflex but in an MXB way. (tested with OEM bikes) If you like this track and start\u00a0 thinking \u201cI hope he makes more Reflex to MXB tracks\u201d lol I\u2019m just doing this one so, sorry in advance. I mostly got the itch to make the height map and then it just grew from there, making these stadiums is time consuming and I\u2019ve got a lot more content to finish \ud83d\ude42 So please enjoy and relive a little nostalgia from MvA Reflex.Preview/Edit\u00a0 \u00a0https://youtu.be/1YQ-4Tw6d1E?si=rAs8sObwHZlw3CPd CreditsEarthwurx Discord <3Dblu- tips for material thickness, whip video (main screen)Mulock- Tracked tutorial, Checking my centerline and race data <3JV- info/advice/assistance/optimizations <3Logan- Crowd Audio, lots of things and Friend <3ParaMoto-Gas Can Reference model.FluffyGecko for Ramp models\u00a0Niko, Maplar, Kingmx,Mulock,Cody,Alpha,Calum anyone else that gave feedback on the beta 1 or 2 and QA testing (Fort Dodgin them spikes lol )If you want to you can donate money here\u00a0http://paypal.me/redrider197 Thanks!Track InfoTrack ID: Fort RedDownloadsTotal downloads: 33539Made for Beta 18.Default Fort RedDownload from mega.nzhttps://mega.nz/file/r1FiVKhB#HHTYYDQlSVWFC9PvY5-ksjIQWcRgq7IG960G-x6gnTEDefault Fort RedDownload from mediafire.comhttps://www.mediafire.com/file/mc30od0wla4xp7a/Fort_Red.pkz/fileServer Version Fort Red (Server)Download from mediafire.comhttps://www.mediafire.com/file/g88hmbiijqxnres/Fort_Red.pkz/fileServer Version Fort Red (Server)Download from mega.nzhttps://mega.nz/file/qpNF0DqQ#VRlZMXFZ33PfcOGZsMweEX3tE_NfliTdUi5YSOf41lUMod Instructions (DEFAULT)Put the PKZ file or folder into your \"mods/tracks/*category*\" folder.Support RedRider197!Hey there! If you would like to support my work, just know all donations will go towards paying for programs I use to make mods. This is just a 2nd job/hobby type beat for me and donations are not expected. Cheers!Buy me a coffee!",
-        
-        "category": null,
-        "type": "track",
-        "downloads": [],
-        "images": {
-            "cover": "https://cdn.mxb-mods.com/wp-content/uploads/2023/09/FortDodge-Preview.gif",
-            "additional": []
-        },
-        "url": "https://mxb-mods.com/fort-red/"
-    },
-    {
-        "name": "Lockdown Pro",
-        "description": "DescriptionDownloadsWelcome to my first track. Lockdown is a fantasy track i used it to learn trackbuilding for making some good replicas in futer. A shorter amateur version is planed in the next couple days. Objects like the bridges, houses, towers, startbanners are modelt by my own.If you like my work, donate me https://paypal.me/MXBcommercials?locale.x=de_DETrackperview from BoomerBarber:Trailer:I wanna say thanks to some people wich helped me with objects an knowledge: \u2013 Victor for the thumbnail\u00a0 (not ingame yet) \u2013 Insane du geile Sau f\u00fcr deine Seite und sein Fachwissen \u2013 Giopanda for the basic Trackassets \u2013 Mouk Lab for the Team Trucks \u2013 Ginxma for the ambulance and other trucks \u2013 Agitato for the 100% Infaltable \u2013 Resolute for the Track Builder Helper \u2013 JV and Janes46 for beta testing \u2013 the whole community i used as helpcenter \u2013 all others i didn\u00b4t mention hereIt was a lot of hard work, i hope you enjoy the track. If there are some issues let me know please.DownloadsTotal downloads: 6869Default 797 Lockdown ProDownload from mega.nzhttps://mega.nz/file/7QhGVbTD#zT8Ckn7oxYpermD1SQF3DVhnJ75oKL7YLcPs9FCe9ZUServer Version 797 Lockdown Pro (Server Version)Download from mega.nzhttps://mega.nz/file/aQxyQB5T#EzNx6VIlfvPR9rEkbR6gEwxSwcZ3B7NNnXh-PK6nvIMMod Instructions (DEFAULT)Put the PKZ file or folder into your \"mods/tracks/*category*\" folder.",
-        
-        "category": null,
-        "type": "track",
-        "downloads": [],
-        "images": {
-            "cover": "https://cdn.mxb-mods.com/wp-content/uploads/2021/08/lockdown_pro_titelbild_Kopie-1240x1240.png",
-            "additional": []
-        },
-        "url": "https://mxb-mods.com/lockdown-pro/"
     }
 ]
