@@ -1,0 +1,613 @@
+Scrallex
+scrallex
+Online
+
+[8:28 PM]Scrallex: https://drive.google.com/open?id=19MBq-2Gk1z6htfQ332H1IaxhK4cqZfSQ&usp=drive_fs
+Google Docs
+Flowvilla 2.pkz
+[8:32 PM]Scrallex: https://discord.gg/mx-bikes
+[9:43 PM]Bwag: I can join Im banned still
+[9:43 PM]Bwag: can't
+[9:32 AM]Bwag: For OEM yz450 swap what is the bar tga name bars does not work.
+[9:32 AM]Bwag:
+Image
+[9:32 AM]Scrallex: Idk what you’re talking about
+[9:32 AM]Scrallex: Oem what!
+[9:32 AM]Scrallex: ?*
+[9:33 AM]Bwag: The swap for your yz 450 for the oems
+[9:33 AM]Scrallex: I never did swaps w oem bikes
+[9:33 AM]Scrallex: Just replaced the model
+[9:33 AM]Scrallex: Swaps only ever implemented on my bikes
+[9:33 AM]Scrallex: Only thing is hand guards
+[9:34 AM]Bwag: Okay
+[9:34 AM]Scrallex: Which may or may not be handgaurds or handguards
+[9:34 AM]Scrallex: Idk 🤷
+[9:34 AM]Bwag: Yea, everything works but the bars
+[9:34 AM]Scrallex: Bars don’t show up.?
+[9:34 AM]Scrallex: Or don’t change
+[9:35 AM]Bwag: its a cross bar in-game with a pro taper fat bar on that cross bar
+[9:35 AM]Bwag: so partially black
+[9:35 AM]Scrallex: Ah. Yeah I think you’ll need to look at the bike tga for those
+[9:35 AM]Scrallex: Likely named yzf instead of bike
+[9:35 AM]Scrallex: Or whatever I named it
+[9:36 AM]Bwag: okay, the paint is just one I had for the a kit yz
+[9:37 AM]Scrallex: Does the psd in links on the discord have both bar styles?
+[9:38 AM]Bwag: I'm using the other yz. the one you gave me is all fuckered in game
+[9:38 AM]Scrallex: Yeah the oem swaps are from way back when
+[9:39 AM]Scrallex: Fat chance I ever update em
+[7:09 AM]Scrallex: https://mega.nz/folder/wxw3FB5a#m24kFTr3euo-0T4sAyQTxQ
+[9:51 AM]Bwag: https://drive.google.com/file/d/1NY67qNvGmCSnHy-2QSkMFsH4bRnL2EB1/view?usp=sharing
+Google Docs
+GH010733.MP4
+[9:52 AM]Bwag: https://drive.google.com/file/d/1tbFWArwKkOfL90Tmt3D4NCR667o4Ywjs/view?usp=sharing\
+Google Docs
+GH010732.MP4
+[7:24 PM]Bwag: This is the second iteration of an SX template I am making. Literally, all I need is some feedback I think it is good but my opinion of my work is biased. https://drive.google.com/file/d/1LfJRxCMEbL1cN78q5Av8IFFzd02l2i_1/view?usp=sharing
+Google Docs
+2024-11-02 18-47-29.mp4
+[11:12 PM]Bwag: https://drive.google.com/file/d/1BGw6p56SItG3wfTtKJo6RcOnEO0wW0wW/view?usp=sharing, https://drive.google.com/file/d/1_9NLGqZOMmi1d13zLbtT0KxPET2hzUFq/view?usp=sharing
+Google Docs
+AK_r_medium.tyre
+Google Docs
+AK_f_medium.tyre
+[11:14 PM]Bwag: I think I have made something that is irrefutably a good tire, with the exception of personal preference, because it rides loose. However, I will say that an issue I have encountered, especially in supercross, is that it sometimes slides much further than usual, and it seems arbitrary what triggers it.
+[11:15 PM]Bwag: I'm still working on it. I have been for about a week, so just try them out and tell me what you think. 
+[11:23 PM]Bwag: I've also encountered the same issue with wheelies, where the tire slides out when turning, just like the OEM, but it's not as bad. I think this might be because I allow the tire to slide laterally so much, and I believe it's either a slip with the side effect of no turning in a wheelie or a grip with the ability to turn in a wheelie. I may be wrong, but that's just what I'm noticing.
+[4:56 AM]Scrallex: I’ll try em out here today. That’s cool
+[7:32 PM]Scrallex: sa
+[7:32 PM]Scrallex: https://www.mediafire.com/file/me2n0yezxeujr2d/CORELDRAW.TECHNICAL.SUITE.WITH.EXTRAS.2022.MULTI-ISO+[IPT].torrent/file
+[7:35 PM]Scrallex:
+@echo off
+setlocal
+
+REM Define the name of the PowerShell script
+set PS_SCRIPT=InstallCorelDrawInteractive.ps1
+Expand
+InstallCorelDraw.bat
+5 KB
+[8:10 PM]Scrallex: @echo off
+setlocal
+
+REM Define variables
+set PS_SCRIPT=InstallCorelDraw.ps1
+
+REM Write the PowerShell script to the same directory as the batch file
+echo # PowerShell Script to Install CorelDRAW > "%~dp0%PS_SCRIPT%"
+echo $isoPath = Read-Host "Enter the full path to the ISO file (e.g., C:\path\to\CDTS2022.iso)" >> "%~dp0%PS_SCRIPT%"
+echo if (-Not (Test-Path $isoPath)) { >> "%~dp0%PS_SCRIPT%"
+echo     Write-Host "Error: The specified ISO path does not exist. Exiting." -ForegroundColor Red >> "%~dp0%PS_SCRIPT%"
+echo     exit >> "%~dp0%PS_SCRIPT%"
+echo } >> "%~dp0%PS_SCRIPT%"
+echo $mountPoint = Read-Host "Enter the desired drive letter to mount the ISO (e.g., F:)" >> "%~dp0%PS_SCRIPT%"
+echo if (-Not $mountPoint.EndsWith(":")) { >> "%~dp0%PS_SCRIPT%"
+echo     $mountPoint = "$mountPoint:" >> "%~dp0%PS_SCRIPT%"
+echo } >> "%~dp0%PS_SCRIPT%"
+echo Write-Host "Mounting ISO file..." >> "%~dp0%PS_SCRIPT%"
+echo try { >> "%~dp0%PS_SCRIPT%"
+echo     $mountResult = Mount-DiskImage -ImagePath $isoPath -PassThru >> "%~dp0%PS_SCRIPT%"
+echo     $driveLetter = ($mountResult | Get-Volume).DriveLetter + ":" >> "%~dp0%PS_SCRIPT%"
+echo     Write-Host "ISO mounted successfully on $driveLetter" >> "%~dp0%PS_SCRIPT%"
+echo } catch { >> "%~dp0%PS_SCRIPT%"
+echo     Write-Host "Error: Failed to mount the ISO file. Exiting." -ForegroundColor Red >> "%~dp0%PS_SCRIPT%"
+echo     exit >> "%~dp0%PS_SCRIPT%"
+echo } >> "%~dp0%PS_SCRIPT%"
+echo $setupPath = "$mountPoint\x64\Setup.exe" >> "%~dp0%PS_SCRIPT%"
+echo Write-Host "Running installer from $setupPath..." >> "%~dp0%PS_SCRIPT%"
+echo if (-Not (Test-Path $setupPath)) { >> "%~dp0%PS_SCRIPT%"
+echo     Write-Host "Error: Setup.exe not found. Exiting." -ForegroundColor Red >> "%~dp0%PS_SCRIPT%"
+echo     exit >> "%~dp0%PS_SCRIPT%"
+echo } >> "%~dp0%PS_SCRIPT%"
+echo Start-Process $setupPath -Wait >> "%~dp0%PS_SCRIPT%"
+echo Write-Host "Blocking CorelDraw from accessing the internet..." >> "%~dp0%PS_SCRIPT%"
+echo $firewallRuleName = "Block_CorelDraw" >> "%~dp0%PS_SCRIPT%"
+echo $programPath = "$driveLetter\Program Files\Corel\CorelDRAW Technical Suite 2022\Programs\CorelDRAW.exe" >> "%~dp0%PS_SCRIPT%"
+echo if (Test-Path $programPath) { >> "%~dp0%PS_SCRIPT%"
+echo     New-NetFirewallRule -DisplayName $firewallRuleName -Direction Outbound -Program $programPath -Action Block -Enabled True >> "%~dp0%PS_SCRIPT%"
+echo     New-NetFirewallRule -DisplayName $firewallRuleName -Direction Inbound -Program $programPath -Action Block -Enabled True >> "%~dp0%PS_SCRIPT%"
+echo } else { >> "%~dp0%PS_SCRIPT%"
+echo     Write-Host "Warning: Program path not found for firewall rules." -ForegroundColor Yellow >> "%~dp0%PS_SCRIPT%"
+echo } >> "%~dp0%PS_SCRIPT%"
+echo Dismount-DiskImage -ImagePath $isoPath >> "%~dp0%PS_SCRIPT%"
+echo Write-Host "Installation complete. Unmounted ISO." >> "%~dp0%PS_SCRIPT%"
+
+REM Execute the PowerShell script
+powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0%PS_SCRIPT%"
+
+REM Cleanup (Optional)
+REM del "%~dp0%PS_SCRIPT%"
+
+endlocal
+[8:11 PM]Bwag: "C:\Users\bwags\OneDrive\Desktop\CORELDRAW.TECHNICAL.SUITE.WITH.EXTRAS.2022.MULTI-ISO\mnt\s2\CorelDraw2022\CDTS2022.iso"
+[8:12 PM]Scrallex:
+# Variables
+$isoPath = "C:\Users\bwags\OneDrive\Desktop\CORELDRAW.TECHNICAL.SUITE.WITH.EXTRAS.2022.MULTI-ISO\mnt\s2\CorelDraw2022\CDTS2022.iso"
+$firewallRuleName = "Block_CorelDraw"
+
+# Step 1: Mount the ISO
+Write-Host "Mounting ISO file..."
+Expand
+InstallCorelDraw.ps1
+3 KB
+[8:13 PM]Scrallex: @echo off
+setlocal
+
+REM Navigate to the desktop
+cd /d "C:\Users\bwags\OneDrive\Desktop"
+
+REM Run the PowerShell script
+powershell -NoProfile -ExecutionPolicy Bypass -File ".\InstallCorelDraw.ps1"
+
+endlocal
+[8:14 PM]Scrallex: DE24R73-5MMYXZJ-ZK8BA5Z-2HF294S
+[9:18 PM]Scrallex: https://drive.google.com/file/d/1FuJppCz2GJdwDpscPuvT9xNSq2F9Ec2Qv/view?usp=sharing
+[10:11 PM]Scrallex:
+Attachment file type: unknown
+2025.PCKSX.ROUND.02-San.Diego.pkz
+133.39 MB
+[10:11 PM]Bwag: 😉
+[1:28 AM]Scrallex: https://codeium.com/
+Windsurf Editor and Codeium extensions
+Codeium is the AI code assistant platform that developers love and enterprises trust. Also the builders of Windsurf, the first agentic IDE.
+Windsurf Editor and Codeium extensions
+[2:11 AM]Bwag: Bwag07@icloud.com
+[2:17 AM]Scrallex: https://vscodium.com/
+VSCodium - Open Source Binaries of VSCode
+Free/Libre Open Source Software Binaries of VSCode
+[3:12 AM]Scrallex: you're a specialized AI that assists in interfacing between me to either generate scripts as starting points provide some optimization provide implementation of fixes that have been outlined to you you do troubleshooting and the one thing that you're focused on is not giving me redundant and irrelevant and extraneous information I only look at code blocks and so you're only able to give me very brief summaries to explain what the code block is I typically am requesting these from you so I don't even need an understanding as to like what it is I just need some framework as for distinction so that whenever I'm looking at this in a massive sheet I can identify quickly I want you to prioritize linking me or or listing to me the full directory name that this specific script is going to be located at because we have an issue of that of things being saved in the wrong spot and bad references I also want you to focus on whenever you're unsure of how things are to issue out to me simple listing and tree type scripts that I can give back to you to provide context
+
+the first comments in this interaction is going to be all of the preliminary and background information in one book method I want you to refer to this for your answers first and foremost I think most all every single question you have you need to check this for its answer and I want you to immediately respond back from this first question a detailed summary that I can potentially delete my first and put in response and then have it be replaced with with what you have it there but I do not want you to lose a single bit of information from what we have determined in these interactions
+[3:13 AM]Scrallex:
+help define how this site functions to lock mods for users on command. also define how passwords are hidden until the point of being served at the deadline and define strategies to circumvent the issues from users perpetually refreshing 
+
+i will attach a main html associated with the site we are looking at. use your vision to guide information gathering 
+
+2025-ama-sx download_category-us-supercross download_category-mods download_category-tracks download_tag-946 download_tag-anaheim-1 download_tag-arl download_tag-replica download_tag-round-1 download_tag-sx edd-download edd-download-cat-2025-ama-sx edd-download-cat-us-supercross edd-download-cat-mods edd-download-cat-tracks edd-download-tag-2025 edd-download-tag-anaheim-1 edd-download-tag-arl edd-download-tag-replica edd-download-tag-round-1 edd-download-tag-sx"> <!-- Begin Page Headings Layout --> <div class="default-product-template product-main-header container-fluid"> <div class="container"> <div class="row productflexfix"> <div class="col-lg-4 col-12 post-thumb-single "> <img width="1200" height="1200" data-src="https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image.jpg" class="featured-img img-responsive watermark wp-post-image ls-is-cached lazyloaded" alt="" decoding="async" data-srcset="https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image.jpg 1200w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image-800x800.jpg 800w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image-768x768.jpg 768w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image-170x170.jpg 170w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image-90x90.jpg 90w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image-120x120.jpg 120w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image-300x300.jpg 300w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image-500x500.jpg 500w" data-sizes="(max-width: 1200px) 100vw, 1200px" src="https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image.jpg" style="--smush-placeholder-width: 1200px; --smush-placeholder-aspect-ratio: 1200/1200;" sizes="(max-width: 1200px) 100vw, 1200px" srcset="https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image.jpg 1200w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image-800x800.jpg 800w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image-768x768.jpg 768w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image-170x170.jpg 170w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image-90x90.jpg 90w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image-120x120.jpg 120w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image-300x300.jpg 300w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image-500x500.jpg 500w"><noscript><img width="1200" height="1200" data-src="https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image.jpg" class="featured-img img-responsive watermark wp-post-image lazyload" alt="" decoding="async" data-srcset="https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image.jpg 1200w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image-800x800.jpg 800w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image-768x768.jpg 768w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image-170x170.jpg 170w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image-90x90.jpg 90w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image-120x120.jpg 120w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image-300x300.jpg 300w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image-500x500.jpg 500w" data-sizes="(max-width: 1200px) 100vw, 1200px" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1200px; --smush-placeholder-aspect-ratio: 1200/1200;" /><noscript><img width="1200" height="1200" src="https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image.jpg" class="featured-img img-responsive watermark wp-post-image" alt="" decoding="async" srcset="https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image.jpg 1200w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image-800x800.jpg 800w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image-768x768.jpg 768w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image-170x170.jpg 170w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image-90x90.jpg 90w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image-120x120.jpg 120w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image-300x300.jpg 300w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image-500x500.jpg 500w" sizes="(max-width: 1200px) 100vw, 1200px" /></noscript> </div> <div class="col-lg-8 col-12 single_main_header_products"> <div class="single--post--content"> <h1 class="single-post-title">2025 FXR ARL Supercross Series presented by MotoOption Rd 1</h1> <span class="toolspan">by</span> <a href="https://mxbikes-shop.com/creator/stonerider">StoneRider <i title="This is a Verified Creator" class="fa fa-check-circle"></i></a> </div> </div> </div> </div> </div> <!-- Modal --> <div id="mayosis_variable_price" class="lity-hide"> <h4>Choose Your Desired Option(s)</h4> <form id="edd_purchase_115509-2" class="edd_download_purchase_form edd_all_access_download_form"> <div class="edd_price_options edd_single_mode edd_aa_multiple_files_per_price edd_all_access_price_options"> <ul> <ul class="edd_aa_file_options"> <li> <label for="edd_aa_file_option_115509_0_1-2"> <input type="radio" name="edd_aa_options[file_id][]" id="edd_aa_file_option_115509_0_1-2" class="edd_aa_file_option" value="1" checked="&quot;checked&quot;">&nbsp; <span class="edd_aa_file_name">2025_ARLSX_RD01</span> </label> </li> <li> <label for="edd_aa_file_option_115509_0_2-2"> <input type="radio" name="edd_aa_options[file_id][]" id="edd_aa_file_option_115509_0_2-2" class="edd_aa_file_option" value="2">&nbsp; <span class="edd_aa_file_name">2025_ARLSX_RD01 LOW QUALITY</span> </label> </li> </ul> </ul> </div><!--end .edd_price_options--> <div class="edd_purchase_submit_wrapper"> <a class="button white edd-submit edd-all-access-btn button edd-has-js" href="https://mxbikes-shop.com?edd-all-access-download=115509&amp;edd-all-access-file-id=1&amp;token=3a7d864ccd8d65ba201eebadd8454413a08f9aa7113897d78cc90838aa8f8294"> <span>Download Selected</span> </a> </div> </form> </div> <!-- End Page Headings Layout --> <!-- Begin Blog Main Post Layout --> <section class="blog-main-content has_mayosis_dark_bg"> <div class="container"> <div class="row"> <div class="col-lg-8 col-12"> <div class="single-post-block"> <div class="clearfix"></div> <div class="mod-update-notice alert alert-danger" role="alert"> <h4 class="alert-heading">This mod is an early release with a password protection!</h4> <p class="mb-0">This mod will be downloaded as a password protected ZIP. You can not use the mod before the password is released. If you do not plan to race the series, download the mod after the time is elapsed. <br>The password will be released on: 01/10/2025 19:30 UTC</p> <pre class="mod-password-alert pending countdown"><span id="cd_days" class="cd-span"></span><span id="cd_hour" class="cd-span"></span><span id="cd_min" class="cd-span">4JUdGzvrMFDWrUUwY3toJATSeNwjn54LkCnKBPRzDuhzi5vSepHfUckJNxRL2gjkNrSqtCoRUrEDAgRwsQvVCjZbRyFTLRNyDmT1a1boZVdisplaynone">01/10/2025 19:30</p> </div><p><a href="https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/25ARLSX_1.png"><img fetchpriority="high" decoding="async" class="alignnone size-medium wp-image-115497" src="https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/25ARLSX_1-800x800.png" alt="" width="800" height="800" srcset="https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/25ARLSX_1-800x800.png 800w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/25ARLSX_1-1280x1280.png 1280w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/25ARLSX_1-768x768.png 768w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/25ARLSX_1-1536x1536.png 1536w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/25ARLSX_1-170x170.png 170w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/25ARLSX_1-90x90.png 90w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/25ARLSX_1-120x120.png 120w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/25ARLSX_1-300x300.png 300w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/25ARLSX_1-500x500.png 500w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/25ARLSX_1.png 2022w" sizes="(max-width: 800px) 100vw, 800px"></a></p> <p>Here is the round 1 of the 2025 FXR ARL Supercross Series presented by MotoOption, made by StoneRider and Hellmachine. Huge thank you to Virtual MX for making all this possible!</p> <figure class="wp-block-embed wp-block-embed-youtube is-type-video is-provider-youtube epyt-figure"><div class="wp-block-embed__wrapper"><div class="epyt-video-wrapper"><div style="display: block; margin: 0px auto;" id="_ytid_23112" width="756" height="4JUdGzvrMFDWrUUwY3toJATSeNwjn54LkCnKBPRzDuhzi5vSepHfUckJNxRL2gjkNrSqtCoRUrEDAgRwsQvVCjZbRyFTLRNyDmT1a1boZVembed/t9Ajt0aPobk?enablejsapi=1&amp;autoplay=0&amp;cc_load_policy=0&amp;cc_lang_pref=&amp;iv_load_policy=1&amp;loop=0&amp;modestbranding=1&amp;rel=0&amp;fs=1&amp;playsinline=0&amp;autohide=2&amp;theme=dark&amp;color=red&amp;controls=1&amp;" class="__youtube_prefs__ epyt-facade no-lazyload" data-epautoplay="1"><img decoding="async" data-spai-excluded="true" class="epyt-facade-poster skip-lazy" loading="lazy" alt="YouTube player" src="https://i.ytimg.com/vi/t9Ajt0aPobk/maxresdefault.jpg"><button class="epyt-facade-play" aria-label="Play"><svg data-no-lazy="1" height="100%" version="1.1" viewBox="0 0 68 4JUdGzvrMFDWrUUwY3toJATSeNwjn54LkCnKBPRzDuhzi5vSepHfUckJNxRL2gjkNrSqtCoRUrEDAgRwsQvVCjZbRyFTLRNyDmT1a1boZV0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.4JUdGzvrMFDWrUUwY3toJATSeNwjn54LkCnKBPRzDuhzi5vSepHfUckJNxRL2gjkNrSqtCoRUrEDAgRwsQvVCjZbRyFTLRNyDmT1a1boZV55c2.93-0.78,4.64-3.26,5.4JUdGzvrMFDWrUUwY3toJATSeNwjn54LkCnKBPRzDuhzi5vSepHfUckJNxRL2gjkNrSqtCoRUrEDAgRwsQvVCjZbRyFTLRNyDmT1a1boZVfill="#fff"></path></svg></button></div></div></div></figure> <p><a href="https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/1-2.jpg"><img decoding="async" class="alignnone size-medium wp-image-115500 lazyload" data-src="https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/1-2-800x450.jpg" alt="" width="800" height="4JUdGzvrMFDWrUUwY3toJATSeNwjn54LkCnKBPRzDuhzi5vSepHfUckJNxRL2gjkNrSqtCoRUrEDAgRwsQvVCjZbRyFTLRNyDmT1a1boZVmxbikes-shop.com/wp-content/uploads/2025/01/1-2-1280x720.jpg 1280w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/1-2-768x432.jpg 768w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/1-2-1536x864.jpg 1536w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/1-2-300x169.jpg 300w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/1-2.jpg 1700w" data-sizes="(max-width: 800px) 100vw, 800px" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 800px; --smush-placeholder-aspect-ratio: 800/4JUdGzvrMFDWrUUwY3toJATSeNwjn54LkCnKBPRzDuhzi5vSepHfUckJNxRL2gjkNrSqtCoRUrEDAgRwsQvVCjZbRyFTLRNyDmT1a1boZVshop.com/wp-content/uploads/2025/01/1-2-800x450.jpg" alt="" width="800" height="4JUdGzvrMFDWrUUwY3toJATSeNwjn54LkCnKBPRzDuhzi5vSepHfUckJNxRL2gjkNrSqtCoRUrEDAgRwsQvVCjZbRyFTLRNyDmT1a1boZVmxbikes-shop.com/wp-content/uploads/2025/01/1-2-1280x720.jpg 1280w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/1-2-768x432.jpg 768w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/1-2-1536x864.jpg 1536w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/1-2-300x169.jpg 300w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/1-2.jpg 1700w" sizes="(max-width: 800px) 100vw, 800px" /></noscript></a> <a href="https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/2-2.jpg"><img decoding="async" class="alignnone size-medium wp-image-115501 lazyload" data-src="https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/2-2-800x450.jpg" alt="" width="800" height="4JUdGzvrMFDWrUUwY3toJATSeNwjn54LkCnKBPRzDuhzi5vSepHfUckJNxRL2gjkNrSqtCoRUrEDAgRwsQvVCjZbRyFTLRNyDmT1a1boZVmxbikes-shop.com/wp-content/uploads/2025/01/2-2-1280x720.jpg 1280w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/2-2-768x432.jpg 768w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/2-2-1536x864.jpg 1536w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/2-2-300x169.jpg 300w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/2-2.jpg 1700w" data-sizes="(max-width: 800px) 100vw, 800px" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 800px; --smush-placeholder-aspect-ratio: 800/4JUdGzvrMFDWrUUwY3toJATSeNwjn54LkCnKBPRzDuhzi5vSepHfUckJNxRL2gjkNrSqtCoRUrEDAgRwsQvVCjZbRyFTLRNyDmT1a1boZVshop.com/wp-content/uploads/2025/01/2-2-800x450.jpg" alt="" width="800" height="4JUdGzvrMFDWrUUwY3toJATSeNwjn54LkCnKBPRzDuhzi5vSepHfUckJNxRL2gjkNrSqtCoRUrEDAgRwsQvVCjZbRyFTLRNyDmT1a1boZVmxbikes-shop.com/wp-content/uploads/2025/01/2-2-1280x720.jpg 1280w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/2-2-768x432.jpg 768w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/2-2-1536x864.jpg 1536w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/2-2-300x169.jpg 300w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/2-2.jpg 1700w" sizes="(max-width: 800px) 100vw, 800px" /></noscript></a> <a href="https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/3-2.jpg"><img loading="lazy" decoding="async" class="alignnone size-medium wp-image-115502 lazyload" data-src="https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/3-2-800x450.jpg" alt="" width="800" height="4JUdGzvrMFDWrUUwY3toJATSeNwjn54LkCnKBPRzDuhzi5vSepHfUckJNxRL2gjkNrSqtCoRUrEDAgRwsQvVCjZbRyFTLRNyDmT1a1boZVmxbikes-shop.com/wp-content/uploads/2025/01/3-2-1280x720.jpg 1280w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/3-2-768x432.jpg 768w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/3-2-1536x864.jpg 1536w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/3-2-300x169.jpg 300w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/3-2.jpg 1700w" data-sizes="(max-width: 800px) 100vw, 800px" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 800px; --smush-placeholder-aspect-ratio: 800/4JUdGzvrMFDWrUUwY3toJATSeNwjn54LkCnKBPRzDuhzi5vSepHfUckJNxRL2gjkNrSqtCoRUrEDAgRwsQvVCjZbRyFTLRNyDmT1a1boZVhttps://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/3-2-800x450.jpg" alt="" width="800" height="4JUdGzvrMFDWrUUwY3toJATSeNwjn54LkCnKBPRzDuhzi5vSepHfUckJNxRL2gjkNrSqtCoRUrEDAgRwsQvVCjZbRyFTLRNyDmT1a1boZVmxbikes-shop.com/wp-content/uploads/2025/01/3-2-1280x720.jpg 1280w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/3-2-768x432.jpg 768w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/3-2-1536x864.jpg 1536w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/3-2-300x169.jpg 300w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/3-2.jpg 1700w" sizes="(max-width: 800px) 100vw, 800px" /></noscript></a> <a href="https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/4-2.jpg"><img loading="lazy" decoding="async" class="alignnone size-medium wp-image-115503 lazyload" data-src="https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/4-2-800x450.jpg" alt="" width="800" height="4JUdGzvrMFDWrUUwY3toJATSeNwjn54LkCnKBPRzDuhzi5vSepHfUckJNxRL2gjkNrSqtCoRUrEDAgRwsQvVCjZbRyFTLRNyDmT1a1boZVmxbikes-shop.com/wp-content/uploads/2025/01/4-2-1280x720.jpg 1280w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/4-2-768x432.jpg 768w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/4-2-1536x864.jpg 1536w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/4-2-300x169.jpg 300w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/4-2.jpg 1700w" data-sizes="(max-width: 800px) 100vw, 800px" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 800px; --smush-placeholder-aspect-ratio: 800/4JUdGzvrMFDWrUUwY3toJATSeNwjn54LkCnKBPRzDuhzi5vSepHfUckJNxRL2gjkNrSqtCoRUrEDAgRwsQvVCjZbRyFTLRNyDmT1a1boZVhttps://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/4-2-800x450.jpg" alt="" width="800" height="4JUdGzvrMFDWrUUwY3toJATSeNwjn54LkCnKBPRzDuhzi5vSepHfUckJNxRL2gjkNrSqtCoRUrEDAgRwsQvVCjZbRyFTLRNyDmT1a1boZVmxbikes-shop.com/wp-content/uploads/2025/01/4-2-1280x720.jpg 1280w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/4-2-768x432.jpg 768w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/4-2-1536x864.jpg 1536w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/4-2-300x169.jpg 300w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/4-2.jpg 1700w" sizes="(max-width: 800px) 100vw, 800px" /></noscript></a> <a href="https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/5-1.jpg"><img loading="lazy" decoding="async" class="alignnone size-medium wp-image-115504 lazyload" data-src="https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/5-1-800x450.jpg" alt="" width="800" height="4JUdGzvrMFDWrUUwY3toJATSeNwjn54LkCnKBPRzDuhzi5vSepHfUckJNxRL2gjkNrSqtCoRUrEDAgRwsQvVCjZbRyFTLRNyDmT1a1boZVmxbikes-shop.com/wp-content/uploads/2025/01/5-1-1280x720.jpg 1280w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/5-1-768x432.jpg 768w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/5-1-1536x864.jpg 1536w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/5-1-300x169.jpg 300w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/5-1.jpg 1700w" data-sizes="(max-width: 800px) 100vw, 800px" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 800px; --smush-placeholder-aspect-ratio: 800/4JUdGzvrMFDWrUUwY3toJATSeNwjn54LkCnKBPRzDuhzi5vSepHfUckJNxRL2gjkNrSqtCoRUrEDAgRwsQvVCjZbRyFTLRNyDmT1a1boZVhttps://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/5-1-800x450.jpg" alt="" width="800" height="4JUdGzvrMFDWrUUwY3toJATSeNwjn54LkCnKBPRzDuhzi5vSepHfUckJNxRL2gjkNrSqtCoRUrEDAgRwsQvVCjZbRyFTLRNyDmT1a1boZVmxbikes-shop.com/wp-content/uploads/2025/01/5-1-1280x720.jpg 1280w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/5-1-768x432.jpg 768w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/5-1-1536x864.jpg 1536w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/5-1-300x169.jpg 300w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/5-1.jpg 1700w" sizes="(max-width: 800px) 100vw, 800px" /></noscript></a></p> <table class="fes-display-field-table fes-submission-form-display-field-table"> <tbody><tr class="fes-display-field-row download_category" id="download_category" style=""> <td class="fes-display-field-label">Mod Category</td> <td class="fes-display-field-values"> <a href="https://mxbikes-shop.com/downloads/category/mods/tracks/us-supercross/2025-ama-sx/" rel="tag">2025 AMA SX</a>, <a href="https://mxbikes-shop.com/downloads/category/mods/tracks/us-supercross/" rel="tag">AMA Supercross</a>, <a href="https://mxbikes-shop.com/downloads/category/mods/" rel="tag">Mods</a>, <a href="https://mxbikes-shop.com/downloads/category/mods/tracks/" rel="tag">Tracks</a> </td> </tr> <tr class="fes-display-field-row select" id="mod_difficulty" style=""> <td class="fes-display-field-label">Difficulty</td> <td class="fes-display-field-values"> Hard </td> </tr> <tr class="fes-display-field-row file_upload" id="server_version" style=""> <td class="fes-display-field-label">Server Version</td> <td class="fes-display-field-values"> <a href="https://cdn.mxbikes-shop.com/wp-content/uploads/edd/2025/01/2025_ARLSX_RD01.zip"><img loading="lazy" decoding="async" width="4JUdGzvrMFDWrUUwY3toJATSeNwjn54LkCnKBPRzDuhzi5vSepHfUckJNxRL2gjkNrSqtCoRUrEDAgRwsQvVCjZbRyFTLRNyDmT1a1boZVthumbnail size-thumbnail" alt=""></a> </td> </tr> <tr class="fes-display-field-row url" id="video_url2" style="display: none;"> <td class="fes-display-field-label">Video Url</td> <td class="fes-display-field-values"> </td> </tr> <tr class="fes-display-field-row compatible_with" id="compatible_with" style=""> <td class="fes-display-field-label">Made for Beta</td> <td class="fes-display-field-values"> 19b </td> </tr> <tr class="fes-display-field-row text" id="ingame_mod_name" style=""> <td class="fes-display-field-label">In-Game Mod Name</td> <td class="fes-display-field-values"> 2025 ARL SX ROUND 01 - ANAHEIM 1 </td> </tr> <tr class="fes-display-field-row url" id="mod_public_psd" style="display: none;"> <td class="fes-display-field-label">Public PSD</td> <td class="fes-display-field-values"> </td> </tr> </tbody></table><script type="text/javascript">(function(){var XHR = ( "onload" in new XMLHttpRequest() ) ? XMLHttpRequest : XDomainRequest;var xhr = new XHR();var url = "https://mxbikes-shop.com/wp-admin/admin-ajax.php?action=ajax-hits-counter-increment&post_id=115509&t=" + ( parseInt( new Date().getTime() ) ) + "&r=" + ( parseInt( Math.random() * 100000 ) );xhr.open("GET", url, true);xhr.setRequestHeader( "Cache-Control", "no-cache" );xhr.setRequestHeader( "Content-Type", "application/json" );xhr.timeout = 60000;xhr.send();xhr.onreadystatechange = function(){if( this.readyState != 4 ){return;}if( this.status && this.status == 200 ){if( typeof ajaxHitsCounterSuccessCallback === "function" ){ ajaxHitsCounterSuccessCallback( this );}}else{if( typeof ajaxHitsCounterFailedCallback === "function" ){ ajaxHitsCounterFailedCallback( this );}}}})();</script> </div> <div class="free_download_block row g-3"> <div class="col-12 col-md-4 single-product-buttons"> <form id="edd_purchase_115509-4" class="edd_download_purchase_form edd_all_access_download_form"> <div class="edd_price_options edd_single_mode edd_aa_multiple_files_per_price edd_all_access_price_options"> <ul> <ul class="edd_aa_file_options"> <li> <label for="edd_aa_file_option_115509_0_1-4"> <input type="radio" name="edd_aa_options[file_id][]" id="edd_aa_file_option_115509_0_1-4" class="edd_aa_file_option" value="1" checked="&quot;checked&quot;">&nbsp; <span class="edd_aa_file_name">2025_ARLSX_RD01</span> </label> </li> <li> <label for="edd_aa_file_option_115509_0_2-4"> <input type="radio" name="edd_aa_options[file_id][]" id="edd_aa_file_option_115509_0_2-4" class="edd_aa_file_option" value="2">&nbsp; <span class="edd_aa_file_name">2025_ARLSX_RD01 LOW QUALITY</span> </label> </li> </ul> </ul> </div><!--end .edd_price_options--> <div class="edd_purchase_submit_wrapper"> <a class="button white edd-submit edd-all-access-btn button edd-has-js" href="https://mxbikes-shop.com?edd-all-access-download=115509&amp;edd-all-access-file-id=1&amp;token=3a7d864ccd8d65ba201eebadd8454413a08f9aa7113897d78cc90838aa8f8294"> <span>Download Selected</span> </a> </div> </form> </div> <div class="col-12 col-md-4"> <div class="social-button-bottom"> <span>Share</span> <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmxbikes-shop.com%2Fdownloads%2F2025-fxr-arl-supercross-series-presented-by-motooption-round-1%2F" onclick="window.open(this.href, 'facebookwindow','left=20,top=20,width=500,height=4JUdGzvrMFDWrUUwY3toJATSeNwjn54LkCnKBPRzDuhzi5vSepHfUckJNxRL2gjkNrSqtCoRUrEDAgRwsQvVCjZbRyFTLRNyDmT1a1boZV> <a href="https://twitter.com/share?url=https%3A%2F%2Fmxbikes-shop.com%2Fdownloads%2F2025-fxr-arl-supercross-series-presented-by-motooption-round-1%2F&amp;text=2025+FXR+ARL+Supercross+Series+presented+by+MotoOption+Rd+1" onclick="window.open(this.href, 'twitterwindow','left=20,top=20,width=500,height=4JUdGzvrMFDWrUUwY3toJATSeNwjn54LkCnKBPRzDuhzi5vSepHfUckJNxRL2gjkNrSqtCoRUrEDAgRwsQvVCjZbRyFTLRNyDmT1a1boZVhttps://pinterest.com/pin/create/button/?url=https%3A%2F%2Fmxbikes-shop.com%2Fdownloads%2F2025-fxr-arl-supercross-series-presented-by-motooption-round-1%2F&amp;description=2025+FXR+ARL+Supercross+Series+presented+by+MotoOption+Rd+1" onclick="window.open(this.href, 'pinterestwindow','left=20,top=20,width=500,height=4JUdGzvrMFDWrUUwY3toJATSeNwjn54LkCnKBPRzDuhzi5vSepHfUckJNxRL2gjkNrSqtCoRUrEDAgRwsQvVCjZbRyFTLRNyDmT1a1boZV> </div> </div> </div> <div class="clearfix"></div> </div> <div class="col-lg-4 col-12 product-sidebar"> <div id="digital_download_details_widget-1" class="theme--sidebar--widget widget_digital_download_details_widget"> <div class="sidebar-theme"> <div class="single-product-widget"> <h4 class="widget-title" style="margin-bottom:0px;"><i class="zil zi-cart"></i> Download Details</h4> <div class="cart-box row product-purchase-box"> <div class="col-md-12 paading-left-0 product-price"> <h3><span class="edd_price" id="edd_price_115509">$1.50</span></h3> </div> <div class="clearfix"></div> <div class="product_widget_inside"> <form id="edd_purchase_115509-6" class="edd_download_purchase_form edd_all_access_download_form"> <div class="edd_price_options edd_single_mode edd_aa_multiple_files_per_price edd_all_access_price_options"> <ul> <ul class="edd_aa_file_options"> <li> <label for="edd_aa_file_option_115509_0_1-6"> <input type="radio" name="edd_aa_options[file_id][]" id="edd_aa_file_option_115509_0_1-6" class="edd_aa_file_option" value="1" checked="&quot;checked&quot;">&nbsp; <span class="edd_aa_file_name">2025_ARLSX_RD01</span> </label> </li> <li> <label for="edd_aa_file_option_115509_0_2-6"> <input type="radio" name="edd_aa_options[file_id][]" id="edd_aa_file_option_115509_0_2-6" class="edd_aa_file_option" value="2">&nbsp; <span class="edd_aa_file_name">2025_ARLSX_RD01 LOW QUALITY</span> </label> </li> </ul> </ul> </div><!--end .edd_price_options--> <div class="edd_purchase_submit_wrapper"> <a class="button white edd-submit edd-all-access-btn button edd-has-js" href="https://mxbikes-shop.com?edd-all-access-download=115509&amp;edd-all-access-file-id=1&amp;token=3a7d864ccd8d65ba201eebadd8454413a08f9aa7113897d78cc90838aa8f8294"> <span>Download Selected</span> </a> </div><a id="review-scroller" href="#edd-reviews" class="button white">Reviews</a> </form> <div itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating" class="star-rating"> <div class="edd_reviews_rating_box stars5" role="img"> <div class="edd_star_rating mayosis-edd-star-rating-box" aria-label="5.00 stars"> <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> <p>(5.00)</p> </div> </div> <div style="display:none" itemprop="reviewRating" itemscope="" itemtype="http://schema.org/Rating"> <meta itemprop="worstRating" content="1"> <span itemprop="ratingValue">5.00</span> <span itemprop="bestRating">5</span> </div> </div> <div class="mayosis-product-widget-counter"> </div> </div> </div> </div> </div> </div><div id="product_release_info-3" class="theme--sidebar--widget product_release_info"> <h4 class="widget-title"><i class="zil zi-info-ii"></i> Release Information</h4> <ul class="release-info"> <li class="release-info-block"> <div class="rel-info-tag released--info--flex">Price</div> <span class="released--info--flex">:</span><div class="rel-info-value released--info--flex"> <p><span class="edd_price" id="edd_price_115509">$1.50</span></p> </div> <div class="clearfix"></div> </li> <li class="release-info-block"> <div class="rel-info-tag released--info--flex">Released</div> <span class="released--info--flex">:</span><div class="rel-info-value released--info--flex"> <p>January 10, 2025</p> </div> <div class="clearfix"></div> </li> <li class="release-info-block"> <div class="rel-info-tag released--info--flex">Last Updated</div> <span class="released--info--flex">:</span><div class="rel-info-value released--info--flex"> <p>January 10, 2025</p> </div> <div class="clearfix"></div> </li> <li class="release-info-block"> <div class="rel-info-tag released--info--flex">Compatible With</div> <span class="released--info--flex">:</span> <div class="rel-info-value released--info--flex"><p>19b</p></div> <div class="clearfix"></div> </li> <li class="release-info-block"> <div class="rel-info-tag released--info--flex">File Size</div> <span class="released--info--flex">:</span> <div class="rel-info-value released--info--flex"><p>399</p></div> <div class="clearfix"></div> </li> <li class="release-info-block"> <div class="rel-info-tag released--info--flex">Version</div> <span class="released--info--flex">:</span> <div class="rel-info-value released--info--flex"><p>1</p></div> <div class="clearfix"></div> </li> <li class="release-info-block"> <div class="rel-info-tag released--info--flex">Server Version</div> <span class="released--info--flex">:</span> <div class="rel-info-value released--info--flex"> <p><a href="https://cdn.mxbikes-shop.com/wp-content/uploads/edd/2025/01/2025_ARLSX_RD01.zip" target="_blank">Click here</a></p> </div> <div class="clearfix"></div> </li> </ul> </div><div id="dm_product_tag_widget-1" class="theme--sidebar--widget dm_product_tag_widget"> <div class="sidebar-theme"> <div class="single-product-widget product--tag--widget"> <h4 class="widget-title"><i class="zil zi-tag" aria-hidden="true"></i> Mod Tags </h4> <div class="tag_widget_single"> <ul><li><a href="https://mxbikes-shop.com/downloads/tag/2025/" rel="tag">2025</a></li><li><a href="https://mxbikes-shop.com/downloads/tag/anaheim-1/" rel="tag">anaheim 1</a></li><li><a href="https://mxbikes-shop.com/downloads/tag/arl/" rel="tag">ARL</a></li><li><a href="https://mxbikes-shop.com/downloads/tag/replica/" rel="tag">Replica</a></li><li><a href="https://mxbikes-shop.com/downloads/tag/round-1/" rel="tag">round 1</a></li><li><a href="https://mxbikes-shop.com/downloads/tag/sx/" rel="tag">SX</a></li></ul> </div> </div> </div> </div> <div id="digital_recent_products_widget-4" class="theme--sidebar--widget widget_digital_recent_products_widget"> <h4 class="widget-title"><i class="zil zi-cube"></i> Recent Mods</h4> <!--fwp-loop--> <div class="widget-products"> <div class="col-md-6 col-sm-6 col-xs-6 sidebar-thumbnail"> <div class="product-thumb grid_dm"> <figure class="mayosis-fade-in"> <img width="1080" height="1080" data-src="https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/VAPOR-25.5-THUMB.png" class="img-responsive wp-post-image ls-is-cached lazyloaded" alt="" decoding="async" data-srcset="https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/VAPOR-25.5-THUMB.png 1080w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/VAPOR-25.5-THUMB-800x800.png 800w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/VAPOR-25.5-THUMB-768x768.png 768w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/VAPOR-25.5-THUMB-170x170.png 170w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/VAPOR-25.5-THUMB-90x90.png 90w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/VAPOR-25.5-THUMB-120x120.png 120w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/VAPOR-25.5-THUMB-300x300.png 300w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/VAPOR-25.5-THUMB-500x500.png 500w" data-sizes="(max-width: 1080px) 100vw, 1080px" src="https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/VAPOR-25.5-THUMB.png" style="--smush-placeholder-width: 1080px; --smush-placeholder-aspect-ratio: 1080/1080;" sizes="(max-width: 1080px) 100vw, 1080px" srcset="https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/VAPOR-25.5-THUMB.png 1080w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/VAPOR-25.5-THUMB-800x800.png 800w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/VAPOR-25.5-THUMB-768x768.png 768w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/VAPOR-25.5-THUMB-170x170.png 170w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/VAPOR-25.5-THUMB-90x90.png 90w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/VAPOR-25.5-THUMB-120x120.png 120w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/VAPOR-25.5-THUMB-300x300.png 300w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/VAPOR-25.5-THUMB-500x500.png 500w"><noscript><img width="1080" height="1080" data-src="https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/VAPOR-25.5-THUMB.png" class="img-responsive wp-post-image lazyload" alt="" decoding="async" data-srcset="https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/VAPOR-25.5-THUMB.png 1080w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/VAPOR-25.5-THUMB-800x800.png 800w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/VAPOR-25.5-THUMB-768x768.png 768w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/VAPOR-25.5-THUMB-170x170.png 170w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/VAPOR-25.5-THUMB-90x90.png 90w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/VAPOR-25.5-THUMB-120x120.png 120w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/VAPOR-25.5-THUMB-300x300.png 300w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/VAPOR-25.5-THUMB-500x500.png 500w" data-sizes="(max-width: 1080px) 100vw, 1080px" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1080px; --smush-placeholder-aspect-ratio: 1080/1080;" /><noscript><img width="1080" height="1080" src="https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/VAPOR-25.5-THUMB.png" class="img-responsive wp-post-image" alt="" decoding="async" srcset="https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/VAPOR-25.5-THUMB.png 1080w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/VAPOR-25.5-THUMB-800x800.png 800w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/VAPOR-25.5-THUMB-768x768.png 768w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/VAPOR-25.5-THUMB-170x170.png 170w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/VAPOR-25.5-THUMB-90x90.png 90w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/VAPOR-25.5-THUMB-120x120.png 120w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/VAPOR-25.5-THUMB-300x300.png 300w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/VAPOR-25.5-THUMB-500x500.png 500w" sizes="(max-width: 1080px) 100vw, 1080px" /></noscript> <figcaption> <div class="overlay_content_center"> <a href="https://mxbikes-shop.com/downloads/psd-official-fxr-25-5-vapor/"><i class="zil zi-plus"></i></a> </div> </figcaption> </figure> </div> </div> <div class="col-md-6 col-sm-6 col-xs-6 sidebar-details paading-left-0"> <h3><a href="https://mxbikes-shop.com/downloads/psd-official-fxr-25-5-vapor/">[PSD] Official FXR 25.5 VAPOR</a></h3> <div class="product-price"><span class="edd_price" id="edd_price_115527">$5.00</span></div> </div> </div> <div class="widget-products"> <div class="col-md-6 col-sm-6 col-xs-6 sidebar-thumbnail"> <div class="product-thumb grid_dm"> <figure class="mayosis-fade-in"> <img width="1200" height="1200" data-src="https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image.jpg" class="img-responsive wp-post-image lazyload" alt="" decoding="async" data-srcset="https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image.jpg 1200w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image-800x800.jpg 800w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image-768x768.jpg 768w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image-170x170.jpg 170w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image-90x90.jpg 90w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image-120x120.jpg 120w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image-300x300.jpg 300w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image-500x500.jpg 500w" data-sizes="(max-width: 1200px) 100vw, 1200px" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1200px; --smush-placeholder-aspect-ratio: 1200/1200;"><noscript><img width="1200" height="1200" src="https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image.jpg" class="img-responsive wp-post-image" alt="" decoding="async" srcset="https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image.jpg 1200w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image-800x800.jpg 800w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image-768x768.jpg 768w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image-170x170.jpg 170w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image-90x90.jpg 90w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image-120x120.jpg 120w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image-300x300.jpg 300w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/track_image-500x500.jpg 500w" sizes="(max-width: 1200px) 100vw, 1200px" /></noscript> <figcaption> <div class="overlay_content_center"> <a href="https://mxbikes-shop.com/downloads/2025-fxr-arl-supercross-series-presented-by-motooption-round-1/"><i class="zil zi-plus"></i></a> </div> </figcaption> </figure> </div> </div> <div class="col-md-6 col-sm-6 col-xs-6 sidebar-details paading-left-0"> <h3><a href="https://mxbikes-shop.com/downloads/2025-fxr-arl-supercross-series-presented-by-motooption-round-1/">2025 FXR ARL Supercross Series pre...</a></h3> <div class="product-price"><span class="edd_price" id="edd_price_115509">$1.50</span></div> </div> </div> <div class="widget-products"> <div class="col-md-6 col-sm-6 col-xs-6 sidebar-thumbnail"> <div class="product-thumb grid_dm"> <figure class="mayosis-fade-in"> <img width="1024" height="1024" data-src="https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/season-pass-image.jpg" class="img-responsive wp-post-image lazyload" alt="" decoding="async" data-srcset="https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/season-pass-image.jpg 1024w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/season-pass-image-800x800.jpg 800w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/season-pass-image-768x768.jpg 768w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/season-pass-image-170x170.jpg 170w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/season-pass-image-90x90.jpg 90w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/season-pass-image-120x120.jpg 120w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/season-pass-image-300x300.jpg 300w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/season-pass-image-500x500.jpg 500w" data-sizes="(max-width: 1024px) 100vw, 1024px" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/1024;"><noscript><img width="1024" height="1024" src="https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/season-pass-image.jpg" class="img-responsive wp-post-image" alt="" decoding="async" srcset="https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/season-pass-image.jpg 1024w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/season-pass-image-800x800.jpg 800w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/season-pass-image-768x768.jpg 768w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/season-pass-image-170x170.jpg 170w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/season-pass-image-90x90.jpg 90w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/season-pass-image-120x120.jpg 120w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/season-pass-image-300x300.jpg 300w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/season-pass-image-500x500.jpg 500w" sizes="(max-width: 1024px) 100vw, 1024px" /></noscript> <figcaption> <div class="overlay_content_center"> <a href="https://mxbikes-shop.com/downloads/2025-sirl-sx-season-pass/"><i class="zil zi-plus"></i></a> </div> </figcaption> </figure> </div> </div> <div class="col-md-6 col-sm-6 col-xs-6 sidebar-details paading-left-0"> <h3><a href="https://mxbikes-shop.com/downloads/2025-sirl-sx-season-pass/">2025 SIRL SX Season Pass</a></h3> <div class="product-price"><span class="edd_price" id="edd_price_115486">$12.00</span></div> </div> </div> <div class="widget-products"> <div class="col-md-6 col-sm-6 col-xs-6 sidebar-thumbnail"> <div class="product-thumb grid_dm"> <figure class="mayosis-fade-in"> <img width="1024" height="1024" data-src="https://cdn.mxbikes-shop.com/wp-content/uploads/2024/12/main.jpg" class="img-responsive wp-post-image lazyload" alt="" decoding="async" data-srcset="https://cdn.mxbikes-shop.com/wp-content/uploads/2024/12/main.jpg 1024w, https://cdn.mxbikes-shop.com/wp-content/uploads/2024/12/main-800x800.jpg 800w, https://cdn.mxbikes-shop.com/wp-content/uploads/2024/12/main-768x768.jpg 768w, https://cdn.mxbikes-shop.com/wp-content/uploads/2024/12/main-170x170.jpg 170w, https://cdn.mxbikes-shop.com/wp-content/uploads/2024/12/main-90x90.jpg 90w, https://cdn.mxbikes-shop.com/wp-content/uploads/2024/12/main-120x120.jpg 120w, https://cdn.mxbikes-shop.com/wp-content/uploads/2024/12/main-300x300.jpg 300w, https://cdn.mxbikes-shop.com/wp-content/uploads/2024/12/main-500x500.jpg 500w" data-sizes="(max-width: 1024px) 100vw, 1024px" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/1024;"><noscript><img width="1024" height="1024" data-src="https://cdn.mxbikes-shop.com/wp-content/uploads/2024/12/main.jpg" class="img-responsive wp-post-image lazyload" alt="" decoding="async" data-srcset="https://cdn.mxbikes-shop.com/wp-content/uploads/2024/12/main.jpg 1024w, https://cdn.mxbikes-shop.com/wp-content/uploads/2024/12/main-800x800.jpg 800w, https://cdn.mxbikes-shop.com/wp-content/uploads/2024/12/main-768x768.jpg 768w, https://cdn.mxbikes-shop.com/wp-content/uploads/2024/12/main-170x170.jpg 170w, https://cdn.mxbikes-shop.com/wp-content/uploads/2024/12/main-90x90.jpg 90w, https://cdn.mxbikes-shop.com/wp-content/uploads/2024/12/main-120x120.jpg 120w, https://cdn.mxbikes-shop.com/wp-content/uploads/2024/12/main-300x300.jpg 300w, https://cdn.mxbikes-shop.com/wp-content/uploads/2024/12/main-500x500.jpg 500w" data-sizes="(max-width: 1024px) 100vw, 1024px" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1024px; --smush-placeholder-aspect-ratio: 1024/1024;" /><noscript><img width="1024" height="1024" src="https://cdn.mxbikes-shop.com/wp-content/uploads/2024/12/main.jpg" class="img-responsive wp-post-image" alt="" decoding="async" srcset="https://cdn.mxbikes-shop.com/wp-content/uploads/2024/12/main.jpg 1024w, https://cdn.mxbikes-shop.com/wp-content/uploads/2024/12/main-800x800.jpg 800w, https://cdn.mxbikes-shop.com/wp-content/uploads/2024/12/main-768x768.jpg 768w, https://cdn.mxbikes-shop.com/wp-content/uploads/2024/12/main-170x170.jpg 170w, https://cdn.mxbikes-shop.com/wp-content/uploads/2024/12/main-90x90.jpg 90w, https://cdn.mxbikes-shop.com/wp-content/uploads/2024/12/main-120x120.jpg 120w, https://cdn.mxbikes-shop.com/wp-content/uploads/2024/12/main-300x300.jpg 300w, https://cdn.mxbikes-shop.com/wp-content/uploads/2024/12/main-500x500.jpg 500w" sizes="(max-width: 1024px) 100vw, 1024px" /></noscript> <figcaption> <div class="overlay_content_center"> <a href="https://mxbikes-shop.com/downloads/spyder-mx/"><i class="zil zi-plus"></i></a> </div> </figcaption> </figure> </div> </div> <div class="col-md-6 col-sm-6 col-xs-6 sidebar-details paading-left-0"> <h3><a href="https://mxbikes-shop.com/downloads/spyder-mx/">Spyder Mx</a></h3> <div class="product-price"><span class="edd_price" id="edd_price_115209">$1.00</span></div> </div> </div> <div class="widget-products"> <div class="col-md-6 col-sm-6 col-xs-6 sidebar-thumbnail"> <div class="product-thumb grid_dm"> <figure class="mayosis-fade-in"> <img width="2024" height="2048" data-src="https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/Thumbnail-LC-Goggles.png" class="img-responsive wp-post-image lazyload" alt="" decoding="async" data-srcset="https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/Thumbnail-LC-Goggles.png 2024w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/Thumbnail-LC-Goggles-791x800.png 791w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/Thumbnail-LC-Goggles-1265x1280.png 1265w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/Thumbnail-LC-Goggles-768x777.png 768w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/Thumbnail-LC-Goggles-1518x1536.png 1518w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/Thumbnail-LC-Goggles-90x90.png 90w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/Thumbnail-LC-Goggles-120x120.png 120w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/Thumbnail-LC-Goggles-300x304.png 300w" data-sizes="(max-width: 2024px) 100vw, 2024px" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 2024px; --smush-placeholder-aspect-ratio: 2024/2048;"><noscript><img width="2024" height="2048" data-src="https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/Thumbnail-LC-Goggles.png" class="img-responsive wp-post-image lazyload" alt="" decoding="async" data-srcset="https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/Thumbnail-LC-Goggles.png 2024w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/Thumbnail-LC-Goggles-791x800.png 791w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/Thumbnail-LC-Goggles-1265x1280.png 1265w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/Thumbnail-LC-Goggles-768x777.png 768w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/Thumbnail-LC-Goggles-1518x1536.png 1518w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/Thumbnail-LC-Goggles-90x90.png 90w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/Thumbnail-LC-Goggles-120x120.png 120w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/Thumbnail-LC-Goggles-300x304.png 300w" data-sizes="(max-width: 2024px) 100vw, 2024px" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 2024px; --smush-placeholder-aspect-ratio: 2024/2048;" /><noscript><img width="2024" height="2048" src="https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/Thumbnail-LC-Goggles.png" class="img-responsive wp-post-image" alt="" decoding="async" srcset="https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/Thumbnail-LC-Goggles.png 2024w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/Thumbnail-LC-Goggles-791x800.png 791w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/Thumbnail-LC-Goggles-1265x1280.png 1265w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/Thumbnail-LC-Goggles-768x777.png 768w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/Thumbnail-LC-Goggles-1518x1536.png 1518w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/Thumbnail-LC-Goggles-90x90.png 90w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/Thumbnail-LC-Goggles-120x120.png 120w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/Thumbnail-LC-Goggles-300x304.png 300w" sizes="(max-width: 2024px) 100vw, 2024px" /></noscript> <figcaption> <div class="overlay_content_center"> <a href="https://mxbikes-shop.com/downloads/pnt-jpd-goggle-pnt-pack/"><i class="zil zi-plus"></i></a> </div> </figcaption> </figure> </div> </div> <div class="col-md-6 col-sm-6 col-xs-6 sidebar-details paading-left-0"> <h3><a href="https://mxbikes-shop.com/downloads/pnt-jpd-goggle-pnt-pack/">[PNT] JPD Goggle PNT Pack</a></h3> <p>Free</p> </div> </div> </div> <!--sidebar widget--> </div> </div> </div> </section> <section class="container-fluid bottom-post-footer-widget has_mayosis_dark_alt_bg"> <div class="bottom-product-sidebar"> <div class="container"> <div class="row"> <div class="col-lg-4 col-12 bottom--post--block"> <h4>Related Products</h4> <div class="bottom-widget-product row gx-3 gy-0"> <div class="col-6 sidebar-thumbnail "> <div class="product-thumb grid_dm"> <figure class="mayosis-fade-in"> <img width="1080" height="1080" data-src="https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/VAPOR-25.5-THUMB.png" class="img-responsive wp-post-image lazyload" alt="" decoding="async" data-srcset="https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/VAPOR-25.5-THUMB.png 1080w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/VAPOR-25.5-THUMB-800x800.png 800w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/VAPOR-25.5-THUMB-768x768.png 768w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/VAPOR-25.5-THUMB-170x170.png 170w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/VAPOR-25.5-THUMB-90x90.png 90w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/VAPOR-25.5-THUMB-120x120.png 120w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/VAPOR-25.5-THUMB-300x300.png 300w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/VAPOR-25.5-THUMB-500x500.png 500w" data-sizes="(max-width: 1080px) 100vw, 1080px" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="--smush-placeholder-width: 1080px; --smush-placeholder-aspect-ratio: 1080/1080;"><noscript><img width="1080" height="1080" data-src="https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/VAPOR-25.5-THUMB.png" class="img-responsive wp-post-image lazyload" alt="" decoding="async" data-srcset="https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/VAPOR-25.5-THUMB.png 1080w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/VAPOR-25.5-THUMB-800x800.png 800w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/VAPOR-25.5-THUMB-768x768.png 768w, https://cdn.mxbikes-shop.com/wp-content/uploads/2025/01/VAPOR-25.5-THUMB-170x170.png 170w, https://cdn.m... (357 KB left)
+help define how this site functions.txt
+407 KB
+[3:41 AM]Scrallex: import os
+import sys
+
+def clear_console():
+    """Clears the console."""
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+def print_file_contents(directory="."):
+    """Prints the contents of specified file types in a directory."""
+    file_types = (".html", ".py", ".js", ".css", ".log", ".txt")
+
+    for filename in os.listdir(directory):
+        if filename.endswith(file_types):
+            filepath = os.path.join(directory, filename)
+            try:
+                with open(filepath, "r", encoding="utf-8") as f:  # Handles different encodings
+                    print(f"--- {filename} ---\n")
+                    print(f.read())
+                    print("\n--- END OF {filename} ---\n\n")
+            except UnicodeDecodeError:
+                print(f"--- {filename} ---\n")
+                print(f"Could not decode this file (it may be binary or a different encoding).\n") #Handles errors for non-text files
+                print("\n--- END OF {filename} ---\n\n")
+            except Exception as e:
+                print(f"--- {filename} ---\n")
+                print(f"Error while reading file: {e}\n")
+                print("\n--- END OF {filename} ---\n\n")
+
+if name == "main":
+    clear_console()
+    print_file_contents()
+[3:46 AM]Bwag: imacarrot0753@gmail.com
+[4:04 AM]Scrallex: import json
+
+def prepopulate_track_details(track_links_file, existing_track_details_file, output_file):
+    """Creates a pre-populated track_details.json file."""
+
+    try:
+        with open(track_links_file, "r") as f:
+            track_links = json.load(f)
+    except FileNotFoundError:
+        print(f"Error: {track_links_file} not found.")
+        return
+
+    try:
+        with open(existing_track_details_file, "r") as f:
+            existing_track_details = json.load(f)
+    except FileNotFoundError:
+        existing_track_details = {}  # Start with an empty dictionary if the file doesn't exist
+
+
+    new_track_details = {}
+    for link in track_links:
+        if link in existing_track_details:
+            new_track_details[link] = existing_track_details[link]  # Use existing data if available
+        else:
+            #Create placeholder. Update the keys/structure as needed for your format.
+            new_track_details[link] = {
+                "url": link,
+                "title": "N/A",
+                "creator": "N/A",
+                "downloads": {"by_type": {"other": []}, "by_host": {}},
+                "images": {"cover": "", "additional": []},
+                "description": "N/A",
+                "embedded_videos": [] # Added this from the example you provided.
+            }
+
+
+
+    with open(output_file, "w", encoding='utf-8') as f:
+        json.dump(new_track_details, f, indent=4, ensure_ascii=False)  # Use ensure_ascii=False for special characters
+
+    print(f"Pre-populated track details saved to {output_file}")
+
+if name == "main":
+    track_links_file = "track_links.json"
+    existing_track_details_file = "track_details.json"
+    output_file = "track_details_prepopulated.json" # Output to a different file to be safe
+
+    prepopulate_track_details(track_links_file, existing_track_details_file, output_file)
+[4:16 AM]Bwag:
+<html class="js" lang="en-US"><head profile="https://gmpg.org/xfn/11"><meta http-equiv="origin-trial" content="A/kargTFyk8MR5ueravczef/wIlTkbVk1qXQesp39nV+xNECPdLBVeYffxrM8TmZT6RArWGQVCJ0LRivD7glcAUAAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZS5jb206NDQzIiwiZmVhdHVyZSI6IkRpc2FibGVUaGlyZFBhcnR5U3RvcmFnZVBhcnRpdGlvbmluZzIiLCJleHBpcnkiOjE3NDIzNDIzOTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">... (526 KB left)
+Expand
+Stuff.html
+576 KB
+﻿
+Bwag
+bwag35
+<html class="js" lang="en-US"><head profile="https://gmpg.org/xfn/11"><meta http-equiv="origin-trial" content="A/kargTFyk8MR5ueravczef/wIlTkbVk1qXQesp39nV+xNECPdLBVeYffxrM8TmZT6RArWGQVCJ0LRivD7glcAUAAACQeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZS5jb206NDQzIiwiZmVhdHVyZSI6IkRpc2FibGVUaGlyZFBhcnR5U3RvcmFnZVBhcnRpdGlvbmluZzIiLCJleHBpcnkiOjE3NDIzNDIzOTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9">
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+		<link rel="manifest" href="/site.webmanifest">
+		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+		<meta name="msapplication-TileColor" content="#da532c">
+		<meta name="theme-color" content="#ffffff">
+		
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		
+		<!-- Font Awesome -->
+		<link href="https://cdn.mxb-mods.com/wp-content/themes/hitchcock/assets/fontawesome/css/all.min.css" rel="stylesheet">
+		
+		<!-- Ads -->
+		<script type="text/javascript" async="" charset="utf-8" src="https://www.gstatic.com/recaptcha/releases/1Bq_oiMBd4XPUhKDwr0YL1Js/recaptcha__en.js" crossorigin="anonymous" integrity="sha384-7Lqt4UJZXhMDrv53rQ2TLKrcD3cWEG+cuRUbGu72+VYcmMhsRgpa6MWCWUeRxB/x"></script>
+		
+		<title>CT GYN – MXB-Mods.com</title>
+	<style>img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }</style>
+	<link rel="preload" href="https://mxb-mods.com/wp-content/plugins/rate-my-post/public/css/fonts/ratemypost.ttf" type="font/ttf" as="font" crossorigin="anonymous"><script>document.documentElement.className = document.documentElement.className.replace("no-js","js");</script>
+<meta name="robots" content="max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+<link rel="canonical" href="https://mxb-mods.com/ct-gyn/">
+<link rel="shortlink" href="https://mxb-mods.com/?p=110437">
+<meta name="description" content="The CT GYN track is a faithful recreation of one of my favorite circuits in Brazil, located in Goiânia, Goiás, my hometown. Designed with great attention to…">
+<meta name="theme-color" content="#e88b38">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="MXB-Mods.com">
+<meta property="og:title" content="CT GYN">
+<meta property="og:description" content="The CT GYN track is a faithful recreation of one of my favorite circuits in Brazil, located in Goiânia, Goiás, my hometown. Designed with great attention to detail, it represents all my effort in…">
+<meta property="og:url" content="https://mxb-mods.com/ct-gyn/">
+<meta property="og:image" content="https://cdn.mxb-mods.com/wp-content/uploads/2025/01/BKGD-png.webp">
+<meta property="og:image:width" content="1080">
+<meta property="og:image:height" content="1080">
+<meta property="og:image" content="https://cdn.mxb-mods.com/wp-content/uploads/2025/01/7-1280x720.webp">
+<meta property="og:image" content="https://cdn.mxb-mods.com/wp-content/uploads/2025/01/image1-1280x720.webp">
+<meta property="og:image" content="https://cdn.mxb-mods.com/wp-content/uploads/2025/01/image-6-1280x720.webp">
+<meta property="og:image" content="https://cdn.mxb-mods.com/wp-content/uploads/2025/01/5-1280x720.webp">
+<meta property="og:image" content="https://cdn.mxb-mods.com/wp-content/uploads/2025/01/4-1280x720.webp">
+<meta property="og:image" content="https://cdn.mxb-mods.com/wp-content/uploads/2025/01/3-1280x720.webp">
+<meta property="article:published_time" content="2025-01-15T21:32:32+00:00">
+<meta property="article:modified_time" content="2025-01-20T08:03:19+00:00">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CT GYN">
+<meta name="twitter:description" content="The CT GYN track is a faithful recreation of one of my favorite circuits in Brazil, located in Goiânia, Goiás, my hometown. Designed with great attention to detail, it represents all my effort in…">
+<meta name="twitter:image" content="https://cdn.mxb-mods.com/wp-content/uploads/2025/01/BKGD-png.webp">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://mxb-mods.com/#/schema/WebSite","url":"https://mxb-mods.com/","name":"MXB&#x2d;Mods.com","description":"Home of mods for MX Bikes with over 8000 submissions!","inLanguage":"en-US","potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://mxb-mods.com/search/{search_term_string}/"},"query-input":"required name=search_term_string"},"publisher":{"@type":"Organization","@id":"https://mxb-mods.com/#/schema/Organization","name":"MXB&#x2d;Mods.com","url":"https://mxb-mods.com/","logo":"https://cdn.mxb-mods.com/wp-content/uploads/2019/05/MXB-Mods-Logo.png"}},{"@type":"WebPage","@id":"https://mxb-mods.com/ct-gyn/","url":"https://mxb-mods.com/ct-gyn/","name":"CT GYN &ndash; MXB&#x2d;Mods.com","description":"The CT GYN track is a faithful recreation of one of my favorite circuits in Brazil, located in Goi&acirc;nia, Goi&aacute;s, my hometown. Designed with great attention to&#8230;","inLanguage":"en-US","isPartOf":{"@id":"https://mxb-mods.com/#/schema/WebSite"},"breadcrumb":{"@type":"BreadcrumbList","@id":"https://mxb-mods.com/#/schema/BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":"https://mxb-mods.com/","name":"MXB&#x2d;Mods.com"},{"@type":"ListItem","position":2,"item":"https://mxb-mods.com/uploads/","name":"Uploads"},{"@type":"ListItem","position":3,"item":"https://mxb-mods.com/tracks/","name":"Tracks"},{"@type":"ListItem","position":4,"item":"https://mxb-mods.com/tracks-type/","name":"Track type"},{"@type":"ListItem","position":5,"item":"https://mxb-mods.com/motocross/","name":"Motocross"},{"@type":"ListItem","position":6,"name":"CT GYN"}]},"potentialAction":{"@type":"ReadAction","target":"https://mxb-mods.com/ct-gyn/"},"datePublished":"2025-01-15T21:32:32+00:00","dateModified":"2025-01-20T08:03:19+00:00","author":{"@type":"Person","@id":"https://mxb-mods.com/#/schema/Person/1b6463ae26e4eb4a7852829ce0962ff0","name":"Biloka Tracks"}}]}</script>
+<link rel="alternate" type="application/rss+xml" title="MXB-Mods.com » Feed" href="https://mxb-mods.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="MXB-Mods.com » Comments Feed" href="https://mxb-mods.com/comments/feed/">
+<script type="text/javascript" id="wpp-js" src="https://mxb-mods.com/wp-content/plugins/wordpress-popular-posts/assets/js/wpp.min.js?ver=7.2.0" data-sampling="1" data-sampling-rate="100" data-api-url="https://mxb-mods.com/wp-json/wordpress-popular-posts" data-post-id="110437" data-token="f341a9c172" data-lang="0" data-debug="0"></script>
+<link rel="alternate" type="application/rss+xml" title="MXB-Mods.com » CT GYN Comments Feed" href="https://mxb-mods.com/ct-gyn/feed/">
+		<style id="content-control-block-styles">
+			@media (max-width: 640px) {
+	.cc-hide-on-mobile {
+		display: none !important;
+	}
+}
+@media (min-width: 641px) and (max-width: 920px) {
+	.cc-hide-on-tablet {
+		display: none !important;
+	}
+}
+@media (min-width: 921px) and (max-width: 1440px) {
+	.cc-hide-on-desktop {
+		display: none !important;
+	}
+}		</style>
+		<link rel="stylesheet" id="wp-block-library-css" href="https://cdn.mxb-mods.com/wp-includes/css/dist/block-library/style.min.css?ver=b3663ce1ce4fa0481086669f9cbf54a4" type="text/css" media="all">
+<link rel="stylesheet" id="rate-my-post-css" href="https://mxb-mods.com/wp-content/plugins/rate-my-post/public/css/rate-my-post.min.css?ver=4.3.0" type="text/css" media="all">
+<link rel="stylesheet" id="content-control-block-styles-css" href="https://mxb-mods.com/wp-content/plugins/content-control/dist/style-block-editor.css?ver=2.5.0" type="text/css" media="all">
+<style id="classic-theme-styles-inline-css" type="text/css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id="global-styles-inline-css" type="text/css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #1d1d1d;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #fff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--color--accent: #3bc492;--wp--preset--color--dark-gray: #555;--wp--preset--color--light-gray: #757575;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 14px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 21px;--wp--preset--font-size--x-large: 42px;--wp--preset--font-size--normal: 16px;--wp--preset--font-size--larger: 26px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel="stylesheet" id="foobox-free-min-css" href="https://mxb-mods.com/wp-content/plugins/foobox-image-lightbox/free/css/foobox.free.min.css?ver=2.7.33" type="text/css" media="all">
+<link rel="stylesheet" id="better-recent-comments-css" href="https://mxb-mods.com/wp-content/plugins/better-recent-comments/assets/css/better-recent-comments.min.css?ver=b3663ce1ce4fa0481086669f9cbf54a4" type="text/css" media="all">
+<link rel="stylesheet" id="dmkrtzwppostpreview-css" href="https://mxb-mods.com/wp-content/plugins/dmkrtzwppostpreview/public/css/dmkrtzwppostpreview-public.css?ver=1.0.0" type="text/css" media="all">
+<style id="dominant-color-styles-inline-css" type="text/css">
+img[data-dominant-color]:not(.has-transparency) { background-color: var(--dominant-color); }
+</style>
+<link rel="stylesheet" id="dashicons-css" href="https://cdn.mxb-mods.com/wp-includes/css/dashicons.min.css?ver=b3663ce1ce4fa0481086669f9cbf54a4" type="text/css" media="all">
+<link rel="stylesheet" id="post-views-counter-frontend-css" href="https://mxb-mods.com/wp-content/plugins/post-views-counter/css/frontend.min.css?ver=1.4.8" type="text/css" media="all">
+<link rel="stylesheet" id="country_flag_lib-css" href="https://mxb-mods.com/wp-content/plugins/um-country-flag//assets/flag-icon.min.css?ver=b3663ce1ce4fa0481086669f9cbf54a4" type="text/css" media="all">
+<link rel="stylesheet" id="wpdiscuz-frontend-css-css" href="https://mxb-mods.com/wp-content/plugins/wpdiscuz/themes/default/style.css?ver=7.6.27" type="text/css" media="all">
+<style id="wpdiscuz-frontend-css-inline-css" type="text/css">
+ #wpdcom .wpd-blog-administrator .wpd-comment-label{color:#ffffff;background-color:#F20948;border:none}#wpdcom .wpd-blog-administrator .wpd-comment-author, #wpdcom .wpd-blog-administrator .wpd-comment-author a{color:#F20948}#wpdcom.wpd-layout-1 .wpd-comment .wpd-blog-administrator .wpd-avatar img{border-color:#F20948}#wpdcom.wpd-layout-2 .wpd-comment.wpd-reply .wpd-comment-wrap.wpd-blog-administrator{border-left:3px solid #F20948}#wpdcom.wpd-layout-2 .wpd-comment .wpd-blog-administrator .wpd-avatar img{border-bottom-color:#F20948}#wpdcom.wpd-layout-3 .wpd-blog-administrator .wpd-comment-subheader{border-top:1px dashed #F20948}#wpdcom.wpd-layout-3 .wpd-reply .wpd-blog-administrator .wpd-comment-right{border-left:1px solid #F20948}#wpdcom .wpd-blog-editor .wpd-comment-label{color:#ffffff;background-color:#00B38F;border:none}#wpdcom .wpd-blog-editor .wpd-comment-author, #wpdcom .wpd-blog-editor .wpd-comment-author a{color:#00B38F}#wpdcom.wpd-layout-1 .wpd-comment .wpd-blog-editor .wpd-avatar img{border-color:#00B38F}#wpdcom.wpd-layout-2 .wpd-comment.wpd-reply .wpd-comment-wrap.wpd-blog-editor{border-left:3px solid #00B38F}#wpdcom.wpd-layout-2 .wpd-comment .wpd-blog-editor .wpd-avatar img{border-bottom-color:#00B38F}#wpdcom.wpd-layout-3 .wpd-blog-editor .wpd-comment-subheader{border-top:1px dashed #00B38F}#wpdcom.wpd-layout-3 .wpd-reply .wpd-blog-editor .wpd-comment-right{border-left:1px solid #00B38F}#wpdcom .wpd-blog-author .wpd-comment-label{color:#ffffff;background-color:#00B38F;border:none}#wpdcom .wpd-blog-author .wpd-comment-author, #wpdcom .wpd-blog-author .wpd-comment-author a{color:#00B38F}#wpdcom.wpd-layout-1 .wpd-comment .wpd-blog-author .wpd-avatar img{border-color:#00B38F}#wpdcom.wpd-layout-2 .wpd-comment .wpd-blog-author .wpd-avatar img{border-bottom-color:#00B38F}#wpdcom.wpd-layout-3 .wpd-blog-author .wpd-comment-subheader{border-top:1px dashed #00B38F}#wpdcom.wpd-layout-3 .wpd-reply .wpd-blog-author .wpd-comment-right{border-left:1px solid #00B38F}#wpdcom .wpd-blog-contributor .wpd-comment-label{color:#ffffff;background-color:#00B38F;border:none}#wpdcom .wpd-blog-contributor .wpd-comment-author, #wpdcom .wpd-blog-contributor .wpd-comment-author a{color:#00B38F}#wpdcom.wpd-layout-1 .wpd-comment .wpd-blog-contributor .wpd-avatar img{border-color:#00B38F}#wpdcom.wpd-layout-2 .wpd-comment .wpd-blog-contributor .wpd-avatar img{border-bottom-color:#00B38F}#wpdcom.wpd-layout-3 .wpd-blog-contributor .wpd-comment-subheader{border-top:1px dashed #00B38F}#wpdcom.wpd-layout-3 .wpd-reply .wpd-blog-contributor .wpd-comment-right{border-left:1px solid #00B38F}#wpdcom .wpd-blog-subscriber .wpd-comment-label{color:#ffffff;background-color:#00B38F;border:none}#wpdcom .wpd-blog-subscriber .wpd-comment-author, #wpdcom .wpd-blog-subscriber .wpd-comment-author a{color:#00B38F}#wpdcom.wpd-layout-2 .wpd-comment .wpd-blog-subscriber .wpd-avatar img{border-bottom-color:#00B38F}#wpdcom.wpd-layout-3 .wpd-blog-subscriber .wpd-comment-subheader{border-top:1px dashed #00B38F}#wpdcom .wpd-blog-um_member .wpd-comment-label{color:#ffffff;background-color:#00B38F;border:none}#wpdcom .wpd-blog-um_member .wpd-comment-author, #wpdcom .wpd-blog-um_member .wpd-comment-author a{color:#00B38F}#wpdcom.wpd-layout-1 .wpd-comment .wpd-blog-um_member .wpd-avatar img{border-color:#00B38F}#wpdcom.wpd-layout-2 .wpd-comment .wpd-blog-um_member .wpd-avatar img{border-bottom-color:#00B38F}#wpdcom.wpd-layout-3 .wpd-blog-um_member .wpd-comment-subheader{border-top:1px dashed #00B38F}#wpdcom.wpd-layout-3 .wpd-reply .wpd-blog-um_member .wpd-comment-right{border-left:1px solid #00B38F}#wpdcom .wpd-blog-um_moderator .wpd-comment-label{color:#ffffff;background-color:#3747f2;border:none}#wpdcom .wpd-blog-um_moderator .wpd-comment-author, #wpdcom .wpd-blog-um_moderator .wpd-comment-author a{color:#3747f2}#wpdcom.wpd-layout-1 .wpd-comment .wpd-blog-um_moderator .wpd-avatar img{border-color:#3747f2}#wpdcom.wpd-layout-2 .wpd-comment .wpd-blog-um_moderator .wpd-avatar img{border-bottom-color:#3747f2}#wpdcom.wpd-layout-3 .wpd-blog-um_moderator .wpd-comment-subheader{border-top:1px dashed #3747f2}#wpdcom.wpd-layout-3 .wpd-reply .wpd-blog-um_moderator .wpd-comment-right{border-left:1px solid #3747f2}#wpdcom .wpd-blog-um_debug .wpd-comment-label{color:#ffffff;background-color:#00B38F;border:none}#wpdcom .wpd-blog-um_debug .wpd-comment-author, #wpdcom .wpd-blog-um_debug .wpd-comment-author a{color:#00B38F}#wpdcom.wpd-layout-1 .wpd-comment .wpd-blog-um_debug .wpd-avatar img{border-color:#00B38F}#wpdcom.wpd-layout-2 .wpd-comment .wpd-blog-um_debug .wpd-avatar img{border-bottom-color:#00B38F}#wpdcom.wpd-layout-3 .wpd-blog-um_debug .wpd-comment-subheader{border-top:1px dashed #00B38F}#wpdcom.wpd-layout-3 .wpd-reply .wpd-blog-um_debug .wpd-comment-right{border-left:1px solid #00B38F}#wpdcom .wpd-blog-um_limited .wpd-comment-label{color:#ffffff;background-color:#00B38F;border:none}#wpdcom .wpd-blog-um_limited .wpd-comment-author, #wpdcom .wpd-blog-um_limited .wpd-comment-author a{color:#00B38F}#wpdcom.wpd-layout-1 .wpd-comment .wpd-blog-um_limited .wpd-avatar img{border-color:#00B38F}#wpdcom.wpd-layout-2 .wpd-comment .wpd-blog-um_limited .wpd-avatar img{border-bottom-color:#00B38F}#wpdcom.wpd-layout-3 .wpd-blog-um_limited .wpd-comment-subheader{border-top:1px dashed #00B38F}#wpdcom.wpd-layout-3 .wpd-reply .wpd-blog-um_limited .wpd-comment-right{border-left:1px solid #00B38F}#wpdcom .wpd-blog-post_author .wpd-comment-label{color:#ffffff;background-color:#15DA6E;border:none}#wpdcom .wpd-blog-post_author .wpd-comment-author, #wpdcom .wpd-blog-post_author .wpd-comment-author a{color:#15DA6E}#wpdcom .wpd-blog-post_author .wpd-avatar img{border-color:#15DA6E}#wpdcom.wpd-layout-1 .wpd-comment .wpd-blog-post_author .wpd-avatar img{border-color:#15DA6E}#wpdcom.wpd-layout-2 .wpd-comment.wpd-reply .wpd-comment-wrap.wpd-blog-post_author{border-left:3px solid #15DA6E}#wpdcom.wpd-layout-2 .wpd-comment .wpd-blog-post_author .wpd-avatar img{border-bottom-color:#15DA6E}#wpdcom.wpd-layout-3 .wpd-blog-post_author .wpd-comment-subheader{border-top:1px dashed #15DA6E}#wpdcom.wpd-layout-3 .wpd-reply .wpd-blog-post_author .wpd-comment-right{border-left:1px solid #15DA6E}#wpdcom .wpd-blog-guest .wpd-comment-label{color:#ffffff;background-color:#00B38F;border:none}#wpdcom .wpd-blog-guest .wpd-comment-author, #wpdcom .wpd-blog-guest .wpd-comment-author a{color:#00B38F}#wpdcom.wpd-layout-3 .wpd-blog-guest .wpd-comment-subheader{border-top:1px dashed #00B38F}#comments, #respond, .comments-area, #wpdcom.wpd-dark{background:#111111;color:#CCCCCC}#wpdcom .ql-editor > *{color:#000000}#wpdcom .ql-editor::before{opacity:1;color:#DDDDDD}#wpdcom .ql-toolbar{border:1px solid #D1D1D1;border-top:none}#wpdcom .ql-container{background:#999999;border:1px solid #D1D1D1;border-bottom:none}#wpdcom .wpd-form-row .wpdiscuz-item input[type="text"], #wpdcom .wpd-form-row .wpdiscuz-item input[type="email"], #wpdcom .wpd-form-row .wpdiscuz-item input[type="url"], #wpdcom .wpd-form-row .wpdiscuz-item input[type="color"], #wpdcom .wpd-form-row .wpdiscuz-item input[type="date"], #wpdcom .wpd-form-row .wpdiscuz-item input[type="datetime"], #wpdcom .wpd-form-row .wpdiscuz-item input[type="datetime-local"], #wpdcom .wpd-form-row .wpdiscuz-item input[type="month"], #wpdcom .wpd-form-row .wpdiscuz-item input[type="number"], #wpdcom .wpd-form-row .wpdiscuz-item input[type="time"], #wpdcom textarea, #wpdcom select{background:#999999;border:1px solid #D1D1D1;color:#000000}#wpdcom.wpd-dark .wpdiscuz-item.wpd-field-select select.wpdiscuz_select, #wpdcom.wpd-dark select{background:#999999!important;border:1px solid #D1D1D1!important;color:#000000!important}#wpdcom .wpd-form-row .wpdiscuz-item textarea{border:1px solid #D1D1D1}#wpdcom input::placeholder, #wpdcom textarea::placeholder, #wpdcom input::-moz-placeholder, #wpdcom textarea::-webkit-input-placeholder{opacity:1;color:#DDDDDD}#wpdcom .wpd-comment-text{color:#CCCCCC}.lity-wrap .wpd-item a{color:#666}.lity-wrap .wpd-item a:hover{color:#222}.wpd-inline-shortcode.wpd-active{background-color:#666}#wpdcom .wpd-thread-head .wpd-thread-info{border-bottom:2px solid #00B38F}#wpdcom .wpd-thread-head .wpd-thread-info.wpd-reviews-tab svg{fill:#00B38F}#wpdcom .wpd-thread-head .wpdiscuz-user-settings{border-bottom:2px solid #00B38F}#wpdcom .wpd-thread-head .wpdiscuz-user-settings:hover{color:#00B38F}#wpdcom .wpd-comment .wpd-follow-link:hover{color:#00B38F}#wpdcom .wpd-comment-status .wpd-sticky{color:#00B38F}#wpdcom .wpd-thread-filter .wpdf-active{color:#00B38F;border-bottom-color:#00B38F}#wpdcom .wpd-comment-info-bar{border:1px dashed #33c3a6;background:#e6f8f4}#wpdcom .wpd-comment-info-bar .wpd-current-view i{color:#00B38F}#wpdcom .wpd-filter-view-all:hover{background:#00B38F}#wpdcom .wpdiscuz-item .wpdiscuz-rating > label{color:#DDDDDD}#wpdcom .wpdiscuz-item .wpdiscuz-rating:not(:checked) > label:hover, .wpdiscuz-rating:not(:checked) > label:hover ~ label{}#wpdcom .wpdiscuz-item .wpdiscuz-rating > input ~ label:hover, #wpdcom .wpdiscuz-item .wpdiscuz-rating > input:not(:checked) ~ label:hover ~ label, #wpdcom .wpdiscuz-item .wpdiscuz-rating > input:not(:checked) ~ label:hover ~ label{color:#FFED85}#wpdcom .wpdiscuz-item .wpdiscuz-rating > input:checked ~ label:hover, #wpdcom .wpdiscuz-item .wpdiscuz-rating > input:checked ~ label:hover, #wpdcom .wpdiscuz-item .wpdiscuz-rating > label:hover ~ input:checked ~ label, #wpdcom .wpdiscuz-item .wpdiscuz-rating > input:checked + label:hover ~ label, #wpdcom .wpdiscuz-item .wpdiscuz-rating > input:checked ~ label:hover ~ label, .wpd-custom-field .wcf-active-star, #wpdcom .wpdiscuz-item .wpdiscuz-rating > input:checked ~ label{color:#FFD700}#wpd-post-rating .wpd-rating-wrap .wpd-rating-stars svg .wpd-star{fill:#DDDDDD}#wpd-post-rating .wpd-rating-wrap .wpd-rating-stars svg .wpd-active{fill:#FFD700}#wpd-post-rating .wpd-rating-wrap .wpd-rate-starts svg .wpd-star{fill:#DDDDDD}#wpd-post-rating .wpd-rating-wrap .wpd-rate-starts:hover svg .wpd-star{fill:#FFED85}#wpd-post-rating.wpd-not-rated .wpd-rating-wrap .wpd-rate-starts svg:hover ~ svg .wpd-star{fill:#DDDDDD}.wpdiscuz-post-rating-wrap .wpd-rating .wpd-rating-wrap .wpd-rating-stars svg .wpd-star{fill:#DDDDDD}.wpdiscuz-post-rating-wrap .wpd-rating .wpd-rating-wrap .wpd-rating-stars svg .wpd-active{fill:#FFD700}#wpdcom .wpd-comment .wpd-follow-active{color:#ff7a00}#wpdcom .page-numbers{color:#555;border:#555 1px solid}#wpdcom span.current{background:#555}#wpdcom.wpd-layout-1 .wpd-new-loaded-comment > .wpd-comment-wrap > .wpd-comment-right{background:#FFFAD6}#wpdcom.wpd-layout-2 .wpd-new-loaded-comment.wpd-comment > .wpd-comment-wrap > .wpd-comment-right{background:#FFFAD6}#wpdcom.wpd-layout-2 .wpd-new-loaded-comment.wpd-comment.wpd-reply > .wpd-comment-wrap > .wpd-comment-right{background:transparent}#wpdcom.wpd-layout-2 .wpd-new-loaded-comment.wpd-comment.wpd-reply > .wpd-comment-wrap{background:#FFFAD6}#wpdcom.wpd-layout-3 .wpd-new-loaded-comment.wpd-comment > .wpd-comment-wrap > .wpd-comment-right{background:#FFFAD6}#wpdcom .wpd-follow:hover i, #wpdcom .wpd-unfollow:hover i, #wpdcom .wpd-comment .wpd-follow-active:hover i{color:#00B38F}#wpdcom .wpdiscuz-readmore{cursor:pointer;color:#00B38F}.wpd-custom-field .wcf-pasiv-star, #wpcomm .wpdiscuz-item .wpdiscuz-rating > label{color:#DDDDDD}.wpd-wrapper .wpd-list-item.wpd-active{border-top:3px solid #00B38F}#wpdcom.wpd-layout-2 .wpd-comment.wpd-reply.wpd-unapproved-comment .wpd-comment-wrap{border-left:3px solid #FFFAD6}#wpdcom.wpd-layout-3 .wpd-comment.wpd-reply.wpd-unapproved-comment .wpd-comment-right{border-left:1px solid #FFFAD6}#wpdcom .wpd-prim-button{background-color:#07B290;color:#FFFFFF}#wpdcom .wpd_label__check i.wpdicon-on{color:#07B290;border:1px solid #83d9c8}#wpd-bubble-wrapper #wpd-bubble-all-comments-count{color:#1DB99A}#wpd-bubble-wrapper > div{background-color:#1DB99A}#wpd-bubble-wrapper > #wpd-bubble #wpd-bubble-add-message{background-color:#1DB99A}#wpd-bubble-wrapper > #wpd-bubble #wpd-bubble-add-message::before{border-left-color:#1DB99A;border-right-color:#1DB99A}#wpd-bubble-wrapper.wpd-right-corner > #wpd-bubble #wpd-bubble-add-message::before{border-left-color:#1DB99A;border-right-color:#1DB99A}.wpd-inline-icon-wrapper path.wpd-inline-icon-first{fill:#1DB99A}.wpd-inline-icon-count{background-color:#1DB99A}.wpd-inline-icon-count::before{border-right-color:#1DB99A}.wpd-inline-form-wrapper::before{border-bottom-color:#1DB99A}.wpd-inline-form-question{background-color:#1DB99A}.wpd-inline-form{background-color:#1DB99A}.wpd-last-inline-comments-wrapper{border-color:#1DB99A}.wpd-last-inline-comments-wrapper::before{border-bottom-color:#1DB99A}.wpd-last-inline-comments-wrapper .wpd-view-all-inline-comments{background:#1DB99A}.wpd-last-inline-comments-wrapper .wpd-view-all-inline-comments:hover,.wpd-last-inline-comments-wrapper .wpd-view-all-inline-comments:active,.wpd-last-inline-comments-wrapper .wpd-view-all-inline-comments:focus{background-color:#1DB99A}#wpdcom .ql-snow .ql-tooltip[data-mode="link"]::before{content:"Enter link:"}#wpdcom .ql-snow .ql-tooltip.ql-editing a.ql-action::after{content:"Save"}.comments-area{width:auto}
+</style>
+<link rel="stylesheet" id="wpdiscuz-fa-css" href="https://mxb-mods.com/wp-content/plugins/wpdiscuz/assets/third-party/font-awesome-5.13.0/css/fa.min.css?ver=7.6.27" type="text/css" media="all">
+<link rel="stylesheet" id="wpdiscuz-combo-css-css" href="https://mxb-mods.com/wp-content/plugins/wpdiscuz/assets/css/wpdiscuz-combo.min.css?ver=b3663ce1ce4fa0481086669f9cbf54a4" type="text/css" media="all">
+<link rel="stylesheet" id="wordpress-popular-posts-css-css" href="https://mxb-mods.com/wp-content/plugins/wordpress-popular-posts/assets/css/wpp.css?ver=7.2.0" type="text/css" media="all">
+<link rel="stylesheet" id="mm-compiled-options-mobmenu-css" href="https://cdn.mxb-mods.com/wp-content/uploads/dynamic-mobmenu.css?ver=2.8.6" type="text/css" media="all">
+<link rel="stylesheet" id="mm-google-webfont-poppins-css" href="https://fonts.bunny.net/css?family=Poppins%3Ainherit%2C100%2C400&amp;subset=latin%2Clatin-ext&amp;ver=b3663ce1ce4fa0481086669f9cbf54a4" type="text/css" media="all">
+<link rel="stylesheet" id="montserrat-css" href="https://fonts.bunny.net/css2?family=Montserrat%3Aital%2Cwght%400%2C300%3B0%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B1%2C300%3B1%2C400%3B1%2C500%3B1%2C600%3B1%2C700&amp;display=swap&amp;ver=b3663ce1ce4fa0481086669f9cbf54a4" type="text/css" media="all">
+<link rel="stylesheet" id="calibri-css" href="https://fonts.bunny.net/css2?family=Calibri%3Aital%2Cwght%400%2C300%3B0%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B1%2C300%3B1%2C400%3B1%2C500%3B1%2C600%3B1%2C700&amp;display=swap&amp;ver=b3663ce1ce4fa0481086669f9cbf54a4" type="text/css" media="all">
+<link rel="stylesheet" id="inconsolata-css" href="https://fonts.bunny.net/css2?family=Inconsolata%3Aital%2Cwght%400%2C300%3B0%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B1%2C300%3B1%2C400%3B1%2C500%3B1%2C600%3B1%2C700&amp;display=swap&amp;ver=b3663ce1ce4fa0481086669f9cbf54a4" type="text/css" media="all">
+<link rel="stylesheet" id="cssmobmenu-icons-css" href="https://mxb-mods.com/wp-content/plugins/mobile-menu/includes/css/mobmenu-icons.css?ver=b3663ce1ce4fa0481086669f9cbf54a4" type="text/css" media="all">
+<link rel="stylesheet" id="cssmobmenu-css" href="https://mxb-mods.com/wp-content/plugins/mobile-menu/includes/css/mobmenu.css?ver=2.8.6" type="text/css" media="all">
+<link rel="stylesheet" id="um_ui-css" href="https://mxb-mods.com/wp-content/plugins/ultimate-member/assets/libs/jquery-ui/jquery-ui.min.css?ver=1.13.2" type="text/css" media="all">
+<link rel="stylesheet" id="um_tipsy-css" href="https://mxb-mods.com/wp-content/plugins/ultimate-member/assets/libs/tipsy/tipsy.min.css?ver=1.0.0a" type="text/css" media="all">
+<link rel="stylesheet" id="um_raty-css" href="https://mxb-mods.com/wp-content/plugins/ultimate-member/assets/libs/raty/um-raty.min.css?ver=2.6.0" type="text/css" media="all">
+<link rel="stylesheet" id="select2-css" href="https://mxb-mods.com/wp-content/plugins/ultimate-member/assets/libs/select2/select2.min.css?ver=4.0.13" type="text/css" media="all">
+<link rel="stylesheet" id="um_fileupload-css" href="https://mxb-mods.com/wp-content/plugins/ultimate-member/assets/css/um-fileupload.min.css?ver=2.9.2" type="text/css" media="all">
+<link rel="stylesheet" id="um_confirm-css" href="https://mxb-mods.com/wp-content/plugins/ultimate-member/assets/libs/um-confirm/um-confirm.min.css?ver=1.0" type="text/css" media="all">
+<link rel="stylesheet" id="um_datetime-css" href="https://mxb-mods.com/wp-content/plugins/ultimate-member/assets/libs/pickadate/default.min.css?ver=3.6.2" type="text/css" media="all">
+<link rel="stylesheet" id="um_datetime_date-css" href="https://mxb-mods.com/wp-content/plugins/ultimate-member/assets/libs/pickadate/default.date.min.css?ver=3.6.2" type="text/css" media="all">
+<link rel="stylesheet" id="um_datetime_time-css" href="https://mxb-mods.com/wp-content/plugins/ultimate-member/assets/libs/pickadate/default.time.min.css?ver=3.6.2" type="text/css" media="all">
+<link rel="stylesheet" id="um_fonticons_ii-css" href="https://mxb-mods.com/wp-content/plugins/ultimate-member/assets/libs/legacy/fonticons/fonticons-ii.min.css?ver=2.9.2" type="text/css" media="all">
+<link rel="stylesheet" id="um_fonticons_fa-css" href="https://mxb-mods.com/wp-content/plugins/ultimate-member/assets/libs/legacy/fonticons/fonticons-fa.min.css?ver=2.9.2" type="text/css" media="all">
+<link rel="stylesheet" id="um_fontawesome-css" href="https://mxb-mods.com/wp-content/plugins/ultimate-member/assets/css/um-fontawesome.min.css?ver=6.5.2" type="text/css" media="all">
+<link rel="stylesheet" id="um_common-css" href="https://mxb-mods.com/wp-content/plugins/ultimate-member/assets/css/common.min.css?ver=2.9.2" type="text/css" media="all">
+<link rel="stylesheet" id="um_responsive-css" href="https://mxb-mods.com/wp-content/plugins/ultimate-member/assets/css/um-responsive.min.css?ver=2.9.2" type="text/css" media="all">
+<link rel="stylesheet" id="um_modal-css" href="https://mxb-mods.com/wp-content/plugins/ultimate-member/assets/css/um-modal.min.css?ver=2.9.2" type="text/css" media="all">
+<link rel="stylesheet" id="um_styles-css" href="https://mxb-mods.com/wp-content/plugins/ultimate-member/assets/css/um-styles.min.css?ver=2.9.2" type="text/css" media="all">
+<link rel="stylesheet" id="um_misc-css" href="https://mxb-mods.com/wp-content/plugins/ultimate-member/assets/css/um-misc.min.css?ver=2.9.2" type="text/css" media="all">
+<link rel="stylesheet" id="um_default_css-css" href="https://mxb-mods.com/wp-content/plugins/ultimate-member/assets/css/um-old-default.min.css?ver=2.9.2" type="text/css" media="all">
+<link rel="stylesheet" id="hitchcock_google_fonts-css" href="https://cdn.mxb-mods.com/wp-content/themes/hitchcock/assets/css/fonts.css?ver=b3663ce1ce4fa0481086669f9cbf54a4" type="text/css" media="all">
+<link rel="stylesheet" id="hitchcock_fontawesome-css" href="https://cdn.mxb-mods.com/wp-content/themes/hitchcock/assets/fonts/font-awesome/css/font-awesome.css?ver=2.2.9" type="text/css" media="all">
+<link rel="stylesheet" id="hitchcock_style-css" href="https://cdn.mxb-mods.com/wp-content/themes/hitchcock/style.css?ver=2.2.9" type="text/css" media="all">
+<style id="hitchcock_style-inline-css" type="text/css">
+input[type="submit"], input[type="button"], input[type="reset"], :root .has-accent-background-color, .button, :root .wp-block-file__button, :root .wp-block-button__link, :root .wp-block-search__button, .page-links a:hover, .form-submit #submit, #infinite-handle:hover, .nav-toggle.active .bar, .social-menu a:hover { background-color:#d66e06; }input:focus, textarea:focus { border-color:#d66e06; }a, .blog-title a:hover, .post-content p.pull, :root .has-accent-color, .comments .pingbacks li a:hover, .comment-header h4 a:hover, .comment-title .url:hover, .archive-nav a:hover, .credits p:first-child a:hover, .mobile-menu a:hover, :root .is-style-outline .wp-block-button__link, :root .wp-block-button__link.is-style-outline { color:#d66e06; }
+</style>
+<script type="text/javascript" src="https://cdn.mxb-mods.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+<script type="text/javascript" src="https://mxb-mods.com/wp-content/plugins/dmkrtzwppostpreview/public/js/dmkrtzwppostpreview-public.js?ver=1.0.0" id="dmkrtzwppostpreview-js"></script>
+<script type="text/javascript" id="post-views-counter-pro-frontend-js-before">
+/* <![CDATA[ */
+var pvcpArgsFrontend = {"mode":"ajax","content":{"type":"post","subtype":"post","data":110437},"contentActive":true,"requestURL":"https:\/\/mxb-mods.com\/wp-content\/plugins\/post-views-counter-pro\/includes\/ajax.php","nonce":"b84b8a16a0","dataStorage":"cookieless","multisite":false,"path":"\/","domain":"","adminAjax":"https:\/\/mxb-mods.com\/wp-admin\/admin-ajax.php","nonceCount":"c0c17796c7"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://mxb-mods.com/wp-content/plugins/post-views-counter-pro/js/frontend.min.js?ver=1.3.0" id="post-views-counter-pro-frontend-js"></script>
+<script type="text/javascript" src="https://cdn.mxb-mods.com/wp-content/themes/hitchcock/assets/js/flexslider.js?ver=2.2.9" id="hitchcock_flexslider-js"></script>
+<script type="text/javascript" src="https://cdn.mxb-mods.com/wp-content/themes/hitchcock/assets/js/doubletaptogo.js?ver=2.2.9" id="hitchcock_doubletaptogo-js"></script>
+<script type="text/javascript" src="https://cdn.mxb-mods.com/wp-content/themes/hitchcock/assets/js/global.js?ver=2.2.9" id="hitchcock_global-js"></script>
+<script type="text/javascript" id="foobox-free-min-js-before">
+/* <![CDATA[ */
+/* Run FooBox FREE (v2.7.33) */
+var FOOBOX = window.FOOBOX = {
+	ready: true,
+	disableOthers: true,
+	o: {wordpress: { enabled: true }, captions: { dataTitle: ["captionTitle","title"], dataDesc: ["captionDesc","description"] }, rel: '', excludes:'.fbx-link,.nofoobox,.nolightbox,a[href*="pinterest.com/pin/create/button/"]', affiliate : { enabled: false }, error: "Could not load the item"},
+	selectors: [
+		".gallery", ".wp-block-gallery", ".wp-caption", ".wp-block-image", "a:has(img[class*=wp-image-])", ".foobox"
+	],
+	pre: function( $ ){
+		// Custom JavaScript (Pre)
+		
+	},
+	post: function( $ ){
+		// Custom JavaScript (Post)
+		
+		// Custom Captions Code
+		
+	},
+	custom: function( $ ){
+		// Custom Extra JS
+		
+	}
+};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://mxb-mods.com/wp-content/plugins/foobox-image-lightbox/free/js/foobox.free.min.js?ver=2.7.33" id="foobox-free-min-js"></script>
+<script type="text/javascript" src="https://mxb-mods.com/wp-content/plugins/mobile-menu/includes/js/mobmenu.js?ver=2.8.6" id="mobmenujs-js"></script>
+<link rel="https://api.w.org/" href="https://mxb-mods.com/wp-json/"><link rel="alternate" title="JSON" type="application/json" href="https://mxb-mods.com/wp-json/wp/v2/posts/110437"><link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://mxb-mods.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fmxb-mods.com%2Fct-gyn%2F">
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://mxb-mods.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fmxb-mods.com%2Fct-gyn%2F&amp;format=xml">
+        <script type="text/javascript">
+		jQuery(document).ready(function($) {
+			// unlock rating widget if user is logged in
+						
+			$("a[class*='count']").on("mouseup", function(e) {
+				if(e.which == 3)
+					return true;
+				
+				// e.preventDefault();
+				$(".rmp-rating-widget").css("pointer-events", "");
+				
+				let request = "ZBzQPfZ8VoqvfO8ABdp/oHM2bHA1TDNvaHB4c2FSOEZvNnVoNzJvc1lzR1lYL3lsRXp4bkJteU1rVkp3Z2NQTGlaNzRwTmVYQVBVem9NQWh1aTYzWHZMd1p2Z1hiQWdQRXdodEFRPT0=";
+				
+				$.get("https://mxb-mods.com/wp-content/mu-plugins/mods_click_tracker.php", {request: request }, function() {} )
+				.done(function(data) {
+					// console.log(data);
+					
+					showRatingContainer();
+				});
+			})
+			
+			function showRatingContainer() {
+				jQuery(".rmp-rating-widget").css("pointer-events", "");
+				jQuery("#rate-hint").text("Thanks for downloading! If you're logged in you can now rate this mod.");
+			}
+		})
+        </script>
+        <script>
+		jQuery(document).ready(function($) {
+			var tempScrollTop;
+			
+			$(document).on("click", "select[id*=acf]", function() {
+				tempScrollTop = $(window).scrollTop();
+			});
+			
+			$(document).on("change", "select[id*=acf]", function() {
+				window.scrollTo({
+				  top: tempScrollTop,
+				  behavior: 'instant'
+				})
+			});
+		});
+	</script>
+    <meta name="generator" content="dominant-color-images 1.2.0">
+<meta name="generator" content="performance-lab 3.7.0; plugins: dominant-color-images, webp-uploads">
+<meta name="generator" content="webp-uploads 2.4.0">
+		<style type="text/css">
+			.um_request_name {
+				display: none !important;
+			}
+		</style>
+	            <style id="wpp-loading-animation-styles">@-webkit-keyframes bgslide{from{background-position-x:0}to{background-position-x:-200%}}@keyframes bgslide{from{background-position-x:0}to{background-position-x:-200%}}.wpp-widget-block-placeholder,.wpp-shortcode-placeholder{margin:0 auto;width:60px;height:3px;background:#dd3737;background:linear-gradient(90deg,#dd3737 0%,#571313 10%,#dd3737 100%);background-size:200% auto;border-radius:3px;-webkit-animation:bgslide 1s infinite linear;animation:bgslide 1s infinite linear}</style>
+            		<style type="text/css" id="wp-custom-css">
+			:root {
+	--main-accent: #d66e06;
+}
+
+html {
+		margin-top: 0!important;
+}
+
+.hitchcock-top {
+		position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+#wpadminbar {
+		position: static!important;
+}
+
+@media (max-width: 700px) {
+	div #wpadminbar {
+			position: static !important;
+	}
+}
+
+.cat-thumbnail {
+		position: absolute;
+		margin: 0 auto;
+		padding: 10px 30px;
+		max-width: 250px;
+		max-height: 150px;
+		left: 0;
+		right: 0;
+}
+
+/* XOO Login Modal */
+.xoo-aff-input-group .xoo-aff-input-icon {
+		height: 28px;
+}
+
+/* Rulebook List Entries */
+li[title]::after {
+    font-family: "Font Awesome 5 Pro";
+    font-weight: 800;
+    content: "\f059";
+    margin-left: 5px;
+}
+
+.premium-select {
+		padding: 10px !important;
+		border-radius: 5px !important;
+		display: block;
+		margin: 0 auto;
+		margin-bottom: 15px;
+}
+
+.rmp-archive-results-widget {
+    margin-left: 0;
+}
+
+.mob-menu-header-holder {
+		z-index: 9 !important;
+}
+
+.menu-item-1529 a{
+	font-weight: bold;
+	color: #00ee00 !important;
+}
+
+.menu-item-1529 a:hover{
+	color: #00ff00 !important;
+}
+
+.menu-item-106>a{
+	font-weight: bold;
+}
+
+.menu-item-102>a{
+	font-weight: bold;
+}
+
+.menu-item-9265 a{
+	color: #7289DA !important;
+}
+
+.menu-item-9266 a{
+	color: #00457C !important;
+}
+
+.menu-item-5792 a{
+	color: #00ACEE !important;
+}
+
+.select2-search.ui-sortable-handle {
+    background: none !important;
+}
+
+.select2-selection__choice {
+    color: #333;
+}
+
+[data-name="category_bike_models"] .acf-checkbox-list.acf-hl {
+		display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+[data-name="category_bike_models"] .acf-checkbox-list.acf-hl::before {
+		content: ""!important;
+		display: none!important;
+}
+
+.in-post-header {
+	  text-align: center;
+    font-size: 2.25em;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* Comment images */
+.attachment-thumbnail.size-thumbnail.wmu-attached-image {
+    height: auto !important;
+}
+
+// BACKUP COLOR: #d66e06		</style>
+		<style id="yellow-pencil">
+/*
+	The following CSS codes are created by the YellowPencil plugin.
+	https://yellowpencil.waspthemes.com/
+*/
+red{color: Tomato;}green{color: MediumSeaGreen;}orange{color: Orange;}blue{color: DodgerBlue;}lightblue{color: LightGray;}gray{color: Gray;}purple{color: SlateBlue;}violet{color: Violet;}hide{display: none !important;}new{position: absolute;color:red;font-size: 8px;font-weight: 800;margin-top: -5px;}.btn-submit a{color: lime!important;font-weight: bold!important;}.btn-submit a:hover{color: green!important;}.xoo-aff-input-group .xoo-aff-input-icon{height: auto !important;}.post-container{border-radius: 5px 5px 50px 50px;-moz-border-radius: 5px 5px 50px 50px;border: 15px solid rgb(58, 58, 58);background: rgba(29, 29, 29, 0.9);}.comments-container{width: 100%;background: rgba(58,58,58,1);border-top: 1px solid #ddd;margin-top: 20px;border-radius: 0px 0px 25px 25px;-moz-border-radius: 0px 0px 25px 25px;}body{color: #d1d1d1;width:100% !important;height:auto !important;}.post-content{color: #d1d1d1;font-family: 'Montserrat';}.post-content blockquote{background: rgba(58,58,58,0.5);color: #999;}.main-menu a{color: #999;}.main-menu li:hover > a{color: var(--main-accent);}.blog-description{font-family: 'Calibri';}.body{font-family: 'Montserrat';}.gform_wrapper .top_label input.medium, .gform_wrapper .top_label select.medium{width: calc(100%);}.credits{position: relative;z-index: 2;}.post-inner{width: 100%;}.post-meta a{color: var(--main-accent);}a.pld-like-trigger{color: red;}a.pld-dislike-trigger{color: red;}span.pld-count-wrap{color: white;}.post-navigation .fa{color: white;}tbody > tr:nth-child(odd){background-color: #00000000;-webkit-box-shadow: 0px 0.5px 0px 0.5px #dddddd;box-shadow: 0px 0.5px 0px 0.5px #dddddd;}.post-content table{empty-cells: hide;}.post-attachment.mime-application-zip{background-image: url();}li.post-attachment{background: url() 0 4px no-repeat;padding-left: 0;}.acf-w-50{width: 50% !important;}.main-menu > a:hover{color: var(--main-accent) !important;}.main-menu > li:focus-within > ul{opacity: 1;left: 50%;margin-left: -100px;top: 100%;}.main-menu li > ul > li:focus-within > ul{opacity: 1;left: 200px;top: 0;}.btn-discord{background-color: #7289da !important;}.btn-discord:hover{background-color: #506099 !important;}.header{padding-bottom:10px;padding-top:25px;width:100% !important;}.header-image{-webkit-filter:blur(2.5px);filter:blur(2.5px);z-index:-1000;}#site-content{margin-left:auto !important;margin-right:auto !important;}.archive-post-title{margin: 0;word-break: break-word;color:#ecf0f1;text-shadow: 0px 0px 5px #000;}#posts .hentry .post-overlay{background-image:-webkit-linear-gradient(bottom, #0A0A0AFF 0%, #FFFFFF00 50%);background-image:-o-linear-gradient(bottom, #0A0A0AFF 0%, #FFFFFF00 50%);background-image:linear-gradient(0deg, #0A0A0AFF 0%, #FFFFFF00 50%);background-color:rgba(0,0,0,0.46);-webkit-background-clip:padding-box;background-clip:padding-box;border-radius: 5px... (526 KB left)
+Stuff.html
+576 KB
