@@ -4,8 +4,16 @@ from ..extensions import db
 from werkzeug.security import generate_password_hash, check_password_hash
 import jwt
 from datetime import datetime, timedelta
-from ..config import Config
+from config import Config
 import uuid
+from app.models import GUID
+from app.extensions import db
+
+def add_guid(discord_user_id, guid):
+    new_guid = GUID(discord_user_id=discord_user_id, guid=guid)
+    db.session.add(new_guid)
+    db.session.commit()
+    return new_guid
 
 
 def create_user(data):

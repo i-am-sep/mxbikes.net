@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>MXBikes.net - Home</title>
+</head>
+<body class="bg-gray-900 text-white">
+    <div class="header">
+        <div class="tabs">
+            <a href="{{ url_for('index') }}" class="tab home">Home</a>
+            <a href="{{ url_for('tracks') }}" class="tab tracks">Tracks</a>
+            <a href="{{ url_for('bikes') }}" class="tab bikes">Bikes</a>
+            <a href="{{ url_for('rider') }}" class="tab rider">Rider</a>
+            <a href="{{ url_for('ranked') }}" class="tab ranked">Ranked</a>
+            <a href="{{ url_for('championship') }}" class="tab active championship">Championship</a>
+            <a href="{{ url_for('downloads') }}" class="tab downloads">Downloads</a>
+        </div>
+    </div>
+
+    <div class="container mx-auto px-4 py-8 mt-20">
+        <h2 class="text-3xl font-bold mb-8 text-center">Championship</h2>
+        <div class="text-center">
+            <p>You can add content here!</p>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

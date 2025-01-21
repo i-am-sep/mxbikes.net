@@ -1,1 +1,348 @@
-/* Your styles here */ 
+body {
+    background: #1a1a1a;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background: #2d2d2d;
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.tab {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    background: #3d3d4d;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.tab:hover {
+    background: #4d4d5d;
+}
+
+.tab.active {
+    background: #4d4d4d;
+    opacity: 1;
+}
+
+.tab.downloads {
+    margin-left: auto;
+    background: #3b82f6;
+}
+
+/* Error message styling */
+.error-message {
+    background: rgba(220, 38, 38, 0.1);
+    border: 1px solid rgba(220, 38, 38, 0.2);
+    color: #ef4444;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin: 1rem 0;
+    text-align: center;
+}
+
+/* Modal and Popup styles */
+.modal, .mod-details-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.modal-content, .popup-content {
+    background: rgba(17, 24, 39, 0.95);
+    max-width: 90%;
+    width: 1000px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 1rem;
+    position: relative;
+}
+
+.popup-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: #888;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: color 0.3s;
+}
+
+.popup-close:hover {
+    color: #fff;
+}
+
+.popup-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+/* Card styles */
+.card {
+    background: rgba(31, 41, 55, 0.95);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
+
+.card ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    color: #aaa;
+}
+
+.card ul li {
+    margin-bottom: 0.5rem;
+}
+
+/* Download button styles */
+.download-button {
+    display: inline-block;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: #3b82f6;
+    color: white;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    margin-bottom: 0.5rem;
+}
+
+.download-button:hover {
+    background: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+/* Grid system */
+.grid {
+    display: grid;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.grid-cols-1 {
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+    .grid-cols-2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .modal-content, .popup-content {
+        margin: 4rem auto;
+    }
+}
+
+@media (min-width: 1024px) {
+    .grid-cols-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Discord section */
+.discord-section {
+    background: rgba(47, 49, 54, 0.9);
+    border-radius: 1rem;
+    padding: 1.5rem;
+}
+
+.discord-section iframe {
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+    width: 100%;
+}
+
+/* Video container */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 1rem;
+    margin: 2rem 0;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+}
+
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    background: rgba(31, 41, 55, 0.5);
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid #3d3d3d;
+}
+
+th {
+    background: rgba(31, 41, 55, 0.8);
+    font-weight: bold;
+    color: #fff;
+}
+
+td {
+    color: #aaa;
+}
+
+/* Note styles */
+.note {
+    font-style: italic;
+    color: #aaa;
+    margin-top: 1rem;
+    padding: 1rem;
+    background: rgba(31, 41, 55, 0.5);
+    border-radius: 0.5rem;
+}
+
+/* Container and spacing */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.mt-20 {
+    margin-top: 6rem;
+}
+
+/* Search and filter styles */
+.search-container {
+    max-width: 800px;
+    margin: 6rem auto 2rem;
+    padding: 0 1rem;
+}
+
+.search-bar {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: #2d2d2d;
+    border: 1px solid #3d3d3d;
+    border-radius: 0.5rem;
+    color: #fff;
+    margin-bottom: 1rem;
+    box-sizing: border-box;
+}
+
+.search-bar:focus {
+    outline: none;
+    border-color: #3b82f6;
+    background: #3d3d3d;
+}
+
+.categories {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.category {
+    padding: 0.5rem 1rem;
+    background: #2d2d2d;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.category:hover {
+    background: #3d3d3d;
+}
+
+.category.active {
+    background: #3b82f6;
+    color: #fff;
+}
+
+/* Track styles */
+.track-item {
+    background: #2d2d2d;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    transition: transform 0.3s;
+}
+
+.track-item:hover {
+    transform: translateX(5px);
+}
+
+.track-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.track-description {
+    color: #aaa;
+    margin-bottom: 1rem;
+}
+
+.track-creator {
+    color: #888;
+    font-size: 0.875rem;
+}
+
+/* Track/Mod image */
+.track-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
