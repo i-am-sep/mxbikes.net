@@ -4,21 +4,64 @@ document.addEventListener('DOMContentLoaded', function() {
     const categories = document.querySelectorAll('.category');
     const searchBar = document.querySelector('.search-bar');
     const modDetailsPopup = document.getElementById('mod-details-popup');
-    const popupCloseButton = document.getElementById('popup-close-button');
+    const popupCloseButton = document.getElementById('popup-close');
     let allMods = [];
     let allTracks = [];
+
+    // Function to truncate text
+    function truncateText(text, maxLength) {
+        if (!text) return '';
+        return text.length > maxLength ? text.substring(0, maxLength) + '...' : text;
+    }
 
     // Function to create mod/track cards
     function createCard(item, type) {
         const card = document.createElement('div');
         card.classList.add('card', type);
+        
+        const description = item.description || 'No description available.';
+        const truncatedDescription = truncateText(description, 150);
+
         card.innerHTML = `
             <h3 class="track-title">${item.title}</h3>
             <p class="track-creator">by ${item.creator || ''}</p>
-            <img src="${item.cover_image}" alt="${item.title}" class="track-image">
-            <a href="${item.mediafire_download || '#'}" target="_blank" class="download-button">Download</a>
+            <img src="${item.images?.cover || item.images?.additional?.[0] || 'https://i.imgur.com/HpB66vX.png'}" alt="${item.title}" class="track-image">
+            <p class="track-description">${truncatedDescription}</p>
+            <div class="download-links"></div>
         `;
-        card.addEventListener('click', () => showDetailsPopup(item, type));
+
+        // Add download buttons to card
+        const downloadsContainer = card.querySelector('.download-links');
+        if (item.url) {
+            const mxbModsButton = document.createElement('a');
+            mxbModsButton.href = item.url;
+            mxbModsButton.target = '_blank';
+            mxbModsButton.className = 'download-button primary';
+            mxbModsButton.textContent = 'View on MXB-Mods';
+            downloadsContainer.appendChild(mxbModsButton);
+        }
+
+        // Add direct download links if available
+        if (item.downloads?.by_host) {
+            Object.entries(item.downloads.by_host).forEach(([host, urls]) => {
+                urls.forEach(url => {
+                    const linkButton = document.createElement('a');
+                    linkButton.href = url;
+                    linkButton.target = '_blank';
+                    linkButton.className = 'download-button';
+                    linkButton.textContent = `Download from ${host}`;
+                    downloadsContainer.appendChild(linkButton);
+                });
+            });
+        }
+
+        card.addEventListener('click', (e) => {
+            // Don't trigger popup if clicking download buttons
+            if (!e.target.classList.contains('download-button')) {
+                showDetailsPopup(item, type);
+            }
+        });
+
         return card;
     }
 
@@ -26,74 +69,104 @@ document.addEventListener('DOMContentLoaded', function() {
         fetch('/data/mods.json')
             .then(response => response.json())
             .then(data => {
-                allMods = Object.values(data);
-                renderMods(allMods);
+                // Transform the object into an array with URLs as a property
+                allMods = Object.entries(data).map(([url, mod]) => ({
+                    ...mod,
+                    url: url
+                }));
+                if (modContainer) {
+                    renderMods(allMods);
+                }
             })
             .catch(handleError('Error loading mods'));
+    }
+
+    function loadTracks() {
+        fetch('/data/track_details.json')
+            .then(response => response.json())
+            .then(tracks => {
+                allTracks = tracks;
+                if (tracksList) {
+                    renderTracks(tracks);
+                }
+            })
+            .catch(handleError('Error loading tracks'));
     }
 
     function renderMods(mods) {
         if (!modContainer) return;
         modContainer.innerHTML = '';
+        const noModsMessage = document.getElementById('no-mods-message');
         if (mods.length > 0) {
-            const modList = document.createElement('div');
-            modList.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3';
-            mods.forEach(mod => modList.appendChild(createCard(mod, 'mod')));
-            modContainer.appendChild(modList);
+            mods.forEach(mod => {
+                modContainer.appendChild(createCard(mod, 'mod'));
+            });
+            noModsMessage.classList.add('hidden');
         } else {
-            modContainer.innerHTML = '<p class="error-message">No mods found.</p>';
+            noModsMessage.classList.remove('hidden');
         }
-    }
-
-    function loadTracks() {
-        fetch('/data/tracks.json')
-            .then(response => response.json())
-            .then(tracks => {
-                allTracks = tracks;
-                renderTracks(tracks);
-            })
-            .catch(handleError('Error loading tracks'));
     }
 
     function renderTracks(tracks) {
         if (!tracksList) return;
         tracksList.innerHTML = '';
+        const noModsMessage = document.getElementById('no-mods-message');
         if (tracks.length > 0) {
-            const trackList = document.createElement('div');
-            trackList.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3';
-            tracks.forEach(track => trackList.appendChild(createCard(track, 'track')));
-            tracksList.appendChild(trackList);
+            tracks.forEach(track => {
+                tracksList.appendChild(createCard(track, 'track'));
+            });
+            noModsMessage?.classList.add('hidden');
         } else {
-            tracksList.innerHTML = '<p class="error-message">No tracks found.</p>';
+            if (noModsMessage) {
+                noModsMessage.classList.remove('hidden');
+            } else {
+                tracksList.innerHTML = '<p class="error-message">No tracks found.</p>';
+            }
         }
     }
 
     // Popup functionality
     function showDetailsPopup(item, type) {
-        modDetailsPopup.querySelector('#popup-title').textContent = item.title;
-        modDetailsPopup.querySelector('#popup-image').src = item.cover_image;
-        modDetailsPopup.querySelector('#popup-description').textContent = item.description;
-        modDetailsPopup.querySelector('#popup-downloads').innerHTML = '';
-
-        //Dynamically add download links based on available data
-        if(item.downloads && Array.isArray(item.downloads)){
-            item.downloads.forEach(download => {
-                const downloadLink = document.createElement('a');
-                downloadLink.href = download.url;
-                downloadLink.target = '_blank';
-                downloadLink.className = 'download-button';
-                downloadLink.textContent = download.label;
-                modDetailsPopup.querySelector('#popup-downloads').appendChild(downloadLink);
-            });
-        } else if (item.mediafire_download) {
-            const downloadLink = document.createElement('a');
-            downloadLink.href = item.mediafire_download;
-            downloadLink.target = '_blank';
-            downloadLink.className = 'download-button';
-            downloadLink.textContent = 'Download from Mediafire';
-            modDetailsPopup.querySelector('#popup-downloads').appendChild(downloadLink);
+        const popupTitle = modDetailsPopup.querySelector('#popup-title');
+        const popupImage = modDetailsPopup.querySelector('#popup-image');
+        const popupDescription = modDetailsPopup.querySelector('#popup-description');
+        
+        popupTitle.textContent = item.title;
+        popupImage.src = item.images?.cover || item.images?.additional?.[0] || 'https://i.imgur.com/HpB66vX.png';
+        
+        // Format description for better readability
+        const description = item.description || 'No description available.';
+        const formattedDescription = description.split('\n').map(line => line.trim()).join('\n');
+        popupDescription.textContent = formattedDescription;
+    
+        const downloadsContainer = modDetailsPopup.querySelector('#popup-downloads');
+        downloadsContainer.innerHTML = '';
+        downloadsContainer.className = 'download-links-grid';
+    
+        // MXB-Mods link
+        if (item.url) {
+            const mxbModsButton = document.createElement('a');
+            mxbModsButton.href = item.url;
+            mxbModsButton.target = '_blank';
+            mxbModsButton.className = 'mxb-mods-button version-button';
+            mxbModsButton.textContent = 'MXB-Mods Page';
+            downloadsContainer.appendChild(mxbModsButton);
         }
 
+        // Add direct download links
+        if (item.downloads?.by_host) {
+            Object.entries(item.downloads.by_host).forEach(([host, urls]) => {
+                urls.forEach(url => {
+                    const linkButton = document.createElement('a');
+                    linkButton.href = url;
+                    linkButton.target = '_blank';
+                    linkButton.className = 'version-button';
+                    linkButton.textContent = `Download from ${host}`;
+                    downloadsContainer.appendChild(linkButton);
+                });
+            });
+        }
+    
         modDetailsPopup.style.display = 'block';
     }
 
@@ -105,55 +178,68 @@ document.addEventListener('DOMContentLoaded', function() {
         popupCloseButton.addEventListener('click', hideDetailsPopup);
     }
 
-    // Modal functionality for index page
-    const infoModal = document.getElementById('infoModal');
-    if (infoModal) {
-        window.openModal = function() {
-            infoModal.style.display = 'block';
+    // Close popup when clicking outside
+    modDetailsPopup.addEventListener('click', function(e) {
+        if (e.target === modDetailsPopup) {
+            hideDetailsPopup();
         }
+    });
 
-        window.closeModal = function() {
-            infoModal.style.display = 'none';
-        }
-
-        // Close modal when clicking outside
-        infoModal.addEventListener('click', function(e) {
-            if (e.target === infoModal) {
-                closeModal();
-            }
+    // Filtering and Search
+    if (categories) {
+        categories.forEach(category => {
+            category.addEventListener('click', () => {
+                categories.forEach(c => c.classList.remove('active'));
+                category.classList.add('active');
+                filterContent();
+            });
         });
     }
 
-    // Filtering and Search
-    categories.forEach(category => {
-        category.addEventListener('click', () => {
-            categories.forEach(c => c.classList.remove('active'));
-            category.classList.add('active');
-            const selectedCategory = category.dataset.category;
-            const filteredItems = selectedCategory === 'all'
-                ? [...allMods, ...allTracks]
-                : [...allMods, ...allTracks].filter(item =>
-                    item.categories && item.categories.includes(selectedCategory)
+    function filterContent() {
+        if (!searchBar) return;
+        
+        const searchTerm = searchBar.value.toLowerCase();
+        const selectedCategory = document.querySelector('.category.active')?.dataset.category || 'all';
+
+        let filteredMods = allMods;
+        let filteredTracks = allTracks;
+
+        // Apply search filter
+        if (searchTerm) {
+            const searchFilter = item => 
+                item.title.toLowerCase().includes(searchTerm) ||
+                (item.creator && item.creator.toLowerCase().includes(searchTerm)) ||
+                (item.description && item.description.toLowerCase().includes(searchTerm));
+
+            filteredMods = filteredMods.filter(searchFilter);
+            filteredTracks = filteredTracks.filter(searchFilter);
+        }
+
+        // Apply category filter
+        if (selectedCategory !== 'all') {
+            if (selectedCategory === 'tracks') {
+                filteredMods = [];
+            } else if (selectedCategory === 'bikes' || selectedCategory === 'gear' || selectedCategory === 'misc') {
+                // Since we don't have categories in the current data structure,
+                // we'll filter based on the title for now
+                filteredMods = filteredMods.filter(mod => 
+                    mod.title.toLowerCase().includes(selectedCategory.toLowerCase())
                 );
-            renderMods(filteredItems.filter(item => item.categories && item.categories.includes('bikes')));
-            renderTracks(filteredItems.filter(item => item.categories && item.categories.includes('tracks')));
-        });
-    });
+                filteredTracks = [];
+            }
+        }
+
+        if (modContainer) {
+            renderMods(filteredMods);
+        }
+        if (tracksList) {
+            renderTracks(filteredTracks);
+        }
+    }
 
     if (searchBar) {
-        searchBar.addEventListener('input', () => {
-            const searchTerm = searchBar.value.toLowerCase();
-            const filteredItems = [...allMods, ...allTracks].filter(item => {
-                return item.title.toLowerCase().includes(searchTerm) || 
-                    (item.description && item.description.toLowerCase().includes(searchTerm));
-            });
-            renderMods(filteredItems.filter(item => 
-                item.categories && item.categories.includes('bikes')
-            ));
-            renderTracks(filteredItems.filter(item => 
-                item.categories && item.categories.includes('tracks')
-            ));
-        });
+        searchBar.addEventListener('input', filterContent);
     }
 
     // Error handling helper function
@@ -163,7 +249,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const errorContainer = document.createElement('div');
             errorContainer.className = "error-message";
             errorContainer.textContent = message + ": " + (error.message || error);
-            const container = error.target === modContainer ? modContainer : tracksList;
+            const container = modContainer || tracksList;
             if (container) {
                 container.appendChild(errorContainer);
             }

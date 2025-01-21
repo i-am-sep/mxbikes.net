@@ -1,5 +1,7 @@
-from flask import Blueprint
-from .guid import GUID #import the model
+from flask_sqlalchemy import SQLAlchemy
+from .product import Product
+from .user import User
+from .download import Download
+from .guid import GUID
 
-#The following line may already exist.  It is useful if you are employing blueprints.
-# bp = Blueprint('models', __name__)
+db = SQLAlchemy()
