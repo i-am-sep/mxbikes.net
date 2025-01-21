@@ -3,18 +3,18 @@
 <head>
     <title>MXBikes.net - Home</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='/static/styles.css') }}">
+    <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
     <div class="header">
         <div class="tabs">
-            <a href="{{ url_for('index') }}" class="tab active home">Home</a>
-            <a href="{{ url_for('tracks') }}" class="tab tracks">Tracks</a>
-            <a href="{{ url_for('bikes') }}" class="tab bikes">Bikes</a>
-            <a href="{{ url_for('rider') }}" class="tab rider">Rider</a>
-            <a href="{{ url_for('ranked') }}" class="tab ranked">Ranked</a>
-            <a href="{{ url_for('championship') }}" class="tab championship">Championship</a>
-            <a href="{{ url_for('downloads') }}" class="tab downloads">Downloads</a>
+            <a href="/index.html" class="tab active home">Home</a>
+            <a href="/templates/tracks.html" class="tab tracks">Tracks</a>
+            <a href="/templates/bikes.html" class="tab bikes">Bikes</a>
+            <a href="/templates/rider.html" class="tab rider">Rider</a>
+            <a href="/templates/ranked.html" class="tab ranked">Ranked</a>
+            <a href="/templates/championship.html" class="tab championship">Championship</a>
+            <a href="/templates/downloads.html" class="tab downloads">Downloads</a>
         </div>
     </div>
 
@@ -168,6 +168,6 @@
         </div>
     </div>
 
-    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+    <script src="/static/scripts.js"></script>
 </body>
 </html>
