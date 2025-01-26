@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
         categories: document.querySelectorAll('.category'),
         searchBar: document.querySelector('.search-bar'),
         modDetailsPopup: document.getElementById('mod-details-popup'),
+        infoModal: document.getElementById('infoModal'),
         popupCloseButton: document.getElementById('popup-close')
     };
 
@@ -30,6 +31,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 return false;
             });
         });
+    }
+
+    /**
+     * Modal Functions
+     */
+    window.openModal = function() {
+        if (UI.infoModal) {
+            UI.infoModal.style.display = 'block';
+        }
+    }
+
+    window.closeModal = function() {
+        if (UI.infoModal) {
+            UI.infoModal.style.display = 'none';
+        }
     }
 
     /**
