@@ -1,20 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    <title>MXBikes.net - Home</title>
+    <title>MXBikes.net - Championship</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/styles.css">
 </head>
-<body class="bg-gray-900 text-white">
-    {% include '_nav.html' %} 
-
-    <div class="container mx-auto px-4 py-8 mt-20">
-        <h2 class="text-3xl font-bold mb-8 text-center">Championship</h2>
-        <div class="text-center">
-            <p>You can add content here!</p>
+<body>
+    <div class="header">
+        <div class="tabs">
+            <a href="index.html" class="tab home">Home</a>
+            <a href="tracks.html" class="tab tracks">Tracks</a>
+            <a href="bikes.html" class="tab bikes">Bikes</a>
+            <a href="rider.html" class="tab rider disabled">Rider</a>
+            <a href="ranked.html" class="tab ranked disabled">Ranked</a>
+            <a href="championship.html" class="tab championship disabled active">Championship</a>
+            <a href="downloads.html" class="tab downloads">Downloads</a>
         </div>
     </div>
 
-    <script src="scripts.js"></script>
+    <div class="container mt-20">
+        <div class="card">
+            <h2 class="popup-title">Coming Soon</h2>
+            <p class="track-description">The championship section is currently in development. Please check back later.</p>
+        </div>
+    </div>
+
+    <script src="static/scripts.js"></script>
 </body>
 </html>

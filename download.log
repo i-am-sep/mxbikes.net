@@ -1,0 +1,716 @@
+2025-01-26 12:26:08,628 - INFO - Initialized SpysProxyParser with URL: https://spys.me/proxy.txt
+2025-01-26 12:26:08,628 - INFO - Starting proxy fetch and test process...
+2025-01-26 12:26:08,628 - INFO - Attempting to fetch proxies...
+2025-01-26 12:26:09,028 - INFO - Found 408 lines in proxy list
+2025-01-26 12:26:09,028 - INFO - Successfully parsed 400 valid proxies
+2025-01-26 12:26:09,028 - INFO - Reading image URLs from data/image_links.txt
+2025-01-26 12:26:09,030 - INFO - Found 5295 image URLs
+2025-01-26 12:26:09,030 - INFO - Testing 400 proxies with 5 threads
+2025-01-26 12:26:12,750 - INFO - Found working proxy: 5.135.103.166:80 (latency: 3.72s)
+2025-01-26 12:26:12,883 - INFO - Found working proxy: 103.60.173.2:96 (latency: 3.85s)
+2025-01-26 12:26:22,277 - INFO - Found working proxy: 103.242.105.127:8080 (latency: 4.39s)
+2025-01-26 12:26:22,642 - INFO - Found working proxy: 130.61.111.246:6379 (latency: 0.36s)
+2025-01-26 12:26:23,085 - INFO - Found working proxy: 203.243.63.16:80 (latency: 0.75s)
+2025-01-26 12:30:45,023 - INFO - Initialized SpysProxyParser with URL: https://spys.me/proxy.txt
+2025-01-26 12:30:45,023 - INFO - Starting proxy fetch and test process...
+2025-01-26 12:30:45,024 - INFO - Attempting to fetch proxies...
+2025-01-26 12:30:45,466 - INFO - Found 408 lines in proxy list
+2025-01-26 12:30:45,467 - INFO - Successfully parsed 400 valid proxies
+2025-01-26 12:30:45,467 - INFO - Reading image URLs from data/image_links.txt
+2025-01-26 12:30:45,469 - INFO - Found 5295 image URLs
+2025-01-26 12:30:58,527 - INFO - Testing 400 proxies with 20 threads
+2025-01-26 12:30:59,058 - INFO - Found working proxy: 130.61.111.246:6379 (latency: 0.52s)
+2025-01-26 12:31:05,615 - INFO - Found working proxy: 143.198.226.25:80 (latency: 3.05s)
+2025-01-26 12:31:05,834 - INFO - Found working proxy: 178.140.103.199:8081 (latency: 1.27s)
+2025-01-26 12:31:09,549 - INFO - Found working proxy: 62.201.219.122:1973 (latency: 2.96s)
+2025-01-26 12:31:10,710 - INFO - Found working proxy: 95.66.244.250:8080 (latency: 2.10s)
+2025-01-26 12:31:12,425 - INFO - Found working proxy: 178.217.89.78:8080 (latency: 0.56s)
+2025-01-26 12:31:16,876 - INFO - Found working proxy: 45.236.105.138:999 (latency: 2.03s)
+2025-01-26 12:31:17,346 - INFO - Found working proxy: 83.168.74.163:8080 (latency: 0.53s)
+2025-01-26 12:31:17,504 - INFO - Found working proxy: 154.16.146.43:80 (latency: 0.16s)
+2025-01-26 12:31:19,175 - INFO - Found working proxy: 79.110.202.184:8081 (latency: 0.52s)
+2025-01-26 12:31:21,285 - INFO - Found working proxy: 212.127.95.235:8081 (latency: 0.51s)
+2025-01-26 12:31:22,581 - INFO - Found working proxy: 38.45.44.109:999 (latency: 0.43s)
+2025-01-26 12:31:26,754 - INFO - Found working proxy: 157.245.97.60:443 (latency: 1.86s)
+2025-01-26 12:31:31,713 - INFO - Found working proxy: 103.179.84.126:3127 (latency: 1.33s)
+2025-01-26 12:31:33,892 - INFO - Found working proxy: 175.34.36.22:8888 (latency: 0.93s)
+2025-01-26 12:31:35,269 - INFO - Found working proxy: 219.65.73.81:80 (latency: 1.26s)
+2025-01-26 12:31:37,492 - INFO - Found working proxy: 114.35.140.157:8080 (latency: 0.74s)
+2025-01-26 12:31:40,865 - INFO - Found 17 working proxies out of 400 tested
+2025-01-26 12:31:40,866 - INFO - Starting download of 10 images using 17 working proxies
+2025-01-26 12:31:40,866 - INFO - Processing batch 1 (5 images)
+2025-01-26 12:31:40,866 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp using proxy 130.61.111.246:6379
+2025-01-26 12:31:40,927 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp with proxy 130.61.111.246:6379: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp
+2025-01-26 12:31:40,928 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp using proxy 143.198.226.25:80
+2025-01-26 12:31:40,970 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp with proxy 143.198.226.25:80: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp
+2025-01-26 12:31:40,970 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp using proxy 178.140.103.199:8081
+2025-01-26 12:31:41,024 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp with proxy 178.140.103.199:8081: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp
+2025-01-26 12:31:41,024 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp using proxy 62.201.219.122:1973
+2025-01-26 12:31:41,071 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp with proxy 62.201.219.122:1973: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp
+2025-01-26 12:31:41,072 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp using proxy 95.66.244.250:8080
+2025-01-26 12:31:41,113 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp with proxy 95.66.244.250:8080: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp
+2025-01-26 12:31:41,114 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp using proxy 178.217.89.78:8080
+2025-01-26 12:31:41,157 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp with proxy 178.217.89.78:8080: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp
+2025-01-26 12:31:41,157 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp using proxy 45.236.105.138:999
+2025-01-26 12:31:41,197 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp with proxy 45.236.105.138:999: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp
+2025-01-26 12:31:41,198 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp using proxy 83.168.74.163:8080
+2025-01-26 12:31:41,244 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp with proxy 83.168.74.163:8080: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp
+2025-01-26 12:31:41,245 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp using proxy 154.16.146.43:80
+2025-01-26 12:31:41,289 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp with proxy 154.16.146.43:80: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp
+2025-01-26 12:31:41,290 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp using proxy 79.110.202.184:8081
+2025-01-26 12:31:41,329 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp with proxy 79.110.202.184:8081: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp
+2025-01-26 12:31:41,330 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp using proxy 212.127.95.235:8081
+2025-01-26 12:31:41,372 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp with proxy 212.127.95.235:8081: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp
+2025-01-26 12:31:41,373 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp using proxy 38.45.44.109:999
+2025-01-26 12:31:41,417 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp with proxy 38.45.44.109:999: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp
+2025-01-26 12:31:41,417 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp using proxy 157.245.97.60:443
+2025-01-26 12:31:41,463 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp with proxy 157.245.97.60:443: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp
+2025-01-26 12:31:41,464 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp using proxy 103.179.84.126:3127
+2025-01-26 12:31:41,508 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp with proxy 103.179.84.126:3127: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp
+2025-01-26 12:31:41,509 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp using proxy 175.34.36.22:8888
+2025-01-26 12:31:41,552 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp with proxy 175.34.36.22:8888: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp
+2025-01-26 12:31:41,553 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp using proxy 219.65.73.81:80
+2025-01-26 12:31:41,598 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp with proxy 219.65.73.81:80: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp
+2025-01-26 12:31:41,598 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp using proxy 114.35.140.157:8080
+2025-01-26 12:31:41,642 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp with proxy 114.35.140.157:8080: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp
+2025-01-26 12:31:41,643 - WARNING - Failed to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp with any proxy
+2025-01-26 12:31:41,643 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-55-1280x720.webp using proxy 130.61.111.246:6379
+2025-01-26 12:31:41,685 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-55-1280x720.webp with proxy 130.61.111.246:6379: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-55-1280x720.webp
+2025-01-26 12:31:41,686 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-55-1280x720.webp using proxy 143.198.226.25:80
+2025-01-26 12:31:41,744 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-55-1280x720.webp with proxy 143.198.226.25:80: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-55-1280x720.webp
+2025-01-26 12:31:41,745 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-55-1280x720.webp using proxy 178.140.103.199:8081
+2025-01-26 12:31:41,787 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-55-1280x720.webp with proxy 178.140.103.199:8081: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-55-1280x720.webp
+2025-01-26 12:31:41,788 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-55-1280x720.webp using proxy 62.201.219.122:1973
+2025-01-26 12:31:41,849 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-55-1280x720.webp with proxy 62.201.219.122:1973: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-55-1280x720.webp
+2025-01-26 12:31:41,850 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-55-1280x720.webp using proxy 95.66.244.250:8080
+2025-01-26 12:31:41,911 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-55-1280x720.webp with proxy 95.66.244.250:8080: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-55-1280x720.webp
+2025-01-26 12:31:41,912 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-55-1280x720.webp using proxy 178.217.89.78:8080
+2025-01-26 12:31:41,954 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-55-1280x720.webp with proxy 178.217.89.78:8080: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-55-1280x720.webp
+2025-01-26 12:31:41,954 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-55-1280x720.webp using proxy 45.236.105.138:999
+2025-01-26 12:31:42,006 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-55-1280x720.webp with proxy 45.236.105.138:999: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-55-1280x720.webp
+2025-01-26 12:31:42,007 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-55-1280x720.webp using proxy 83.168.74.163:8080
+2025-01-26 12:31:42,074 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-55-1280x720.webp with proxy 83.168.74.163:8080: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-55-1280x720.webp
+2025-01-26 12:31:42,075 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-55-1280x720.webp using proxy 154.16.146.43:80
+2025-01-26 12:31:42,119 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-55-1280x720.webp with proxy 154.16.146.43:80: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-55-1280x720.webp
+2025-01-26 12:31:42,120 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-55-1280x720.webp using proxy 79.110.202.184:8081
+2025-01-26 12:31:42,160 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-55-1280x720.webp with proxy 79.110.202.184:8081: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-55-1280x720.webp
+2025-01-26 12:31:42,161 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-55-1280x720.webp using proxy 212.127.95.235:8081
+2025-01-26 12:31:42,206 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-55-1280x720.webp with proxy 212.127.95.235:8081: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-55-1280x720.webp
+2025-01-26 12:31:42,207 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-55-1280x720.webp using proxy 38.45.44.109:999
+2025-01-26 12:31:42,247 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-55-1280x720.webp with proxy 38.45.44.109:999: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-55-1280x720.webp
+2025-01-26 12:31:42,248 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-55-1280x720.webp using proxy 157.245.97.60:443
+2025-01-26 12:31:42,290 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-55-1280x720.webp with proxy 157.245.97.60:443: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-55-1280x720.webp
+2025-01-26 12:31:42,291 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-55-1280x720.webp using proxy 103.179.84.126:3127
+2025-01-26 12:31:42,332 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-55-1280x720.webp with proxy 103.179.84.126:3127: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-55-1280x720.webp
+2025-01-26 12:31:42,333 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-55-1280x720.webp using proxy 175.34.36.22:8888
+2025-01-26 12:31:42,377 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-55-1280x720.webp with proxy 175.34.36.22:8888: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-55-1280x720.webp
+2025-01-26 12:31:42,378 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-55-1280x720.webp using proxy 219.65.73.81:80
+2025-01-26 12:31:42,440 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-55-1280x720.webp with proxy 219.65.73.81:80: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-55-1280x720.webp
+2025-01-26 12:31:42,441 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-55-1280x720.webp using proxy 114.35.140.157:8080
+2025-01-26 12:31:42,482 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-55-1280x720.webp with proxy 114.35.140.157:8080: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-55-1280x720.webp
+2025-01-26 12:31:42,483 - WARNING - Failed to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-55-1280x720.webp with any proxy
+2025-01-26 12:31:42,483 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-24-19-1280x720.webp using proxy 130.61.111.246:6379
+2025-01-26 12:31:42,528 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-24-19-1280x720.webp with proxy 130.61.111.246:6379: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-24-19-1280x720.webp
+2025-01-26 12:31:42,528 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-24-19-1280x720.webp using proxy 143.198.226.25:80
+2025-01-26 12:31:42,575 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-24-19-1280x720.webp with proxy 143.198.226.25:80: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-24-19-1280x720.webp
+2025-01-26 12:31:42,576 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-24-19-1280x720.webp using proxy 178.140.103.199:8081
+2025-01-26 12:31:42,620 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-24-19-1280x720.webp with proxy 178.140.103.199:8081: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-24-19-1280x720.webp
+2025-01-26 12:31:42,621 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-24-19-1280x720.webp using proxy 62.201.219.122:1973
+2025-01-26 12:31:42,665 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-24-19-1280x720.webp with proxy 62.201.219.122:1973: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-24-19-1280x720.webp
+2025-01-26 12:31:42,666 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-24-19-1280x720.webp using proxy 95.66.244.250:8080
+2025-01-26 12:31:42,722 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-24-19-1280x720.webp with proxy 95.66.244.250:8080: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-24-19-1280x720.webp
+2025-01-26 12:31:42,723 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-24-19-1280x720.webp using proxy 178.217.89.78:8080
+2025-01-26 12:31:42,767 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-24-19-1280x720.webp with proxy 178.217.89.78:8080: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-24-19-1280x720.webp
+2025-01-26 12:31:42,767 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-24-19-1280x720.webp using proxy 45.236.105.138:999
+2025-01-26 12:31:42,811 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-24-19-1280x720.webp with proxy 45.236.105.138:999: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-24-19-1280x720.webp
+2025-01-26 12:31:42,811 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-24-19-1280x720.webp using proxy 83.168.74.163:8080
+2025-01-26 12:31:42,857 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-24-19-1280x720.webp with proxy 83.168.74.163:8080: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-24-19-1280x720.webp
+2025-01-26 12:31:42,857 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-24-19-1280x720.webp using proxy 154.16.146.43:80
+2025-01-26 12:31:42,905 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-24-19-1280x720.webp with proxy 154.16.146.43:80: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-24-19-1280x720.webp
+2025-01-26 12:31:42,906 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-24-19-1280x720.webp using proxy 79.110.202.184:8081
+2025-01-26 12:31:42,950 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-24-19-1280x720.webp with proxy 79.110.202.184:8081: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-24-19-1280x720.webp
+2025-01-26 12:31:42,951 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-24-19-1280x720.webp using proxy 212.127.95.235:8081
+2025-01-26 12:31:42,992 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-24-19-1280x720.webp with proxy 212.127.95.235:8081: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-24-19-1280x720.webp
+2025-01-26 12:31:42,993 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-24-19-1280x720.webp using proxy 38.45.44.109:999
+2025-01-26 12:31:43,037 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-24-19-1280x720.webp with proxy 38.45.44.109:999: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-24-19-1280x720.webp
+2025-01-26 12:31:43,038 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-24-19-1280x720.webp using proxy 157.245.97.60:443
+2025-01-26 12:31:43,080 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-24-19-1280x720.webp with proxy 157.245.97.60:443: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-24-19-1280x720.webp
+2025-01-26 12:31:43,081 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-24-19-1280x720.webp using proxy 103.179.84.126:3127
+2025-01-26 12:31:43,124 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-24-19-1280x720.webp with proxy 103.179.84.126:3127: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-24-19-1280x720.webp
+2025-01-26 12:31:43,125 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-24-19-1280x720.webp using proxy 175.34.36.22:8888
+2025-01-26 12:31:43,172 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-24-19-1280x720.webp with proxy 175.34.36.22:8888: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-24-19-1280x720.webp
+2025-01-26 12:31:43,173 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-24-19-1280x720.webp using proxy 219.65.73.81:80
+2025-01-26 12:31:43,216 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-24-19-1280x720.webp with proxy 219.65.73.81:80: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-24-19-1280x720.webp
+2025-01-26 12:31:43,217 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-24-19-1280x720.webp using proxy 114.35.140.157:8080
+2025-01-26 12:31:43,259 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-24-19-1280x720.webp with proxy 114.35.140.157:8080: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-24-19-1280x720.webp
+2025-01-26 12:31:43,259 - WARNING - Failed to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-24-19-1280x720.webp with any proxy
+2025-01-26 12:31:43,260 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-00-1280x720.webp using proxy 130.61.111.246:6379
+2025-01-26 12:31:43,304 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-00-1280x720.webp with proxy 130.61.111.246:6379: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-00-1280x720.webp
+2025-01-26 12:31:43,304 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-00-1280x720.webp using proxy 143.198.226.25:80
+2025-01-26 12:31:43,352 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-00-1280x720.webp with proxy 143.198.226.25:80: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-00-1280x720.webp
+2025-01-26 12:31:43,353 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-00-1280x720.webp using proxy 178.140.103.199:8081
+2025-01-26 12:31:43,399 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-00-1280x720.webp with proxy 178.140.103.199:8081: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-00-1280x720.webp
+2025-01-26 12:31:43,400 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-00-1280x720.webp using proxy 62.201.219.122:1973
+2025-01-26 12:31:43,442 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-00-1280x720.webp with proxy 62.201.219.122:1973: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-00-1280x720.webp
+2025-01-26 12:31:43,443 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-00-1280x720.webp using proxy 95.66.244.250:8080
+2025-01-26 12:31:43,487 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-00-1280x720.webp with proxy 95.66.244.250:8080: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-00-1280x720.webp
+2025-01-26 12:31:43,487 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-00-1280x720.webp using proxy 178.217.89.78:8080
+2025-01-26 12:31:43,532 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-00-1280x720.webp with proxy 178.217.89.78:8080: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-00-1280x720.webp
+2025-01-26 12:31:43,533 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-00-1280x720.webp using proxy 45.236.105.138:999
+2025-01-26 12:31:43,577 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-00-1280x720.webp with proxy 45.236.105.138:999: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-00-1280x720.webp
+2025-01-26 12:31:43,577 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-00-1280x720.webp using proxy 83.168.74.163:8080
+2025-01-26 12:31:43,623 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-00-1280x720.webp with proxy 83.168.74.163:8080: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-00-1280x720.webp
+2025-01-26 12:31:43,623 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-00-1280x720.webp using proxy 154.16.146.43:80
+2025-01-26 12:31:43,664 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-00-1280x720.webp with proxy 154.16.146.43:80: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-00-1280x720.webp
+2025-01-26 12:31:43,665 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-00-1280x720.webp using proxy 79.110.202.184:8081
+2025-01-26 12:31:43,708 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-00-1280x720.webp with proxy 79.110.202.184:8081: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-00-1280x720.webp
+2025-01-26 12:31:43,709 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-00-1280x720.webp using proxy 212.127.95.235:8081
+2025-01-26 12:31:43,755 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-00-1280x720.webp with proxy 212.127.95.235:8081: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-00-1280x720.webp
+2025-01-26 12:31:43,756 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-00-1280x720.webp using proxy 38.45.44.109:999
+2025-01-26 12:31:43,813 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-00-1280x720.webp with proxy 38.45.44.109:999: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-00-1280x720.webp
+2025-01-26 12:31:43,814 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-00-1280x720.webp using proxy 157.245.97.60:443
+2025-01-26 12:31:43,854 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-00-1280x720.webp with proxy 157.245.97.60:443: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-00-1280x720.webp
+2025-01-26 12:31:43,854 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-00-1280x720.webp using proxy 103.179.84.126:3127
+2025-01-26 12:31:43,900 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-00-1280x720.webp with proxy 103.179.84.126:3127: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-00-1280x720.webp
+2025-01-26 12:31:43,901 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-00-1280x720.webp using proxy 175.34.36.22:8888
+2025-01-26 12:31:43,944 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-00-1280x720.webp with proxy 175.34.36.22:8888: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-00-1280x720.webp
+2025-01-26 12:31:43,945 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-00-1280x720.webp using proxy 219.65.73.81:80
+2025-01-26 12:31:43,989 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-00-1280x720.webp with proxy 219.65.73.81:80: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-00-1280x720.webp
+2025-01-26 12:31:43,990 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-00-1280x720.webp using proxy 114.35.140.157:8080
+2025-01-26 12:31:44,035 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-00-1280x720.webp with proxy 114.35.140.157:8080: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-00-1280x720.webp
+2025-01-26 12:31:44,035 - WARNING - Failed to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-00-1280x720.webp with any proxy
+2025-01-26 12:31:44,036 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-31-1280x720.webp using proxy 130.61.111.246:6379
+2025-01-26 12:31:44,087 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-31-1280x720.webp with proxy 130.61.111.246:6379: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-31-1280x720.webp
+2025-01-26 12:31:44,088 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-31-1280x720.webp using proxy 143.198.226.25:80
+2025-01-26 12:31:44,130 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-31-1280x720.webp with proxy 143.198.226.25:80: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-31-1280x720.webp
+2025-01-26 12:31:44,131 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-31-1280x720.webp using proxy 178.140.103.199:8081
+2025-01-26 12:31:44,181 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-31-1280x720.webp with proxy 178.140.103.199:8081: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-31-1280x720.webp
+2025-01-26 12:31:44,181 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-31-1280x720.webp using proxy 62.201.219.122:1973
+2025-01-26 12:31:44,230 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-31-1280x720.webp with proxy 62.201.219.122:1973: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-31-1280x720.webp
+2025-01-26 12:31:44,230 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-31-1280x720.webp using proxy 95.66.244.250:8080
+2025-01-26 12:31:44,271 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-31-1280x720.webp with proxy 95.66.244.250:8080: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-31-1280x720.webp
+2025-01-26 12:31:44,272 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-31-1280x720.webp using proxy 178.217.89.78:8080
+2025-01-26 12:31:44,312 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-31-1280x720.webp with proxy 178.217.89.78:8080: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-31-1280x720.webp
+2025-01-26 12:31:44,313 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-31-1280x720.webp using proxy 45.236.105.138:999
+2025-01-26 12:31:44,356 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-31-1280x720.webp with proxy 45.236.105.138:999: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-31-1280x720.webp
+2025-01-26 12:31:44,357 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-31-1280x720.webp using proxy 83.168.74.163:8080
+2025-01-26 12:31:44,400 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-31-1280x720.webp with proxy 83.168.74.163:8080: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-31-1280x720.webp
+2025-01-26 12:31:44,400 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-31-1280x720.webp using proxy 154.16.146.43:80
+2025-01-26 12:31:44,443 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-31-1280x720.webp with proxy 154.16.146.43:80: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-31-1280x720.webp
+2025-01-26 12:31:44,444 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-31-1280x720.webp using proxy 79.110.202.184:8081
+2025-01-26 12:31:44,488 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-31-1280x720.webp with proxy 79.110.202.184:8081: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-31-1280x720.webp
+2025-01-26 12:31:44,489 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-31-1280x720.webp using proxy 212.127.95.235:8081
+2025-01-26 12:31:44,532 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-31-1280x720.webp with proxy 212.127.95.235:8081: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-31-1280x720.webp
+2025-01-26 12:31:44,534 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-31-1280x720.webp using proxy 38.45.44.109:999
+2025-01-26 12:31:44,577 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-31-1280x720.webp with proxy 38.45.44.109:999: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-31-1280x720.webp
+2025-01-26 12:31:44,579 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-31-1280x720.webp using proxy 157.245.97.60:443
+2025-01-26 12:31:44,624 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-31-1280x720.webp with proxy 157.245.97.60:443: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-31-1280x720.webp
+2025-01-26 12:31:44,624 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-31-1280x720.webp using proxy 103.179.84.126:3127
+2025-01-26 12:31:44,664 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-31-1280x720.webp with proxy 103.179.84.126:3127: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-31-1280x720.webp
+2025-01-26 12:31:44,665 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-31-1280x720.webp using proxy 175.34.36.22:8888
+2025-01-26 12:31:44,707 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-31-1280x720.webp with proxy 175.34.36.22:8888: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-31-1280x720.webp
+2025-01-26 12:31:44,708 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-31-1280x720.webp using proxy 219.65.73.81:80
+2025-01-26 12:31:44,751 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-31-1280x720.webp with proxy 219.65.73.81:80: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-31-1280x720.webp
+2025-01-26 12:31:44,752 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-31-1280x720.webp using proxy 114.35.140.157:8080
+2025-01-26 12:31:44,794 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-31-1280x720.webp with proxy 114.35.140.157:8080: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-31-1280x720.webp
+2025-01-26 12:31:44,795 - WARNING - Failed to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-25-31-1280x720.webp with any proxy
+2025-01-26 12:31:44,795 - INFO - Downloaded 0 out of 10 requested images
+2025-01-26 12:31:44,795 - INFO - Processing batch 2 (5 images)
+2025-01-26 12:31:44,796 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-26-44-1280x720.webp using proxy 130.61.111.246:6379
+2025-01-26 12:31:44,837 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-26-44-1280x720.webp with proxy 130.61.111.246:6379: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-26-44-1280x720.webp
+2025-01-26 12:31:44,838 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-26-44-1280x720.webp using proxy 143.198.226.25:80
+2025-01-26 12:31:44,879 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-26-44-1280x720.webp with proxy 143.198.226.25:80: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-26-44-1280x720.webp
+2025-01-26 12:31:44,879 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-26-44-1280x720.webp using proxy 178.140.103.199:8081
+2025-01-26 12:31:44,924 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-26-44-1280x720.webp with proxy 178.140.103.199:8081: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-26-44-1280x720.webp
+2025-01-26 12:31:44,925 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-26-44-1280x720.webp using proxy 62.201.219.122:1973
+2025-01-26 12:31:44,968 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-26-44-1280x720.webp with proxy 62.201.219.122:1973: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-26-44-1280x720.webp
+2025-01-26 12:31:44,968 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-26-44-1280x720.webp using proxy 95.66.244.250:8080
+2025-01-26 12:31:45,012 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-26-44-1280x720.webp with proxy 95.66.244.250:8080: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-26-44-1280x720.webp
+2025-01-26 12:31:45,012 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-26-44-1280x720.webp using proxy 178.217.89.78:8080
+2025-01-26 12:31:45,055 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-26-44-1280x720.webp with proxy 178.217.89.78:8080: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-26-44-1280x720.webp
+2025-01-26 12:31:45,056 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-26-44-1280x720.webp using proxy 45.236.105.138:999
+2025-01-26 12:31:45,097 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-26-44-1280x720.webp with proxy 45.236.105.138:999: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-26-44-1280x720.webp
+2025-01-26 12:31:45,097 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-26-44-1280x720.webp using proxy 83.168.74.163:8080
+2025-01-26 12:31:45,140 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-26-44-1280x720.webp with proxy 83.168.74.163:8080: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-26-44-1280x720.webp
+2025-01-26 12:31:45,141 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-26-44-1280x720.webp using proxy 154.16.146.43:80
+2025-01-26 12:31:45,187 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-26-44-1280x720.webp with proxy 154.16.146.43:80: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-26-44-1280x720.webp
+2025-01-26 12:31:45,188 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-26-44-1280x720.webp using proxy 79.110.202.184:8081
+2025-01-26 12:31:45,232 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-26-44-1280x720.webp with proxy 79.110.202.184:8081: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-26-44-1280x720.webp
+2025-01-26 12:31:45,232 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-26-44-1280x720.webp using proxy 212.127.95.235:8081
+2025-01-26 12:31:45,276 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-26-44-1280x720.webp with proxy 212.127.95.235:8081: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-26-44-1280x720.webp
+2025-01-26 12:31:45,276 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-26-44-1280x720.webp using proxy 38.45.44.109:999
+2025-01-26 12:31:45,343 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-26-44-1280x720.webp with proxy 38.45.44.109:999: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-26-44-1280x720.webp
+2025-01-26 12:31:45,344 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-26-44-1280x720.webp using proxy 157.245.97.60:443
+2025-01-26 12:31:45,389 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-26-44-1280x720.webp with proxy 157.245.97.60:443: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-26-44-1280x720.webp
+2025-01-26 12:31:45,389 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-26-44-1280x720.webp using proxy 103.179.84.126:3127
+2025-01-26 12:31:45,442 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-26-44-1280x720.webp with proxy 103.179.84.126:3127: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-26-44-1280x720.webp
+2025-01-26 12:31:45,443 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-26-44-1280x720.webp using proxy 175.34.36.22:8888
+2025-01-26 12:31:45,487 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-26-44-1280x720.webp with proxy 175.34.36.22:8888: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-26-44-1280x720.webp
+2025-01-26 12:31:45,488 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-26-44-1280x720.webp using proxy 219.65.73.81:80
+2025-01-26 12:31:45,544 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-26-44-1280x720.webp with proxy 219.65.73.81:80: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-26-44-1280x720.webp
+2025-01-26 12:31:45,545 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-26-44-1280x720.webp using proxy 114.35.140.157:8080
+2025-01-26 12:31:45,588 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-26-44-1280x720.webp with proxy 114.35.140.157:8080: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-26-44-1280x720.webp
+2025-01-26 12:31:45,588 - WARNING - Failed to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-26-44-1280x720.webp with any proxy
+2025-01-26 12:31:45,588 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-36-1280x720.webp using proxy 130.61.111.246:6379
+2025-01-26 12:31:45,630 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-36-1280x720.webp with proxy 130.61.111.246:6379: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-36-1280x720.webp
+2025-01-26 12:31:45,630 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-36-1280x720.webp using proxy 143.198.226.25:80
+2025-01-26 12:31:45,677 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-36-1280x720.webp with proxy 143.198.226.25:80: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-36-1280x720.webp
+2025-01-26 12:31:45,678 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-36-1280x720.webp using proxy 178.140.103.199:8081
+2025-01-26 12:31:45,721 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-36-1280x720.webp with proxy 178.140.103.199:8081: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-36-1280x720.webp
+2025-01-26 12:31:45,722 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-36-1280x720.webp using proxy 62.201.219.122:1973
+2025-01-26 12:31:45,765 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-36-1280x720.webp with proxy 62.201.219.122:1973: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-36-1280x720.webp
+2025-01-26 12:31:45,765 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-36-1280x720.webp using proxy 95.66.244.250:8080
+2025-01-26 12:31:45,809 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-36-1280x720.webp with proxy 95.66.244.250:8080: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-36-1280x720.webp
+2025-01-26 12:31:45,809 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-36-1280x720.webp using proxy 178.217.89.78:8080
+2025-01-26 12:31:45,852 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-36-1280x720.webp with proxy 178.217.89.78:8080: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-36-1280x720.webp
+2025-01-26 12:31:45,852 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-36-1280x720.webp using proxy 45.236.105.138:999
+2025-01-26 12:31:45,917 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-36-1280x720.webp with proxy 45.236.105.138:999: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-36-1280x720.webp
+2025-01-26 12:31:45,918 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-36-1280x720.webp using proxy 83.168.74.163:8080
+2025-01-26 12:31:45,958 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-36-1280x720.webp with proxy 83.168.74.163:8080: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-36-1280x720.webp
+2025-01-26 12:31:45,959 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-36-1280x720.webp using proxy 154.16.146.43:80
+2025-01-26 12:31:46,001 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-36-1280x720.webp with proxy 154.16.146.43:80: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-36-1280x720.webp
+2025-01-26 12:31:46,002 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-36-1280x720.webp using proxy 79.110.202.184:8081
+2025-01-26 12:31:46,041 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-36-1280x720.webp with proxy 79.110.202.184:8081: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-36-1280x720.webp
+2025-01-26 12:31:46,042 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-36-1280x720.webp using proxy 212.127.95.235:8081
+2025-01-26 12:31:46,088 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-36-1280x720.webp with proxy 212.127.95.235:8081: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-36-1280x720.webp
+2025-01-26 12:31:46,088 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-36-1280x720.webp using proxy 38.45.44.109:999
+2025-01-26 12:31:46,130 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-36-1280x720.webp with proxy 38.45.44.109:999: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-36-1280x720.webp
+2025-01-26 12:31:46,131 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-36-1280x720.webp using proxy 157.245.97.60:443
+2025-01-26 12:31:46,175 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-36-1280x720.webp with proxy 157.245.97.60:443: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-36-1280x720.webp
+2025-01-26 12:31:46,176 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-36-1280x720.webp using proxy 103.179.84.126:3127
+2025-01-26 12:31:46,220 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-36-1280x720.webp with proxy 103.179.84.126:3127: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-36-1280x720.webp
+2025-01-26 12:31:46,220 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-36-1280x720.webp using proxy 175.34.36.22:8888
+2025-01-26 12:31:46,266 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-36-1280x720.webp with proxy 175.34.36.22:8888: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-36-1280x720.webp
+2025-01-26 12:31:46,266 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-36-1280x720.webp using proxy 219.65.73.81:80
+2025-01-26 12:31:46,311 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-36-1280x720.webp with proxy 219.65.73.81:80: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-36-1280x720.webp
+2025-01-26 12:31:46,311 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-36-1280x720.webp using proxy 114.35.140.157:8080
+2025-01-26 12:31:46,356 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-36-1280x720.webp with proxy 114.35.140.157:8080: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-36-1280x720.webp
+2025-01-26 12:31:46,357 - WARNING - Failed to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-28-10-23-36-1280x720.webp with any proxy
+2025-01-26 12:31:46,357 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-24-17-14-15-1280x720.webp using proxy 130.61.111.246:6379
+2025-01-26 12:31:46,397 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-24-17-14-15-1280x720.webp with proxy 130.61.111.246:6379: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-24-17-14-15-1280x720.webp
+2025-01-26 12:31:46,397 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-24-17-14-15-1280x720.webp using proxy 143.198.226.25:80
+2025-01-26 12:31:46,440 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-24-17-14-15-1280x720.webp with proxy 143.198.226.25:80: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-24-17-14-15-1280x720.webp
+2025-01-26 12:31:46,440 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-24-17-14-15-1280x720.webp using proxy 178.140.103.199:8081
+2025-01-26 12:31:46,483 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-24-17-14-15-1280x720.webp with proxy 178.140.103.199:8081: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-24-17-14-15-1280x720.webp
+2025-01-26 12:31:46,484 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-24-17-14-15-1280x720.webp using proxy 62.201.219.122:1973
+2025-01-26 12:31:46,528 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-24-17-14-15-1280x720.webp with proxy 62.201.219.122:1973: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-24-17-14-15-1280x720.webp
+2025-01-26 12:31:46,529 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-24-17-14-15-1280x720.webp using proxy 95.66.244.250:8080
+2025-01-26 12:31:46,571 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-24-17-14-15-1280x720.webp with proxy 95.66.244.250:8080: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-24-17-14-15-1280x720.webp
+2025-01-26 12:31:46,571 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-24-17-14-15-1280x720.webp using proxy 178.217.89.78:8080
+2025-01-26 12:31:46,613 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-24-17-14-15-1280x720.webp with proxy 178.217.89.78:8080: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-24-17-14-15-1280x720.webp
+2025-01-26 12:31:46,614 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-24-17-14-15-1280x720.webp using proxy 45.236.105.138:999
+2025-01-26 12:31:46,656 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-24-17-14-15-1280x720.webp with proxy 45.236.105.138:999: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-24-17-14-15-1280x720.webp
+2025-01-26 12:31:46,657 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-24-17-14-15-1280x720.webp using proxy 83.168.74.163:8080
+2025-01-26 12:31:46,699 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-24-17-14-15-1280x720.webp with proxy 83.168.74.163:8080: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-24-17-14-15-1280x720.webp
+2025-01-26 12:31:46,699 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-24-17-14-15-1280x720.webp using proxy 154.16.146.43:80
+2025-01-26 12:31:46,743 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-24-17-14-15-1280x720.webp with proxy 154.16.146.43:80: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-24-17-14-15-1280x720.webp
+2025-01-26 12:31:46,744 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-24-17-14-15-1280x720.webp using proxy 79.110.202.184:8081
+2025-01-26 12:31:46,786 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-24-17-14-15-1280x720.webp with proxy 79.110.202.184:8081: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-24-17-14-15-1280x720.webp
+2025-01-26 12:31:46,787 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-24-17-14-15-1280x720.webp using proxy 212.127.95.235:8081
+2025-01-26 12:31:46,827 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-24-17-14-15-1280x720.webp with proxy 212.127.95.235:8081: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-24-17-14-15-1280x720.webp
+2025-01-26 12:31:46,828 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-24-17-14-15-1280x720.webp using proxy 38.45.44.109:999
+2025-01-26 12:31:46,868 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-24-17-14-15-1280x720.webp with proxy 38.45.44.109:999: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-24-17-14-15-1280x720.webp
+2025-01-26 12:31:46,869 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-24-17-14-15-1280x720.webp using proxy 157.245.97.60:443
+2025-01-26 12:31:46,910 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-24-17-14-15-1280x720.webp with proxy 157.245.97.60:443: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-24-17-14-15-1280x720.webp
+2025-01-26 12:31:46,912 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-24-17-14-15-1280x720.webp using proxy 103.179.84.126:3127
+2025-01-26 12:31:46,956 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-24-17-14-15-1280x720.webp with proxy 103.179.84.126:3127: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-24-17-14-15-1280x720.webp
+2025-01-26 12:31:46,956 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-24-17-14-15-1280x720.webp using proxy 175.34.36.22:8888
+2025-01-26 12:31:47,001 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-24-17-14-15-1280x720.webp with proxy 175.34.36.22:8888: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-24-17-14-15-1280x720.webp
+2025-01-26 12:31:47,001 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-24-17-14-15-1280x720.webp using proxy 219.65.73.81:80
+2025-01-26 12:31:47,048 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-24-17-14-15-1280x720.webp with proxy 219.65.73.81:80: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-24-17-14-15-1280x720.webp
+2025-01-26 12:31:47,048 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-24-17-14-15-1280x720.webp using proxy 114.35.140.157:8080
+2025-01-26 12:31:47,095 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-24-17-14-15-1280x720.webp with proxy 114.35.140.157:8080: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-24-17-14-15-1280x720.webp
+2025-01-26 12:31:47,096 - WARNING - Failed to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/mxbikes-2024-12-24-17-14-15-1280x720.webp with any proxy
+2025-01-26 12:31:47,096 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp using proxy 130.61.111.246:6379
+2025-01-26 12:31:47,143 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp with proxy 130.61.111.246:6379: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp
+2025-01-26 12:31:47,144 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp using proxy 143.198.226.25:80
+2025-01-26 12:31:47,186 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp with proxy 143.198.226.25:80: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp
+2025-01-26 12:31:47,186 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp using proxy 178.140.103.199:8081
+2025-01-26 12:31:47,242 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp with proxy 178.140.103.199:8081: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp
+2025-01-26 12:31:47,243 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp using proxy 62.201.219.122:1973
+2025-01-26 12:31:47,287 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp with proxy 62.201.219.122:1973: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp
+2025-01-26 12:31:47,289 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp using proxy 95.66.244.250:8080
+2025-01-26 12:31:47,330 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp with proxy 95.66.244.250:8080: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp
+2025-01-26 12:31:47,331 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp using proxy 178.217.89.78:8080
+2025-01-26 12:31:47,373 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp with proxy 178.217.89.78:8080: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp
+2025-01-26 12:31:47,374 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp using proxy 45.236.105.138:999
+2025-01-26 12:31:47,416 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp with proxy 45.236.105.138:999: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp
+2025-01-26 12:31:47,417 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp using proxy 83.168.74.163:8080
+2025-01-26 12:31:47,463 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp with proxy 83.168.74.163:8080: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp
+2025-01-26 12:31:47,463 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp using proxy 154.16.146.43:80
+2025-01-26 12:31:47,505 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp with proxy 154.16.146.43:80: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp
+2025-01-26 12:31:47,506 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp using proxy 79.110.202.184:8081
+2025-01-26 12:31:47,546 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp with proxy 79.110.202.184:8081: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp
+2025-01-26 12:31:47,547 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp using proxy 212.127.95.235:8081
+2025-01-26 12:31:47,588 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp with proxy 212.127.95.235:8081: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp
+2025-01-26 12:31:47,588 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp using proxy 38.45.44.109:999
+2025-01-26 12:31:47,633 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp with proxy 38.45.44.109:999: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp
+2025-01-26 12:31:47,634 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp using proxy 157.245.97.60:443
+2025-01-26 12:31:47,695 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp with proxy 157.245.97.60:443: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp
+2025-01-26 12:31:47,696 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp using proxy 103.179.84.126:3127
+2025-01-26 12:31:47,740 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp with proxy 103.179.84.126:3127: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp
+2025-01-26 12:31:47,740 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp using proxy 175.34.36.22:8888
+2025-01-26 12:31:47,781 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp with proxy 175.34.36.22:8888: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp
+2025-01-26 12:31:47,781 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp using proxy 219.65.73.81:80
+2025-01-26 12:31:47,824 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp with proxy 219.65.73.81:80: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp
+2025-01-26 12:31:47,825 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp using proxy 114.35.140.157:8080
+2025-01-26 12:31:47,866 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp with proxy 114.35.140.157:8080: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp
+2025-01-26 12:31:47,867 - WARNING - Failed to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp with any proxy
+2025-01-26 12:31:47,867 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/Dunlop-1280x720.webp using proxy 130.61.111.246:6379
+2025-01-26 12:31:47,911 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/Dunlop-1280x720.webp with proxy 130.61.111.246:6379: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/Dunlop-1280x720.webp
+2025-01-26 12:31:47,912 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/Dunlop-1280x720.webp using proxy 143.198.226.25:80
+2025-01-26 12:31:47,957 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/Dunlop-1280x720.webp with proxy 143.198.226.25:80: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/Dunlop-1280x720.webp
+2025-01-26 12:31:47,958 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/Dunlop-1280x720.webp using proxy 178.140.103.199:8081
+2025-01-26 12:31:48,002 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/Dunlop-1280x720.webp with proxy 178.140.103.199:8081: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/Dunlop-1280x720.webp
+2025-01-26 12:31:48,002 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/Dunlop-1280x720.webp using proxy 62.201.219.122:1973
+2025-01-26 12:31:48,047 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/Dunlop-1280x720.webp with proxy 62.201.219.122:1973: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/Dunlop-1280x720.webp
+2025-01-26 12:31:48,047 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/Dunlop-1280x720.webp using proxy 95.66.244.250:8080
+2025-01-26 12:31:48,108 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/Dunlop-1280x720.webp with proxy 95.66.244.250:8080: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/Dunlop-1280x720.webp
+2025-01-26 12:31:48,108 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/Dunlop-1280x720.webp using proxy 178.217.89.78:8080
+2025-01-26 12:31:48,152 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/Dunlop-1280x720.webp with proxy 178.217.89.78:8080: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/Dunlop-1280x720.webp
+2025-01-26 12:31:48,153 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/Dunlop-1280x720.webp using proxy 45.236.105.138:999
+2025-01-26 12:31:48,207 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/Dunlop-1280x720.webp with proxy 45.236.105.138:999: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/Dunlop-1280x720.webp
+2025-01-26 12:31:48,208 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/Dunlop-1280x720.webp using proxy 83.168.74.163:8080
+2025-01-26 12:31:48,249 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/Dunlop-1280x720.webp with proxy 83.168.74.163:8080: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/Dunlop-1280x720.webp
+2025-01-26 12:31:48,250 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/Dunlop-1280x720.webp using proxy 154.16.146.43:80
+2025-01-26 12:31:48,292 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/Dunlop-1280x720.webp with proxy 154.16.146.43:80: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/Dunlop-1280x720.webp
+2025-01-26 12:31:48,293 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/Dunlop-1280x720.webp using proxy 79.110.202.184:8081
+2025-01-26 12:31:48,337 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/Dunlop-1280x720.webp with proxy 79.110.202.184:8081: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/Dunlop-1280x720.webp
+2025-01-26 12:31:48,337 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/Dunlop-1280x720.webp using proxy 212.127.95.235:8081
+2025-01-26 12:31:48,390 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/Dunlop-1280x720.webp with proxy 212.127.95.235:8081: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/Dunlop-1280x720.webp
+2025-01-26 12:31:48,390 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/Dunlop-1280x720.webp using proxy 38.45.44.109:999
+2025-01-26 12:31:48,433 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/Dunlop-1280x720.webp with proxy 38.45.44.109:999: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/Dunlop-1280x720.webp
+2025-01-26 12:31:48,434 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/Dunlop-1280x720.webp using proxy 157.245.97.60:443
+2025-01-26 12:31:48,482 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/Dunlop-1280x720.webp with proxy 157.245.97.60:443: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/Dunlop-1280x720.webp
+2025-01-26 12:31:48,483 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/Dunlop-1280x720.webp using proxy 103.179.84.126:3127
+2025-01-26 12:31:48,527 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/Dunlop-1280x720.webp with proxy 103.179.84.126:3127: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/Dunlop-1280x720.webp
+2025-01-26 12:31:48,527 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/Dunlop-1280x720.webp using proxy 175.34.36.22:8888
+2025-01-26 12:31:48,575 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/Dunlop-1280x720.webp with proxy 175.34.36.22:8888: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/Dunlop-1280x720.webp
+2025-01-26 12:31:48,576 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/Dunlop-1280x720.webp using proxy 219.65.73.81:80
+2025-01-26 12:31:48,626 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/Dunlop-1280x720.webp with proxy 219.65.73.81:80: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/Dunlop-1280x720.webp
+2025-01-26 12:31:48,627 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/Dunlop-1280x720.webp using proxy 114.35.140.157:8080
+2025-01-26 12:31:48,670 - ERROR - Request error downloading https://cdn.mxb-mods.com/wp-content/uploads/2024/12/Dunlop-1280x720.webp with proxy 114.35.140.157:8080: 428 Client Error:  for url: https://cdn.mxb-mods.com/wp-content/uploads/2024/12/Dunlop-1280x720.webp
+2025-01-26 12:31:48,670 - WARNING - Failed to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/Dunlop-1280x720.webp with any proxy
+2025-01-26 12:31:48,672 - INFO - Downloaded 0 out of 10 requested images
+2025-01-26 12:33:27,875 - INFO - Initialized SpysProxyParser with URL: https://spys.me/proxy.txt
+2025-01-26 12:33:27,876 - INFO - Starting proxy fetch and test process...
+2025-01-26 12:33:27,876 - INFO - Attempting to fetch proxies...
+2025-01-26 12:33:28,296 - INFO - Found 408 lines in proxy list
+2025-01-26 12:33:28,297 - INFO - Successfully parsed 400 valid proxies
+2025-01-26 12:33:28,297 - INFO - Reading image URLs from data/image_links.txt
+2025-01-26 12:33:28,298 - INFO - Found 5295 image URLs
+2025-01-26 12:33:35,346 - INFO - Testing 400 proxies with 20 threads
+2025-01-26 12:33:35,818 - INFO - Found working proxy: 130.61.111.246:6379 (latency: 0.47s)
+2025-01-26 12:33:36,825 - INFO - Found working proxy: 160.30.110.237:8082 (latency: 1.48s)
+2025-01-26 12:33:38,331 - INFO - Found working proxy: 103.60.173.2:96 (latency: 2.98s)
+2025-01-26 12:33:42,970 - INFO - Found working proxy: 178.140.103.199:8081 (latency: 1.57s)
+2025-01-26 12:33:49,313 - INFO - Found working proxy: 178.217.89.78:8080 (latency: 0.59s)
+2025-01-26 12:33:54,108 - INFO - Found working proxy: 83.168.74.163:8080 (latency: 0.53s)
+2025-01-26 12:33:54,429 - INFO - Found working proxy: 154.16.146.43:80 (latency: 0.54s)
+2025-01-26 12:33:55,516 - INFO - Found working proxy: 79.110.202.184:8081 (latency: 0.52s)
+2025-01-26 12:33:58,011 - INFO - Found working proxy: 212.127.95.235:8081 (latency: 0.53s)
+2025-01-26 12:34:02,893 - INFO - Found working proxy: 157.245.97.60:443 (latency: 1.39s)
+2025-01-26 12:34:05,949 - INFO - Found working proxy: 103.85.53.54:8080 (latency: 3.06s)
+2025-01-26 12:34:06,208 - INFO - Found working proxy: 103.169.38.118:8080 (latency: 1.26s)
+2025-01-26 12:34:10,347 - INFO - Found working proxy: 175.34.36.22:8888 (latency: 0.89s)
+2025-01-26 12:34:13,647 - INFO - Found working proxy: 219.65.73.81:80 (latency: 2.96s)
+2025-01-26 12:34:14,323 - INFO - Found working proxy: 114.35.140.157:8080 (latency: 0.73s)
+2025-01-26 12:34:15,871 - INFO - Found working proxy: 45.85.36.83:80 (latency: 1.55s)
+2025-01-26 12:34:16,845 - INFO - Found 16 working proxies out of 400 tested
+2025-01-26 12:34:16,845 - INFO - Starting download of 1 images using 16 working proxies
+2025-01-26 12:34:16,846 - INFO - Processing batch 1 (1 images)
+2025-01-26 12:34:16,846 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp using proxy 130.61.111.246:6379
+2025-01-26 12:34:17,105 - WARNING - Attempt 1/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: HTTPSConnectionPool(host='cdn.mxb-mods.com', port=443): Max retries exceeded with url: /wp-content/uploads/2024/12/SSXTN-png.webp (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 407 Proxy Authentication Required')))
+2025-01-26 12:34:18,372 - WARNING - Attempt 2/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: HTTPSConnectionPool(host='cdn.mxb-mods.com', port=443): Max retries exceeded with url: /wp-content/uploads/2024/12/SSXTN-png.webp (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 407 Proxy Authentication Required')))
+2025-01-26 12:34:19,662 - WARNING - Attempt 3/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: HTTPSConnectionPool(host='cdn.mxb-mods.com', port=443): Max retries exceeded with url: /wp-content/uploads/2024/12/SSXTN-png.webp (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 407 Proxy Authentication Required')))
+2025-01-26 12:34:19,663 - ERROR - All attempts failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp
+2025-01-26 12:34:19,663 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp using proxy 79.110.202.184:8081
+2025-01-26 12:34:19,961 - WARNING - Attempt 1/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: ('Connection aborted.', BadStatusLine('<html>\r\n'))
+2025-01-26 12:34:21,262 - WARNING - Attempt 2/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: ('Connection aborted.', BadStatusLine('<html>\r\n'))
+2025-01-26 12:34:22,573 - WARNING - Attempt 3/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: ('Connection aborted.', BadStatusLine('<html>\r\n'))
+2025-01-26 12:34:22,574 - ERROR - All attempts failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp
+2025-01-26 12:34:22,574 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp using proxy 212.127.95.235:8081
+2025-01-26 12:34:22,868 - WARNING - Attempt 1/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: ('Connection aborted.', BadStatusLine('<html>\r\n'))
+2025-01-26 12:34:24,168 - WARNING - Attempt 2/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: ('Connection aborted.', BadStatusLine('<html>\r\n'))
+2025-01-26 12:34:25,470 - WARNING - Attempt 3/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: ('Connection aborted.', BadStatusLine('<html>\r\n'))
+2025-01-26 12:34:25,470 - ERROR - All attempts failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp
+2025-01-26 12:34:25,471 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp using proxy 83.168.74.163:8080
+2025-01-26 12:34:25,772 - WARNING - Attempt 1/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: ('Connection aborted.', BadStatusLine('<html>\r\n'))
+2025-01-26 12:34:27,072 - WARNING - Attempt 2/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: ('Connection aborted.', BadStatusLine('<html>\r\n'))
+2025-01-26 12:34:28,371 - WARNING - Attempt 3/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: ('Connection aborted.', BadStatusLine('<html>\r\n'))
+2025-01-26 12:34:28,371 - ERROR - All attempts failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp
+2025-01-26 12:34:28,371 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp using proxy 154.16.146.43:80
+2025-01-26 12:34:28,472 - WARNING - Attempt 1/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: HTTPSConnectionPool(host='cdn.mxb-mods.com', port=443): Max retries exceeded with url: /wp-content/uploads/2024/12/SSXTN-png.webp (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2025-01-26 12:34:29,562 - WARNING - Attempt 2/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: HTTPSConnectionPool(host='cdn.mxb-mods.com', port=443): Max retries exceeded with url: /wp-content/uploads/2024/12/SSXTN-png.webp (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2025-01-26 12:34:30,684 - WARNING - Attempt 3/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: HTTPSConnectionPool(host='cdn.mxb-mods.com', port=443): Max retries exceeded with url: /wp-content/uploads/2024/12/SSXTN-png.webp (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2025-01-26 12:34:30,685 - ERROR - All attempts failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp
+2025-01-26 12:34:30,685 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp using proxy 178.217.89.78:8080
+2025-01-26 12:34:31,004 - WARNING - Attempt 1/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: ('Connection aborted.', BadStatusLine('<html>\r\n'))
+2025-01-26 12:34:32,330 - WARNING - Attempt 2/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: ('Connection aborted.', BadStatusLine('<html>\r\n'))
+2025-01-26 12:34:33,660 - WARNING - Attempt 3/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: ('Connection aborted.', BadStatusLine('<html>\r\n'))
+2025-01-26 12:34:33,660 - ERROR - All attempts failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp
+2025-01-26 12:34:33,661 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp using proxy 114.35.140.157:8080
+2025-01-26 12:34:34,004 - WARNING - Attempt 1/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: HTTPSConnectionPool(host='cdn.mxb-mods.com', port=443): Max retries exceeded with url: /wp-content/uploads/2024/12/SSXTN-png.webp (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 400 Bad Request')))
+2025-01-26 12:34:35,355 - WARNING - Attempt 2/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: HTTPSConnectionPool(host='cdn.mxb-mods.com', port=443): Max retries exceeded with url: /wp-content/uploads/2024/12/SSXTN-png.webp (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 400 Bad Request')))
+2025-01-26 12:34:36,704 - WARNING - Attempt 3/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: HTTPSConnectionPool(host='cdn.mxb-mods.com', port=443): Max retries exceeded with url: /wp-content/uploads/2024/12/SSXTN-png.webp (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 400 Bad Request')))
+2025-01-26 12:34:36,704 - ERROR - All attempts failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp
+2025-01-26 12:34:36,704 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp using proxy 175.34.36.22:8888
+2025-01-26 12:34:37,144 - WARNING - Attempt 1/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: HTTPSConnectionPool(host='cdn.mxb-mods.com', port=443): Max retries exceeded with url: /wp-content/uploads/2024/12/SSXTN-png.webp (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 400 Bad Request')))
+2025-01-26 12:35:37,327 - INFO - Initialized SpysProxyParser with URL: https://spys.me/proxy.txt
+2025-01-26 12:35:37,328 - INFO - Starting proxy fetch and test process...
+2025-01-26 12:35:37,328 - INFO - Attempting to fetch proxies...
+2025-01-26 12:35:37,741 - INFO - Found 408 lines in proxy list
+2025-01-26 12:35:37,742 - INFO - Successfully parsed 400 valid proxies
+2025-01-26 12:35:37,742 - INFO - Reading image URLs from data/image_links.txt
+2025-01-26 12:35:37,744 - INFO - Found 5295 image URLs
+2025-01-26 12:35:42,322 - INFO - Testing 400 proxies with 50 threads
+2025-01-26 12:35:42,683 - INFO - Found working proxy: 130.61.111.246:6379 (latency: 0.35s)
+2025-01-26 12:35:45,187 - INFO - Found working proxy: 212.108.155.170:9090 (latency: 0.84s)
+2025-01-26 12:35:46,937 - INFO - Found working proxy: 178.217.89.78:8080 (latency: 0.56s)
+2025-01-26 12:35:47,131 - INFO - Found working proxy: 209.126.80.76:3128 (latency: 0.77s)
+2025-01-26 12:35:47,505 - INFO - Found working proxy: 31.47.58.37:80 (latency: 3.16s)
+2025-01-26 12:35:48,861 - INFO - Found working proxy: 154.16.146.43:80 (latency: 0.15s)
+2025-01-26 12:35:49,113 - INFO - Found working proxy: 83.168.74.163:8080 (latency: 0.52s)
+2025-01-26 12:35:50,033 - INFO - Found working proxy: 79.110.202.184:8081 (latency: 0.53s)
+2025-01-26 12:35:50,105 - INFO - Found working proxy: 45.167.95.146:999 (latency: 1.35s)
+2025-01-26 12:35:50,231 - INFO - Found working proxy: 104.225.220.233:80 (latency: 1.85s)
+2025-01-26 12:35:50,944 - INFO - Found working proxy: 212.127.95.235:8081 (latency: 0.53s)
+2025-01-26 12:35:52,289 - INFO - Found working proxy: 133.167.65.66:80 (latency: 1.88s)
+2025-01-26 12:35:54,274 - INFO - Found working proxy: 157.245.97.60:443 (latency: 1.84s)
+2025-01-26 12:35:56,227 - INFO - Found working proxy: 175.34.36.22:8888 (latency: 1.27s)
+2025-01-26 12:35:57,331 - INFO - Found working proxy: 114.35.140.157:8080 (latency: 0.74s)
+2025-01-26 12:35:57,431 - INFO - Found working proxy: 45.85.36.83:80 (latency: 0.53s)
+2025-01-26 12:35:59,851 - INFO - Found working proxy: 103.217.216.70:8080 (latency: 3.01s)
+2025-01-26 12:35:59,853 - INFO - Found 17 working proxies out of 400 tested
+2025-01-26 12:35:59,854 - INFO - Starting download of 1 images using 17 working proxies
+2025-01-26 12:35:59,854 - INFO - Processing batch 1 (1 images)
+2025-01-26 12:35:59,854 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp using proxy 154.16.146.43:80
+2025-01-26 12:35:59,974 - WARNING - Attempt 1/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: HTTPSConnectionPool(host='cdn.mxb-mods.com', port=443): Max retries exceeded with url: /wp-content/uploads/2024/12/SSXTN-png.webp (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2025-01-26 12:36:01,067 - WARNING - Attempt 2/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: HTTPSConnectionPool(host='cdn.mxb-mods.com', port=443): Max retries exceeded with url: /wp-content/uploads/2024/12/SSXTN-png.webp (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2025-01-26 12:36:02,187 - WARNING - Attempt 3/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: HTTPSConnectionPool(host='cdn.mxb-mods.com', port=443): Max retries exceeded with url: /wp-content/uploads/2024/12/SSXTN-png.webp (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2025-01-26 12:36:02,187 - ERROR - All attempts failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp
+2025-01-26 12:36:02,188 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp using proxy 130.61.111.246:6379
+2025-01-26 12:36:02,447 - WARNING - Attempt 1/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: HTTPSConnectionPool(host='cdn.mxb-mods.com', port=443): Max retries exceeded with url: /wp-content/uploads/2024/12/SSXTN-png.webp (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 407 Proxy Authentication Required')))
+2025-01-26 12:36:03,712 - WARNING - Attempt 2/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: HTTPSConnectionPool(host='cdn.mxb-mods.com', port=443): Max retries exceeded with url: /wp-content/uploads/2024/12/SSXTN-png.webp (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 407 Proxy Authentication Required')))
+2025-01-26 12:36:04,977 - WARNING - Attempt 3/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: HTTPSConnectionPool(host='cdn.mxb-mods.com', port=443): Max retries exceeded with url: /wp-content/uploads/2024/12/SSXTN-png.webp (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 407 Proxy Authentication Required')))
+2025-01-26 12:36:04,977 - ERROR - All attempts failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp
+2025-01-26 12:36:04,977 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp using proxy 83.168.74.163:8080
+2025-01-26 12:36:05,273 - WARNING - Attempt 1/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: ('Connection aborted.', BadStatusLine('<html>\r\n'))
+2025-01-26 12:36:06,571 - WARNING - Attempt 2/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: ('Connection aborted.', BadStatusLine('<html>\r\n'))
+2025-01-26 12:39:56,565 - INFO - Initialized SpysProxyParser with URL: https://spys.me/proxy.txt
+2025-01-26 12:39:56,565 - INFO - Starting proxy fetch and test process...
+2025-01-26 12:39:56,565 - INFO - Attempting to fetch proxies...
+2025-01-26 12:39:56,978 - INFO - Found 408 lines in proxy list
+2025-01-26 12:39:56,979 - INFO - Successfully parsed 400 valid proxies
+2025-01-26 12:39:56,980 - INFO - Reading image URLs from data/image_links.txt
+2025-01-26 12:39:56,981 - INFO - Found 5295 image URLs
+2025-01-26 12:40:02,808 - INFO - Testing 400 proxies with 50 threads
+2025-01-26 12:40:03,349 - INFO - Found working proxy: 130.61.111.246:6379 (latency: 0.53s)
+2025-01-26 12:40:05,528 - INFO - Found working proxy: 95.66.244.250:8080 (latency: 0.69s)
+2025-01-26 12:40:06,439 - INFO - Found working proxy: 83.168.74.163:8080 (latency: 0.53s)
+2025-01-26 12:40:07,053 - INFO - Found working proxy: 79.110.202.184:8081 (latency: 0.52s)
+2025-01-26 12:40:07,418 - INFO - Found working proxy: 212.127.95.235:8081 (latency: 0.52s)
+2025-01-26 12:40:10,062 - INFO - Found working proxy: 175.34.36.22:8888 (latency: 0.96s)
+2025-01-26 12:40:10,626 - INFO - Found working proxy: 45.85.36.83:80 (latency: 0.51s)
+2025-01-26 12:40:10,702 - INFO - Found working proxy: 114.35.140.157:8080 (latency: 0.76s)
+2025-01-26 12:40:11,187 - INFO - Found 8 working proxies out of 400 tested
+2025-01-26 12:40:11,188 - INFO - Saved 8 working proxies to file
+2025-01-26 12:40:11,188 - INFO - Starting download of 1 images using 8 working proxies
+2025-01-26 12:40:11,188 - INFO - Processing batch 1 (1 images)
+2025-01-26 12:40:11,189 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp using proxy 45.85.36.83:80
+2025-01-26 12:40:11,529 - WARNING - Attempt 1/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: HTTPSConnectionPool(host='cdn.mxb-mods.com', port=443): Max retries exceeded with url: /wp-content/uploads/2024/12/SSXTN-png.webp (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 400 Bad Request')))
+2025-01-26 12:40:12,871 - WARNING - Attempt 2/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: HTTPSConnectionPool(host='cdn.mxb-mods.com', port=443): Max retries exceeded with url: /wp-content/uploads/2024/12/SSXTN-png.webp (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 400 Bad Request')))
+2025-01-26 12:40:14,216 - WARNING - Attempt 3/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: HTTPSConnectionPool(host='cdn.mxb-mods.com', port=443): Max retries exceeded with url: /wp-content/uploads/2024/12/SSXTN-png.webp (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 400 Bad Request')))
+2025-01-26 12:40:14,216 - ERROR - All attempts failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp
+2025-01-26 12:40:14,216 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp using proxy 79.110.202.184:8081
+2025-01-26 12:40:14,513 - WARNING - Attempt 1/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: ('Connection aborted.', BadStatusLine('<html>\r\n'))
+2025-01-26 12:40:15,817 - WARNING - Attempt 2/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: ('Connection aborted.', BadStatusLine('<html>\r\n'))
+2025-01-26 12:40:17,116 - WARNING - Attempt 3/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: ('Connection aborted.', BadStatusLine('<html>\r\n'))
+2025-01-26 12:40:17,117 - ERROR - All attempts failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp
+2025-01-26 12:40:17,117 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp using proxy 212.127.95.235:8081
+2025-01-26 12:40:17,418 - WARNING - Attempt 1/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: ('Connection aborted.', BadStatusLine('<html>\r\n'))
+2025-01-26 12:40:18,717 - WARNING - Attempt 2/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: ('Connection aborted.', BadStatusLine('<html>\r\n'))
+2025-01-26 12:40:20,017 - WARNING - Attempt 3/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: ('Connection aborted.', BadStatusLine('<html>\r\n'))
+2025-01-26 12:40:20,018 - ERROR - All attempts failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp
+2025-01-26 12:40:20,018 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp using proxy 83.168.74.163:8080
+2025-01-26 12:40:20,316 - WARNING - Attempt 1/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: ('Connection aborted.', BadStatusLine('<html>\r\n'))
+2025-01-26 12:40:21,615 - WARNING - Attempt 2/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: ('Connection aborted.', BadStatusLine('<html>\r\n'))
+2025-01-26 12:40:22,916 - WARNING - Attempt 3/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: ('Connection aborted.', BadStatusLine('<html>\r\n'))
+2025-01-26 12:40:22,917 - ERROR - All attempts failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp
+2025-01-26 12:40:22,917 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp using proxy 130.61.111.246:6379
+2025-01-26 12:40:23,187 - WARNING - Attempt 1/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: HTTPSConnectionPool(host='cdn.mxb-mods.com', port=443): Max retries exceeded with url: /wp-content/uploads/2024/12/SSXTN-png.webp (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 407 Proxy Authentication Required')))
+2025-01-26 12:40:24,719 - WARNING - Attempt 2/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: HTTPSConnectionPool(host='cdn.mxb-mods.com', port=443): Max retries exceeded with url: /wp-content/uploads/2024/12/SSXTN-png.webp (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 407 Proxy Authentication Required')))
+2025-01-26 12:40:25,998 - WARNING - Attempt 3/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: HTTPSConnectionPool(host='cdn.mxb-mods.com', port=443): Max retries exceeded with url: /wp-content/uploads/2024/12/SSXTN-png.webp (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 407 Proxy Authentication Required')))
+2025-01-26 12:40:25,999 - ERROR - All attempts failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp
+2025-01-26 12:40:25,999 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp using proxy 95.66.244.250:8080
+2025-01-26 12:40:26,338 - WARNING - Attempt 1/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2025-01-26 12:40:27,722 - WARNING - Attempt 2/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2025-01-26 12:40:29,105 - WARNING - Attempt 3/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: HTTPSConnectionPool(host='cdn.mxb-mods.com', port=443): Max retries exceeded with url: /wp-content/uploads/2024/12/SSXTN-png.webp (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 400 Bad Request')))
+2025-01-26 12:40:29,105 - ERROR - All attempts failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp
+2025-01-26 12:40:29,105 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp using proxy 114.35.140.157:8080
+2025-01-26 12:40:29,503 - WARNING - Attempt 1/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: HTTPSConnectionPool(host='cdn.mxb-mods.com', port=443): Max retries exceeded with url: /wp-content/uploads/2024/12/SSXTN-png.webp (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 400 Bad Request')))
+2025-01-26 12:40:30,851 - WARNING - Attempt 2/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: HTTPSConnectionPool(host='cdn.mxb-mods.com', port=443): Max retries exceeded with url: /wp-content/uploads/2024/12/SSXTN-png.webp (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 400 Bad Request')))
+2025-01-26 12:40:32,197 - WARNING - Attempt 3/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: HTTPSConnectionPool(host='cdn.mxb-mods.com', port=443): Max retries exceeded with url: /wp-content/uploads/2024/12/SSXTN-png.webp (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 400 Bad Request')))
+2025-01-26 12:40:32,197 - ERROR - All attempts failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp
+2025-01-26 12:40:32,198 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp using proxy 175.34.36.22:8888
+2025-01-26 12:40:32,624 - WARNING - Attempt 1/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2025-01-26 12:40:34,045 - WARNING - Attempt 2/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: HTTPSConnectionPool(host='cdn.mxb-mods.com', port=443): Max retries exceeded with url: /wp-content/uploads/2024/12/SSXTN-png.webp (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 400 Bad Request')))
+2025-01-26 12:40:35,489 - WARNING - Attempt 3/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: HTTPSConnectionPool(host='cdn.mxb-mods.com', port=443): Max retries exceeded with url: /wp-content/uploads/2024/12/SSXTN-png.webp (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 400 Bad Request')))
+2025-01-26 12:40:35,490 - ERROR - All attempts failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp
+2025-01-26 12:40:35,490 - WARNING - Failed to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp with any proxy
+2025-01-26 12:40:35,490 - INFO - Downloaded 0 out of 1 requested images
+2025-01-26 13:03:30,303 - INFO - Initialized SpysProxyParser with URL: https://spys.me/proxy.txt
+2025-01-26 13:03:30,303 - INFO - Starting proxy fetch and test process...
+2025-01-26 13:03:30,303 - INFO - Attempting to fetch proxies...
+2025-01-26 13:03:30,841 - INFO - Found 408 lines in proxy list
+2025-01-26 13:03:30,842 - INFO - Successfully parsed 400 valid proxies
+2025-01-26 13:03:30,843 - INFO - Loaded 8 working proxies from file
+2025-01-26 13:03:30,843 - INFO - Using cached working proxies
+2025-01-26 13:03:30,843 - INFO - Updated PAC file with 8 proxies
+2025-01-26 13:03:30,843 - INFO - Using fastest proxy: 45.85.36.83:80 (latency: 0.51s)
+2025-01-26 13:03:30,882 - ERROR - Failed to set Windows proxy: Command 'netsh winhttp set proxy 45.85.36.83:80' returned non-zero exit status 1.
+2025-01-26 13:05:40,198 - INFO - Initialized SpysProxyParser with URL: https://spys.me/proxy.txt
+2025-01-26 13:05:40,198 - INFO - Starting proxy fetch and test process...
+2025-01-26 13:05:40,199 - INFO - Attempting to fetch proxies...
+2025-01-26 13:05:40,607 - INFO - Found 408 lines in proxy list
+2025-01-26 13:05:40,607 - INFO - Successfully parsed 400 valid proxies
+2025-01-26 13:05:40,607 - INFO - Reading image URLs from data/image_links.txt
+2025-01-26 13:05:40,609 - INFO - Found 5295 image URLs
+2025-01-26 13:05:55,925 - INFO - Testing 400 proxies with 20 threads
+2025-01-26 13:05:57,910 - INFO - Found working proxy: 61.239.128.81:8080 (latency: 0.96s)
+2025-01-26 13:05:58,482 - INFO - Found working proxy: 79.110.202.184:8081 (latency: 0.52s)
+2025-01-26 13:05:58,777 - INFO - Found working proxy: 209.126.80.76:3128 (latency: 0.83s)
+2025-01-26 13:06:00,550 - INFO - Found working proxy: 178.217.89.78:8080 (latency: 0.57s)
+2025-01-26 13:06:00,684 - INFO - Found working proxy: 212.108.155.170:9090 (latency: 0.71s)
+2025-01-26 13:06:02,400 - INFO - Found working proxy: 130.61.111.246:6379 (latency: 0.38s)
+2025-01-26 13:06:03,776 - INFO - Found working proxy: 114.35.140.157:8080 (latency: 0.76s)
+2025-01-26 13:06:03,914 - INFO - Found working proxy: 31.47.58.37:80 (latency: 0.90s)
+2025-01-26 13:06:04,074 - INFO - Found working proxy: 154.16.146.43:80 (latency: 0.16s)
+2025-01-26 13:06:04,627 - INFO - Found working proxy: 212.127.95.235:8081 (latency: 0.52s)
+2025-01-26 13:06:06,538 - INFO - Found working proxy: 45.85.36.83:80 (latency: 0.52s)
+2025-01-26 13:06:09,646 - INFO - Found working proxy: 78.80.228.150:80 (latency: 0.57s)
+2025-01-26 13:06:16,622 - INFO - Found 12 working proxies out of 400 tested
+2025-01-26 13:06:16,623 - INFO - Saved 12 working proxies to file
+2025-01-26 13:06:16,624 - INFO - Starting download of 1 images using 12 working proxies
+2025-01-26 13:06:16,624 - INFO - Processing batch 1 (1 images)
+2025-01-26 13:06:16,624 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp using proxy 154.16.146.43:80
+2025-01-26 13:06:16,714 - WARNING - Attempt 1/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: HTTPSConnectionPool(host='cdn.mxb-mods.com', port=443): Max retries exceeded with url: /wp-content/uploads/2024/12/SSXTN-png.webp (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2025-01-26 13:06:17,823 - WARNING - Attempt 2/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: HTTPSConnectionPool(host='cdn.mxb-mods.com', port=443): Max retries exceeded with url: /wp-content/uploads/2024/12/SSXTN-png.webp (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2025-01-26 13:06:18,945 - WARNING - Attempt 3/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: HTTPSConnectionPool(host='cdn.mxb-mods.com', port=443): Max retries exceeded with url: /wp-content/uploads/2024/12/SSXTN-png.webp (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2025-01-26 13:06:18,945 - ERROR - All attempts failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp
+2025-01-26 13:06:18,945 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp using proxy 130.61.111.246:6379
+2025-01-26 13:06:19,204 - WARNING - Attempt 1/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: HTTPSConnectionPool(host='cdn.mxb-mods.com', port=443): Max retries exceeded with url: /wp-content/uploads/2024/12/SSXTN-png.webp (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 407 Proxy Authentication Required')))
+2025-01-26 13:06:20,463 - WARNING - Attempt 2/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: HTTPSConnectionPool(host='cdn.mxb-mods.com', port=443): Max retries exceeded with url: /wp-content/uploads/2024/12/SSXTN-png.webp (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 407 Proxy Authentication Required')))
+2025-01-26 13:06:21,719 - WARNING - Attempt 3/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: HTTPSConnectionPool(host='cdn.mxb-mods.com', port=443): Max retries exceeded with url: /wp-content/uploads/2024/12/SSXTN-png.webp (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 407 Proxy Authentication Required')))
+2025-01-26 13:06:21,720 - ERROR - All attempts failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp
+2025-01-26 13:06:21,720 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp using proxy 45.85.36.83:80
+2025-01-26 13:06:22,060 - WARNING - Attempt 1/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: HTTPSConnectionPool(host='cdn.mxb-mods.com', port=443): Max retries exceeded with url: /wp-content/uploads/2024/12/SSXTN-png.webp (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 400 Bad Request')))
+2025-01-26 13:06:24,406 - WARNING - Attempt 2/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: HTTPSConnectionPool(host='cdn.mxb-mods.com', port=443): Max retries exceeded with url: /wp-content/uploads/2024/12/SSXTN-png.webp (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 400 Bad Request')))
+2025-01-26 13:06:26,766 - WARNING - Attempt 3/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: HTTPSConnectionPool(host='cdn.mxb-mods.com', port=443): Max retries exceeded with url: /wp-content/uploads/2024/12/SSXTN-png.webp (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 400 Bad Request')))
+2025-01-26 13:06:26,766 - ERROR - All attempts failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp
+2025-01-26 13:06:26,766 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp using proxy 212.127.95.235:8081
+2025-01-26 13:06:27,063 - WARNING - Attempt 1/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: ('Connection aborted.', BadStatusLine('<html>\r\n'))
+2025-01-26 13:06:28,360 - WARNING - Attempt 2/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: ('Connection aborted.', BadStatusLine('<html>\r\n'))
+2025-01-26 13:06:29,660 - WARNING - Attempt 3/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: ('Connection aborted.', BadStatusLine('<html>\r\n'))
+2025-01-26 13:06:29,661 - ERROR - All attempts failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp
+2025-01-26 13:06:29,661 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp using proxy 79.110.202.184:8081
+2025-01-26 13:06:29,954 - WARNING - Attempt 1/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: ('Connection aborted.', BadStatusLine('<html>\r\n'))
+2025-01-26 13:06:31,253 - WARNING - Attempt 2/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: ('Connection aborted.', BadStatusLine('<html>\r\n'))
+2025-01-26 13:06:32,555 - WARNING - Attempt 3/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: ('Connection aborted.', BadStatusLine('<html>\r\n'))
+2025-01-26 13:06:32,555 - ERROR - All attempts failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp
+2025-01-26 13:06:32,555 - INFO - Attempting to download https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp using proxy 178.217.89.78:8080
+2025-01-26 13:06:32,880 - WARNING - Attempt 1/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: ('Connection aborted.', BadStatusLine('<html>\r\n'))
+2025-01-26 13:06:34,200 - WARNING - Attempt 2/3 failed for https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp: ('Connection aborted.', BadStatusLine('<html>\r\n'))
+2025-01-26 13:06:35,556 - INFO - Initialized SpysProxyParser with URL: https://spys.me/proxy.txt
+2025-01-26 13:06:35,557 - INFO - Starting proxy fetch and test process...
+2025-01-26 13:06:35,557 - INFO - Attempting to fetch proxies...
+2025-01-26 13:06:35,951 - INFO - Found 408 lines in proxy list
+2025-01-26 13:06:35,953 - INFO - Successfully parsed 400 valid proxies
+2025-01-26 13:06:35,953 - INFO - Loaded 12 working proxies from file
+2025-01-26 13:06:35,953 - INFO - Using cached working proxies
+2025-01-26 13:06:35,954 - INFO - Updated PAC file with 12 proxies
+2025-01-26 13:06:35,954 - INFO - Using fastest proxy: 154.16.146.43:80 (latency: 0.16s)
+2025-01-26 13:06:35,989 - ERROR - Failed to set Windows proxy: Command 'netsh winhttp set proxy 154.16.146.43:80' returned non-zero exit status 1.
+2025-01-26 13:06:37,935 - INFO - Initialized SpysProxyParser with URL: https://spys.me/proxy.txt
+2025-01-26 13:06:37,935 - INFO - Starting proxy fetch and test process...
+2025-01-26 13:06:37,935 - INFO - Attempting to fetch proxies...
+2025-01-26 13:06:38,377 - INFO - Found 408 lines in proxy list
+2025-01-26 13:06:38,378 - INFO - Successfully parsed 400 valid proxies
+2025-01-26 13:06:38,378 - INFO - Loaded 12 working proxies from file
+2025-01-26 13:06:38,378 - INFO - Using cached working proxies
+2025-01-26 13:06:38,378 - INFO - Updated PAC file with 12 proxies
+2025-01-26 13:06:38,379 - INFO - Using fastest proxy: 154.16.146.43:80 (latency: 0.16s)
+2025-01-26 13:06:38,410 - ERROR - Failed to set Windows proxy: Command 'netsh winhttp set proxy 154.16.146.43:80' returned non-zero exit status 1.
+2025-01-26 13:07:26,104 - INFO - Initialized SpysProxyParser with URL: https://spys.me/proxy.txt
+2025-01-26 13:07:26,105 - INFO - Starting proxy fetch and test process...
+2025-01-26 13:07:26,105 - INFO - Attempting to fetch proxies...
+2025-01-26 13:07:26,519 - INFO - Found 408 lines in proxy list
+2025-01-26 13:07:26,520 - INFO - Successfully parsed 400 valid proxies
+2025-01-26 13:07:26,520 - INFO - Testing 400 proxies with 20 threads
+2025-01-26 13:07:27,641 - INFO - Found working proxy: 219.65.73.81:80 (latency: 1.12s)
+2025-01-26 13:07:28,374 - INFO - Found working proxy: 61.239.128.81:8080 (latency: 0.83s)
+2025-01-26 13:07:28,568 - INFO - Found working proxy: 38.49.151.106:999 (latency: 1.04s)
+2025-01-26 13:07:29,098 - INFO - Found working proxy: 79.110.202.184:8081 (latency: 0.53s)
+2025-01-26 13:07:31,185 - INFO - Found working proxy: 178.217.89.78:8080 (latency: 0.60s)
+2025-01-26 13:07:32,627 - INFO - Found working proxy: 175.34.36.22:8888 (latency: 0.94s)
+2025-01-26 13:07:33,086 - INFO - Found working proxy: 130.61.111.246:6379 (latency: 0.35s)
+2025-01-26 13:07:34,383 - INFO - Found working proxy: 114.35.140.157:8080 (latency: 0.75s)
+2025-01-26 13:07:34,768 - INFO - Found working proxy: 154.16.146.43:80 (latency: 0.15s)
+2025-01-26 13:07:35,306 - INFO - Found working proxy: 212.127.95.235:8081 (latency: 0.53s)
+2025-01-26 13:07:39,493 - INFO - Found working proxy: 103.49.114.5:8080 (latency: 1.07s)
+2025-01-26 13:07:40,871 - INFO - Found working proxy: 43.132.208.197:3128 (latency: 0.83s)
+2025-01-26 13:07:47,189 - INFO - Found 12 working proxies out of 400 tested
+2025-01-26 13:07:47,190 - INFO - Saved 12 working proxies to file
+2025-01-26 13:07:47,190 - INFO - Updated PAC file with 12 proxies
+2025-01-26 13:08:03,155 - INFO - Attempting to set fastest proxy: 154.16.146.43:80 (latency: 0.15s)
+2025-01-26 13:08:03,188 - WARNING - Failed to set Windows proxy (requires admin privileges): Command 'netsh winhttp set proxy 154.16.146.43:80' returned non-zero exit status 1.
+2025-01-26 13:08:03,188 - INFO - To set system proxy manually:
+2025-01-26 13:08:03,188 - INFO - 1. Run Command Prompt as Administrator
+2025-01-26 13:08:03,188 - INFO - 2. Run command: netsh winhttp set proxy 154.16.146.43:80
+2025-01-26 13:08:03,188 - INFO - 
+Summary:
+2025-01-26 13:08:03,189 - INFO - - Found 12 working proxies
+2025-01-26 13:08:03,189 - INFO - - Updated proxy.pac file in data/proxy.pac
+2025-01-26 13:08:03,189 - INFO - - Fastest proxy: 154.16.146.43:80 (latency: 0.15s)
+2025-01-26 13:12:16,542 - INFO - Initialized SpysProxyParser with URL: https://spys.me/proxy.txt
+2025-01-26 13:12:16,542 - INFO - Starting proxy fetch and test process...
+2025-01-26 13:12:16,542 - INFO - Attempting to fetch proxies...
+2025-01-26 13:12:17,033 - INFO - Found 408 lines in proxy list
+2025-01-26 13:12:17,034 - INFO - Successfully parsed 400 valid proxies
+2025-01-26 13:12:17,034 - INFO - Testing 400 proxies with 20 threads
+2025-01-26 13:12:18,899 - INFO - Found working proxy: 61.239.128.81:8080 (latency: 0.84s)
+2025-01-26 13:12:19,593 - INFO - Found working proxy: 79.110.202.184:8081 (latency: 0.52s)
+2025-01-26 13:12:23,474 - INFO - Found working proxy: 130.61.111.246:6379 (latency: 0.35s)
+2025-01-26 13:12:24,875 - INFO - Found working proxy: 114.35.140.157:8080 (latency: 0.74s)
+2025-01-26 13:12:25,301 - INFO - Found working proxy: 154.16.146.43:80 (latency: 0.16s)
+2025-01-26 13:12:25,308 - INFO - Found working proxy: 31.47.58.37:80 (latency: 1.18s)
+2025-01-26 13:12:26,013 - INFO - Found working proxy: 212.127.95.235:8081 (latency: 0.70s)
+2025-01-26 13:12:29,599 - INFO - Found working proxy: 103.49.114.5:8080 (latency: 1.00s)
+2025-01-26 13:12:30,564 - INFO - Found working proxy: 187.190.127.212:8081 (latency: 1.12s)
+2025-01-26 13:12:31,492 - INFO - Found working proxy: 1.237.239.168:80 (latency: 1.12s)
+2025-01-26 13:12:37,641 - INFO - Found 10 working proxies out of 400 tested
+2025-01-26 13:12:37,641 - INFO - Saved 10 working proxies to file
+2025-01-26 13:12:37,642 - INFO - Updated PAC file with 10 proxies
+2025-01-26 13:12:37,642 - INFO - 
+PAC file location (copy this to Windows proxy settings):
+2025-01-26 13:12:37,643 - INFO - file:///C:/Users/alexa/Documents/GitHub/mxbikes.net/data/proxy.pac
+2025-01-26 13:12:37,643 - INFO - 
+Verifying proxy setup...
+2025-01-26 13:12:37,830 - INFO - Your direct IP: 204.60.15.243
+2025-01-26 13:12:37,988 - INFO - Fastest proxy IP (154.16.146.43:80): 154.16.115.97
+2025-01-26 13:12:37,991 - INFO - 
+To set up the proxy in Windows:
+2025-01-26 13:12:37,991 - INFO - 1. Open Windows Settings
+2025-01-26 13:12:37,991 - INFO - 2. Go to Network & Internet > Proxy
+2025-01-26 13:12:37,991 - INFO - 3. Scroll to 'Automatic proxy setup'
+2025-01-26 13:12:37,991 - INFO - 4. Enable 'Use setup script'
+2025-01-26 13:12:37,991 - INFO - 5. Copy and paste the PAC file location shown above into 'Script address'
+2025-01-26 13:12:37,992 - INFO - 6. Click Save
+2025-01-26 13:12:37,992 - INFO - 
+To verify it's working:
+2025-01-26 13:12:37,992 - INFO - 1. Open PowerShell and run:
+2025-01-26 13:12:37,992 - INFO -    Invoke-WebRequest -Uri http://httpbin.org/ip | Select-Object -ExpandProperty Content
+2025-01-26 13:12:37,992 - INFO - 2. The IP should be one of these proxy IPs:
+2025-01-26 13:12:37,992 - INFO -    - 154.16.146.43:80 (latency: 0.16s)
+2025-01-26 13:12:37,992 - INFO -    - 130.61.111.246:6379 (latency: 0.35s)
+2025-01-26 13:12:37,992 - INFO -    - 79.110.202.184:8081 (latency: 0.52s)

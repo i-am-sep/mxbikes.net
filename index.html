@@ -3,10 +3,20 @@
 <head>
     <title>MXBikes.net - Home</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="static/styles.css">
 </head>
 <body>
-    {% include '_nav.html' %}
+    <div class="header">
+        <div class="tabs">
+            <a href="index.html" class="tab home active">Home</a>
+            <a href="tracks.html" class="tab tracks">Tracks</a>
+            <a href="bikes.html" class="tab bikes">Bikes</a>
+            <a href="rider.html" class="tab rider disabled">Rider</a>
+            <a href="ranked.html" class="tab ranked disabled">Ranked</a>
+            <a href="championship.html" class="tab championship disabled">Championship</a>
+            <a href="downloads.html" class="tab downloads">Downloads</a>
+        </div>
+    </div>
 
     <div id="infoModal" class="modal" onclick="closeModal()">
         <div class="modal-content" onclick="event.stopPropagation()">
@@ -158,6 +168,6 @@
         </div>
     </div>
 
-    <script src="/static/scripts.js"></script>
+    <script src="static/scripts.js"></script>
 </body>
 </html>

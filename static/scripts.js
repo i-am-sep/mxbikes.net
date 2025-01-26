@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
      */
     function getPlaceholderImage() {
         return document.querySelector('meta[name="placeholder-image"]')?.content 
-            || '/static/assets/images/placeholder.jpg';
+            || 'static/assets/images/placeholder.jpg';
     }
 
     /**
@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!UI.tracksList) return;
 
         try {
-            const response = await fetch('/static/data/tracks.json');
+            const response = await fetch('static/data/tracks.json');
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
@@ -150,6 +150,15 @@ document.addEventListener('DOMContentLoaded', function() {
             renderTracks(state.allTracks);
         } catch (error) {
             handleError('Error loading tracks', error);
+            // For GitHub Pages, show a message about tracks being unavailable
+            if (window.location.protocol === 'file:') {
+                UI.tracksList.innerHTML = `
+                    <div class="card">
+                        <h2 class="popup-title">Tracks Unavailable</h2>
+                        <p class="track-description">Track listings are only available when viewing the site through a web server.</p>
+                    </div>
+                `;
+            }
         }
     }
 
