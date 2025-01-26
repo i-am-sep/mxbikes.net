@@ -4,6 +4,7 @@
     <title>MXBikes.net - Tracks</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <meta name="placeholder-image" content="{{ url_for('static', filename='assets/images/placeholder.jpg') }}">
 </head>
 <body>
     {% include '_nav.html' %} 
@@ -12,6 +13,13 @@
         <div class="search-container">
             <div class="search-bar-wrapper">
                 <input type="text" class="search-bar" placeholder="Search tracks...">
+            </div>
+            <div class="category-filters">
+                <button class="category active" data-category="all">All Tracks</button>
+                <button class="category" data-category="supercross">Supercross</button>
+                <button class="category" data-category="motocross">Motocross</button>
+                <button class="category" data-category="freestyle">Freestyle</button>
+                <button class="category" data-category="other">Other</button>
             </div>
         </div>
 
@@ -23,7 +31,7 @@
             <div class="modal-content">
                 <button id="popup-close" class="popup-close">×</button>
                 <h2 id="popup-title" class="popup-title"></h2>
-                <img id="popup-image" class="popup-image" src="" alt="Track Image">
+                <img id="popup-image" class="popup-image" src="{{ url_for('static', filename='assets/images/placeholder.jpg') }}" alt="Track Image">
                 <p id="popup-description" class="popup-description"></p>
                 <div id="popup-downloads" class="download-links-grid"></div>
             </div>

@@ -1,5 +1,5 @@
 import os
-from flask import Flask
+from flask import Flask, send_from_directory
 from config import Config, config
 from app.extensions import db, init_extensions
 
@@ -31,6 +31,11 @@ def create_app(config_class=Config):
     # Register main routes blueprint
     from app.routes import main
     app.register_blueprint(main)
+
+    # Add route to serve data files
+    @app.route('/data/<path:filename>')
+    def serve_data(filename):
+        return send_from_directory('../data', filename)
 
     # Register error handlers
     @app.errorhandler(404)

@@ -1,132 +1,78 @@
 import json
-from typing import Iterator, Dict, Any, List
-import ijson  # For streaming JSON parsing
-from app.models.product import Product
+import os
+from typing import Dict, List, Generator
+import ijson  # We'll need to add this to requirements.txt
 
-def stream_json_objects(file_path: str, batch_size: int = 10) -> Iterator[List[Dict[str, Any]]]:
+def extract_tracks_from_mods(mods_path: str, output_path: str) -> bool:
     """
-    Stream JSON objects from a file in batches to reduce memory usage.
-    
-    Args:
-        file_path: Path to the JSON file
-        batch_size: Number of objects to yield in each batch
+    Safely extracts track data from mods.json and saves to tracks.json
+    Uses streaming parser to avoid loading entire file into memory
+    """
+    try:
+        tracks = []
         
-    Yields:
-        List of dictionaries containing JSON objects
-    """
-    batch = []
-    with open(file_path, 'r', encoding='utf-8') as file:
-        data = json.load(file)
-        for url, track_data in data.items():
-            # Add URL to track data
-            track_data['url'] = url
-            batch.append(track_data)
+        # Stream parse the mods.json file
+        with open(mods_path, 'rb') as file:
+            parser = ijson.parse(file)
+            current_item = {}
+            in_item = False
             
-            if len(batch) >= batch_size:
-                yield batch
-                batch = []
-        
-        # Yield any remaining items in the last batch
-        if batch:
-            yield batch
+            for prefix, event, value in parser:
+                # Start of a new item
+                if prefix.endswith('.type'):
+                    in_item = (value == 'track')
+                    if in_item:
+                        current_item = {'type': 'track'}
+                
+                # Collect relevant fields for tracks
+                elif in_item:
+                    if prefix.endswith('.title'):
+                        current_item['title'] = value
+                    elif prefix.endswith('.creator'):
+                        current_item['creator'] = value
+                    elif prefix.endswith('.description'):
+                        current_item['description'] = value
+                    elif prefix.endswith('.category'):
+                        current_item['category'] = value
+                    elif prefix.endswith('.images.cover'):
+                        current_item.setdefault('images', {})['cover'] = value
+                    elif prefix.endswith('.downloads.links'):
+                        current_item.setdefault('downloads', {})['links'] = value
+                    
+                    # End of current item
+                    if event == 'end_map':
+                        if current_item.get('type') == 'track':
+                            tracks.append(current_item)
+                        current_item = {}
+                        in_item = False
 
-def validate_track_data(data: Dict[str, Any]) -> bool:
-    """
-    Validate track data before insertion.
-    
-    Args:
-        data: Track data dictionary
-        
-    Returns:
-        bool: True if data is valid, False otherwise
-    """
-    # Extract title from URL if title is N/A
-    if data.get('title') == 'N/A':
-        url = data.get('url', '')
-        # Extract name from URL (e.g., "smoksta-flowsdale-mx" from "https://mxb-mods.com/smoksta-flowsdale-mx/")
-        title = url.rstrip('/').split('/')[-1].replace('-', ' ').title()
-        data['title'] = title
-    
-    # Extract creator from URL if creator is N/A
-    if data.get('creator') == 'N/A':
-        url = data.get('url', '')
-        parts = url.rstrip('/').split('/')[-1].split('-')
-        if parts:
-            data['creator'] = parts[0].title()
-    
-    # Generate description if N/A
-    if data.get('description') == 'N/A':
-        data['description'] = f"Track available at {data.get('url', 'Unknown URL')}"
-    
-    # Basic validation
-    required_fields = ['title', 'description', 'creator', 'url']
-    return all(data.get(field) for field in required_fields)
-
-def map_to_product(data: Dict[str, Any], product_type: str = 'track') -> Dict[str, Any]:
-    """
-    Map JSON data to Product model fields with enhanced validation.
-    
-    Args:
-        data: JSON object containing track data
-        product_type: Type of product ('mod' or 'track')
-        
-    Returns:
-        Dict containing mapped Product fields
-    """
-    # Extract download count from nested structure
-    download_count = data.get('downloads', {}).get('download_count', 0)
-    
-    # Extract download links if available
-    download_links = data.get('downloads', {}).get('by_host', {})
-    all_links = []
-    for host_links in download_links.values():
-        if isinstance(host_links, list):
-            all_links.extend(host_links)
-    
-    # Add the URL as a download link if no other links are available
-    if not all_links and data.get('url'):
-        all_links.append(data['url'])
-    
-    # Process images
-    images_data = data.get('images', {})
-    if not isinstance(images_data, dict):
-        images_data = {}
-    
-    # Map the data
-    return {
-        'name': data.get('title', 'Untitled').strip(),
-        'description': data.get('description', '').strip(),
-        'price': 0.0,  # All tracks are free
-        'product_type': product_type,
-        'mod_type': 'free',
-        'creator': data.get('creator', 'Unknown').strip(),
-        'images': json.dumps({
-            'cover': images_data.get('cover', ''),
-            'additional': images_data.get('additional', [])
-        }),
-        'downloads': json.dumps({
-            'links': all_links,
-            'count': download_count
-        }),
-        'guid_required': False,
-        'download_count': download_count
-    }
-
-def process_tracks_batch(batch: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-    """
-    Process a batch of track data with validation.
-    
-    Args:
-        batch: List of track data dictionaries
-        
-    Returns:
-        List of validated and mapped Product dictionaries
-    """
-    processed_tracks = []
-    
-    for track_data in batch:
-        if validate_track_data(track_data):
-            mapped_data = map_to_product(track_data, 'track')
-            processed_tracks.append(mapped_data)
+        # Save extracted tracks to tracks.json
+        output_dir = os.path.dirname(output_path)
+        if not os.path.exists(output_dir):
+            os.makedirs(output_dir)
             
-    return processed_tracks
+        with open(output_path, 'w', encoding='utf-8') as f:
+            json.dump({
+                'items': tracks,
+                'total': len(tracks),
+                'type': 'tracks'
+            }, f, indent=2)
+            
+        return True
+        
+    except Exception as e:
+        print(f"Error extracting tracks: {str(e)}")
+        return False
+
+def update_tracks_json():
+    """
+    Updates tracks.json with latest track data from mods.json
+    """
+    mods_path = os.path.join('data', 'mods.json')
+    tracks_path = os.path.join('static', 'data', 'tracks.json')
+    
+    if not os.path.exists(mods_path):
+        print("mods.json not found")
+        return False
+        
+    return extract_tracks_from_mods(mods_path, tracks_path)

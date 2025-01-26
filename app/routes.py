@@ -1,4 +1,6 @@
-from flask import render_template, Blueprint
+from flask import render_template, Blueprint, jsonify
+from app.utils.json_parser import update_tracks_json
+import os
 
 main = Blueprint('main', __name__)
 
@@ -8,6 +10,15 @@ def index():
 
 @main.route('/tracks')
 def tracks():
+    # Update tracks.json if it doesn't exist or is older than mods.json
+    tracks_path = os.path.join('static', 'data', 'tracks.json')
+    mods_path = os.path.join('data', 'mods.json')
+    
+    if (not os.path.exists(tracks_path) or 
+        (os.path.exists(mods_path) and 
+         os.path.getmtime(mods_path) > os.path.getmtime(tracks_path))):
+        update_tracks_json()
+        
     return render_template('tracks.html')
 
 @main.route('/bikes')

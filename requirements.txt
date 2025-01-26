@@ -5,3 +5,4 @@ python-dotenv==1.0.0
 SQLAlchemy==2.0.37
 Werkzeug==2.3.7
 ijson==3.2.3
+PyJWT==2.8.0

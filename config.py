@@ -15,6 +15,13 @@ class Config:
 class DevelopmentConfig(Config):
     DEBUG = True
     
+class StagingConfig(Config):
+    DEBUG = True
+    TESTING = False
+    # Use staging-specific database
+    db_path = os.path.join(basedir, 'instance', 'staging.db')
+    SQLALCHEMY_DATABASE_URI = f'sqlite:///{db_path}'
+    
 class ProductionConfig(Config):
     DEBUG = False
     
@@ -25,6 +32,7 @@ class TestingConfig(Config):
 
 config = {
     'development': DevelopmentConfig,
+    'staging': StagingConfig,
     'production': ProductionConfig,
     'testing': TestingConfig,
     'default': DevelopmentConfig

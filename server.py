@@ -1,26 +1,19 @@
-from http.server import HTTPServer, SimpleHTTPRequestHandler
 import os
-            
-class CORSRequestHandler(SimpleHTTPRequestHandler):
-    def end_headers(self):
-        self.send_header('Access-Control-Allow-Origin', '*')
-        self.send_header('Access-Control-Allow-Methods', 'GET')
-        self.send_header('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type')
-        SimpleHTTPRequestHandler.end_headers(self)
+from app import create_app
 
-def run(server_class=HTTPServer, handler_class=CORSRequestHandler):
-    static_path = os.path.join(os.path.dirname(__file__), 'static')
-    os.chdir(static_path)
-    server_address = ('', 8000)  # Port 8000
-    httpd = server_class(server_address, handler_class)
-    try:
-        print(f"Server running on http://localhost:8000")
-        httpd.serve_forever()
-    except KeyboardInterrupt:
-        pass
-    finally:
-        httpd.server_close()
-        print("Server closed")
+# Get environment from FLASK_ENV, default to development
+env = os.environ.get('FLASK_ENV', 'development')
+app = create_app(env)
 
 if __name__ == '__main__':
-  run()
+    # Get port from environment variable or default to 5000
+    port = int(os.environ.get('PORT', 5000))
+    
+    # In production, use 0.0.0.0 to accept connections from any IP
+    host = '0.0.0.0' if env == 'production' else 'localhost'
+    
+    # Debug mode based on environment
+    debug = env in ['development', 'staging']
+    
+    print(f'Starting server in {env} mode on {host}:{port}')
+    app.run(host=host, port=port, debug=debug)
