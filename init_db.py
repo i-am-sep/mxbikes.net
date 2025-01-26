@@ -4,9 +4,29 @@ from app.extensions import db
 from app.models.user import User
 from app.models.product import Product
 from app.models.download import Download
-from app.utils.json_parser import stream_json_objects, process_tracks_batch
+from app.utils.json_parser import stream_json_objects
 from config import DevelopmentConfig
 from sqlalchemy import inspect
+import json
+
+def process_mod_data(mod):
+    """Process a single mod/track entry from mods.json"""
+    try:
+        return {
+            'name': mod.get('title', 'Untitled'),
+            'description': mod.get('description', 'No description available'),
+            'price': 0.0,  # Default to free
+            'product_type': mod.get('type', 'track'),
+            'mod_type': 'free',  # Default to free
+            'creator': mod.get('creator', 'Unknown'),
+            'images': json.dumps(mod.get('images', {})),
+            'downloads': json.dumps(mod.get('downloads', {'links': []})),
+            'guid_required': False,
+            'download_count': 0
+        }
+    except Exception as e:
+        print(f"Error processing mod data: {str(e)}")
+        return None
 
 def init_db(populate_data=True):
     # Get absolute path to instance directory using Windows-style separators
@@ -87,26 +107,26 @@ def init_db(populate_data=True):
                 for column in columns:
                     print(f"  - {column['name']}: {column['type']}")
 
-            # Populate database with track data if requested
+            # Populate database with mods/tracks data if requested
             if populate_data:
-                tracks_file = os.path.join(base_dir, 'data', 'track_details.json')
-                if os.path.exists(tracks_file):
-                    print("\nPopulating database with track data...")
-                    tracks_added = 0
+                mods_file = os.path.join(base_dir, 'data', 'DO NOT OPEN', 'mods.json')
+                if os.path.exists(mods_file):
+                    print("\nPopulating database with mods/tracks data...")
+                    items_added = 0
                     
-                    # Process tracks in batches
-                    for batch in stream_json_objects(tracks_file, batch_size=10):
-                        # Process and validate the batch
-                        processed_tracks = process_tracks_batch(batch)
-                        
-                        # Add valid tracks to database
-                        for track_data in processed_tracks:
+                    # Process mods in batches
+                    for batch in stream_json_objects(mods_file, batch_size=10):
+                        for mod_data in batch:
                             try:
-                                track = Product(**track_data)
-                                db.session.add(track)
-                                tracks_added += 1
+                                # Process the mod data
+                                processed_data = process_mod_data(mod_data)
+                                if processed_data:
+                                    mod = Product(**processed_data)
+                                    db.session.add(mod)
+                                    items_added += 1
                             except Exception as e:
-                                print(f"Error adding track: {str(e)}")
+                                print(f"Error adding mod/track: {str(e)}")
+                                continue
                         
                         # Commit the batch
                         try:
@@ -115,9 +135,9 @@ def init_db(populate_data=True):
                             print(f"Error committing batch: {str(e)}")
                             db.session.rollback()
                             
-                    print(f"Successfully added {tracks_added} tracks to database")
+                    print(f"Successfully added {items_added} items to database")
                 else:
-                    print(f"\nTrack data file not found at {tracks_file}")
+                    print(f"\nMods data file not found at {mods_file}")
             
             return True
             

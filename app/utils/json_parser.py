@@ -3,6 +3,84 @@ import os
 from typing import Dict, List, Generator
 import ijson  # We'll need to add this to requirements.txt
 
+def stream_json_objects(file_path: str, batch_size: int = 10) -> Generator[List[Dict], None, None]:
+    """
+    Stream JSON objects from a file in batches to avoid loading entire file into memory
+    """
+    try:
+        batch = []
+        with open(file_path, 'rb') as file:
+            # Parse the entire JSON object
+            parser = ijson.parse(file)
+            current_object = {}
+            current_key = None
+            
+            for prefix, event, value in parser:
+                if event == 'map_key':
+                    # Start of a new object
+                    if '.' not in prefix:  # Top-level key
+                        if current_object:  # If we have a previous object, add it to batch
+                            current_object['url'] = current_key
+                            batch.append(current_object)
+                            if len(batch) >= batch_size:
+                                yield batch
+                                batch = []
+                        current_key = value
+                        current_object = {}
+                elif current_object is not None:
+                    # Map the JSON structure to match what we need
+                    if prefix.endswith('.title'):
+                        current_object['title'] = value
+                    elif prefix.endswith('.creator'):
+                        current_object['creator'] = value
+                    elif prefix.endswith('.description'):
+                        current_object['description'] = value
+                    elif prefix.endswith('.images'):
+                        current_object['images'] = value
+                    elif prefix.endswith('.downloads'):
+                        # Transform downloads structure to match expected format
+                        if isinstance(value, dict):
+                            links = []
+                            if 'by_type' in value:
+                                for type_links in value['by_type'].values():
+                                    if isinstance(type_links, list):
+                                        links.extend(type_links)
+                            current_object['downloads'] = {'links': links}
+            
+            # Don't forget the last object
+            if current_object:
+                current_object['url'] = current_key
+                batch.append(current_object)
+            if batch:
+                yield batch
+                
+    except Exception as e:
+        print(f"Error streaming JSON objects: {str(e)}")
+        yield []
+
+def process_tracks_batch(batch: List[Dict]) -> List[Dict]:
+    """
+    Process and validate a batch of track data
+    """
+    processed_tracks = []
+    for track in batch:
+        try:
+            # Ensure required fields exist
+            processed_track = {
+                'title': track.get('title', 'Untitled Track'),
+                'creator': track.get('creator', 'Unknown'),
+                'description': track.get('description', 'No description available'),
+                'product_type': 'track',
+                'category': track.get('category', 'track'),
+                'images': track.get('images', {}),
+                'downloads': track.get('downloads', {'links': []})
+            }
+            processed_tracks.append(processed_track)
+        except Exception as e:
+            print(f"Error processing track: {str(e)}")
+            continue
+    return processed_tracks
+
 def extract_tracks_from_mods(mods_path: str, output_path: str) -> bool:
     """
     Safely extracts track data from mods.json and saves to tracks.json

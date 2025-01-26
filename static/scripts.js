@@ -13,8 +13,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Get the current page from pathname
     const currentPath = window.location.pathname;
-    const isTracksPage = currentPath.endsWith('tracks.html') || currentPath.includes('/tracks.html');
-    const isDownloadsPage = currentPath.endsWith('downloads.html') || currentPath.includes('/downloads.html');
+    const isTracksPage = currentPath.endsWith('tracks') || currentPath.includes('/tracks');
+    const isDownloadsPage = currentPath.endsWith('downloads') || currentPath.includes('/downloads');
 
     // Initialize based on current page
     if (isTracksPage || isDownloadsPage) {
@@ -49,12 +49,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // Update active state
         UI.categoryButtons.forEach(btn => {
             btn.classList.remove('active');
-            btn.classList.remove('bg-blue-600');
-            btn.classList.add('bg-gray-800');
         });
         button.classList.add('active');
-        button.classList.remove('bg-gray-800');
-        button.classList.add('bg-blue-600');
 
         // Filter and render
         const searchTerm = UI.trackSearch ? UI.trackSearch.value.toLowerCase() : '';
@@ -91,12 +87,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     /**
-     * Loads track data from JSON file and displays titles
+     * Loads track data from API endpoint
      */
     async function loadTracks() {
         try {
             console.log('Loading tracks...');
-            const response = await fetch('static/data/tracks_min.json');
+            const response = await fetch('/api/tracks?per_page=50');
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
@@ -117,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     /**
-     * Renders track titles to the mod container
+     * Renders track data in a table format
      * @param {Array} tracks - Array of track data to render
      */
     function renderTracks(tracks) {
@@ -127,24 +123,30 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         UI.modContainer.innerHTML = tracks.map(track => `
-            <div class="track-item bg-gray-800 rounded-lg p-4">
-                ${track.images?.cover ? `
-                    <img src="${track.images.cover}" alt="${track.title}" class="w-full h-48 object-cover rounded-lg mb-4">
-                ` : ''}
-                <h3 class="text-xl font-bold mb-2">${track.title || 'Untitled Track'}</h3>
-                ${track.creator ? `<p class="text-gray-400 mb-2">By ${track.creator}</p>` : ''}
-                ${track.description ? `<p class="text-gray-300 mb-4">${track.description.split('\n')[0]}</p>` : ''}
-                ${track.downloads?.links?.length ? `
-                    <div class="flex flex-wrap gap-2">
-                        ${track.downloads.links.map((link, index) => `
-                            <a href="${link}" target="_blank" 
-                               class="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded text-white transition-colors">
+            <tr class="track-row">
+                <td class="track-cell">
+                    <div class="track-info">
+                        ${track.images && track.images.cover ? `
+                            <img src="${track.images.cover}" alt="${track.title}" class="track-thumbnail">
+                        ` : ''}
+                        <span class="track-title">${track.title || 'Untitled Track'}</span>
+                    </div>
+                </td>
+                <td class="creator-cell">${track.creator || 'Unknown'}</td>
+                <td class="description-cell">
+                    ${track.description ? track.description.split('\n')[0] : 'No description available'}
+                </td>
+                <td class="download-cell">
+                    ${track.downloads && track.downloads.links && track.downloads.links.length ? 
+                        track.downloads.links.map((link, index) => `
+                            <a href="${link}" target="_blank" class="download-button">
                                 Download ${track.downloads.links.length > 1 ? (index + 1) : ''}
                             </a>
-                        `).join('')}
-                    </div>
-                ` : ''}
-            </div>
+                        `).join('') 
+                        : 'No download available'
+                    }
+                </td>
+            </tr>
         `).join('');
 
         if (UI.noModsMessage) {
@@ -172,9 +174,11 @@ document.addEventListener('DOMContentLoaded', function() {
     function handleError(message, error) {
         if (UI.modContainer) {
             UI.modContainer.innerHTML = `
-                <div class="bg-red-600 text-white p-4 rounded">
-                    ${message}: ${error.message || error}
-                </div>
+                <tr>
+                    <td colspan="4" class="error-cell">
+                        ${message}: ${error.message || error}
+                    </td>
+                </tr>
             `;
         }
         console.error(message, error);

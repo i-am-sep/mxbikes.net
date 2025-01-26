@@ -93,81 +93,115 @@ body {
 }
 
 .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: var(--spacing-md);
-}
-
-.mt-20 {
-    margin-top: 1.25rem;
-}
-
-/* Grid Layout
--------------------------------------------------- */
-/* Default single column layout for mod container */
-#mod-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--spacing-lg);
-    padding: var(--spacing-md);
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-/* Special case for index page - two columns */
-body.index-page #mod-container {
-    grid-template-columns: repeat(2, 1fr);
     max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-md);
 }
 
-/* Track and Mod Items
+/* Table Styles
 -------------------------------------------------- */
-.track-item, .mod-item {
+.table-container {
+    overflow-x: auto;
+    margin-top: var(--spacing-lg);
     background: var(--color-surface);
     border-radius: var(--radius-md);
+}
+
+.content-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px;
+}
+
+.content-table th {
+    background: var(--color-surface-light);
+    color: var(--color-text-light);
+    text-align: left;
     padding: var(--spacing-md);
+    font-weight: 500;
+    border-bottom: 2px solid var(--color-border);
+}
+
+.content-table td {
+    padding: var(--spacing-md);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.track-row {
     transition: var(--transition-default);
 }
 
-.track-item:hover, .mod-item:hover {
-    transform: translateY(-2px);
+.track-row:hover {
     background: var(--color-surface-light);
 }
 
-.item-title {
-    margin: 0;
-    font-size: 1.1rem;
-    color: var(--color-text);
-    font-weight: bold;
-    margin-bottom: var(--spacing-md);
+.track-cell {
+    width: 25%;
 }
 
-.item-creator {
+.creator-cell {
+    width: 15%;
     color: var(--color-text-muted);
-    margin-bottom: var(--spacing-md);
 }
 
-.item-description {
+.description-cell {
+    width: 40%;
     color: var(--color-text-muted);
-    margin-bottom: var(--spacing-md);
+    font-size: 0.9rem;
 }
 
-.item-image {
-    width: 100%;
-    height: 12rem;
-    object-fit: cover;
-    border-radius: var(--radius-md);
-    margin-bottom: var(--spacing-md);
+.download-cell {
+    width: 20%;
 }
 
-/* Download Links
--------------------------------------------------- */
-.download-links {
+.track-info {
     display: flex;
-    flex-wrap: wrap;
-    gap: var(--spacing-sm);
+    align-items: center;
+    gap: var(--spacing-md);
 }
 
+.track-thumbnail {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+}
+
+.track-title {
+    font-weight: 500;
+    color: var(--color-text);
+}
+
+.error-cell {
+    text-align: center;
+    color: var(--color-error);
+    padding: var(--spacing-xl);
+}
+
+/* Search Input
+-------------------------------------------------- */
+.search-container {
+    margin: var(--spacing-lg) 0;
+}
+
+.search-input {
+    width: 100%;
+    padding: var(--spacing-md);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    color: var(--color-text);
+    font-size: 1rem;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-primary);
+}
+
+/* Download Button
+-------------------------------------------------- */
 .download-button {
     background: var(--color-primary);
     color: white;
@@ -176,9 +210,9 @@ body.index-page #mod-container {
     text-decoration: none;
     font-weight: 500;
     transition: var(--transition-default);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    display: inline-block;
+    text-align: center;
+    margin: 0.25rem;
 }
 
 .download-button:hover {
@@ -194,76 +228,30 @@ body.index-page #mod-container {
     background: rgba(239, 68, 68, 0.1);
     border-radius: var(--radius-md);
     margin: var(--spacing-md) 0;
-    grid-column: 1 / -1;
 }
 
-/* Search Components
--------------------------------------------------- */
-.search-container {
-    margin-bottom: var(--spacing-xl);
-}
-
-.search-bar-wrapper {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.search-bar {
-    width: 100%;
-    padding: 0.75rem var(--spacing-md);
-    border-radius: var(--radius-md);
-    border: 1px solid var(--color-border);
-    background: var(--color-surface-light);
-    color: white;
-    backdrop-filter: blur(5px);
-}
-
-.search-bar:focus {
-    outline: none;
-    border-color: rgba(59, 130, 246, 0.5);
-    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.25);
-}
-
-/* Categories
--------------------------------------------------- */
-.categories {
-    display: flex;
-    justify-content: center;
-    gap: var(--spacing-sm);
-    margin-top: var(--spacing-md);
-    flex-wrap: wrap;
-}
-
-.category {
-    background: var(--color-surface-light);
-    color: var(--color-text-light);
-    border: 1px solid var(--color-border);
-    padding: var(--spacing-sm) var(--spacing-md);
-    border-radius: var(--radius-md);
-    cursor: pointer;
-    transition: var(--transition-default);
-    font-size: 0.875rem;
-}
-
-.category:hover {
-    background: var(--color-primary-hover);
-    color: white;
-}
-
-.category.active {
-    background: var(--color-primary);
-    color: white;
-    border-color: var(--color-primary);
+.hidden {
+    display: none;
 }
 
 /* Responsive Adjustments
 -------------------------------------------------- */
-@media (max-width: 640px) {
-    body.index-page #mod-container {
-        grid-template-columns: 1fr;
+@media (max-width: 768px) {
+    .container {
+        padding: var(--spacing-sm);
     }
-    
-    .track-item h3 {
-        font-size: 1rem;
+
+    .table-container {
+        margin: var(--spacing-sm) -var(--spacing-sm);
+        border-radius: 0;
+    }
+
+    .track-thumbnail {
+        width: 40px;
+        height: 40px;
+    }
+
+    .description-cell {
+        display: none;
     }
 }

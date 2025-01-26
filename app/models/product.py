@@ -18,8 +18,19 @@ class Product(db.Model):
     password_release_time = db.Column(db.DateTime)
 
     def to_dict(self):
+        # Parse JSON strings into Python dictionaries
         images_dict = json.loads(self.images) if self.images else {}
         downloads_dict = json.loads(self.downloads) if self.downloads else {}
+        
+        # Transform downloads to match expected format
+        if isinstance(downloads_dict, dict) and 'by_type' in downloads_dict:
+            links = []
+            for type_links in downloads_dict['by_type'].values():
+                if isinstance(type_links, list):
+                    links.extend(type_links)
+            downloads_dict = {'links': links}
+        elif not isinstance(downloads_dict, dict) or 'links' not in downloads_dict:
+            downloads_dict = {'links': []}
         
         return {
             'id': self.id,

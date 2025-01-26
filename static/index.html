@@ -1,247 +1,133 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>MXB Mods</title>
-  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-  <style>
-    /* Previous styles remain unchanged */
-    .hero-bg {
-      background: rgba(0,0,0,0.5);
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-    
-    .card {
-      transition: transform 0.3s ease;
-    }
-    
-    .card:hover {
-      transform: translateY(-5px);
-    }
-
-    .bike-animation {
-      animation: bounce 2s infinite;
-    }
-
-    @keyframes bounce {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-10px);
-      }
-    }
-
-    .full-screen-hero {
-      height: 100vh;
-      position: relative;
-    }
-
-    .download-button {
-      transition: all 0.3s ease;
-      backdrop-filter: blur(5px);
-      background: rgba(37, 99, 235, 0.8);
-    }
-
-    .download-button:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
-    }
-
-    .discord-section {
-      background: rgba(47, 49, 54, 0.9);
-      backdrop-filter: blur(8px);
-      border-radius: 1rem;
-    }
-
-    .separator-gif {
-      width: 100%;
-      height: 300px;
-      background: url('https://cdn.mxb-mods.com/wp-content/uploads/2024/08/ezgif.com-optimize.gif') center/cover;
-    }
-
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      z-index: 1000;
-    }
-
-    .modal-content {
-      background: rgba(17, 24, 39, 0.95);
-      max-width: 1000px;
-      margin: 50px auto;
-      padding: 2rem;
-      border-radius: 1rem;
-      max-height: 90vh;
-      overflow-y: auto;
-    }
-
-    .download-links {
-      background: rgba(31, 41, 55, 0.95);
-      border-radius: 1rem;
-      margin: 2rem 0;
-    }
-
-    .download-links a {
-      transition: all 0.3s ease;
-    }
-
-    .download-links a:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
-    }
-
-    .chrome-tabs {
-      background: #2D2D2D;
-      padding: 10px 10px 0;
-      border-radius: 8px 8px 0 0;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-    }
-
-    .chrome-tab {
-      display: inline-block;
-      padding: 8px 20px;
-      background: #404040;
-      color: #999;
-      border-radius: 8px 8px 0 0;
-      margin-right: 4px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .chrome-tab.active {
-      background: #1a1a1a;
-      color: white;
-    }
-
-    .chrome-tab:hover:not(.disabled) {
-      background: #333;
-    }
-
-    .chrome-tab.disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-      pointer-events: none;
-    }
-
-    body {
-      padding-top: 60px;
-    }
-  </style>
+    <title>MXBikes.net - Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-gray-900 text-white">
-  <nav class="chrome-tabs">
-    <a href="index.html" class="chrome-tab active">Home</a>
-    <a href="tracks.html" class="chrome-tab">Tracks</a>
-    <a href="#" class="chrome-tab disabled">Bikes</a>
-    <a href="#" class="chrome-tab disabled">Models</a>
-    <a href="#" class="chrome-tab disabled">Others</a>
-    <a href="#" class="chrome-tab disabled">Ranked</a>
-    <a href="#" class="chrome-tab disabled">Leagues</a>
-    <a href="downloads.html" class="chrome-tab">Downloads</a>
-  </nav>
-
-  <div class="container mx-auto px-4 py-8">
-    <div class="video-container mb-8">
-      <iframe width="100%" height="500" src="https://www.youtube.com/embed/MCGaiQnMSic?si=PsIi_1fAfdke1S1y&autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<body class="index-page">
+    <div class="header">
+        <div class="tabs">
+            <a href="index.html" class="tab home active">Home</a>
+            <a href="tracks.html" class="tab tracks">Tracks</a>
+            <a href="bikes.html" class="tab bikes">Bikes</a>
+            <a href="rider.html" class="tab rider disabled">Rider</a>
+            <a href="ranked.html" class="tab ranked disabled">Ranked</a>
+            <a href="championship.html" class="tab championship disabled">Championship</a>
+            <a href="downloads.html" class="tab downloads">Downloads</a>
+        </div>
     </div>
 
-    <div class="grid md:grid-cols-2 gap-8">
-      <div class="bg-gray-800 rounded-lg p-6">
-        <h2 class="text-3xl font-bold mb-8">A-Kit Features</h2>
-        <div class="card mb-6">
-          <svg class="w-16 h-16 mb-4 bike-animation" viewBox="0 0 100 100">
-            <path d="M20,80 Q30,70 40,80 T60,80 T80,80" stroke="white" fill="none" stroke-width="3"/>
-            <circle cx="30" cy="80" r="15" stroke="white" fill="none" stroke-width="3"/>
-            <circle cx="70" cy="80" r="15" stroke="white" fill="none" stroke-width="3"/>
-          </svg>
-          <h3 class="text-2xl font-bold mb-4">Factory Specifications</h3>
-          <ul class="list-disc list-inside text-gray-400">
-            <li>Balanced chassis mass distribution</li>
-            <li>Factory-level customization options</li>
-            <li>Multiple exhaust system choices</li>
-            <li>Premium handlebar configurations</li>
-          </ul>
-        </div>
+    <!-- Modal/Popup -->
+    <div id="infoModal" class="modal" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button onclick="closeModal()" class="popup-close">× Close</button>
+            <h2 class="popup-title">What's Special About These Bikes?</h2>
+            <div class="modal-body">
+                <div class="card">
+                    <p>Every bike in the same category has the <strong>exact same weight</strong>, suspension settings, shift patterns, engine files, and model files. <strong>However</strong>, the location of the chassis mass is slightly different for each brand. This means no two bikes feel exactly the same.</p>
+                    <p>The goal was simple: <strong>no favoritism for any manufacturer</strong>. No bike was designed to feel better or worse on purpose. Everything was shuffled and randomized until <strong>every bike became someone's favorite</strong>.</p>
+                </div>
+                
+                <div class="card">
+                    <h3 class="popup-title">Paint System & Customization</h3>
+                    <table>
+                        <tr><th>Abbreviation</th><th>Part</th></tr>
+                        <tr><td>CB</td><td>Cross Bar</td></tr>
+                        <tr><td>FB</td><td>Fat Bar</td></tr>
+                        <tr><td>HG</td><td>Handguards</td></tr>
+                        <tr><td>Ak</td><td>Akrapovic</td></tr>
+                        <tr><td>Yosh</td><td>Yoshimura</td></tr>
+                        <tr><td>PC</td><td>Pro Circuit</td></tr>
+                        <tr><td>FMF</td><td>FMF</td></tr>
+                    </table>
+                </div>
 
-        <div id="download-section" class="download-links p-6 mt-8">
-          <div class="flex flex-col space-y-4">
-            <a href="https://www.mediafire.com/file/pb6bd6tonr1v4ho/bikes.zip/file" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center">
-              MediaFire Download
-            </a>
-            <a href="https://drive.google.com/file/d/1PBV7P6FSVCamw27uhnps5FR0p0Go-cUp/view?usp=sharing" target="_blank" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center">
-              Google Drive Download 
-            </a>
-            <a href="https://mega.nz/file/MopEEKoa#sGcOKGtrJWmnQVgIeS8RnzIpDpGaaN-euP6sEFFBE-g" target="_blank" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center">
-              MEGA Download
-            </a>
-          </div>
+                <div class="card">
+                    <h3 class="popup-title">Model Credits</h3>
+                    <ul>
+                        <li><strong>Daniele</strong> (d1istraction on Discord) – Ducati</li>
+                        <li><strong>Julien</strong> (Julien113 on Discord) – Yamaha, Kawasaki, Stark, and Fantic 250/450</li>
+                        <li><strong>Isaiah</strong> (Eyezaya on Discord) – Honda, KTM, Husky, Suzuki, Beta, Triumph</li>
+                        <li><strong>Caden</strong> (cadens on Discord) – GasGas</li>
+                        <li><strong>TM Factory Racing</strong> – TM 250/450</li>
+                    </ul>
+                    <p class="note">Note: Kawasaki, Yamaha 450, and Fantic use the same models as those in the E10 pack. Big thanks to Julien for making those public. If you can, please <strong>support model makers</strong> to keep them creating content for the community.</p>
+                </div>
+            </div>
         </div>
-      </div>
-
-      <div class="discord-section p-6">
-        <h2 class="text-3xl font-bold mb-6">Join Our Community</h2>
-        <iframe src="https://discord.com/widget?id=1257678282787393667&theme=dark" width="100%" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-      </div>
     </div>
-  </div>
 
-  <div class="separator-gif"></div>
-
-  <div class="container mx-auto px-4 py-8">
-    <div class="grid md:grid-cols-2 gap-8">
-      <div class="bg-gray-800 rounded-lg p-6">
-        <h2 class="text-3xl font-bold mb-8">Two Strokes</h2>
-        <a href="https://drive.google.com/file/d/14Y6phEPrqgqLLS_5UcTLzTtCd9mnKZH8/view" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center w-full">
-          beta test
-        </a>
-        <div class="flex flex-col space-y-4 mt-8">
-          <h2 class="text-3xl font-bold mb-4">PSD Files</h2>
-          <a href="https://drive.google.com/file/d/1Rwt6l_xVH9KxqzuLYumYFqzHC1x3UCCI/view?usp=drive_link" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center">
-            Kawasaki
-          </a>
-          <a href="https://drive.google.com/file/d/1i1Yx9hycEL9usvwWgbGxYKxuzBwkP1D4/view?usp=drive_link" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center">
-            Yamaha
-          </a>
-          <a href="https://drive.google.com/file/d/1vo2B1cFGwCwYO5-_VaTJltSodpR5cl4A/view?usp=drive_link" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center">
-            Fantic
-          </a>
+    <div class="container mt-8">
+        <!-- YouTube Video at Top -->
+        <div class="video-container mb-8">
+            <iframe width="100%" height="500" src="https://www.youtube.com/embed/MCGaiQnMSic?si=PsIi_1fAfdke1S1y&autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
-      </div>
 
-      <div class="bg-gray-800 rounded-lg p-6">
-        <h2 class="text-3xl font-bold mb-8">Additional Files</h2>
-        <div class="flex flex-col space-y-4">
-          <a href="https://www.mediafire.com/file/9lenok7rmszcvb3/AKit_Model_Files.zip/file" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center">
-            Model Files
-          </a>
-          <a href="https://www.mediafire.com/file/advwhcejvidkg12/AK_mx.pkz/file" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center">
-            Tyres (only required for tyre mismatch)
-          </a>
-          <a href="https://www.mediafire.com/file/ue78l1rpiwlcunn/bikes%2528server%2529.zip/file" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center">
-            Server Version (not for players)
-          </a>
-          <a href="https://www.mediafire.com/file/cjjubzpl8fry9hs/TemplateDucati.zip/file" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center">
-            A Kit Model Import Files
-          </a>
-          <a href="https://www.mediafire.com/file/ayyvxvdmhkm9hc6/TSX+-+AKit+Training+Grounds.zip/file" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center">
-            TSX - Training Grounds for A-Kit bikes
-          </a>
+        <!-- Two Column Layout: Bikes and Discord -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <!-- Bikes Column -->
+            <div class="card">
+                <h2 class="popup-title" onclick="openModal()">A-Kit Features</h2>
+                <div class="card">
+                    <svg class="bike-animation" viewBox="0 0 100 100" width="64" height="64">
+                        <path d="M20,80 Q30,70 40,80 T60,80 T80,80" stroke="white" fill="none" stroke-width="3"></path>
+                        <circle cx="30" cy="80" r="15" stroke="white" fill="none" stroke-width="3"></circle>
+                        <circle cx="70" cy="80" r="15" stroke="white" fill="none" stroke-width="3"></circle>
+                    </svg>
+                    <h3 class="popup-title">Factory Specifications</h3>
+                    <ul>
+                        <li>Balanced chassis mass distribution</li>
+                        <li>Factory-level customization options</li>
+                        <li>Multiple exhaust system choices</li>
+                        <li>Premium handlebar configurations</li>
+                    </ul>
+                </div>
+
+                <div class="download-links">
+                    <a href="https://www.mediafire.com/file/pb6bd6tonr1v4ho/bikes.zip/file" target="_blank" class="download-button">MediaFire Download</a>
+                    <a href="https://drive.google.com/file/d/1PBV7P6FSVCamw27uhnps5FR0p0Go-cUp/view?usp=sharing" target="_blank" class="download-button">Google Drive Download</a>
+                    <a href="https://mega.nz/file/MopEEKoa#sGcOKGtrJWmnQVgIeS8RnzIpDpGaaN-euP6sEFFBE-g" target="_blank" class="download-button">MEGA Download</a>
+                </div>
+            </div>
+
+            <!-- Discord Column -->
+            <div class="discord-section">
+                <h2 class="popup-title">Join Our Community</h2>
+                <iframe src="https://discord.com/widget?id=1257678282787393667&theme=dark" width="100%" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+            </div>
         </div>
-      </div>
+
+        <!-- Two Column Layout: Additional Downloads -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Left Column -->
+            <div class="card">
+                <h2 class="popup-title">Two Strokes & PSD Files</h2>
+                <div class="download-links mb-4">
+                    <a href="https://drive.google.com/file/d/14Y6phEPrqgqLLS_5UcTLzTtCd9mnKZH8/view" target="_blank" class="download-button">Two Strokes Beta Test</a>
+                </div>
+                <h3 class="popup-title">PSD Files</h3>
+                <div class="download-links">
+                    <a href="https://drive.google.com/file/d/1Rwt6l_xVH9KxqzuLYumYFqzHC1x3UCCI/view?usp=drive_link" target="_blank" class="download-button">Kawasaki PSD</a>
+                    <a href="https://drive.google.com/file/d/1FuJppCz2GJdwDpscPuvT9xNSq2F9Ec2Qv/view?usp=drive_link" target="_blank" class="download-button">Yamaha PSD</a>
+                    <a href="https://drive.google.com/file/d/1vo2B1cFGwCwYO5-_VaTJltSodpR5cl4A/view?usp=drive_link" target="_blank" class="download-button">Fantic PSD</a>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="card">
+                <h2 class="popup-title">Additional Files</h2>
+                <div class="download-links">
+                    <a href="https://www.mediafire.com/file/9lenok7rmszcvb3/AKit_Model_Files.zip/file" target="_blank" class="download-button">Model Files</a>
+                    <a href="https://www.mediafire.com/file/advwhcejvidkg12/AK_mx.pkz/file" target="_blank" class="download-button">Tyres (only required for tyre mismatch)</a>
+                    <a href="https://www.mediafire.com/file/ue78l1rpiwlcunn/bikes%2528server%2529.zip/file" target="_blank" class="download-button">Server Version (not for players)</a>
+                    <a href="https://www.mediafire.com/file/cjjubzpl8fry9hs/TemplateDucati.zip/file" target="_blank" class="download-button">A Kit Model Import Files</a>
+                    <a href="https://www.mediafire.com/file/ayyvxvdmhkm9hc6/TSX+-+AKit+Training+Grounds.zip/file" target="_blank" class="download-button">TSX - Training Grounds for A-Kit bikes</a>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <script src="scripts.js"></script>
+    <script src="scripts.js"></script>
 </body>
 </html>
