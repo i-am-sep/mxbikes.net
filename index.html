@@ -18,6 +18,7 @@
         </div>
     </div>
 
+    <!-- Modal/Popup -->
     <div id="infoModal" class="modal" onclick="closeModal()">
         <div class="modal-content" onclick="event.stopPropagation()">
             <button onclick="closeModal()" class="popup-close">× Close</button>
@@ -31,38 +32,14 @@
                 <div class="card">
                     <h3 class="popup-title">Paint System & Customization</h3>
                     <table>
-                        <tr>
-                            <th>Abbreviation</th>
-                            <th>Part</th>
-                        </tr>
-                        <tr>
-                            <td>CB</td>
-                            <td>Cross Bar</td>
-                        </tr>
-                        <tr>
-                            <td>FB</td>
-                            <td>Fat Bar</td>
-                        </tr>
-                        <tr>
-                            <td>HG</td>
-                            <td>Handguards</td>
-                        </tr>
-                        <tr>
-                            <td>Ak</td>
-                            <td>Akrapovic</td>
-                        </tr>
-                        <tr>
-                            <td>Yosh</td>
-                            <td>Yoshimura</td>
-                        </tr>
-                        <tr>
-                            <td>PC</td>
-                            <td>Pro Circuit</td>
-                        </tr>
-                        <tr>
-                            <td>FMF</td>
-                            <td>FMF</td>
-                        </tr>
+                        <tr><th>Abbreviation</th><th>Part</th></tr>
+                        <tr><td>CB</td><td>Cross Bar</td></tr>
+                        <tr><td>FB</td><td>Fat Bar</td></tr>
+                        <tr><td>HG</td><td>Handguards</td></tr>
+                        <tr><td>Ak</td><td>Akrapovic</td></tr>
+                        <tr><td>Yosh</td><td>Yoshimura</td></tr>
+                        <tr><td>PC</td><td>Pro Circuit</td></tr>
+                        <tr><td>FMF</td><td>FMF</td></tr>
                     </table>
                 </div>
 
@@ -81,8 +58,15 @@
         </div>
     </div>
 
-    <div class="container mt-20">
-        <div class="grid grid-cols-2">
+    <div class="container mt-8">
+        <!-- YouTube Video at Top -->
+        <div class="video-container mb-8">
+            <iframe width="100%" height="500" src="https://www.youtube.com/embed/MCGaiQnMSic?si=PsIi_1fAfdke1S1y&autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+        <!-- Two Column Layout: Bikes and Discord -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <!-- Bikes Column -->
             <div class="card">
                 <h2 class="popup-title" onclick="openModal()">A-Kit Features</h2>
                 <div class="card">
@@ -101,70 +85,46 @@
                 </div>
 
                 <div class="download-links">
-                    <a href="https://www.mediafire.com/file/pb6bd6tonr1v4ho/bikes.zip/file" target="_blank" class="download-button">
-                        MediaFire Download
-                    </a>
-                    <a href="https://drive.google.com/file/d/1PBV7P6FSVCamw27uhnps5FR0p0Go-cUp/view?usp=sharing" target="_blank" class="download-button">
-                        Google Drive Download 
-                    </a>
-                    <a href="https://mega.nz/file/MopEEKoa#sGcOKGtrJWmnQVgIeS8RnzIpDpGaaN-euP6sEFFBE-g" target="_blank" class="download-button">
-                        MEGA Download
-                    </a>
+                    <a href="https://www.mediafire.com/file/pb6bd6tonr1v4ho/bikes.zip/file" target="_blank" class="download-button">MediaFire Download</a>
+                    <a href="https://drive.google.com/file/d/1PBV7P6FSVCamw27uhnps5FR0p0Go-cUp/view?usp=sharing" target="_blank" class="download-button">Google Drive Download</a>
+                    <a href="https://mega.nz/file/MopEEKoa#sGcOKGtrJWmnQVgIeS8RnzIpDpGaaN-euP6sEFFBE-g" target="_blank" class="download-button">MEGA Download</a>
                 </div>
             </div>
 
+            <!-- Discord Column -->
             <div class="discord-section">
                 <h2 class="popup-title">Join Our Community</h2>
                 <iframe src="https://discord.com/widget?id=1257678282787393667&theme=dark" width="100%" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
             </div>
         </div>
 
-        <div class="grid grid-cols-2">
+        <!-- Two Column Layout: Additional Downloads -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Left Column -->
             <div class="card">
-                <h2 class="popup-title">Two Strokes</h2>
-                <a href="https://drive.google.com/file/d/14Y6phEPrqgqLLS_5UcTLzTtCd9mnKZH8/view" target="_blank" class="download-button">
-                    beta test
-                </a>
+                <h2 class="popup-title">Two Strokes & PSD Files</h2>
+                <div class="download-links mb-4">
+                    <a href="https://drive.google.com/file/d/14Y6phEPrqgqLLS_5UcTLzTtCd9mnKZH8/view" target="_blank" class="download-button">Two Strokes Beta Test</a>
+                </div>
+                <h3 class="popup-title">PSD Files</h3>
                 <div class="download-links">
-                    <h2 class="popup-title">PSD Files</h2>
-                    <a href="https://drive.google.com/file/d/1Rwt6l_xVH9KxqzuLYumYFqzHC1x3UCCI/view?usp=drive_link" target="_blank" class="download-button">
-                        Kawasaki
-                    </a>
-                    <a href="https://drive.google.com/file/d/1FuJppCz2GJdwDpscPuvT9xNSq2F9Ec2Qv/view?usp=drive_link" target="_blank" class="download-button">
-                        Yamaha
-                    </a>
-                    <a href="https://drive.google.com/file/d/1vo2B1cFGwCwYO5-_VaTJltSodpR5cl4A/view?usp=drive_link" target="_blank" class="download-button">
-                        Fantic
-                    </a>
+                    <a href="https://drive.google.com/file/d/1Rwt6l_xVH9KxqzuLYumYFqzHC1x3UCCI/view?usp=drive_link" target="_blank" class="download-button">Kawasaki PSD</a>
+                    <a href="https://drive.google.com/file/d/1FuJppCz2GJdwDpscPuvT9xNSq2F9Ec2Qv/view?usp=drive_link" target="_blank" class="download-button">Yamaha PSD</a>
+                    <a href="https://drive.google.com/file/d/1vo2B1cFGwCwYO5-_VaTJltSodpR5cl4A/view?usp=drive_link" target="_blank" class="download-button">Fantic PSD</a>
                 </div>
             </div>
 
+            <!-- Right Column -->
             <div class="card">
                 <h2 class="popup-title">Additional Files</h2>
                 <div class="download-links">
-                    <a href="https://www.mediafire.com/file/9lenok7rmszcvb3/AKit_Model_Files.zip/file" target="_blank" class="download-button">
-                        Model Files
-                    </a>
-                    <a href="https://www.mediafire.com/file/advwhcejvidkg12/AK_mx.pkz/file" target="_blank" class="download-button">
-                        Tyres (only required for tyre mismatch)
-                    </a>
-                    <a href="https://www.mediafire.com/file/ue78l1rpiwlcunn/bikes%2528server%2529.zip/file" target="_blank" class="download-button">
-                        Server Version (not for players)
-                    </a>
-                    <a href="https://www.mediafire.com/file/cjjubzpl8fry9hs/TemplateDucati.zip/file" target="_blank" class="download-button">
-                        A Kit Model Import Files
-                    </a>
-                    <a href="https://www.mediafire.com/file/ayyvxvdmhkm9hc6/TSX+-+AKit+Training+Grounds.zip/file" target="_blank" class="download-button">
-                        TSX - Training Grounds for A-Kit bikes
-                    </a>
+                    <a href="https://www.mediafire.com/file/9lenok7rmszcvb3/AKit_Model_Files.zip/file" target="_blank" class="download-button">Model Files</a>
+                    <a href="https://www.mediafire.com/file/advwhcejvidkg12/AK_mx.pkz/file" target="_blank" class="download-button">Tyres (only required for tyre mismatch)</a>
+                    <a href="https://www.mediafire.com/file/ue78l1rpiwlcunn/bikes%2528server%2529.zip/file" target="_blank" class="download-button">Server Version (not for players)</a>
+                    <a href="https://www.mediafire.com/file/cjjubzpl8fry9hs/TemplateDucati.zip/file" target="_blank" class="download-button">A Kit Model Import Files</a>
+                    <a href="https://www.mediafire.com/file/ayyvxvdmhkm9hc6/TSX+-+AKit+Training+Grounds.zip/file" target="_blank" class="download-button">TSX - Training Grounds for A-Kit bikes</a>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="video-container">
-            <iframe width="100%" height="500" src="https://www.youtube.com/embed/MCGaiQnMSic?si=PsIi_1fAfdke1S1y&autoplay=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
     </div>
 

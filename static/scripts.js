@@ -2,8 +2,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // Core UI Elements
     const UI = {
         modContainer: document.getElementById('mod-container'),
-        noModsMessage: document.getElementById('no-mods-message')
+        noModsMessage: document.getElementById('no-mods-message'),
+        trackSearch: document.getElementById('track-search'),
+        categoryButtons: document.querySelectorAll('.category')
     };
+
+    // Store data globally for filtering
+    let tracksData = [];
+    let currentCategory = 'all';
 
     // Get the current page from pathname
     const currentPath = window.location.pathname;
@@ -11,10 +17,77 @@ document.addEventListener('DOMContentLoaded', function() {
     const isDownloadsPage = currentPath.endsWith('downloads.html') || currentPath.includes('/downloads.html');
 
     // Initialize based on current page
-    if (isTracksPage) {
+    if (isTracksPage || isDownloadsPage) {
         loadTracks();
-    } else if (isDownloadsPage) {
-        loadMods();
+        // Add search event listener
+        if (UI.trackSearch) {
+            UI.trackSearch.addEventListener('input', handleTrackSearch);
+        }
+        // Add category event listeners for downloads page
+        if (isDownloadsPage && UI.categoryButtons) {
+            UI.categoryButtons.forEach(button => {
+                button.addEventListener('click', handleCategoryChange);
+            });
+        }
+    }
+
+    /**
+     * Handles track search input
+     */
+    function handleTrackSearch(event) {
+        const searchTerm = event.target.value.toLowerCase();
+        filterAndRenderTracks(searchTerm, currentCategory);
+    }
+
+    /**
+     * Handles category button clicks
+     */
+    function handleCategoryChange(event) {
+        const button = event.target;
+        currentCategory = button.dataset.category;
+
+        // Update active state
+        UI.categoryButtons.forEach(btn => {
+            btn.classList.remove('active');
+            btn.classList.remove('bg-blue-600');
+            btn.classList.add('bg-gray-800');
+        });
+        button.classList.add('active');
+        button.classList.remove('bg-gray-800');
+        button.classList.add('bg-blue-600');
+
+        // Filter and render
+        const searchTerm = UI.trackSearch ? UI.trackSearch.value.toLowerCase() : '';
+        filterAndRenderTracks(searchTerm, currentCategory);
+    }
+
+    /**
+     * Filters and renders tracks based on search term and category
+     */
+    function filterAndRenderTracks(searchTerm, category) {
+        let filteredTracks = tracksData;
+
+        // Apply category filter for downloads page
+        if (category !== 'all' && category === 'tracks') {
+            filteredTracks = tracksData;
+        } else if (category !== 'all') {
+            filteredTracks = []; // Other categories are empty
+        }
+
+        // Apply search filter
+        if (searchTerm) {
+            filteredTracks = filteredTracks.filter(track =>
+                track.title?.toLowerCase().includes(searchTerm) ||
+                track.creator?.toLowerCase().includes(searchTerm) ||
+                track.description?.toLowerCase().includes(searchTerm)
+            );
+        }
+
+        if (filteredTracks.length === 0) {
+            showNoModsMessage();
+        } else {
+            renderTracks(filteredTracks);
+        }
     }
 
     /**
@@ -23,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
     async function loadTracks() {
         try {
             console.log('Loading tracks...');
-            const response = await fetch('static/data/tracks.json');
+            const response = await fetch('static/data/tracks_min.json');
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
@@ -35,42 +108,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
+            tracksData = data.items; // Store tracks data globally
             renderTracks(data.items);
         } catch (error) {
             console.error('Error loading tracks:', error);
             handleError('Error loading tracks', error);
-        }
-    }
-
-    /**
-     * Loads mod data from JSON file and displays titles
-     */
-    async function loadMods() {
-        try {
-            console.log('Loading mods...');
-            const response = await fetch('static/data/mods.json');
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            const data = await response.json();
-            console.log('Mods data:', data);
-            
-            if (!data) {
-                showNoModsMessage();
-                return;
-            }
-
-            // Convert object to array
-            const mods = Object.values(data);
-            if (mods.length === 0) {
-                showNoModsMessage();
-                return;
-            }
-
-            renderMods(mods);
-        } catch (error) {
-            console.error('Error loading mods:', error);
-            handleError('Error loading mods', error);
         }
     }
 
@@ -85,64 +127,23 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         UI.modContainer.innerHTML = tracks.map(track => `
-            <div class="track-item">
+            <div class="track-item bg-gray-800 rounded-lg p-4">
                 ${track.images?.cover ? `
-                    <img src="${track.images.cover}" alt="${track.title}" class="item-image">
+                    <img src="${track.images.cover}" alt="${track.title}" class="w-full h-48 object-cover rounded-lg mb-4">
                 ` : ''}
-                <h3 class="item-title">${track.title || 'Untitled Track'}</h3>
-                ${track.creator ? `<p class="item-creator">By ${track.creator}</p>` : ''}
-                ${track.description ? `<p class="item-description">${track.description.split('\n')[0]}</p>` : ''}
+                <h3 class="text-xl font-bold mb-2">${track.title || 'Untitled Track'}</h3>
+                ${track.creator ? `<p class="text-gray-400 mb-2">By ${track.creator}</p>` : ''}
+                ${track.description ? `<p class="text-gray-300 mb-4">${track.description.split('\n')[0]}</p>` : ''}
                 ${track.downloads?.links?.length ? `
-                    <div class="download-links">
+                    <div class="flex flex-wrap gap-2">
                         ${track.downloads.links.map((link, index) => `
-                            <a href="${link}" target="_blank" class="download-button">
+                            <a href="${link}" target="_blank" 
+                               class="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded text-white transition-colors">
                                 Download ${track.downloads.links.length > 1 ? (index + 1) : ''}
                             </a>
                         `).join('')}
                     </div>
                 ` : ''}
-            </div>
-        `).join('');
-
-        if (UI.noModsMessage) {
-            UI.noModsMessage.classList.add('hidden');
-        }
-    }
-
-    /**
-     * Renders mod data to the mod container
-     * @param {Array} mods - Array of mod data to render
-     */
-    function renderMods(mods) {
-        if (!UI.modContainer) {
-            console.error('Mod container not found');
-            return;
-        }
-        
-        UI.modContainer.innerHTML = mods.map(mod => `
-            <div class="mod-item">
-                ${mod.images?.cover ? `
-                    <img src="${mod.images.cover}" alt="${mod.title}" class="item-image">
-                ` : ''}
-                <h3 class="item-title">${mod.title || 'Untitled Mod'}</h3>
-                ${mod.creator ? `<p class="item-creator">By ${mod.creator}</p>` : ''}
-                ${mod.description ? `<p class="item-description">${mod.description.split('\n')[0]}</p>` : ''}
-                <div class="download-links">
-                    ${Object.entries(mod.downloads.by_host).map(([host, links]) => 
-                        links.map((link, index) => `
-                            <a href="${link}" target="_blank" class="download-button">
-                                ${host} ${links.length > 1 ? (index + 1) : ''}
-                            </a>
-                        `).join('')
-                    ).join('')}
-                    ${mod.downloads.by_type.other ? 
-                        mod.downloads.by_type.other.map((link, index) => `
-                            <a href="${link}" target="_blank" class="download-button">
-                                Download ${index + 1}
-                            </a>
-                        `).join('') : ''
-                    }
-                </div>
             </div>
         `).join('');
 
@@ -171,7 +172,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function handleError(message, error) {
         if (UI.modContainer) {
             UI.modContainer.innerHTML = `
-                <div class="error-message">
+                <div class="bg-red-600 text-white p-4 rounded">
                     ${message}: ${error.message || error}
                 </div>
             `;
