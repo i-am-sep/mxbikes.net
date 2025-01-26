@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MXB Mods - Tracks</title>
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="static/styles.css">
+</head>
+<body class="bg-gray-900 text-white">
+  <nav class="chrome-tabs">
+    <a href="/index.html" class="chrome-tab">Home</a>
+    <a href="/tracks.html" class="chrome-tab active">Tracks</a>
+    <a href="/bikes.html" class="chrome-tab disabled">Bikes</a>
+    <a href="/models.html" class="chrome-tab disabled">Models</a>
+    <a href="/others.html" class="chrome-tab disabled">Others</a>
+    <a href="/ranked.html" class="chrome-tab disabled">Ranked</a>
+    <a href="/leagues.html" class="chrome-tab disabled">Leagues</a>
+    <a href="/downloads.html" class="chrome-tab">Downloads</a>
+  </nav>
+
+  <div class="container mx-auto px-4 py-12">
+    <h1 class="text-3xl font-bold mb-8">Available Tracks</h1>
+    <div id="mod-container" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+    <div id="no-mods-message" class="error-message hidden">No tracks found</div>
+  </div>
+
+  <script src="static/scripts.js"></script>
+</body>
+</html>

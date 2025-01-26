@@ -3,9 +3,10 @@
 <head>
     <title>MXBikes.net - Tracks</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="static/styles.css">
 </head>
-<body>
+<body class="bg-gray-900 text-white">
     <div class="header">
         <div class="tabs">
             <a href="index.html" class="tab home">Home</a>
@@ -18,29 +19,13 @@
         </div>
     </div>
 
-    <div class="container mt-20">
-        <div class="search-container">
-            <div class="search-bar-wrapper">
-                <input type="text" class="search-bar" placeholder="Search tracks...">
-            </div>
+    <div class="container mx-auto px-4 py-12">
+        <h1 class="text-3xl font-bold mb-8">Available Tracks</h1>
+        <div id="mod-container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Content will be dynamically loaded by scripts.js -->
         </div>
-
-        <div id="tracksGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            <!-- Tracks will be loaded dynamically via JavaScript -->
-        </div>
-
-        <div id="mod-details-popup" class="mod-details-popup">
-            <div class="modal-content">
-                <button id="popup-close" class="popup-close">×</button>
-                <h2 id="popup-title" class="popup-title"></h2>
-                <img id="popup-image" class="popup-image" src="" alt="Track Image">
-                <p id="popup-description" class="popup-description"></p>
-                <div id="popup-downloads" class="download-links-grid"></div>
-            </div>
-        </div>
-
         <div id="no-mods-message" class="text-center hidden">
-            <p>No tracks found.</p>
+            <p class="text-gray-400">No tracks found</p>
         </div>
     </div>
 

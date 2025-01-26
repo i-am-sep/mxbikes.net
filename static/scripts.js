@@ -1,256 +1,169 @@
 document.addEventListener('DOMContentLoaded', function() {
-    /**
-     * Core UI Elements
-     * @type {Object}
-     */
+    // Core UI Elements
     const UI = {
-        tracksList: document.getElementById('tracksGrid'),
-        categories: document.querySelectorAll('.category'),
-        searchBar: document.querySelector('.search-bar'),
-        modDetailsPopup: document.getElementById('mod-details-popup'),
-        infoModal: document.getElementById('infoModal'),
-        popupCloseButton: document.getElementById('popup-close')
+        modContainer: document.getElementById('mod-container'),
+        noModsMessage: document.getElementById('no-mods-message')
     };
 
-    /**
-     * Application State
-     * @type {Object}
-     */
-    const state = {
-        allTracks: [],
-        currentCategory: 'all'
-    };
+    // Get the current page from pathname
+    const currentPath = window.location.pathname;
+    const isTracksPage = currentPath.endsWith('tracks.html') || currentPath.includes('/tracks.html');
+    const isDownloadsPage = currentPath.endsWith('downloads.html') || currentPath.includes('/downloads.html');
 
-    /**
-     * Initialize disabled tabs functionality
-     */
-    function initializeDisabledTabs() {
-        document.querySelectorAll('.tab.disabled').forEach(tab => {
-            tab.addEventListener('click', (e) => {
-                e.preventDefault();
-                return false;
-            });
-        });
+    // Initialize based on current page
+    if (isTracksPage) {
+        loadTracks();
+    } else if (isDownloadsPage) {
+        loadMods();
     }
 
     /**
-     * Modal Functions
-     */
-    window.openModal = function() {
-        if (UI.infoModal) {
-            UI.infoModal.style.display = 'block';
-        }
-    }
-
-    window.closeModal = function() {
-        if (UI.infoModal) {
-            UI.infoModal.style.display = 'none';
-        }
-    }
-
-    /**
-     * Truncates text to specified length and adds ellipsis
-     * @param {string} text - Text to truncate
-     * @param {number} maxLength - Maximum length before truncation
-     * @returns {string} Truncated text
-     */
-    function truncateText(text, maxLength) {
-        if (!text) return '';
-        return text.length > maxLength ? text.substring(0, maxLength) + '...' : text;
-    }
-
-    /**
-     * Formats download links into URL and hostname pairs
-     * @param {Object} downloads - Download information object
-     * @returns {Array} Array of formatted download links
-     */
-    function formatDownloadLinks(downloads) {
-        if (!downloads?.links) return [];
-        return downloads.links.map(link => ({
-            url: link,
-            host: new URL(link).hostname
-        }));
-    }
-
-    /**
-     * Gets placeholder image URL from meta tag or defaults
-     * @returns {string} Placeholder image URL
-     */
-    function getPlaceholderImage() {
-        return document.querySelector('meta[name="placeholder-image"]')?.content 
-            || 'static/assets/images/placeholder.jpg';
-    }
-
-    /**
-     * Handles image loading errors by falling back to placeholder
-     * @param {HTMLImageElement} img - Image element that failed to load
-     */
-    function handleImageError(img) {
-        const placeholder = getPlaceholderImage();
-        if (img.src !== placeholder) {
-            img.src = placeholder;
-        }
-    }
-
-    /**
-     * Creates a card element for a track or mod item
-     * @param {Object} item - Track/mod data
-     * @param {string} type - Type of card to create
-     * @returns {HTMLElement} Card element
-     */
-    function createCard(item, type) {
-        if (!item) return null;
-
-        const card = document.createElement('div');
-        card.classList.add('card', type);
-        
-        const description = truncateText(item.description || 'No description available.', 150);
-        const imageUrl = item.images?.cover || getPlaceholderImage();
-
-        card.innerHTML = `
-            <h3 class="track-title">${item.title || 'Untitled'}</h3>
-            <p class="track-creator">by ${item.creator || 'Unknown'}</p>
-            <img src="${imageUrl}" alt="${item.title || 'Track image'}" class="track-image" onerror="this.onerror=null; handleImageError(this);">
-            <p class="track-description">${description}</p>
-            <div class="download-links"></div>
-        `;
-
-        const downloadsContainer = card.querySelector('.download-links');
-        formatDownloadLinks(item.downloads).forEach(({url, host}) => {
-            const linkButton = document.createElement('a');
-            linkButton.href = url;
-            linkButton.target = '_blank';
-            linkButton.className = 'download-button';
-            linkButton.textContent = `Download from ${host}`;
-            downloadsContainer.appendChild(linkButton);
-        });
-
-        card.addEventListener('click', (e) => {
-            if (!e.target.classList.contains('download-button')) {
-                showDetailsPopup(item, type);
-            }
-        });
-
-        return card;
-    }
-
-    /**
-     * Loads track data from JSON file
+     * Loads track data from JSON file and displays titles
      */
     async function loadTracks() {
-        if (!UI.tracksList) return;
-
         try {
-            const response = await fetch('static/data/tracks.json');
+            console.log('Loading tracks...');
+            const response = await fetch('static/data/tracks_min.json');
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             const data = await response.json();
-            state.allTracks = data.items || [];
-            renderTracks(state.allTracks);
-        } catch (error) {
-            handleError('Error loading tracks', error);
-            // For GitHub Pages, show a message about tracks being unavailable
-            if (window.location.protocol === 'file:') {
-                UI.tracksList.innerHTML = `
-                    <div class="card">
-                        <h2 class="popup-title">Tracks Unavailable</h2>
-                        <p class="track-description">Track listings are only available when viewing the site through a web server.</p>
-                    </div>
-                `;
+            console.log('Tracks data:', data);
+            
+            if (!data || !data.items || data.items.length === 0) {
+                showNoModsMessage();
+                return;
             }
+
+            renderTracks(data.items);
+        } catch (error) {
+            console.error('Error loading tracks:', error);
+            handleError('Error loading tracks', error);
         }
     }
 
     /**
-     * Renders track cards to the tracks grid
+     * Loads mod data from JSON file and displays titles
+     */
+    async function loadMods() {
+        try {
+            console.log('Loading mods...');
+            const response = await fetch('static/data/mods_min.json');
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const data = await response.json();
+            console.log('Mods data:', data);
+            
+            if (!data) {
+                showNoModsMessage();
+                return;
+            }
+
+            // Convert object to array
+            const mods = Object.values(data);
+            if (mods.length === 0) {
+                showNoModsMessage();
+                return;
+            }
+
+            renderMods(mods);
+        } catch (error) {
+            console.error('Error loading mods:', error);
+            handleError('Error loading mods', error);
+        }
+    }
+
+    /**
+     * Renders track titles to the mod container
      * @param {Array} tracks - Array of track data to render
      */
     function renderTracks(tracks) {
-        if (!UI.tracksList) return;
-        
-        UI.tracksList.innerHTML = tracks.length 
-            ? tracks.map(track => createCard(track, 'track')?.outerHTML || '').join('')
-            : '<p class="error-message">No tracks found.</p>';
-    }
-
-    /**
-     * Shows detailed popup for a track/mod item
-     * @param {Object} item - Track/mod data
-     * @param {string} type - Type of item
-     */
-    function showDetailsPopup(item, type) {
-        if (!UI.modDetailsPopup) return;
-
-        const elements = {
-            title: UI.modDetailsPopup.querySelector('#popup-title'),
-            image: UI.modDetailsPopup.querySelector('#popup-image'),
-            description: UI.modDetailsPopup.querySelector('#popup-description'),
-            downloads: UI.modDetailsPopup.querySelector('#popup-downloads')
-        };
-        
-        if (elements.title) elements.title.textContent = item.title || 'Untitled';
-        if (elements.image) {
-            elements.image.src = item.images?.cover || getPlaceholderImage();
-            elements.image.onerror = () => elements.image.src = getPlaceholderImage();
+        if (!UI.modContainer) {
+            console.error('Mod container not found');
+            return;
         }
         
-        if (elements.description) {
-            const description = item.description || 'No description available.';
-            elements.description.textContent = description.split('\n')
-                .map(line => line.trim()).join('\n');
-        }
-    
-        if (elements.downloads) {
-            elements.downloads.innerHTML = '';
-            elements.downloads.className = 'download-links-grid';
-        
-            formatDownloadLinks(item.downloads).forEach(({url, host}) => {
-                const linkButton = document.createElement('a');
-                linkButton.href = url;
-                linkButton.target = '_blank';
-                linkButton.className = 'version-button';
-                linkButton.textContent = `Download from ${host}`;
-                elements.downloads.appendChild(linkButton);
-            });
-        }
-    
-        UI.modDetailsPopup.style.display = 'block';
-    }
+        UI.modContainer.innerHTML = tracks.map(track => `
+            <div class="bg-gray-800 rounded-lg p-6 hover:transform hover:scale-105 transition-all duration-300">
+                ${track.images?.cover ? `
+                    <img src="${track.images.cover}" alt="${track.title}" class="w-full h-48 object-cover rounded-lg mb-4">
+                ` : ''}
+                <h3 class="text-xl font-bold mb-4">${track.title || 'Untitled Track'}</h3>
+                ${track.creator ? `<p class="text-gray-400 mb-4">By ${track.creator}</p>` : ''}
+                ${track.description ? `<p class="text-gray-400 mb-4">${track.description.split('\n')[0]}</p>` : ''}
+                ${track.downloads?.links?.length ? `
+                    <div class="flex flex-wrap gap-2">
+                        ${track.downloads.links.map((link, index) => `
+                            <a href="${link}" target="_blank" 
+                               class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center">
+                                Download ${track.downloads.links.length > 1 ? (index + 1) : ''}
+                            </a>
+                        `).join('')}
+                    </div>
+                ` : ''}
+            </div>
+        `).join('');
 
-    /**
-     * Hides the details popup
-     */
-    function hideDetailsPopup() {
-        if (UI.modDetailsPopup) {
-            UI.modDetailsPopup.style.display = 'none';
+        if (UI.noModsMessage) {
+            UI.noModsMessage.classList.add('hidden');
         }
     }
 
     /**
-     * Filters content based on category and search term
+     * Renders mod data to the mod container
+     * @param {Array} mods - Array of mod data to render
      */
-    function filterContent() {
-        if (!UI.searchBar) return;
+    function renderMods(mods) {
+        if (!UI.modContainer) {
+            console.error('Mod container not found');
+            return;
+        }
         
-        const searchTerm = UI.searchBar.value.toLowerCase();
-        let filteredContent = state.allTracks;
+        UI.modContainer.innerHTML = mods.map(mod => `
+            <div class="bg-gray-800 rounded-lg p-6 hover:transform hover:scale-105 transition-all duration-300">
+                ${mod.images?.cover ? `
+                    <img src="${mod.images.cover}" alt="${mod.title}" class="w-full h-48 object-cover rounded-lg mb-4">
+                ` : ''}
+                <h3 class="text-xl font-bold mb-4">${mod.title || 'Untitled Mod'}</h3>
+                ${mod.creator ? `<p class="text-gray-400 mb-4">By ${mod.creator}</p>` : ''}
+                ${mod.description ? `<p class="text-gray-400 mb-4">${mod.description.split('\n')[0]}</p>` : ''}
+                <div class="flex flex-wrap gap-2">
+                    ${Object.entries(mod.downloads.by_host).map(([host, links]) => 
+                        links.map((link, index) => `
+                            <a href="${link}" target="_blank" 
+                               class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center">
+                                ${host} ${links.length > 1 ? (index + 1) : ''}
+                            </a>
+                        `).join('')
+                    ).join('')}
+                    ${mod.downloads.by_type.other ? 
+                        mod.downloads.by_type.other.map((link, index) => `
+                            <a href="${link}" target="_blank" 
+                               class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center">
+                                Download ${index + 1}
+                            </a>
+                        `).join('') : ''
+                    }
+                </div>
+            </div>
+        `).join('');
 
-        if (state.currentCategory !== 'all') {
-            filteredContent = filteredContent.filter(item => 
-                item.category === state.currentCategory
-            );
+        if (UI.noModsMessage) {
+            UI.noModsMessage.classList.add('hidden');
         }
+    }
 
-        if (searchTerm) {
-            filteredContent = filteredContent.filter(item => 
-                (item.title?.toLowerCase().includes(searchTerm)) ||
-                (item.creator?.toLowerCase().includes(searchTerm)) ||
-                (item.description?.toLowerCase().includes(searchTerm))
-            );
+    /**
+     * Shows the no mods found message
+     */
+    function showNoModsMessage() {
+        if (UI.noModsMessage) {
+            UI.noModsMessage.classList.remove('hidden');
         }
-
-        renderTracks(filteredContent);
+        if (UI.modContainer) {
+            UI.modContainer.innerHTML = '';
+        }
     }
 
     /**
@@ -259,50 +172,13 @@ document.addEventListener('DOMContentLoaded', function() {
      * @param {Error} error - Error object
      */
     function handleError(message, error) {
-        const errorContainer = document.createElement('div');
-        errorContainer.className = "error-message";
-        errorContainer.textContent = `${message}: ${error.message || error}`;
-        
-        if (UI.tracksList) {
-            UI.tracksList.appendChild(errorContainer);
+        if (UI.modContainer) {
+            UI.modContainer.innerHTML = `
+                <div class="col-span-full bg-red-900/50 text-red-200 p-4 rounded-lg">
+                    ${message}: ${error.message || error}
+                </div>
+            `;
         }
+        console.error(message, error);
     }
-
-    /**
-     * Initialize event listeners
-     */
-    function initializeEventListeners() {
-        // Popup close events
-        if (UI.popupCloseButton) {
-            UI.popupCloseButton.addEventListener('click', hideDetailsPopup);
-        }
-
-        if (UI.modDetailsPopup) {
-            UI.modDetailsPopup.addEventListener('click', function(e) {
-                if (e.target === UI.modDetailsPopup) {
-                    hideDetailsPopup();
-                }
-            });
-        }
-
-        // Category filtering
-        UI.categories.forEach(category => {
-            category.addEventListener('click', () => {
-                UI.categories.forEach(c => c.classList.remove('active'));
-                category.classList.add('active');
-                state.currentCategory = category.dataset.category;
-                filterContent();
-            });
-        });
-
-        // Search functionality
-        if (UI.searchBar) {
-            UI.searchBar.addEventListener('input', filterContent);
-        }
-    }
-
-    // Initialize application
-    initializeDisabledTabs();
-    initializeEventListeners();
-    loadTracks();
 });
