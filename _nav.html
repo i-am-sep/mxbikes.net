@@ -1,0 +1,11 @@
+<div class="header">
+    <div class="tabs">
+        <a href="/" class="tab home {% if request.path == '/' %}active{% endif %}">Home</a>
+        <a href="/tracks" class="tab tracks {% if request.path == '/tracks' %}active{% endif %}">Tracks</a>
+        <a href="/bikes" class="tab bikes {% if request.path == '/bikes' %}active{% endif %}">Bikes</a>
+        <a href="/rider" class="tab rider {% if 'rider' in disabled_tabs %}disabled{% endif %} {% if request.path == '/rider' %}active{% endif %}">Rider</a>
+        <a href="/ranked" class="tab ranked {% if 'ranked' in disabled_tabs %}disabled{% endif %} {% if request.path == '/ranked' %}active{% endif %}">Ranked</a>
+        <a href="/championship" class="tab championship {% if 'championship' in disabled_tabs %}disabled{% endif %} {% if request.path == '/championship' %}active{% endif %}">Championship</a>
+        <a href="/downloads" class="tab downloads {% if request.path == '/downloads' %}active{% endif %}">Downloads</a>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>MXBikes.net - Home</title>
+</head>
+<body class="bg-gray-900 text-white">
+    {% include '_nav.html' %} 
+
+    <div class="container mx-auto px-4 py-8 mt-20">
+        <div class="text-center">
+            <h2 class="text-3xl font-bold mb-4">Temporarily Unavailable</h2>
+            <p class="text-xl text-gray-400">The bikes section is currently under maintenance. Please check back later.</p>
+        </div>
+    </div>
+</body>
+</html>
