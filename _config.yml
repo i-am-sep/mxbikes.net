@@ -1,0 +1,7 @@
+title: MXBikes.net
+description: MXBikes mod and track repository
+baseurl: ""
+url: "https://mxbikes.net"
+
+# GitHub Pages settings
+permalink: pretty
