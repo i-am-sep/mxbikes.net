@@ -1,37 +1,44 @@
 import os
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
-from config import Config
-from flask_migrate import Migrate
-from .models import db #Import db from models folder
+from config import Config, config
+from app.extensions import db, init_extensions
 
-migrate = Migrate()
+def create_app(config_class=Config):
+    # Ensure instance path exists and is absolute
+    instance_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'instance'))
+    
+    # Create Flask app with explicit instance path
+    app = Flask(__name__, instance_path=instance_path, 
+                template_folder='../templates',  # Point to correct template directory
+                static_folder='../static')       # Point to correct static directory
+    
+    # Load config
+    if isinstance(config_class, str):
+        app.config.from_object(config[config_class])
+    else:
+        app.config.from_object(config_class)
+    
+    # Ensure instance folder exists
+    os.makedirs(app.instance_path, exist_ok=True)
+    
+    # Initialize extensions
+    init_extensions(app)
 
-def create_app(test_config=None, template_folder=None, instance_path=None):
-    app = Flask(__name__, instance_relative_config=True)
-    if template_folder:
-        app.template_folder = template_folder
-    if instance_path:
-        app.instance_path = instance_path
+    # Register blueprints
+    from app.api import api_blueprint
+    app.register_blueprint(api_blueprint, url_prefix='/api')
 
-    app.config.from_envvar('FLASK_CONFIG') # Load config from environment variable
+    # Register main routes blueprint
+    from app.routes import main
+    app.register_blueprint(main)
 
-    db.init_app(app) # Initialize db *after* config is loaded
-    migrate.init_app(app, db) #Initialize Migrate after db is initialized.
+    # Register error handlers
+    @app.errorhandler(404)
+    def not_found_error(error):
+        return {'error': 'Not Found'}, 404
 
-
-    from .api import api_blueprint #Import your blueprint
-    app.register_blueprint(api_blueprint, url_prefix='/api') #Register blueprint after config and db are initialized.
-
-    #Check config values
-    required_configs = ['SQLALCHEMY_DATABASE_URI', 'SECRET_KEY']
-    missing_configs = [config for config in required_configs if config not in app.config]
-    if missing_configs:
-        print(f"Error: Missing configuration values: {missing_configs}")
-        return None
-
-    print(f"Instance Path: {app.instance_path}")
-    print(f"Database URI: {app.config['SQLALCHEMY_DATABASE_URI']}")
-    print(f"Template Folder: {app.template_folder}")
+    @app.errorhandler(500)
+    def internal_error(error):
+        return {'error': 'Internal Server Error'}, 500
 
     return app

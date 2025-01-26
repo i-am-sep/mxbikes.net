@@ -1,1 +1,7 @@
-Flask-SQLAlchemy
+Flask==2.3.3
+Flask-SQLAlchemy==3.0.5
+Flask-Migrate==4.0.5
+python-dotenv==1.0.0
+SQLAlchemy==2.0.37
+Werkzeug==2.3.7
+ijson==3.2.3

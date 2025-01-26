@@ -32,16 +32,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Add download buttons to card
         const downloadsContainer = card.querySelector('.download-links');
-        if (item.url) {
-            const mxbModsButton = document.createElement('a');
-            mxbModsButton.href = item.url;
-            mxbModsButton.target = '_blank';
-            mxbModsButton.className = 'download-button primary';
-            mxbModsButton.textContent = 'View on MXB-Mods';
-            downloadsContainer.appendChild(mxbModsButton);
-        }
-
-        // Add direct download links if available
         if (item.downloads?.by_host) {
             Object.entries(item.downloads.by_host).forEach(([host, urls]) => {
                 urls.forEach(url => {
@@ -66,14 +56,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function loadMods() {
-        fetch('/data/mods.json')
+        fetch('/api/mods')
             .then(response => response.json())
             .then(data => {
-                // Transform the object into an array with URLs as a property
-                allMods = Object.entries(data).map(([url, mod]) => ({
-                    ...mod,
-                    url: url
-                }));
+                allMods = data;
                 if (modContainer) {
                     renderMods(allMods);
                 }
@@ -82,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function loadTracks() {
-        fetch('/data/track_details.json')
+        fetch('/api/tracks')
             .then(response => response.json())
             .then(tracks => {
                 allTracks = tracks;
@@ -143,16 +129,6 @@ document.addEventListener('DOMContentLoaded', function() {
         downloadsContainer.innerHTML = '';
         downloadsContainer.className = 'download-links-grid';
     
-        // MXB-Mods link
-        if (item.url) {
-            const mxbModsButton = document.createElement('a');
-            mxbModsButton.href = item.url;
-            mxbModsButton.target = '_blank';
-            mxbModsButton.className = 'mxb-mods-button version-button';
-            mxbModsButton.textContent = 'MXB-Mods Page';
-            downloadsContainer.appendChild(mxbModsButton);
-        }
-
         // Add direct download links
         if (item.downloads?.by_host) {
             Object.entries(item.downloads.by_host).forEach(([host, urls]) => {
@@ -216,18 +192,11 @@ document.addEventListener('DOMContentLoaded', function() {
             filteredTracks = filteredTracks.filter(searchFilter);
         }
 
-        // Apply category filter
-        if (selectedCategory !== 'all') {
-            if (selectedCategory === 'tracks') {
-                filteredMods = [];
-            } else if (selectedCategory === 'bikes' || selectedCategory === 'gear' || selectedCategory === 'misc') {
-                // Since we don't have categories in the current data structure,
-                // we'll filter based on the title for now
-                filteredMods = filteredMods.filter(mod => 
-                    mod.title.toLowerCase().includes(selectedCategory.toLowerCase())
-                );
-                filteredTracks = [];
-            }
+        // Apply category filter if on mods page
+        if (selectedCategory !== 'all' && modContainer) {
+            filteredMods = filteredMods.filter(mod => 
+                mod.mod_type?.toLowerCase() === selectedCategory.toLowerCase()
+            );
         }
 
         if (modContainer) {
