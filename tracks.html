@@ -3,15 +3,14 @@
 <head>
     <title>MXBikes.net - Tracks</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="static/styles.css">
 </head>
-<body class="bg-gray-900 text-white">
+<body>
     <div class="header">
         <div class="tabs">
             <a href="index.html" class="tab home">Home</a>
             <a href="tracks.html" class="tab tracks active">Tracks</a>
-            <a href="bikes.html" class="tab bikes">Bikes</a>
+            <a href="bikes.html" class="tab bikes disabled">Bikes</a>
             <a href="rider.html" class="tab rider disabled">Rider</a>
             <a href="ranked.html" class="tab ranked disabled">Ranked</a>
             <a href="championship.html" class="tab championship disabled">Championship</a>
@@ -19,13 +18,13 @@
         </div>
     </div>
 
-    <div class="container mx-auto px-4 py-12">
-        <h1 class="text-3xl font-bold mb-8">Available Tracks</h1>
-        <div id="mod-container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="container">
+        <h1 class="item-title">Available Tracks</h1>
+        <div id="mod-container">
             <!-- Content will be dynamically loaded by scripts.js -->
         </div>
-        <div id="no-mods-message" class="text-center hidden">
-            <p class="text-gray-400">No tracks found</p>
+        <div id="no-mods-message" class="error-message hidden">
+            <p>No tracks found</p>
         </div>
     </div>
 

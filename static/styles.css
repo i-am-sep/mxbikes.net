@@ -88,6 +88,8 @@ body {
 .tab.disabled {
     opacity: 0.5;
     cursor: not-allowed;
+    pointer-events: none;
+    background: var(--color-surface-light);
 }
 
 .container {
@@ -113,31 +115,74 @@ body {
 }
 
 /* Special case for index page - two columns */
-.index-page #mod-container {
+body.index-page #mod-container {
     grid-template-columns: repeat(2, 1fr);
     max-width: 1200px;
 }
 
-/* Track Items
+/* Track and Mod Items
 -------------------------------------------------- */
-.track-item {
+.track-item, .mod-item {
     background: var(--color-surface);
     border-radius: var(--radius-md);
     padding: var(--spacing-md);
     transition: var(--transition-default);
-    cursor: pointer;
 }
 
-.track-item:hover {
+.track-item:hover, .mod-item:hover {
     transform: translateY(-2px);
     background: var(--color-surface-light);
 }
 
-.track-item h3 {
+.item-title {
     margin: 0;
     font-size: 1.1rem;
     color: var(--color-text);
-    text-align: center;
+    font-weight: bold;
+    margin-bottom: var(--spacing-md);
+}
+
+.item-creator {
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-md);
+}
+
+.item-description {
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-md);
+}
+
+.item-image {
+    width: 100%;
+    height: 12rem;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-md);
+}
+
+/* Download Links
+-------------------------------------------------- */
+.download-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.download-button {
+    background: var(--color-primary);
+    color: white;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition-default);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.download-button:hover {
+    background: var(--color-primary-hover);
 }
 
 /* Error States
@@ -150,12 +195,6 @@ body {
     border-radius: var(--radius-md);
     margin: var(--spacing-md) 0;
     grid-column: 1 / -1;
-}
-
-/* Utility Classes
--------------------------------------------------- */
-.hidden {
-    display: none;
 }
 
 /* Search Components
@@ -220,7 +259,7 @@ body {
 /* Responsive Adjustments
 -------------------------------------------------- */
 @media (max-width: 640px) {
-    .index-page #mod-container {
+    body.index-page #mod-container {
         grid-template-columns: 1fr;
     }
     

@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
     async function loadTracks() {
         try {
             console.log('Loading tracks...');
-            const response = await fetch('static/data/tracks_min.json');
+            const response = await fetch('static/data/tracks.json');
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
     async function loadMods() {
         try {
             console.log('Loading mods...');
-            const response = await fetch('static/data/mods_min.json');
+            const response = await fetch('static/data/mods.json');
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
@@ -85,18 +85,17 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         UI.modContainer.innerHTML = tracks.map(track => `
-            <div class="bg-gray-800 rounded-lg p-6 hover:transform hover:scale-105 transition-all duration-300">
+            <div class="track-item">
                 ${track.images?.cover ? `
-                    <img src="${track.images.cover}" alt="${track.title}" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <img src="${track.images.cover}" alt="${track.title}" class="item-image">
                 ` : ''}
-                <h3 class="text-xl font-bold mb-4">${track.title || 'Untitled Track'}</h3>
-                ${track.creator ? `<p class="text-gray-400 mb-4">By ${track.creator}</p>` : ''}
-                ${track.description ? `<p class="text-gray-400 mb-4">${track.description.split('\n')[0]}</p>` : ''}
+                <h3 class="item-title">${track.title || 'Untitled Track'}</h3>
+                ${track.creator ? `<p class="item-creator">By ${track.creator}</p>` : ''}
+                ${track.description ? `<p class="item-description">${track.description.split('\n')[0]}</p>` : ''}
                 ${track.downloads?.links?.length ? `
-                    <div class="flex flex-wrap gap-2">
+                    <div class="download-links">
                         ${track.downloads.links.map((link, index) => `
-                            <a href="${link}" target="_blank" 
-                               class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center">
+                            <a href="${link}" target="_blank" class="download-button">
                                 Download ${track.downloads.links.length > 1 ? (index + 1) : ''}
                             </a>
                         `).join('')}
@@ -121,26 +120,24 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         UI.modContainer.innerHTML = mods.map(mod => `
-            <div class="bg-gray-800 rounded-lg p-6 hover:transform hover:scale-105 transition-all duration-300">
+            <div class="mod-item">
                 ${mod.images?.cover ? `
-                    <img src="${mod.images.cover}" alt="${mod.title}" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <img src="${mod.images.cover}" alt="${mod.title}" class="item-image">
                 ` : ''}
-                <h3 class="text-xl font-bold mb-4">${mod.title || 'Untitled Mod'}</h3>
-                ${mod.creator ? `<p class="text-gray-400 mb-4">By ${mod.creator}</p>` : ''}
-                ${mod.description ? `<p class="text-gray-400 mb-4">${mod.description.split('\n')[0]}</p>` : ''}
-                <div class="flex flex-wrap gap-2">
+                <h3 class="item-title">${mod.title || 'Untitled Mod'}</h3>
+                ${mod.creator ? `<p class="item-creator">By ${mod.creator}</p>` : ''}
+                ${mod.description ? `<p class="item-description">${mod.description.split('\n')[0]}</p>` : ''}
+                <div class="download-links">
                     ${Object.entries(mod.downloads.by_host).map(([host, links]) => 
                         links.map((link, index) => `
-                            <a href="${link}" target="_blank" 
-                               class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center">
+                            <a href="${link}" target="_blank" class="download-button">
                                 ${host} ${links.length > 1 ? (index + 1) : ''}
                             </a>
                         `).join('')
                     ).join('')}
                     ${mod.downloads.by_type.other ? 
                         mod.downloads.by_type.other.map((link, index) => `
-                            <a href="${link}" target="_blank" 
-                               class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center">
+                            <a href="${link}" target="_blank" class="download-button">
                                 Download ${index + 1}
                             </a>
                         `).join('') : ''
@@ -174,7 +171,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function handleError(message, error) {
         if (UI.modContainer) {
             UI.modContainer.innerHTML = `
-                <div class="col-span-full bg-red-900/50 text-red-200 p-4 rounded-lg">
+                <div class="error-message">
                     ${message}: ${error.message || error}
                 </div>
             `;

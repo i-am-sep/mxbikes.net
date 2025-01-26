@@ -3,15 +3,14 @@
 <head>
     <title>MXBikes.net - Downloads</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="static/styles.css">
 </head>
-<body class="bg-gray-900 text-white">
+<body>
     <div class="header">
         <div class="tabs">
             <a href="index.html" class="tab home">Home</a>
             <a href="tracks.html" class="tab tracks">Tracks</a>
-            <a href="bikes.html" class="tab bikes">Bikes</a>
+            <a href="bikes.html" class="tab bikes disabled">Bikes</a>
             <a href="rider.html" class="tab rider disabled">Rider</a>
             <a href="ranked.html" class="tab ranked disabled">Ranked</a>
             <a href="championship.html" class="tab championship disabled">Championship</a>
@@ -19,26 +18,26 @@
         </div>
     </div>
 
-    <div class="container mx-auto px-4 py-12">
-        <div class="search-container mb-8">
+    <div class="container">
+        <div class="search-container">
             <div class="search-bar-wrapper">
-                <input type="text" class="search-bar w-full p-4 rounded-lg bg-gray-800 text-white" placeholder="Search for mods, tracks, gear...">
+                <input type="text" class="search-bar" placeholder="Search for mods, tracks, gear...">
             </div>
-            <div class="categories flex gap-4 mt-4">
-                <button class="category active bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded" data-category="all">All</button>
-                <button class="category bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded" data-category="tracks">Tracks</button>
-                <button class="category bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded" data-category="bikes">Bikes</button>
-                <button class="category bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded" data-category="gear">Gear</button>
-                <button class="category bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded" data-category="misc">Misc</button>
+            <div class="categories">
+                <button class="category active" data-category="all">All</button>
+                <button class="category" data-category="tracks">Tracks</button>
+                <button class="category" data-category="bikes">Bikes</button>
+                <button class="category" data-category="gear">Gear</button>
+                <button class="category" data-category="misc">Misc</button>
             </div>
         </div>
 
-        <div id="mod-container" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div id="mod-container">
             <!-- Content will be dynamically loaded by scripts.js -->
         </div>
 
-        <div id="no-mods-message" class="text-center hidden">
-            <p class="text-gray-400">No mods found.</p>
+        <div id="no-mods-message" class="error-message hidden">
+            <p>No mods found.</p>
         </div>
     </div>
 
