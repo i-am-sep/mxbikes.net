@@ -56,10 +56,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function loadMods() {
-        fetch('/api/mods')
+        fetch('/data/mods.json')
             .then(response => response.json())
             .then(data => {
-                allMods = data;
+                allMods = data.items;
                 if (modContainer) {
                     renderMods(allMods);
                 }
@@ -68,12 +68,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function loadTracks() {
-        fetch('/api/tracks')
+        fetch('/data/tracks.json')
             .then(response => response.json())
-            .then(tracks => {
-                allTracks = tracks;
+            .then(data => {
+                allTracks = data.items;
                 if (tracksList) {
-                    renderTracks(tracks);
+                    renderTracks(allTracks);
                 }
             })
             .catch(handleError('Error loading tracks'));

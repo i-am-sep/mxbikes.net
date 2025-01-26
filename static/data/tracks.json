@@ -1,0 +1,102 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "title": "Tcs Session Supercross",
+      "description": "Track available at https://mxb-mods.com/tcs-session-supercross/",
+      "creator": "Tcs",
+      "images": {
+        "cover": "",
+        "additional": []
+      },
+      "downloads": {
+        "links": [
+          "https://mxb-mods.com/tcs-session-supercross/"
+        ],
+        "count": 0
+      },
+      "type": "track",
+      "mod_type": "free",
+      "download_count": 0
+    },
+    {
+      "id": 2,
+      "title": "Smoksta Flowsdale Mx",
+      "description": "Track available at https://mxb-mods.com/smoksta-flowsdale-mx/",
+      "creator": "Smoksta",
+      "images": {
+        "cover": "",
+        "additional": []
+      },
+      "downloads": {
+        "links": [
+          "https://mxb-mods.com/smoksta-flowsdale-mx/"
+        ],
+        "count": 0
+      },
+      "type": "track",
+      "mod_type": "free",
+      "download_count": 0
+    },
+    {
+      "id": 3,
+      "title": "Steezy93 Snow Hills Freeride",
+      "description": "Track available at https://mxb-mods.com/steezy93-snow-hills-freeride/",
+      "creator": "Steezy93",
+      "images": {
+        "cover": "",
+        "additional": []
+      },
+      "downloads": {
+        "links": [
+          "https://mxb-mods.com/steezy93-snow-hills-freeride/"
+        ],
+        "count": 0
+      },
+      "type": "track",
+      "mod_type": "free",
+      "download_count": 0
+    },
+    {
+      "id": 4,
+      "title": "30 Starter Maps",
+      "description": "Track available at https://mxb-mods.com/30-starter-maps/",
+      "creator": "30",
+      "images": {
+        "cover": "",
+        "additional": []
+      },
+      "downloads": {
+        "links": [
+          "https://mxb-mods.com/30-starter-maps/"
+        ],
+        "count": 0
+      },
+      "type": "track",
+      "mod_type": "free",
+      "download_count": 0
+    },
+    {
+      "id": 5,
+      "title": "Reix 2021 Resolute Enduro Indoor Extreme",
+      "description": "Track available at https://mxb-mods.com/reix-2021-resolute-enduro-indoor-extreme/",
+      "creator": "Reix",
+      "images": {
+        "cover": "",
+        "additional": []
+      },
+      "downloads": {
+        "links": [
+          "https://mxb-mods.com/reix-2021-resolute-enduro-indoor-extreme/"
+        ],
+        "count": 0
+      },
+      "type": "track",
+      "mod_type": "free",
+      "download_count": 0
+    }
+  ],
+  "total": 5,
+  "pages": 1,
+  "current_page": 1
+}
