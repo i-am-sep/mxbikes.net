@@ -1,6 +1,5 @@
 from datetime import datetime
 from app.extensions import db
-from sqlalchemy.dialects.postgresql import JSONB
 
 class Track(db.Model):
     __tablename__ = 'tracks'
@@ -12,9 +11,9 @@ class Track(db.Model):
     description = db.Column(db.Text)
     
     # Store complex nested data as JSON
-    downloads = db.Column(JSONB)  # Stores download links and count
-    images = db.Column(JSONB)     # Stores cover and additional images
-    embedded_videos = db.Column(JSONB, nullable=True)
+    downloads = db.Column(db.JSON)  # Stores download links and count
+    images = db.Column(db.JSON)     # Stores cover and additional images
+    embedded_videos = db.Column(db.JSON, nullable=True)
     
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)

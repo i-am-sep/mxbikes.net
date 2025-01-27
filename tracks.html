@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MXBikes.net - Tracks</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <script>
+        // Only log critical errors
+        window.onerror = function(msg, url, lineNo, columnNo, error) {
+            if (!msg.includes('Loading failed for') && !msg.includes('favicon.ico')) {
+                console.error('Error:', {
+                    message: msg,
+                    url: url,
+                    lineNo: lineNo,
+                    columnNo: columnNo,
+                    error: error
+                });
+            }
+            return false;
+        };
+
+        // Handle image loading errors
+        function handleImageError(img) {
+            img.onerror = null; // Prevent infinite loop
+            img.src = 'static/placeholder.jpg';
+        }
+
+        // Log page load events
+        console.log('Page loading started');
+        window.addEventListener('load', function() {
+            console.log('Page loaded successfully');
+        });
+    </script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #111827;
+            min-height: 100vh;
+            color: white;
+        }
+
+        .chrome-tabs {
+            background: #2D2D2D;
+            padding: 10px 10px 0;
+            border-radius: 8px 8px 0 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .chrome-tab {
+            display: inline-block;
+            padding: 8px 20px;
+            background: #404040;
+            color: #999;
+            border-radius: 8px 8px 0 0;
+            margin-right: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .chrome-tab.active {
+            background: #1a1a1a;
+            color: white;
+        }
+
+        .chrome-tab:hover:not(.disabled) {
+            background: #333;
+        }
+
+        .chrome-tab.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .main-content {
+            margin-top: 60px;
+            position: relative;
+            background: rgba(0, 0, 0, 0.8);
+            padding-top: 2rem;
+            min-height: calc(100vh - 60px);
+        }
+
+        .search-container {
+            margin: 1rem 0;
+            padding: 0 1rem;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            background: rgba(31, 41, 55, 0.95);
+            color: white;
+            border: 1px solid rgba(75, 85, 99, 0.5);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: rgba(59, 130, 246, 0.5);
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.25);
+        }
+
+        .content-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 0.5rem;
+        }
+
+        .content-table th {
+            background: rgba(31, 41, 55, 0.95);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .track-row {
+            background: rgba(31, 41, 55, 0.95);
+            transition: transform 0.2s ease;
+        }
+
+        .track-row:hover {
+            transform: translateY(-2px);
+        }
+
+        .track-cell, .creator-cell, .category-cell, .download-cell {
+            padding: 1rem;
+            color: white;
+            vertical-align: middle;
+        }
+
+        .track-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .track-thumbnail {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 0.25rem;
+        }
+
+        .download-button {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(59, 130, 246, 0.8);
+            color: white;
+            border-radius: 0.25rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-bottom: 0.5rem;
+            text-align: center;
+            min-width: 120px;
+        }
+
+        .download-button:last-child {
+            margin-bottom: 0;
+        }
+
+        .download-button:hover {
+            background: rgba(59, 130, 246, 1);
+            transform: translateY(-1px);
+        }
+
+        .error-message {
+            text-align: center;
+            color: #ef4444;
+            padding: 1rem;
+            background: rgba(31, 41, 55, 0.95);
+            border-radius: 0.5rem;
+            margin: 1rem;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .category-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            background: rgba(59, 130, 246, 0.2);
+            color: rgba(59, 130, 246, 1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <nav class="chrome-tabs">
+        <a href="index.html" class="chrome-tab">Home</a>
+        <a href="tracks.html" class="chrome-tab active">Tracks</a>
+        <a href="#" class="chrome-tab disabled">Bikes</a>
+        <a href="#" class="chrome-tab disabled">Rider</a>
+        <a href="#" class="chrome-tab disabled">Ranked</a>
+        <a href="#" class="chrome-tab disabled">Championship</a>
+        <a href="downloads.html" class="chrome-tab">Downloads</a>
+    </nav>
+
+    <div class="main-content">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl font-bold mb-6">Available Tracks</h1>
+            <div class="search-container">
+                <input type="text" id="track-search" placeholder="Search tracks..." class="search-input">
+            </div>
+            <div class="table-container">
+                <table id="tracks-table" class="content-table">
+                    <thead>
+                        <tr>
+                            <th class="w-1/3">Track</th>
+                            <th class="w-1/6">Creator</th>
+                            <th class="w-1/6">Category</th>
+                            <th class="w-1/4">Download</th>
+                        </tr>
+                    </thead>
+                    <tbody id="mod-container">
+                        <!-- Content will be dynamically loaded by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+            <div id="no-mods-message" class="error-message hidden">
+                <p>No tracks found</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-8">
+        <div class="container mx-auto px-4 text-center text-gray-400">
+            <p>Made for the MXB community by Alex Nagy (<a href="https://instagram.com/awulix" target="_blank" class="hover:text-blue-400">Scrallex</a>)</p>
+            <div class="flex justify-center space-x-4 mt-4">
+                <a href="https://www.youtube.com/@awulix" target="_blank" class="hover:text-red-500">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
+                </a>
+                <a href="https://instagram.com/awulix" target="_blank" class="hover:text-pink-500">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013 3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                </a>
+                <a href="https://www.tiktok.com/@scrallex" target="_blank" class="hover:text-gray-500">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                    </svg>
+                </a>
+            </div>
+            <p class="mt-2"><a href="https://paypal.me/alexanderjnagy" target="_blank" class="hover:text-blue-400">Support the Creator</a></p>
+        </div>
+    </footer>
+
+    <script>
+        console.log('Script starting...');
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded');
+            // Core UI Elements
+            const UI = {
+                modContainer: document.getElementById('mod-container'),
+                noModsMessage: document.getElementById('no-mods-message'),
+                trackSearch: document.getElementById('track-search'),
+                categoryButtons: document.querySelectorAll('.category')
+            };
+
+            // Log UI elements
+            console.log('UI elements:', {
+                modContainer: !!UI.modContainer,
+                noModsMessage: !!UI.noModsMessage,
+                trackSearch: !!UI.trackSearch,
+                categoryButtons: UI.categoryButtons.length
+            });
+
+            // Embedded tracks data
+            const tracksData = {
+                "categories": ["All", "Supercross", "Motocross", "Freeride", "Hybrid"],
+                "tracks": [
+                    {
+                        "name": "Tcs Session Supercross",
+                        "creator": "TypicalCanadian",
+                        "category": "Supercross",
+                        "thumbnail": "https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp",
+                        "downloads": [
+                            {
+                                "type": "MediaFire",
+                                "url": "https://www.mediafire.com/file/0k33ojtprf9wqxl/TCs_Session_Supercross.pkz/file"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Smoksta Flowsdale Mx",
+                        "creator": "SmokstaJ",
+                        "category": "Motocross",
+                        "thumbnail": "https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp",
+                        "downloads": [
+                            {
+                                "type": "MediaFire",
+                                "url": "https://www.mediafire.com/file/nohn52owlql05th/Smoksta_-_Flowsdale_MX.pkz/file"
+                            },
+                            {
+                                "type": "Google Drive",
+                                "url": "https://drive.google.com/file/d/15HOIZD4JzchaV6xklVlBDqtJ00kw98EZ/view?usp=sharing"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Sx2016 Round 03 Anaheim 2",
+                        "creator": "gdubmx",
+                        "category": "Supercross",
+                        "thumbnail": "https://cdn.mxb-mods.com/wp-content/uploads/2019/01/asd2.png",
+                        "downloads": [
+                            {
+                                "type": "Mega",
+                                "url": "https://mega.nz/#!NIoxHazS!4oqHJe0tUSZPuv7Cl1okKt7RFlfloFeWSGOceXEMzpM"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Florida Tracks Trails",
+                        "creator": "insane",
+                        "category": "Motocross",
+                        "thumbnail": "https://cdn.mxb-mods.com/wp-content/uploads/2018/12/ftt-800x800.jpg",
+                        "downloads": [
+                            {
+                                "type": "OneDrive",
+                                "url": "https://1drv.ms/u/s!AmFynRoK33UNg_ownANBF_Tvh4-1UA"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Hill Country Freeride",
+                        "creator": "Umpossible",
+                        "category": "Freeride",
+                        "thumbnail": "https://cdn.mxb-mods.com/wp-content/uploads/2018/12/hcf-800x500.png",
+                        "downloads": [
+                            {
+                                "type": "MediaFire",
+                                "url": "http://www.mediafire.com/file/8i5are13i8sno3u/HillCountry.zip/file"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Umpossible Mountain Freeride",
+                        "creator": "Umpossible",
+                        "category": "Freeride",
+                        "thumbnail": "https://cdn.mxb-mods.com/wp-content/uploads/2018/12/umf-800x500.png",
+                        "downloads": [
+                            {
+                                "type": "MediaFire",
+                                "url": "http://www.mediafire.com/file/r4510n6ivtgn4ck/UmpossibleMountain.zip/file"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Backyard Hybrid V2",
+                        "creator": "TWITCH135",
+                        "category": "Hybrid",
+                        "thumbnail": "https://cdn.mxb-mods.com/wp-content/uploads/2018/12/track_image-800x800.png",
+                        "downloads": [
+                            {
+                                "type": "MediaFire",
+                                "url": "http://www.mediafire.com/file/l1tq1fv6lkatekv/BackyardHybrid_v2.zip/file"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Ez Sx",
+                        "creator": "TWITCH135",
+                        "category": "Supercross",
+                        "thumbnail": "https://cdn.mxb-mods.com/wp-content/uploads/2018/11/screen0401-800x450.jpg",
+                        "downloads": [
+                            {
+                                "type": "MediaFire",
+                                "url": "http://www.mediafire.com/file/uwtc7434erh34zh/EZSX.zip/file"
+                            }
+                        ]
+                    }
+                ]
+            };
+
+            let currentCategory = 'All';
+
+            // Initialize category filters
+            initializeCategoryFilters();
+
+            // Add search event listener
+            if (UI.trackSearch) {
+                UI.trackSearch.addEventListener('input', handleTrackSearch);
+            }
+
+            // Initial render
+            console.log('Initial render...');
+            renderProducts(tracksData.tracks);
+
+            /**
+             * Initializes category filter buttons
+             */
+            function initializeCategoryFilters() {
+                console.log('Initializing category filters...');
+                const searchContainer = document.querySelector('.search-container');
+                if (!searchContainer) {
+                    console.error('Search container not found');
+                    return;
+                }
+
+                const categoryContainer = document.createElement('div');
+                categoryContainer.className = 'flex gap-2 mt-4 flex-wrap';
+                searchContainer.appendChild(categoryContainer);
+
+                categoryContainer.innerHTML = tracksData.categories.map(category => `
+                    <button 
+                        class="category px-4 py-2 rounded ${category === 'All' ? 'bg-blue-600' : 'bg-gray-700'} hover:bg-blue-500 transition-colors"
+                        data-category="${category}"
+                    >
+                        ${category}
+                    </button>
+                `).join('');
+
+                // Add event listeners to category buttons
+                document.querySelectorAll('.category').forEach(button => {
+                    button.addEventListener('click', handleCategoryChange);
+                });
+                console.log('Category filters initialized');
+            }
+
+            /**
+             * Handles track search input
+             */
+            function handleTrackSearch(event) {
+                const searchTerm = event.target.value.toLowerCase();
+                filterAndRenderProducts(searchTerm, currentCategory);
+            }
+
+            /**
+             * Handles category button clicks
+             */
+            function handleCategoryChange(event) {
+                const button = event.target;
+                currentCategory = button.dataset.category;
+
+                // Update active state
+                document.querySelectorAll('.category').forEach(btn => {
+                    btn.classList.remove('bg-blue-600');
+                    btn.classList.add('bg-gray-700');
+                });
+                button.classList.remove('bg-gray-700');
+                button.classList.add('bg-blue-600');
+
+                // Filter and render
+                const searchTerm = UI.trackSearch ? UI.trackSearch.value.toLowerCase() : '';
+                filterAndRenderProducts(searchTerm, currentCategory);
+            }
+
+            /**
+             * Filters and renders products based on search term and category
+             */
+            function filterAndRenderProducts(searchTerm, category) {
+                let filteredTracks = tracksData.tracks;
+
+                // Apply category filter
+                if (category !== 'All') {
+                    filteredTracks = filteredTracks.filter(track => track.category === category);
+                }
+
+                // Apply search filter
+                if (searchTerm) {
+                    filteredTracks = filteredTracks.filter(track =>
+                        track.name?.toLowerCase().includes(searchTerm) ||
+                        track.creator?.toLowerCase().includes(searchTerm)
+                    );
+                }
+
+                if (filteredTracks.length === 0) {
+                    showNoModsMessage();
+                } else {
+                    renderProducts(filteredTracks);
+                }
+            }
+
+            /**
+             * Renders product data in a table format
+             * @param {Array} tracks - Array of track data to render
+             */
+            function renderProducts(tracks) {
+                if (!UI.modContainer) {
+                    console.error('Mod container not found');
+                    return;
+                }
+                
+                UI.modContainer.innerHTML = tracks.map(track => `
+                    <tr class="track-row">
+                        <td class="track-cell">
+                            <div class="track-info">
+                                ${track.thumbnail ? `
+                                    <img src="${track.thumbnail}" alt="${track.name}" class="track-thumbnail" onerror="handleImageError(this)">
+                                ` : ''}
+                                <span class="track-title font-medium">${track.name || 'Untitled'}</span>
+                            </div>
+                        </td>
+                        <td class="creator-cell">${track.creator || 'Unknown'}</td>
+                        <td class="category-cell">
+                            <span class="category-badge">${track.category || 'Uncategorized'}</span>
+                        </td>
+                        <td class="download-cell">
+                            <div class="flex flex-col">
+                                ${track.downloads && track.downloads.length ? 
+                                    track.downloads.map(download => `
+                                        <a href="${download.url}" target="_blank" class="download-button">
+                                            ${download.type}
+                                        </a>
+                                    `).join('') 
+                                    : 'No download available'
+                                }
+                            </div>
+                        </td>
+                    </tr>
+                `).join('');
+
+                if (UI.noModsMessage) {
+                    UI.noModsMessage.classList.add('hidden');
+                }
+                console.log('Rendered', tracks.length, 'tracks');
+            }
+
+            /**
+             * Shows the no mods found message
+             */
+            function showNoModsMessage() {
+                if (UI.noModsMessage) {
+                    UI.noModsMessage.classList.remove('hidden');
+                }
+                if (UI.modContainer) {
+                    UI.modContainer.innerHTML = '';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

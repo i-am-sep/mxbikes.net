@@ -24,6 +24,7 @@ class StagingConfig(Config):
     
 class ProductionConfig(Config):
     DEBUG = False
+    SQLALCHEMY_DATABASE_URI = 'mysql://doadmin:AVNS_2285GMMOL6jnvj0BjGY@dbaas-db-8731719-do-user-18540873-0.h.db.ondigitalocean.com:25060/defaultdb?ssl-mode=REQUIRED'
     
 class TestingConfig(Config):
     TESTING = True

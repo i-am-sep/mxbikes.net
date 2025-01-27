@@ -1,0 +1,105 @@
+{
+  "categories": ["All", "Supercross", "Motocross", "Freeride", "Hybrid"],
+  "tracks": [
+    {
+      "name": "Tcs Session Supercross",
+      "creator": "TypicalCanadian",
+      "category": "Supercross",
+      "thumbnail": "https://cdn.mxb-mods.com/wp-content/uploads/2024/12/SSXTN-png.webp",
+      "downloads": [
+        {
+          "type": "MediaFire",
+          "url": "https://www.mediafire.com/file/0k33ojtprf9wqxl/TCs_Session_Supercross.pkz/file"
+        }
+      ]
+    },
+    {
+      "name": "Smoksta Flowsdale Mx",
+      "creator": "SmokstaJ",
+      "category": "Motocross",
+      "thumbnail": "https://cdn.mxb-mods.com/wp-content/uploads/2024/12/FlowsDaleMX.webp",
+      "downloads": [
+        {
+          "type": "MediaFire",
+          "url": "https://www.mediafire.com/file/nohn52owlql05th/Smoksta_-_Flowsdale_MX.pkz/file"
+        },
+        {
+          "type": "Google Drive",
+          "url": "https://drive.google.com/file/d/15HOIZD4JzchaV6xklVlBDqtJ00kw98EZ/view?usp=sharing"
+        }
+      ]
+    },
+    {
+      "name": "Sx2016 Round 03 Anaheim 2",
+      "creator": "gdubmx",
+      "category": "Supercross",
+      "thumbnail": "https://cdn.mxb-mods.com/wp-content/uploads/2019/01/asd2.png",
+      "downloads": [
+        {
+          "type": "Mega",
+          "url": "https://mega.nz/#!NIoxHazS!4oqHJe0tUSZPuv7Cl1okKt7RFlfloFeWSGOceXEMzpM"
+        }
+      ]
+    },
+    {
+      "name": "Florida Tracks Trails",
+      "creator": "insane",
+      "category": "Motocross",
+      "thumbnail": "https://cdn.mxb-mods.com/wp-content/uploads/2018/12/ftt-800x800.jpg",
+      "downloads": [
+        {
+          "type": "OneDrive",
+          "url": "https://1drv.ms/u/s!AmFynRoK33UNg_ownANBF_Tvh4-1UA"
+        }
+      ]
+    },
+    {
+      "name": "Hill Country Freeride",
+      "creator": "Umpossible",
+      "category": "Freeride",
+      "thumbnail": "https://cdn.mxb-mods.com/wp-content/uploads/2018/12/hcf-800x500.png",
+      "downloads": [
+        {
+          "type": "MediaFire",
+          "url": "http://www.mediafire.com/file/8i5are13i8sno3u/HillCountry.zip/file"
+        }
+      ]
+    },
+    {
+      "name": "Umpossible Mountain Freeride",
+      "creator": "Umpossible",
+      "category": "Freeride",
+      "thumbnail": "https://cdn.mxb-mods.com/wp-content/uploads/2018/12/umf-800x500.png",
+      "downloads": [
+        {
+          "type": "MediaFire",
+          "url": "http://www.mediafire.com/file/r4510n6ivtgn4ck/UmpossibleMountain.zip/file"
+        }
+      ]
+    },
+    {
+      "name": "Backyard Hybrid V2",
+      "creator": "TWITCH135",
+      "category": "Hybrid",
+      "thumbnail": "https://cdn.mxb-mods.com/wp-content/uploads/2018/12/track_image-800x800.png",
+      "downloads": [
+        {
+          "type": "MediaFire",
+          "url": "http://www.mediafire.com/file/l1tq1fv6lkatekv/BackyardHybrid_v2.zip/file"
+        }
+      ]
+    },
+    {
+      "name": "Ez Sx",
+      "creator": "TWITCH135",
+      "category": "Supercross",
+      "thumbnail": "https://cdn.mxb-mods.com/wp-content/uploads/2018/11/screen0401-800x450.jpg",
+      "downloads": [
+        {
+          "type": "MediaFire",
+          "url": "http://www.mediafire.com/file/uwtc7434erh34zh/EZSX.zip/file"
+        }
+      ]
+    }
+  ]
+}

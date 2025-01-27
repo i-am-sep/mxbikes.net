@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     // Store data globally for filtering
-    let tracksData = { categories: [], tracks: [] };
+    let productsData = [];
     let currentCategory = 'All';
 
     // Get the current page from pathname
@@ -43,21 +43,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Add category buttons once data is loaded
         loadProducts().then(() => {
-            if (tracksData.categories) {
-                categoryContainer.innerHTML = tracksData.categories.map(category => `
-                    <button 
-                        class="category px-4 py-2 rounded ${category === 'All' ? 'bg-blue-600' : 'bg-gray-700'} hover:bg-blue-500 transition-colors"
-                        data-category="${category}"
-                    >
-                        ${category}
-                    </button>
-                `).join('');
+            // Get unique categories from products
+            const categories = ['All', ...new Set(productsData.map(p => p.category))];
+            
+            categoryContainer.innerHTML = categories.map(category => `
+                <button 
+                    class="category px-4 py-2 rounded ${category === 'All' ? 'bg-blue-600' : 'bg-gray-700'} hover:bg-blue-500 transition-colors"
+                    data-category="${category}"
+                >
+                    ${category}
+                </button>
+            `).join('');
 
-                // Add event listeners to category buttons
-                document.querySelectorAll('.category').forEach(button => {
-                    button.addEventListener('click', handleCategoryChange);
-                });
-            }
+            // Add event listeners to category buttons
+            document.querySelectorAll('.category').forEach(button => {
+                button.addEventListener('click', handleCategoryChange);
+            });
         });
     }
 
@@ -93,98 +94,82 @@ document.addEventListener('DOMContentLoaded', function() {
      * Filters and renders products based on search term and category
      */
     function filterAndRenderProducts(searchTerm, category) {
-        let filteredTracks = tracksData.tracks;
+        let filteredProducts = productsData;
 
         // Apply category filter
         if (category !== 'All') {
-            filteredTracks = filteredTracks.filter(track => track.category === category);
+            filteredProducts = filteredProducts.filter(product => product.category === category);
         }
 
         // Apply search filter
         if (searchTerm) {
-            filteredTracks = filteredTracks.filter(track =>
-                track.name?.toLowerCase().includes(searchTerm) ||
-                track.creator?.toLowerCase().includes(searchTerm)
+            filteredProducts = filteredProducts.filter(product =>
+                product.name?.toLowerCase().includes(searchTerm) ||
+                product.creator?.toLowerCase().includes(searchTerm)
             );
         }
 
-        if (filteredTracks.length === 0) {
+        if (filteredProducts.length === 0) {
             showNoModsMessage();
         } else {
-            renderProducts(filteredTracks);
+            renderProducts(filteredProducts);
         }
     }
 
     /**
-     * Loads product data from API endpoint with fallback to local JSON
+     * Loads product data from API endpoint
      */
     async function loadProducts() {
         try {
-            console.log('Attempting to load tracks from API...');
+            console.log('Attempting to load products from API...');
             const response = await fetch('/api/products');
             if (!response.ok) {
                 throw new Error('API not available');
             }
             const data = await response.json();
-            console.log('Tracks loaded from API');
+            console.log('Products loaded from API');
             
             if (!Array.isArray(data) || data.length === 0) {
-                throw new Error('No tracks found in API');
+                throw new Error('No products found in API');
             }
 
-            tracksData.tracks = data;
+            productsData = data;
             renderProducts(data);
+            return data;
         } catch (error) {
-            console.log('API fetch failed, falling back to local JSON:', error);
-            try {
-                const response = await fetch('/static/data/mods.json');
-                if (!response.ok) {
-                    throw new Error('Local JSON not available');
-                }
-                const data = await response.json();
-                console.log('Tracks loaded from local JSON');
-
-                if (!data || !data.tracks || data.tracks.length === 0) {
-                    throw new Error('No tracks found in local JSON');
-                }
-
-                tracksData = data;
-                renderProducts(data.tracks);
-            } catch (localError) {
-                console.error('Error loading tracks from both sources:', localError);
-                handleError('Error loading tracks', localError);
-            }
+            console.error('Error loading data:', error);
+            handleError('Error loading content', error);
         }
     }
 
     /**
      * Renders product data in a table format
-     * @param {Array} tracks - Array of track data to render
+     * @param {Array} products - Array of product data to render
      */
-    function renderProducts(tracks) {
+    function renderProducts(products) {
         if (!UI.modContainer) {
             console.error('Mod container not found');
             return;
         }
         
-        UI.modContainer.innerHTML = tracks.map(track => `
+        UI.modContainer.innerHTML = products.map(product => `
             <tr class="track-row">
                 <td class="track-cell">
                     <div class="track-info">
-                        ${track.thumbnail ? `
-                            <img src="${track.thumbnail}" alt="${track.name}" class="track-thumbnail">
+                        ${product.thumbnail ? `
+                            <img src="${product.thumbnail}" alt="${product.name}" class="track-thumbnail">
                         ` : ''}
-                        <span class="track-title font-medium">${track.name || 'Untitled'}</span>
+                        <span class="track-title font-medium">${product.name || 'Untitled'}</span>
                     </div>
                 </td>
-                <td class="creator-cell">${track.creator || 'Unknown'}</td>
+                <td class="creator-cell">${product.creator || 'Unknown'}</td>
                 <td class="category-cell">
-                    <span class="category-badge">${track.category || 'Uncategorized'}</span>
+                    <span class="category-badge">${product.category || 'Uncategorized'}</span>
                 </td>
                 <td class="download-cell">
                     <div class="flex flex-col">
-                        ${track.downloads && track.downloads.length ? 
-                            track.downloads.map(download => `
+                        ${product.downloads && product.downloads.length ? 
+                            product.downloads.map(download => `
                                 <a href="${download.url}" target="_blank" class="download-button">
                                     ${download.type}
                                 </a>
