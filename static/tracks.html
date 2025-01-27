@@ -2,47 +2,209 @@
 <html>
 <head>
     <title>MXBikes.net - Tracks</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('assets/images/background.gif') no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
+        }
+
+        .page-break {
+            width: 100%;
+            height: auto;
+            margin: 2rem 0;
+        }
+
+        .chrome-tabs {
+            background: #2D2D2D;
+            padding: 10px 10px 0;
+            border-radius: 8px 8px 0 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .chrome-tab {
+            display: inline-block;
+            padding: 8px 20px;
+            background: #404040;
+            color: #999;
+            border-radius: 8px 8px 0 0;
+            margin-right: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .chrome-tab.active {
+            background: #1a1a1a;
+            color: white;
+        }
+
+        .chrome-tab:hover:not(.disabled) {
+            background: #333;
+        }
+
+        .chrome-tab.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .main-content {
+            margin-top: 60px;
+            position: relative;
+            background: rgba(0, 0, 0, 0.8);
+            padding-top: 2rem;
+            min-height: calc(100vh - 60px);
+        }
+
+        .search-container {
+            margin: 1rem 0;
+            padding: 0 1rem;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            background: rgba(31, 41, 55, 0.95);
+            color: white;
+            border: 1px solid rgba(75, 85, 99, 0.5);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: rgba(59, 130, 246, 0.5);
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.25);
+        }
+
+        .content-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 0.5rem;
+        }
+
+        .content-table th {
+            background: rgba(31, 41, 55, 0.95);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+        }
+
+        .track-row {
+            background: rgba(31, 41, 55, 0.95);
+            transition: transform 0.2s ease;
+        }
+
+        .track-row:hover {
+            transform: translateY(-2px);
+        }
+
+        .track-cell, .creator-cell, .description-cell, .download-cell {
+            padding: 1rem;
+            color: white;
+        }
+
+        .track-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .track-thumbnail {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 0.25rem;
+        }
+
+        .download-button {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(59, 130, 246, 0.8);
+            color: white;
+            border-radius: 0.25rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .download-button:hover {
+            background: rgba(59, 130, 246, 1);
+            transform: translateY(-1px);
+        }
+
+        .error-message {
+            text-align: center;
+            color: #ef4444;
+            padding: 1rem;
+            background: rgba(31, 41, 55, 0.95);
+            border-radius: 0.5rem;
+            margin: 1rem;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+            z-index: 0;
+            pointer-events: none;
+        }
+    </style>
 </head>
-<body>
-    <div class="header">
-        <div class="chrome-tabs">
-            <a href="/" class="chrome-tab home">Home</a>
-            <a href="tracks.html" class="chrome-tab tracks active">Tracks</a>
-            <a href="#" class="chrome-tab bikes disabled">Bikes</a>
-            <a href="#" class="chrome-tab rider disabled">Rider</a>
-            <a href="#" class="chrome-tab ranked disabled">Ranked</a>
-            <a href="#" class="chrome-tab championship disabled">Championship</a>
-            <a href="downloads.html" class="chrome-tab downloads">Downloads</a>
+<body class="bg-gray-900 text-white">
+    <!-- Header -->
+    <nav class="chrome-tabs">
+        <a href="/index.html" class="chrome-tab">Home</a>
+        <a href="/static/tracks.html" class="chrome-tab active">Tracks</a>
+        <a href="#" class="chrome-tab disabled">Bikes</a>
+        <a href="#" class="chrome-tab disabled">Rider</a>
+        <a href="#" class="chrome-tab disabled">Ranked</a>
+        <a href="#" class="chrome-tab disabled">Championship</a>
+        <a href="/static/downloads.html" class="chrome-tab">Downloads</a>
+    </nav>
+
+    <div class="main-content">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl font-bold mb-6">Available Tracks</h1>
+            <div class="search-container">
+                <input type="text" id="track-search" placeholder="Search tracks..." class="search-input">
+            </div>
+            <div class="table-container">
+                <table id="tracks-table" class="content-table">
+                    <thead>
+                        <tr>
+                            <th>Track</th>
+                            <th>Creator</th>
+                            <th>Description</th>
+                            <th>Download</th>
+                        </tr>
+                    </thead>
+                    <tbody id="mod-container">
+                        <!-- Content will be dynamically loaded by scripts.js -->
+                    </tbody>
+                </table>
+            </div>
+            <div id="no-mods-message" class="error-message hidden">
+                <p>No tracks found</p>
+            </div>
         </div>
     </div>
 
-    <div class="container">
-        <h1 class="item-title">Available Tracks</h1>
-        <div class="search-container">
-            <input type="text" id="track-search" placeholder="Search tracks..." class="search-input">
-        </div>
-        <div class="table-container">
-            <table id="tracks-table" class="content-table">
-                <thead>
-                    <tr>
-                        <th>Track</th>
-                        <th>Creator</th>
-                        <th>Description</th>
-                        <th>Download</th>
-                    </tr>
-                </thead>
-                <tbody id="mod-container">
-                    <!-- Content will be dynamically loaded by scripts.js -->
-                </tbody>
-            </table>
-        </div>
-        <div id="no-mods-message" class="error-message hidden">
-            <p>No tracks found</p>
-        </div>
-    </div>
-
+    <!-- Footer -->
     <footer class="bg-gray-800 py-8">
         <div class="container mx-auto px-4 text-center text-gray-400">
             <p>Made for the MXB community by Alex Nagy (<a href="https://instagram.com/awulix" target="_blank" class="hover:text-blue-400">Scrallex</a>)</p>

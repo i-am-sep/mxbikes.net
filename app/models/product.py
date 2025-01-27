@@ -20,17 +20,45 @@ class Product(db.Model):
     def to_dict(self):
         # Parse JSON strings into Python dictionaries
         images_dict = json.loads(self.images) if self.images else {}
-        downloads_dict = json.loads(self.downloads) if self.downloads else {}
         
-        # Transform downloads to match expected format
-        if isinstance(downloads_dict, dict) and 'by_type' in downloads_dict:
-            links = []
+        try:
+            downloads_dict = json.loads(self.downloads) if self.downloads else {}
+        except (json.JSONDecodeError, TypeError):
+            downloads_dict = {}
+        
+        # Initialize an empty list for all links
+        all_links = []
+        
+        # Ensure downloads is a dictionary
+        if not isinstance(downloads_dict, dict):
+            downloads_dict = {}
+            
+        # Process by_type structure
+        if 'by_type' in downloads_dict:
             for type_links in downloads_dict['by_type'].values():
                 if isinstance(type_links, list):
-                    links.extend(type_links)
-            downloads_dict = {'links': links}
-        elif not isinstance(downloads_dict, dict) or 'links' not in downloads_dict:
-            downloads_dict = {'links': []}
+                    all_links.extend(type_links)
+                    
+        # Process by_host structure
+        if 'by_host' in downloads_dict:
+            for host_links in downloads_dict['by_host'].values():
+                if isinstance(host_links, list):
+                    all_links.extend(host_links)
+                    
+        # Process direct links array if it exists
+        if 'links' in downloads_dict and isinstance(downloads_dict['links'], list):
+            all_links.extend(downloads_dict['links'])
+            
+        # If no links were found in any structure, initialize default structure
+        if not downloads_dict:
+            downloads_dict = {
+                'by_type': {'other': []},
+                'by_host': {},
+                'download_count': 0
+            }
+            
+        # Always ensure links array exists with all collected links
+        downloads_dict['links'] = list(set(all_links))  # Remove duplicates
         
         return {
             'id': self.id,

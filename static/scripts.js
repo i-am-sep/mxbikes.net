@@ -87,29 +87,83 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     /**
-     * Loads track data from API endpoint
+     * Loads track data from API endpoint with fallback to local JSON
      */
     async function loadTracks() {
         try {
-            console.log('Loading tracks...');
+            console.log('Attempting to load tracks from API...');
             const response = await fetch('/api/tracks?per_page=50');
             if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+                throw new Error('API not available');
             }
             const data = await response.json();
-            console.log('Tracks data:', data);
+            console.log('Tracks loaded from API');
             
             if (!data || !data.items || data.items.length === 0) {
-                showNoModsMessage();
-                return;
+                throw new Error('No tracks found in API');
             }
 
-            tracksData = data.items; // Store tracks data globally
+            tracksData = data.items;
             renderTracks(data.items);
         } catch (error) {
-            console.error('Error loading tracks:', error);
-            handleError('Error loading tracks', error);
+            console.log('API fetch failed, falling back to local JSON:', error);
+            try {
+                const response = await fetch('/static/data/tracks.json');
+                if (!response.ok) {
+                    throw new Error('Local JSON not available');
+                }
+                const data = await response.json();
+                console.log('Tracks loaded from local JSON');
+
+                if (!data || Object.keys(data).length === 0) {
+                    throw new Error('No tracks found in local JSON');
+                }
+
+                tracksData = Object.values(data);
+                renderTracks(tracksData);
+            } catch (localError) {
+                console.error('Error loading tracks from both sources:', localError);
+                handleError('Error loading tracks', localError);
+            }
         }
+    }
+
+    /**
+     * Gets download links from track data
+     * @param {Object} track - Track data object
+     * @returns {Array} Array of download links
+     */
+    function getDownloadLinks(track) {
+        if (!track.downloads) return [];
+        
+        // Handle by_type structure (primary)
+        if (track.downloads.by_type) {
+            const links = [];
+            Object.values(track.downloads.by_type).forEach(typeLinks => {
+                if (Array.isArray(typeLinks)) {
+                    links.push(...typeLinks);
+                }
+            });
+            return links;
+        }
+        
+        // Handle by_host structure (fallback)
+        if (track.downloads.by_host) {
+            const links = [];
+            Object.values(track.downloads.by_host).forEach(hostLinks => {
+                if (Array.isArray(hostLinks)) {
+                    links.push(...hostLinks);
+                }
+            });
+            return links;
+        }
+        
+        // Handle simple links array (legacy)
+        if (Array.isArray(track.downloads.links)) {
+            return track.downloads.links;
+        }
+        
+        return [];
     }
 
     /**
@@ -122,32 +176,35 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         
-        UI.modContainer.innerHTML = tracks.map(track => `
-            <tr class="track-row">
-                <td class="track-cell">
-                    <div class="track-info">
-                        ${track.images && track.images.cover ? `
-                            <img src="${track.images.cover}" alt="${track.title}" class="track-thumbnail">
-                        ` : ''}
-                        <span class="track-title">${track.title || 'Untitled Track'}</span>
-                    </div>
-                </td>
-                <td class="creator-cell">${track.creator || 'Unknown'}</td>
-                <td class="description-cell">
-                    ${track.description ? track.description.split('\n')[0] : 'No description available'}
-                </td>
-                <td class="download-cell">
-                    ${track.downloads && track.downloads.links && track.downloads.links.length ? 
-                        track.downloads.links.map((link, index) => `
-                            <a href="${link}" target="_blank" class="download-button">
-                                Download ${track.downloads.links.length > 1 ? (index + 1) : ''}
-                            </a>
-                        `).join('') 
-                        : 'No download available'
-                    }
-                </td>
-            </tr>
-        `).join('');
+        UI.modContainer.innerHTML = tracks.map(track => {
+            const downloadLinks = getDownloadLinks(track);
+            return `
+                <tr class="track-row">
+                    <td class="track-cell">
+                        <div class="track-info">
+                            ${track.images && track.images.cover ? `
+                                <img src="${track.images.cover}" alt="${track.title}" class="track-thumbnail">
+                            ` : ''}
+                            <span class="track-title">${track.title || 'Untitled Track'}</span>
+                        </div>
+                    </td>
+                    <td class="creator-cell">${track.creator || 'Unknown'}</td>
+                    <td class="description-cell">
+                        ${track.description ? track.description.split('\n')[0] : 'No description available'}
+                    </td>
+                    <td class="download-cell">
+                        ${downloadLinks.length ? 
+                            downloadLinks.map((link, index) => `
+                                <a href="${link}" target="_blank" class="download-button">
+                                    Download ${downloadLinks.length > 1 ? (index + 1) : ''}
+                                </a>
+                            `).join('') 
+                            : 'No download available'
+                        }
+                    </td>
+                </tr>
+            `;
+        }).join('');
 
         if (UI.noModsMessage) {
             UI.noModsMessage.classList.add('hidden');
