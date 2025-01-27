@@ -6,17 +6,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <div class="header">
-        <div class="tabs">
-            <a href="{{ url_for('main.index') }}" class="tab home">Home</a>
-            <a href="{{ url_for('main.tracks') }}" class="tab tracks active">Tracks</a>
-            <a href="{{ url_for('main.bikes') }}" class="tab bikes">Bikes</a>
-            <a href="{{ url_for('main.rider') }}" class="tab rider disabled">Rider</a>
-            <a href="{{ url_for('main.ranked') }}" class="tab ranked disabled">Ranked</a>
-            <a href="{{ url_for('main.championship') }}" class="tab championship disabled">Championship</a>
-            <a href="{{ url_for('main.downloads') }}" class="tab downloads">Downloads</a>
-        </div>
-    </div>
+    {% include '_nav.html' %}
 
     <div class="container">
         <h1 class="item-title">Available Tracks</h1>
@@ -43,6 +33,7 @@
         </div>
     </div>
 
+    {% include '_footer.html' %}
     <script src="{{ url_for('static', filename='scripts.js') }}"></script>
 </body>
 </html>
