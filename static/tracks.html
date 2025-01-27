@@ -95,6 +95,7 @@
             color: white;
             padding: 1rem;
             text-align: left;
+            font-weight: 600;
         }
 
         .track-row {
@@ -106,9 +107,10 @@
             transform: translateY(-2px);
         }
 
-        .track-cell, .creator-cell, .description-cell, .download-cell {
+        .track-cell, .creator-cell, .category-cell, .download-cell {
             padding: 1rem;
             color: white;
+            vertical-align: middle;
         }
 
         .track-info {
@@ -132,6 +134,13 @@
             border-radius: 0.25rem;
             text-decoration: none;
             transition: all 0.3s ease;
+            margin-bottom: 0.5rem;
+            text-align: center;
+            min-width: 120px;
+        }
+
+        .download-button:last-child {
+            margin-bottom: 0;
         }
 
         .download-button:hover {
@@ -150,6 +159,16 @@
 
         .hidden {
             display: none;
+        }
+
+        .category-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            background: rgba(59, 130, 246, 0.2);
+            color: rgba(59, 130, 246, 1);
         }
 
         body::after {
@@ -187,10 +206,10 @@
                 <table id="tracks-table" class="content-table">
                     <thead>
                         <tr>
-                            <th>Track</th>
-                            <th>Creator</th>
-                            <th>Description</th>
-                            <th>Download</th>
+                            <th class="w-1/3">Track</th>
+                            <th class="w-1/6">Creator</th>
+                            <th class="w-1/6">Category</th>
+                            <th class="w-1/4">Download</th>
                         </tr>
                     </thead>
                     <tbody id="mod-container">
