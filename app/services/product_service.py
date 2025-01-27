@@ -53,12 +53,22 @@ def _convert_mod_to_product(mod: Mod) -> Dict:
     """Convert a Mod model to Product dictionary format"""
     downloads = _ensure_downloads_structure(mod.downloads)
     
+    # Handle images field that could be either string or dict
+    images = mod.images
+    if isinstance(images, str):
+        try:
+            images = json.loads(images)
+        except json.JSONDecodeError:
+            images = {}
+    elif not isinstance(images, dict):
+        images = {}
+    
     return {
         'id': mod.id,
         'title': mod.title,
         'description': mod.description,
         'creator': mod.creator,
-        'images': json.loads(mod.images) if mod.images else {},
+        'images': images,
         'downloads': downloads,
         'type': 'mod',
         'mod_type': mod.mod_type,
@@ -69,12 +79,22 @@ def _convert_track_to_product(track: Track) -> Dict:
     """Convert a Track model to Product dictionary format"""
     downloads = _ensure_downloads_structure(track.downloads)
     
+    # Handle images field that could be either string or dict
+    images = track.images
+    if isinstance(images, str):
+        try:
+            images = json.loads(images)
+        except json.JSONDecodeError:
+            images = {}
+    elif not isinstance(images, dict):
+        images = {}
+    
     return {
         'id': track.id,
         'title': track.title,
         'description': track.description,
         'creator': track.creator,
-        'images': json.loads(track.images) if track.images else {},
+        'images': images,
         'downloads': downloads,
         'type': 'track',
         'mod_type': 'free',  # Tracks are always free
