@@ -11,7 +11,7 @@
     <div class="container mt-20">
         <div class="search-container">
             <div class="search-bar-wrapper">
-                <input type="text" class="search-bar" placeholder="Search for mods, tracks, gear...">
+                <input type="text" id="track-search" class="search-bar" placeholder="Search for mods, tracks, gear...">
             </div>
             <div class="categories">
                 <div class="category active" data-category="all">All</div>
@@ -22,9 +22,19 @@
             </div>
         </div>
 
-        <div id="mod-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            <!-- Content will be dynamically loaded here by scripts.js -->
-        </div>
+        <table class="tracks-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Creator</th>
+                    <th>Description</th>
+                    <th>Download</th>
+                </tr>
+            </thead>
+            <tbody id="mod-container">
+                <!-- Content will be dynamically loaded here by scripts.js -->
+            </tbody>
+        </table>
 
         <div id="mod-details-popup" class="mod-details-popup">
             <div class="modal-content">

@@ -34,31 +34,49 @@ class Product(db.Model):
             downloads_dict = {}
             
         # Process by_type structure
-        if 'by_type' in downloads_dict:
+        if 'by_type' in downloads_dict and isinstance(downloads_dict['by_type'], dict):
             for type_links in downloads_dict['by_type'].values():
                 if isinstance(type_links, list):
                     all_links.extend(type_links)
+                elif isinstance(type_links, str):
+                    all_links.append(type_links)
                     
         # Process by_host structure
-        if 'by_host' in downloads_dict:
+        if 'by_host' in downloads_dict and isinstance(downloads_dict['by_host'], dict):
             for host_links in downloads_dict['by_host'].values():
                 if isinstance(host_links, list):
                     all_links.extend(host_links)
+                elif isinstance(host_links, str):
+                    all_links.append(host_links)
                     
         # Process direct links array if it exists
-        if 'links' in downloads_dict and isinstance(downloads_dict['links'], list):
-            all_links.extend(downloads_dict['links'])
-            
-        # If no links were found in any structure, initialize default structure
+        if 'links' in downloads_dict:
+            if isinstance(downloads_dict['links'], list):
+                all_links.extend(downloads_dict['links'])
+            elif isinstance(downloads_dict['links'], str):
+                all_links.append(downloads_dict['links'])
+
+        # Process single link if it exists
+        if 'link' in downloads_dict and downloads_dict['link']:
+            all_links.append(downloads_dict['link'])
+                    
+        # If no links were found in any structure, initialize default structure based on type
         if not downloads_dict:
-            downloads_dict = {
-                'by_type': {'other': []},
-                'by_host': {},
-                'download_count': 0
-            }
+            if self.product_type == 'mod':
+                downloads_dict = {
+                    'by_type': {'mod': []},
+                    'by_host': {},
+                    'download_count': 0
+                }
+            else:  # track
+                downloads_dict = {
+                    'by_type': {'other': []},
+                    'by_host': {},
+                    'download_count': 0
+                }
             
         # Always ensure links array exists with all collected links
-        downloads_dict['links'] = list(set(all_links))  # Remove duplicates
+        downloads_dict['links'] = list(set(link for link in all_links if link))  # Remove duplicates and None/empty values
         
         return {
             'id': self.id,
