@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     // Store data globally for filtering
-    let tracksData = [];
+    let productsData = [];
     let currentCategory = 'all';
 
     // Get the current page from pathname
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize based on current page
     if (isTracksPage || isDownloadsPage) {
-        loadTracks();
+        loadProducts();
         // Add search event listener
         if (UI.trackSearch) {
             UI.trackSearch.addEventListener('input', handleTrackSearch);
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
      */
     function handleTrackSearch(event) {
         const searchTerm = event.target.value.toLowerCase();
-        filterAndRenderTracks(searchTerm, currentCategory);
+        filterAndRenderProducts(searchTerm, currentCategory);
     }
 
     /**
@@ -54,57 +54,61 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Filter and render
         const searchTerm = UI.trackSearch ? UI.trackSearch.value.toLowerCase() : '';
-        filterAndRenderTracks(searchTerm, currentCategory);
+        filterAndRenderProducts(searchTerm, currentCategory);
     }
 
     /**
-     * Filters and renders tracks based on search term and category
+     * Filters and renders products based on search term and category
      */
-    function filterAndRenderTracks(searchTerm, category) {
-        let filteredTracks = tracksData;
+    function filterAndRenderProducts(searchTerm, category) {
+        let filteredProducts = productsData;
 
         // Apply category filter for downloads page
-        if (category !== 'all' && category === 'tracks') {
-            filteredTracks = tracksData;
-        } else if (category !== 'all') {
-            filteredTracks = []; // Other categories are empty
+        if (category !== 'all') {
+            filteredProducts = productsData.filter(product => {
+                if (category === 'tracks') return product.type === 'track';
+                if (category === 'bikes') return product.type === 'bike';
+                if (category === 'gear') return product.type === 'gear';
+                if (category === 'misc') return product.type === 'misc';
+                return false;
+            });
         }
 
         // Apply search filter
         if (searchTerm) {
-            filteredTracks = filteredTracks.filter(track =>
-                track.title?.toLowerCase().includes(searchTerm) ||
-                track.creator?.toLowerCase().includes(searchTerm) ||
-                track.description?.toLowerCase().includes(searchTerm)
+            filteredProducts = filteredProducts.filter(product =>
+                product.title?.toLowerCase().includes(searchTerm) ||
+                product.creator?.toLowerCase().includes(searchTerm) ||
+                product.description?.toLowerCase().includes(searchTerm)
             );
         }
 
-        if (filteredTracks.length === 0) {
+        if (filteredProducts.length === 0) {
             showNoModsMessage();
         } else {
-            renderTracks(filteredTracks);
+            renderProducts(filteredProducts);
         }
     }
 
     /**
-     * Loads track data from API endpoint with fallback to local JSON
+     * Loads product data from API endpoint with fallback to local JSON
      */
-    async function loadTracks() {
+    async function loadProducts() {
         try {
-            console.log('Attempting to load tracks from API...');
-            const response = await fetch('/api/tracks?per_page=50');
+            console.log('Attempting to load products from API...');
+            const response = await fetch('/api/products');
             if (!response.ok) {
                 throw new Error('API not available');
             }
             const data = await response.json();
-            console.log('Tracks loaded from API');
+            console.log('Products loaded from API');
             
-            if (!data || !data.items || data.items.length === 0) {
-                throw new Error('No tracks found in API');
+            if (!Array.isArray(data) || data.length === 0) {
+                throw new Error('No products found in API');
             }
 
-            tracksData = data.items;
-            renderTracks(data.items);
+            productsData = data;
+            renderProducts(data);
         } catch (error) {
             console.log('API fetch failed, falling back to local JSON:', error);
             try {
@@ -113,84 +117,62 @@ document.addEventListener('DOMContentLoaded', function() {
                     throw new Error('Local JSON not available');
                 }
                 const data = await response.json();
-                console.log('Tracks loaded from local JSON');
+                console.log('Products loaded from local JSON');
 
                 if (!data || Object.keys(data).length === 0) {
-                    throw new Error('No tracks found in local JSON');
+                    throw new Error('No products found in local JSON');
                 }
 
-                tracksData = Object.values(data);
-                renderTracks(tracksData);
+                productsData = Object.values(data);
+                renderProducts(productsData);
             } catch (localError) {
-                console.error('Error loading tracks from both sources:', localError);
-                handleError('Error loading tracks', localError);
+                console.error('Error loading products from both sources:', localError);
+                handleError('Error loading products', localError);
             }
         }
     }
 
     /**
-     * Gets download links from track data
-     * @param {Object} track - Track data object
+     * Gets download links from product data
+     * @param {Object} product - Product data object
      * @returns {Array} Array of download links
      */
-    function getDownloadLinks(track) {
-        if (!track.downloads) return [];
+    function getDownloadLinks(product) {
+        if (!product.downloads) return [];
         
-        // Handle by_type structure (primary)
-        if (track.downloads.by_type) {
-            const links = [];
-            Object.values(track.downloads.by_type).forEach(typeLinks => {
-                if (Array.isArray(typeLinks)) {
-                    links.push(...typeLinks);
-                }
-            });
-            return links;
-        }
-        
-        // Handle by_host structure (fallback)
-        if (track.downloads.by_host) {
-            const links = [];
-            Object.values(track.downloads.by_host).forEach(hostLinks => {
-                if (Array.isArray(hostLinks)) {
-                    links.push(...hostLinks);
-                }
-            });
-            return links;
-        }
-        
-        // Handle simple links array (legacy)
-        if (Array.isArray(track.downloads.links)) {
-            return track.downloads.links;
+        // Use the consolidated links array from enhanced to_dict()
+        if (Array.isArray(product.downloads.links)) {
+            return product.downloads.links;
         }
         
         return [];
     }
 
     /**
-     * Renders track data in a table format
-     * @param {Array} tracks - Array of track data to render
+     * Renders product data in a table format
+     * @param {Array} products - Array of product data to render
      */
-    function renderTracks(tracks) {
+    function renderProducts(products) {
         if (!UI.modContainer) {
             console.error('Mod container not found');
             return;
         }
         
-        UI.modContainer.innerHTML = tracks.map(track => {
-            const downloadLinks = getDownloadLinks(track);
+        UI.modContainer.innerHTML = products.map(product => {
+            const downloadLinks = getDownloadLinks(product);
             return `
                 <tr class="track-row">
                     <td class="track-cell">
                         <div class="track-info">
-                            ${track.images && track.images.cover ? `
-                                <img src="${track.images.cover}" alt="${track.title}" class="track-thumbnail">
+                            ${product.images && product.images.cover ? `
+                                <img src="${product.images.cover}" alt="${product.title}" class="track-thumbnail">
                             ` : ''}
-                            <span class="track-title">${track.title || 'Untitled Track'}</span>
+                            <span class="track-title">${product.title || 'Untitled'}</span>
                         </div>
                     </td>
-                    <td class="creator-cell">${track.creator || 'Unknown'}</td>
+                    <td class="creator-cell">${product.creator || 'Unknown'}</td>
                     <td class="description-cell">
-                        ${track.description ? track.description.split('\n')[0] : 'No description available'}
+                        ${product.description ? product.description.split('\n')[0] : 'No description available'}
                     </td>
                     <td class="download-cell">
                         ${downloadLinks.length ? 
