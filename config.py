@@ -24,7 +24,7 @@ class StagingConfig(Config):
     
 class ProductionConfig(Config):
     DEBUG = False
-    # Use Aiven database URL from environment variable
+    # Use database URL from environment variable
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
     
 class TestingConfig(Config):
