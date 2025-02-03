@@ -24,8 +24,22 @@ class StagingConfig(Config):
     
 class ProductionConfig(Config):
     DEBUG = False
-    # Use database URL from environment variable
+    # Use database URL from environment variable with SSL config
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
+    SQLALCHEMY_ENGINE_OPTIONS = {
+        'pool_timeout': 30,  # 30 seconds
+        'pool_recycle': 3600,  # Recycle connections after 1 hour
+        'pool_pre_ping': True,  # Enable connection health checks
+        'connect_args': {
+            'connect_timeout': 10,
+            'read_timeout': 30,
+            'write_timeout': 30,
+            'ssl': {
+                'verify_cert': False,  # Don't verify the self-signed certificate
+                'ssl_mode': 'VERIFY_IDENTITY'
+            }
+        }
+    }
     
 class TestingConfig(Config):
     TESTING = True
