@@ -258,5 +258,197 @@
         },
         "description": "Description\nDownloads\nOverpass Mx\nHeightmap by Vortex_Damien\nTextures/Objects by TWITCH135\nDownloads\nTotal downloads: 88\ndefault\nDownload from mediafire.com\nhttp://www.mediafire.com/file/de48zum7t87cd8f/OverpassMX.zip/file",
         "embedded_videos": null
+    },
+        "https://mxb-mods.com/drt-by-fk23/": {
+        "url": "https://mxb-mods.com/drt-by-fk23/",
+        "title": "Drt By Fk23",
+        "creator": "Fariz",
+        "downloads": {
+            "by_type": {
+                "other": []
+            },
+            "download_count": 408
+        },
+        "images": {
+            "cover": null,
+            "additional": [
+                "https://cdn.mxb-mods.com/wp-content/uploads/2024/07/pic-1-640x355.png",
+                "https://cdn.mxb-mods.com/wp-content/uploads/2024/07/pic-2-640x292.png",
+                "https://cdn.mxb-mods.com/wp-content/uploads/2024/07/pic-3-640x299.png",
+                "https://cdn.mxb-mods.com/wp-content/uploads/2024/07/pic-4-640x360.png"
+            ]
+        },
+        "description": "Description\nDownloads\nHello! NewSkool here to announce round 5 of the One-One Designs SMX 250 Championship! Through 4 rounds the racing has been awesome and I\u2019m sure it will only get better. Sign ups are open now for this round. So if you are interested in racing, Please find me on discord and I will get you into the disc so you can sign up. We accept anyone from any skill range, don\u2019t miss out because you think you may be too good or not good enough. Come and enjoy some fun gate drops!\nI\u2019m starting to experiment with new templates and jumps. I think it worked out pretty well. However, if you notice anything that feels off please let me know so I can take the advice with me as I continue to build these tracks. I appreciate all honest and sincere thoughts!\nHuge shoutout to RedRider for all the amazing advice and Assets he provides the community.\nTrack Info\nTrack ID:\nRd5.GreenBay\nDownloads\nTotal downloads: 4JUdGzvrMFDWrUUwY3toJATSeNwjn54LkCnKBPRzDuhzi5vSepHfUckJNxRL2gjkNrSqtCoRUrEDAgRwsQvVCjZbRyFTLRNyDmT1a1boZVfile/66af03ywxani0xw/Rd5.GreenBay.pkz/file\nMod Instructions\n(DEFAULT)\nPut the PKZ file or folder into your \"mods/tracks/*category*\" folder.",
+        "embedded_videos": null
+    },
+    "https://mxb-mods.com/track/": {
+        "url": "https://mxb-mods.com/track/",
+        "title": "Track",
+        "creator": "B0UNCY",
+        "downloads": {
+            "by_type": {
+                "other": []
+            },
+            "by_host": {
+                "mediafire": [
+                    "https://www.mediafire.com/file/w76tnkcqhnaosbx/Moto_SandBox.rar/file"
+                ]
+            },
+            "download_count": 596
+        },
+        "images": {
+            "cover": "https://cdn.mxb-mods.com/wp-content/uploads/2024/06/mxbikes-2024-06-20-23-25-15-1240x698.png",
+            "additional": []
+        },
+        "description": "Description\nDownloads\nThis is my first track\nDownloads\nTotal downloads: 596\nMade for\nBeta 18\n.\nDefault\nmediafire\nDownload from mediafire.com\nhttps://www.mediafire.com/file/w76tnkcqhnaosbx/Moto_SandBox.rar/file\nMod Instructions\n(DEFAULT)\nPut the PKZ file or folder into your \"mods/tracks/*category*\" folder.",
+        "embedded_videos": null
+    },
+    "https://mxb-mods.com/mxb-drehna-replica-by-msc-furstlich-drehna/": {
+        "url": "https://mxb-mods.com/mxb-drehna-replica-by-msc-furstlich-drehna/",
+        "title": "Mxb Drehna Replica By Msc Furstlich Drehna",
+        "creator": "Akrapovic",
+        "downloads": {
+            "by_type": {
+                "other": []
+            },
+            "by_host": {
+                "mega": [
+                    "https://mega.nz/file/hPFTnTZI#X2QOlHcbmvvuQkvnN4QY_hYZbA27VynZlw1PEEQhEz4"
+                ]
+            },
+            "download_count": 607
+        },
+        "images": {
+            "cover": "https://cdn.mxb-mods.com/wp-content/uploads/2024/06/logo-drehna-1240x1240.png",
+            "additional": [
+                "https://cdn.mxb-mods.com/wp-content/uploads/2024/06/20240619190455_1-640x360.webp",
+                "https://cdn.mxb-mods.com/wp-content/uploads/2024/06/20240619190436_1-640x360.webp",
+                "https://cdn.mxb-mods.com/wp-content/uploads/2024/06/20240619190425_1-640x360.webp",
+                "https://cdn.mxb-mods.com/wp-content/uploads/2024/06/20240619190408_1-640x360.webp"
+            ]
+        },
+        "description": "Description\nDownloads\nits my first track i hope ist fun for you. Its made with lynds track series\nTrack Info\nTrack ID:\nMXB Drehna\nSoil Types\n(track materials)\nSoft Soil\nDownloads\nTotal downloads: 607\nMade for\nBeta 18\n.\nDefault\nMega.nz\nDownload from mega.nz\nhttps://mega.nz/file/hPFTnTZI#X2QOlHcbmvvuQkvnN4QY_hYZbA27VynZlw1PEEQhEz4\nMod Instructions\n(DEFAULT)\nPut the PKZ file or folder into your \"mods/tracks/*category*\" folder.",
+        "embedded_videos": null
+    },
+    "https://mxb-mods.com/mx-tautenhain/": {
+        "url": "https://mxb-mods.com/mx-tautenhain/",
+        "title": "Mx Tautenhain",
+        "creator": "TillBen8",
+        "downloads": {
+            "by_type": {
+                "other": [
+                    "https://tillben8.wixsite.com/mxb-mods-by-tb8/mx-tautenhain"
+                ]
+            },
+            "by_host": {
+                "mega": [
+                    "https://mega.nz/file/9xkDHaLL#vrTH6PtlY_KgxQC-JoKrl8KZZbPxkFXhVt45NuuitB8"
+                ]
+            },
+            "download_count": 27
+        },
+        "images": {
+            "cover": "https://cdn.mxb-mods.com/wp-content/uploads/2022/08/1661078354-thumb-1240x1240.png",
+            "additional": [
+                "https://mxb-mods.com/wp-content/uploads/2022/08/1661078469-tautenhain001-640x423.png",
+                "https://mxb-mods.com/wp-content/uploads/2022/08/1661078476-tautenhain002-640x381.png",
+                "https://mxb-mods.com/wp-content/uploads/2022/08/1661078483-tautenhain003-640x457.png",
+                "https://mxb-mods.com/wp-content/uploads/2022/08/1661078489-tautenhain004-640x511.png"
+            ]
+        },
+        "description": "Description\nDownloads\nThis track was suggested by Appelt173\nIts a Replica Track and the RL Track is in Tautenhain, Thuringia, Germany.\nI tried to insert the first time ruts, so they arent the very best.\nSome of the Assets are selfmade, like the street\nsome of them are the typical from GioPanda out of his Assets thread from the forum.\nI got you a warning for riding on the track: the yellow sign \u201cGas raus\u201d means to slow down, just do it.\nAll jumps got tested and work properly.\nAs the next release, I planned a enduro track. If anything changes you can read my \u201c\nNewsletter\n\u201d page.\nMy life is doing a change so i dont know when the next time I can upload\nso long for now, have fun in bikes and life\nsome preview pics:\nDownloads\nTotal downloads: 27\nMade for\nBeta 17\n.\nDefault\nMega\nDownload from mega.nz\nhttps://mega.nz/file/9xkDHaLL#vrTH6PtlY_KgxQC-JoKrl8KZZbPxkFXhVt45NuuitB8\nRecommended\nvia my website\nDownload from tillben8.wixsite.com\nhttps://tillben8.wixsite.com/mxb-mods-by-tb8/mx-tautenhain\nMod Instructions\n(DEFAULT)\nPut the PKZ file or folder into your \"mods/tracks/*category*\" folder.",
+        "embedded_videos": null
+    },
+    "https://mxb-mods.com/delbsx-remastered/": {
+        "url": "https://mxb-mods.com/delbsx-remastered/",
+        "title": "Delbsx Remastered",
+        "creator": "Noxo",
+        "downloads": {
+            "by_type": {
+                "other": [
+                    "https://drive.google.com/file/d/1s9EKVJKaEW3UJg78GV70I7hKa0llYSd4/view?usp=sharing",
+                    "https://drive.google.com/file/d/1szNPQPHZEmf1RO_X_Rhznd5i-ExQNvmA/view?usp=sharing"
+                ]
+            },
+            "by_host": {},
+            "download_count": 264
+        },
+        "images": {
+            "cover": "https://cdn.mxb-mods.com/wp-content/uploads/2022/08/1660842235-logo.png",
+            "additional": []
+        },
+        "description": "Description\nDownloads\nHello, I redone the delbsx track of MxSimulator, the sequences are quite similar. Good game to you\nThanks to Human, ConceptGraph, Paco, Ka Works, Gio Panda\nCreator of the original track https://www.facebook.com/KAWORKZ/\nDownloads\nTotal downloads: 264\nMade for\nBeta 17\n.\nRecommended\ndelbsx\nDownload from drive.google.com\nhttps://drive.google.com/file/d/1s9EKVJKaEW3UJg78GV70I7hKa0llYSd4/view?usp=sharing\nServer Version\ndelbsx serveur\nDownload from drive.google.com\nhttps://drive.google.com/file/d/1szNPQPHZEmf1RO_X_Rhznd5i-ExQNvmA/view?usp=sharing\nMod Instructions\n(DEFAULT)\nPut the PKZ file or folder into your \"mods/tracks/*category*\" folder.",
+        "embedded_videos": null
+    },
+    "https://mxb-mods.com/tiga243land/": {
+        "url": "https://mxb-mods.com/tiga243land/",
+        "title": "Tiga243Land",
+        "creator": "Conceptgraff",
+        "downloads": {
+            "by_type": {
+                "other": []
+            },
+            "by_host": {
+                "mega": [
+                    "https://mega.nz/file/ZBVEUDAK#aH37VSwlLSjjYO-bOdvkn9g07VsFnOU8oECLMeILUcs",
+                    "https://mega.nz/file/ZctnDKCY#097M4-FvwED2IX-7PAsOX5srXbVzN4Ad-QFuyaAL-7c"
+                ]
+            },
+            "download_count": 567
+        },
+        "images": {
+            "cover": "https://cdn.mxb-mods.com/wp-content/uploads/2022/08/1660564128-tiga243land.jpg",
+            "additional": []
+        },
+        "description": "Description\nDownloads\nhello friends here I am again with a new motocross circuit that of Tim Gajser \r\nthe layout of the circuit is replica \r\nbut the decor is imagined I had wanted to create this environment for a long time\r\n\r\nthanks to Gabriel \r\nthanks Paco Noxo and my friend Hunam for all beta test and suggestion for this track\nDownloads\nTotal downloads: 567\nMade for\nBeta 17\n.\nDefault\nmega.nz\nDownload from mega.nz\nhttps://mega.nz/file/ZBVEUDAK#aH37VSwlLSjjYO-bOdvkn9g07VsFnOU8oECLMeILUcs\nServer Version\nmega.nz\nDownload from mega.nz\nhttps://mega.nz/file/ZctnDKCY#097M4-FvwED2IX-7PAsOX5srXbVzN4Ad-QFuyaAL-7c\nMod Instructions\n(DEFAULT)\nPut the PKZ file or folder into your \"mods/tracks/*category*\" folder.",
+        "embedded_videos": null
+    },
+    "https://mxb-mods.com/one-one-smx-round-3-annapolis/": {
+        "url": "https://mxb-mods.com/one-one-smx-round-3-annapolis/",
+        "title": "One One Smx Round 3 Annapolis",
+        "creator": "NewSkool",
+        "downloads": {
+            "by_type": {
+                "other": []
+            },
+            "by_host": {
+                "mediafire": [
+                    "https://www.mediafire.com/file/30e6rbr6zwkq34a/Rd3.Arlington.pkz/file"
+                ]
+            },
+            "download_count": 723
+        },
+        "images": {
+            "cover": null,
+            "additional": [
+                "https://cdn.mxb-mods.com/wp-content/uploads/2024/06/track-pic-640x347.png",
+                "https://cdn.mxb-mods.com/wp-content/uploads/2024/06/track-pic-5-640x354.png",
+                "https://cdn.mxb-mods.com/wp-content/uploads/2024/06/track-pic-6-640x301.png"
+            ]
+        },
+        "description": "Description\nDownloads\nHello! Welcome to Round 3 of the One-One SMX Supercross Series! This week we are honoring all of the Vets out there and bringing awareness to veteran suicide. After the racing we will be posting a link on our discord for anyone who would like to donate to the cause!\nRacing so far has been phenomenal and is only going to get better! If you are interested in joining this series please message me and I will send you the discord for the series! Keep in mind, I\u2019m still a new track builder, so if you have any tips or tricks that could help me out, I\u2019m all ears! This track runs well on the 250 and 4JUdGzvrMFDWrUUwY3toJATSeNwjn54LkCnKBPRzDuhzi5vSepHfUckJNxRL2gjkNrSqtCoRUrEDAgRwsQvVCjZbRyFTLRNyDmT1a1boZVtracks.\nAs you can see we have several longer rhythm sections, including a turning rhythm. Also the longer sand section through a whoop section. This track is ridable for all skill levels but is best for beginner and intermediate SX riders. Gate and pits for 22 riders.\nBig shoutout to RedRider for all the track and pit objects. As well as all his tips that have helped me along the way.\nAlso a big shoutout to Lynds for his video series that got me into track building to begin with.\nYes the PKZ will not match the name of the track. I had already had everything built when the decision was made to change \u201dLocation\u201d to Annapolis.\nTrack Info\nTrack ID:\nRd3.Arlington\nSoil Types\n(track materials)\nSand\nSoft Soil\nCompact Soil\nDownloads\nTotal downloads: 723\nMade for\nBeta 18\n.\nDefault\nRd3.Arlington\nDownload from mediafire.com\nhttps://www.mediafire.com/file/30e6rbr6zwkq34a/Rd3.Arlington.pkz/file\nMod Instructions\n(DEFAULT)\nPut the PKZ file or folder into your \"mods/tracks/*category*\" folder.",
+        "embedded_videos": null
+    },
+    "https://mxb-mods.com/country-sx/": {
+        "url": "https://mxb-mods.com/country-sx/",
+        "title": "Country Sx",
+        "creator": "TWITCH ClingyMX",
+        "downloads": {
+            "by_type": {
+                "other": []
+            },
+            "by_host": {
+                "mediafire": [
+                    "https://www.mediafire.com/file/0y17lbfn4dsz2ed/anaheim.pkz/file"
+                ]
+            },
+            "download_count": 103
+        },
+        "images": {
+            "cover": "https://cdn.mxb-mods.com/wp-content/uploads/2024/06/Untitled-1-1-1240x1240.png",
+            "additional": []
+        },
+        "description": "Description\nDownloads\nTHIS IS MY FIRST TRACK SO DONT DISRESPECT ME FOR IT\nIf you have any tips comment below as this was my first ever time making a track\nThanks to\nResolute Kraken for the MXB Track Builder\nRR for track assets\nRossHell for more track assets\n( Track assets found in other category )\nIf you would like to join my team called hooligan racing then discord link is below!\nhttps://discord.gg/yPrqFSY2Fe\nTrack Info\nTrack ID:\nanaheim.pkz\nSoil Types\n(track materials)\nSoft Soil\nDownloads\nTotal downloads: 103\nMade for\nBeta 18\n.\nDefault\nMediaFire.com\nDownload from mediafire.com\nhttps://www.mediafire.com/file/0y17lbfn4dsz2ed/anaheim.pkz/file\nMod Instructions\n(DEFAULT)\nPut the PKZ file or folder into your \"mods/tracks/*category*\" folder.",
+        "embedded_videos": null
     }
 }
