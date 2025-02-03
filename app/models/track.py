@@ -39,13 +39,52 @@ class Track(db.Model):
 
     @staticmethod
     def from_dict(data):
-        """Create model from dictionary"""
+        """Create model from dictionary with validation"""
+        # Ensure required fields have values
+        url = data.get('url')
+        if not url or url == 'https://mxbikes.net/no-url':
+            raise ValueError("Valid URL is required")
+            
+        title = data.get('title')
+        if not title or title == 'Untitled Track':
+            # Try to extract title from description
+            desc = data.get('description', '')
+            if desc:
+                # Look for title in common patterns
+                title_patterns = [
+                    r'Track Info\nTrack ID:\s*([^\n]+)',
+                    r'Welcome to\s+([^\n.!]+)',
+                    r'This is\s+([^\n.!]+)',
+                ]
+                for pattern in title_patterns:
+                    import re
+                    match = re.search(pattern, desc)
+                    if match:
+                        title = match.group(1).strip()
+                        break
+            
+            if not title or title == 'Untitled Track':
+                raise ValueError("Valid title is required")
+
+        # Process downloads data
+        downloads_data = data.get('downloads')
+        if isinstance(downloads_data, str):
+            try:
+                import json
+                downloads_data = json.loads(downloads_data)
+            except:
+                downloads_data = {
+                    'by_type': {'other': [url]},
+                    'by_host': {'mediafire': 1} if 'mediafire' in url else {'other': 1},
+                    'download_count': 0
+                }
+
         return Track(
-            url=data.get('url'),
-            title=data.get('title'),
-            creator=data.get('creator'),
-            description=data.get('description'),
-            downloads=data.get('downloads'),
-            images=data.get('images'),
-            embedded_videos=data.get('embedded_videos')
+            url=url,
+            title=title,
+            creator=data.get('creator', 'Unknown Creator'),
+            description=data.get('description', ''),
+            downloads=downloads_data,
+            images=data.get('images', {'cover': None, 'additional': []}),
+            embedded_videos=data.get('embedded_videos', [])
         )
