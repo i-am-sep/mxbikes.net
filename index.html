@@ -171,34 +171,36 @@
         }
         
         .chrome-tabs {
-            background: #2D2D2D;
-            padding: 10px 10px 0;
-            border-radius: 8px 8px 0 0;
+            background: rgba(17, 24, 39, 0.8);
+            backdrop-filter: blur(8px);
+            padding: 10px;
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
         }
 
         .chrome-tab {
-            display: inline-block;
-            padding: 8px 20px;
-            background: #404040;
+            padding: 0.5rem 1rem;
             color: #999;
-            border-radius: 8px 8px 0 0;
-            margin-right: 4px;
-            cursor: pointer;
+            border-radius: 0.5rem;
             transition: all 0.3s ease;
+            text-decoration: none;
+            background: rgba(31, 41, 55, 0.5);
         }
 
         .chrome-tab.active {
-            background: #1a1a1a;
+            background: rgba(59, 130, 246, 0.5);
             color: white;
         }
 
         .chrome-tab:hover:not(.disabled) {
-            background: #333;
+            background: rgba(59, 130, 246, 0.3);
+            color: white;
         }
 
         .chrome-tab.disabled {
@@ -212,6 +214,7 @@
             position: relative;
             background: rgba(0, 0, 0, 0.8);
             padding-top: 2rem;
+            transition: margin-top 1s ease;
         }
 
         body::after {
@@ -444,6 +447,18 @@
                     });
                 }
             });
+
+            // Auto-scroll to downloads section after 5 seconds
+            setTimeout(() => {
+                const mainContent = document.querySelector('.main-content');
+                if (mainContent) {
+                    mainContent.style.marginTop = '0';
+                    const downloadSection = document.getElementById('download-section');
+                    if (downloadSection) {
+                        downloadSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            }, 5000);
         });
     </script>
 </body>
