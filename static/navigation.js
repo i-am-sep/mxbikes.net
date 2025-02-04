@@ -1,3 +1,5 @@
+import { TemplateLoader } from './js/template-loader.js';
+
 // Get the current page path
 const currentPath = window.location.pathname;
 
@@ -25,7 +27,10 @@ function updatePageTitle() {
 }
 
 // Initialize when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+    // First load templates
+    await TemplateLoader.insertTemplates();
+    // Then set active tab and update title
     setActiveTab();
     updatePageTitle();
 });
