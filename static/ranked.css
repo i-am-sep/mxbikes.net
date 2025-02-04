@@ -1,0 +1,252 @@
+/* Ranked page styles */
+.ranked-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Rankings container */
+.rankings-container {
+    background: rgba(31, 41, 55, 0.8);
+    border-radius: 1rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.rankings-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.rankings-header h2 {
+    color: #fff;
+    font-size: 2rem;
+    margin: 0;
+}
+
+.rankings-info {
+    color: #9CA3AF;
+    font-size: 0.875rem;
+    display: flex;
+    gap: 1.5rem;
+}
+
+/* Player cards */
+.rankings-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.player-card {
+    display: flex;
+    align-items: center;
+    background: rgba(55, 65, 81, 0.5);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    transition: transform 0.2s;
+}
+
+.player-card:hover {
+    transform: translateX(0.5rem);
+}
+
+.rank-one {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.5), rgba(37, 99, 235, 0.5));
+    border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.rank-badge {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    width: 3rem;
+    text-align: center;
+}
+
+.rank-one .rank-badge {
+    color: #FCD34D;
+}
+
+.player-info {
+    flex: 1;
+    margin: 0 1.5rem;
+}
+
+.player-info h3 {
+    color: #fff;
+    margin: 0 0 0.5rem 0;
+    font-size: 1.25rem;
+}
+
+.player-stats {
+    display: flex;
+    gap: 1rem;
+    color: #9CA3AF;
+    font-size: 0.875rem;
+}
+
+.last-race {
+    color: #9CA3AF;
+    font-size: 0.875rem;
+    text-align: right;
+}
+
+/* LAN and Ranking Info */
+.ranked-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.lan-info {
+    background: rgba(31, 41, 55, 0.8);
+    border-radius: 1rem;
+    padding: 1.5rem;
+}
+
+.lan-info h3 {
+    color: #fff;
+    margin: 0 0 1rem 0;
+}
+
+.lan-info p {
+    color: #9CA3AF;
+    margin: 0.5rem 0;
+}
+
+.ranking-system-info {
+    display: grid;
+    gap: 1rem;
+}
+
+.info-section {
+    background: rgba(31, 41, 55, 0.8);
+    border-radius: 1rem;
+    padding: 1.5rem;
+}
+
+.info-section h4 {
+    color: #fff;
+    margin: 0 0 0.75rem 0;
+}
+
+.info-section p {
+    color: #9CA3AF;
+    margin: 0.5rem 0;
+}
+
+/* Loading and error states */
+.loading-state {
+    text-align: center;
+    padding: 3rem;
+    color: #9CA3AF;
+}
+
+.loading-spinner {
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 3px solid #4B5563;
+    border-top-color: #60A5FA;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.error-state {
+    text-align: center;
+    padding: 3rem;
+    color: #EF4444;
+}
+
+.error-state button {
+    margin-top: 1rem;
+    padding: 0.5rem 1.5rem;
+    background: #2563EB;
+    color: #fff;
+    border: none;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.error-state button:hover {
+    background: #1D4ED8;
+}
+
+/* Season info */
+.season-info {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(75, 85, 99, 0.5);
+}
+
+.season-info h3 {
+    color: #fff;
+    margin: 0 0 1rem 0;
+}
+
+.lan-qualification {
+    background: rgba(55, 65, 81, 0.5);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.lan-qualification h4 {
+    color: #60A5FA;
+    margin: 0 0 0.75rem 0;
+}
+
+.lan-qualification p {
+    color: #9CA3AF;
+    margin: 0.5rem 0;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    .ranked-container {
+        padding: 1rem;
+    }
+
+    .rankings-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .rankings-info {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .player-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem;
+    }
+
+    .rank-badge {
+        margin-bottom: 0.5rem;
+    }
+
+    .player-info {
+        margin: 0.5rem 0;
+    }
+
+    .player-stats {
+        justify-content: center;
+    }
+
+    .last-race {
+        text-align: center;
+    }
+}

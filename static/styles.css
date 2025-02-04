@@ -2,7 +2,8 @@
 body {
     margin: 0;
     padding: 0;
-    background: #1a1a1a; /* Solid color background instead of gif */
+    background: url('./assets/images/sora-background.gif') no-repeat center center fixed;
+    background-size: cover;
     min-height: 100vh;
 }
 
@@ -17,8 +18,27 @@ body {
     right: 0;
     z-index: 1000;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
     gap: 1rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.nav-links::-webkit-scrollbar {
+    display: none;
+}
+
+.nav-auth {
+    margin-left: 1rem;
+    flex-shrink: 0;
 }
 
 .chrome-tab {
@@ -28,6 +48,7 @@ body {
     transition: all 0.3s ease;
     text-decoration: none;
     background: rgba(31, 41, 55, 0.5);
+    white-space: nowrap;
 }
 
 .chrome-tab.active {
@@ -46,6 +67,23 @@ body {
     pointer-events: none;
 }
 
+.login-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(59, 130, 246, 0.5);
+    color: white;
+}
+
+.login-btn:hover {
+    background: rgba(59, 130, 246, 0.7);
+}
+
+.login-icon {
+    width: 18px;
+    height: 18px;
+}
+
 /* Footer */
 .footer-container {
     background: rgba(31, 41, 55, 0.95);
@@ -56,6 +94,9 @@ body {
     left: 0;
     right: 0;
     z-index: 1000;
+    white-space: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .footer-content {
@@ -65,12 +106,14 @@ body {
     gap: 1rem;
     max-width: 1200px;
     margin: 0 auto;
+    flex-wrap: nowrap;
 }
 
 .social-links {
     display: flex;
     align-items: center;
     gap: 1rem;
+    flex-shrink: 0;
 }
 
 .social-icon {
@@ -95,6 +138,7 @@ body {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    flex-shrink: 0;
 }
 
 .creator-info::before {
@@ -105,6 +149,7 @@ body {
 .support-link {
     display: flex;
     align-items: center;
+    flex-shrink: 0;
 }
 
 .support-link::before {
@@ -132,7 +177,57 @@ body {
     z-index: 1;
 }
 
-/* Remove overlay since we're using solid background */
-body::after {
+/* Loading indicator for infinite scroll */
+.loading-indicator {
+    text-align: center;
+    padding: 1rem;
+    color: #9CA3AF;
+}
+
+/* Hide scrollbars but keep functionality */
+.footer-container::-webkit-scrollbar {
     display: none;
+}
+
+.footer-container {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    .chrome-tabs {
+        padding: 0.5rem;
+    }
+
+    .nav-links {
+        gap: 0.5rem;
+    }
+
+    .chrome-tab {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.875rem;
+    }
+
+    .nav-auth {
+        margin-left: 0.5rem;
+    }
+
+    .footer-container {
+        padding: 0.75rem;
+    }
+
+    .footer-content {
+        gap: 0.75rem;
+        font-size: 0.875rem;
+    }
+
+    .social-links {
+        gap: 0.75rem;
+    }
+
+    .social-icon {
+        width: 1.25rem;
+        height: 1.25rem;
+    }
 }

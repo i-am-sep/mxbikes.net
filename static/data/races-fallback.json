@@ -1,0 +1,40 @@
+{
+  "races": [
+    {
+      "id": "1",
+      "name": "Pro Series Round 1",
+      "series_id": "pro2024",
+      "start_time": "2024-01-20T19:00:00.000Z",
+      "entry_fee": 25.00,
+      "prize_pool": 1000.00,
+      "discord_link": "https://discord.gg/proseries",
+      "track": {
+        "name": "Supercross 2024 R1",
+        "type": "premium",
+        "purchase_url": "https://mxbikes.store/tracks/sx2024r1"
+      },
+      "classes": [
+        {
+          "name": "MX1 OEM",
+          "entries": 12,
+          "max_entries": 40
+        },
+        {
+          "name": "AK MX1",
+          "entries": 15,
+          "max_entries": 40
+        }
+      ],
+      "status": "open",
+      "teams": [
+        {
+          "name": "Factory KTM",
+          "brand": "KTM",
+          "riders": 3
+        }
+      ]
+    }
+  ],
+  "lastUpdate": "2024-01-01T00:00:00.000Z",
+  "totalRaces": 1
+}

@@ -1,6 +1,6 @@
 /**
  * Tracks Manager for MXBikes.net
- * Handles track listings and downloads
+ * Handles track listings and downloads with JSON fallback and infinite scroll
  */
 
 import { dataManager } from './data-manager.js';
@@ -13,25 +13,19 @@ class TracksManager {
             search: '',
             category: 'all'
         };
-        this.sortOrder = 'popular'; // popular, newest, downloads
+        this.sortOrder = 'newest'; // newest, popular, downloads
         this.categories = new Set(['Supercross', 'Motocross', 'FreeRide', 'Training']);
         
-        // Track cache configuration
-        this.cache = {
-            duration: 5 * 60 * 1000, // 5 minutes
-            lastUpdate: null
-        };
-
-        // Loading and error states
-        this.state = {
-            loading: false,
-            error: null,
-            retryCount: 0,
-            maxRetries: 3
-        };
+        // Pagination
+        this.page = 1;
+        this.isLoading = false;
+        this.hasMoreData = true;
+        this.usingJsonFallback = true;
 
         // Initialize tracks system
         this._initializeTracks();
+        this._setupScrollListener();
+        this._setupSearchListener();
     }
 
     /**
@@ -41,21 +35,74 @@ class TracksManager {
     async _initializeTracks() {
         try {
             this._setLoading(true);
-            await this._loadTracks();
+            await this._loadJsonTracks();
             this._setupEventListeners();
         } catch (error) {
             console.error('Failed to initialize tracks:', error);
-            await this._loadFallbackTracks();
+            this._setError('Failed to load tracks. Please try again later.');
         } finally {
             this._setLoading(false);
         }
     }
 
     /**
-     * Load fallback tracks from JSON
+     * Set up infinite scroll listener
      * @private
      */
-    async _loadFallbackTracks() {
+    _setupScrollListener() {
+        const handleScroll = () => {
+            if (this.isLoading || !this.hasMoreData) return;
+
+            const scrollHeight = document.documentElement.scrollHeight;
+            const scrollTop = document.documentElement.scrollTop;
+            const clientHeight = document.documentElement.clientHeight;
+
+            if (scrollTop + clientHeight >= scrollHeight - 100) {
+                if (this.usingJsonFallback) {
+                    // Switch to DB when JSON is exhausted
+                    this.usingJsonFallback = false;
+                    this.page = 1;
+                    this._loadDbTracks();
+                } else {
+                    this.page++;
+                    this._loadDbTracks();
+                }
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+    }
+
+    /**
+     * Set up search listener
+     * @private
+     */
+    _setupSearchListener() {
+        const searchInput = document.getElementById('trackSearch');
+        if (searchInput) {
+            searchInput.addEventListener('input', (e) => {
+                const query = e.target.value.trim();
+                if (query.length >= 3) {
+                    // Switch to DB search immediately
+                    this.usingJsonFallback = false;
+                    this.page = 1;
+                    this.filters.search = query;
+                    this._loadDbTracks();
+                } else if (query.length === 0) {
+                    // Reset to JSON fallback
+                    this.usingJsonFallback = true;
+                    this.filters.search = '';
+                    this._loadJsonTracks();
+                }
+            });
+        }
+    }
+
+    /**
+     * Load tracks from JSON fallback
+     * @private
+     */
+    async _loadJsonTracks() {
         try {
             const response = await fetch('../static/data/tracks-fallback.json');
             const data = await response.json();
@@ -69,111 +116,49 @@ class TracksManager {
             
             this._updateTrackDisplay();
         } catch (error) {
-            console.error('Failed to load fallback tracks:', error);
+            console.error('Failed to load JSON tracks:', error);
             this._setError('Failed to load tracks. Please try again later.');
         }
     }
 
     /**
-     * Set loading state
+     * Load tracks from database
      * @private
      */
-    _setLoading(loading) {
-        this.state.loading = loading;
-        this._updateUI();
-    }
-
-    /**
-     * Set error state
-     * @private
-     */
-    _setError(message) {
-        this.state.error = message;
-        this._updateUI();
-    }
-
-    /**
-     * Clear error state
-     * @private
-     */
-    _clearError() {
-        this.state.error = null;
-        this._updateUI();
-    }
-
-    /**
-     * Set up event listeners
-     * @private
-     */
-    _setupEventListeners() {
-        // Listen for profile changes
-        document.addEventListener('profileUpdated', () => {
-            this._updateUI();
-        });
-
-        // Listen for cache invalidation events
-        dataManager.subscribeToEvent('tracks_updated', () => {
-            this.cache.lastUpdate = null;
-            this._loadTracks();
-        });
-
-        // Listen for network status changes
-        window.addEventListener('online', () => {
-            if (this.state.error) {
-                this.refresh();
-            }
-        });
-    }
-
-    /**
-     * Load tracks from API with retry logic
-     * @private
-     */
-    async _loadTracks() {
-        // Check cache
-        if (this.cache.lastUpdate && Date.now() - this.cache.lastUpdate < this.cache.duration) {
-            return;
-        }
+    async _loadDbTracks() {
+        if (this.isLoading) return;
 
         try {
-            this._setLoading(true);
-            this._clearError();
-
+            this.isLoading = true;
             const tracks = await dataManager.loadData('tracks', {
-                includeDownloads: true,
-                includeDetails: true
+                page: this.page,
+                search: this.filters.search,
+                category: this.filters.category,
+                sort: this.sortOrder
             });
 
-            if (!Array.isArray(tracks)) {
-                throw new Error('Invalid tracks data received');
+            if (!Array.isArray(tracks) || tracks.length === 0) {
+                this.hasMoreData = false;
+                return;
             }
 
-            // Filter out premium tracks and keep only most recent 40
-            const filteredTracks = tracks
-                .filter(track => !track.premium)
-                .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
-                .slice(0, 40);
-
-            this.tracks.clear();
-            filteredTracks.forEach(track => {
-                try {
-                    const processedTrack = this._processTrackData(track);
-                    if (processedTrack && processedTrack.id) {
-                        this.tracks.set(processedTrack.id, processedTrack);
-                    }
-                } catch (error) {
-                    console.warn('Failed to process track:', track, error);
+            tracks.forEach(track => {
+                const processedTrack = this._processTrackData(track);
+                if (processedTrack && processedTrack.id) {
+                    this.tracks.set(processedTrack.id, processedTrack);
                 }
             });
 
-            this.cache.lastUpdate = Date.now();
-            this.state.retryCount = 0;
             this._updateTrackDisplay();
         } catch (error) {
-            console.error('Failed to load tracks:', error);
-            await this._loadFallbackTracks();
+            console.error('Failed to load DB tracks:', error);
+            if (this.page === 1) {
+                // Fallback to JSON if initial DB load fails
+                this.usingJsonFallback = true;
+                await this._loadJsonTracks();
+            }
         } finally {
-            this._setLoading(false);
+            this.isLoading = false;
         }
     }
 
@@ -212,52 +197,50 @@ class TracksManager {
     // ... [Rest of the validation methods remain unchanged] ...
 
     /**
-     * Update UI based on current state
+     * Update track display
      * @private
      */
-    _updateUI() {
+    _updateTrackDisplay() {
         const trackGrid = document.getElementById('trackGrid');
         if (!trackGrid) return;
 
-        if (this.state.loading) {
-            trackGrid.innerHTML = this._generateLoadingState();
-            return;
-        }
+        const tracks = Array.from(this.tracks.values());
+        const sortedTracks = this._sortTracks(tracks);
 
-        if (this.state.error) {
-            trackGrid.innerHTML = this._generateErrorState();
-            return;
-        }
-
-        this._updateTrackDisplay();
+        trackGrid.innerHTML = sortedTracks.map(track => this._generateTrackCard(track)).join('');
     }
 
     /**
-     * Generate loading state HTML
+     * Sort tracks based on current sort order
      * @private
      */
-    _generateLoadingState() {
-        return `
-            <div class="loading">
-                <div class="loading-spinner"></div>
-                <p>Loading tracks...</p>
-            </div>
-        `;
+    _sortTracks(tracks) {
+        switch (this.sortOrder) {
+            case 'newest':
+                return tracks.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+            case 'popular':
+                return tracks.sort((a, b) => b.downloads.count - a.downloads.count);
+            default:
+                return tracks;
+        }
     }
 
     /**
-     * Generate error state HTML
+     * Generate track card HTML
      * @private
      */
-    _generateErrorState() {
+    _generateTrackCard(track) {
         return `
-            <div class="error col-span-full">
-                <p class="text-xl">Error</p>
-                <p class="mt-2">${this.state.error}</p>
-                <button onclick="tracksManager.refresh()" 
-                        class="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
-                    Try Again
-                </button>
+            <div class="track-card">
+                <img src="${track.thumbnail}" alt="${track.name}" class="track-thumbnail">
+                <div class="track-info">
+                    <h3>${track.name}</h3>
+                    <p>${track.creator}</p>
+                    <div class="track-stats">
+                        <span>${track.downloads.count} downloads</span>
+                        <span>${track.category}</span>
+                    </div>
+                </div>
             </div>
         `;
     }

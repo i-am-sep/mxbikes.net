@@ -1,4 +1,4 @@
-/* Scoped styles for home page */
+/* Home page styles */
 .home-container {
     display: flex;
     gap: 2rem;
@@ -7,6 +7,102 @@
     margin: 0 auto;
 }
 
+/* Rankings section */
+.home-rankings {
+    background: rgba(31, 41, 55, 0.8);
+    border-radius: 1rem;
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+.home-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.home-section-header h2 {
+    color: #fff;
+    font-size: 2rem;
+    margin: 0;
+}
+
+.view-all {
+    color: #60A5FA;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.view-all:hover {
+    color: #93C5FD;
+}
+
+.home-rankings-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.home-player-card {
+    background: rgba(55, 65, 81, 0.5);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    transition: transform 0.2s;
+}
+
+.home-player-card:hover {
+    transform: translateY(-2px);
+}
+
+.home-player-card.rank-one {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.5), rgba(37, 99, 235, 0.5));
+    border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.rankings-promotion {
+    text-align: center;
+    color: #9CA3AF;
+    padding: 1rem;
+    background: rgba(55, 65, 81, 0.3);
+    border-radius: 0.75rem;
+    margin-top: 1rem;
+}
+
+.rankings-promotion p {
+    margin: 0.5rem 0;
+}
+
+.rankings-promotion p:last-child {
+    color: #60A5FA;
+    font-weight: 500;
+}
+
+.rankings-cta {
+    text-align: center;
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: rgba(55, 65, 81, 0.3);
+    border-radius: 0.75rem;
+}
+
+.rankings-cta p:first-child {
+    color: #fff;
+    font-size: 1.25rem;
+    margin: 0 0 0.5rem 0;
+}
+
+.rankings-cta p:last-child {
+    color: #60A5FA;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* Other sections */
 .home-nav {
     flex: 0 0 250px;
     background: #1a1a1a;
@@ -98,5 +194,15 @@
     .home-nav-link {
         flex: 1 1 calc(50% - 0.5rem);
         text-align: center;
+    }
+
+    .home-rankings-list {
+        grid-template-columns: 1fr;
+    }
+
+    .home-section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
     }
 }

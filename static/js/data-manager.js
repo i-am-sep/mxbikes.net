@@ -1,221 +1,149 @@
 /**
  * Data Manager for MXBikes.net
- * Handles API data loading with error handling, racing integration, and security
+ * Handles data loading with JSON fallback and API integration
  */
 
 class DataManager {
     constructor() {
         this.cache = new Map();
-        // Production API for public content
-        this.PUBLIC_API_URL = 'https://mxbikes.app';
-        // Development/Internal API for racing features
-        this.INTERNAL_API_URL = 'https://mxbikes.xyz';
-        this.isPublicApiAvailable = false;
-        this.isInternalApiAvailable = false;
-
-        // Port configurations for racing
-        this.RACING_PORTS = {
-            GAME_INSTANCES: { start: 54201, end: 54209 },
-            LIVE_INTERACTION: 54220,
-            ADMIN_COMMANDS: 54230
-        };
-
-        // Rate limiting configuration
-        this.rateLimits = {
-            maxRequestsPerSecond: 10,
-            burstLimit: 20,
-            requestHistory: [],
-            lastReset: Date.now()
-        };
-
+        this.useApi = true; // Enable API usage by default
+        this.apiEndpoint = 'http://68.183.8.177:3000/api'; // Amsterdam API endpoint
+        this.apiHealthy = false;
+        
         // Request tracking
         this.requestStats = {
             totalRequests: 0,
             successfulRequests: 0,
             failedRequests: 0,
             lastRequestTime: null,
-            errors: new Map() // Track error types
+            errors: new Map()
         };
 
         // Error types
         this.ERROR_TYPES = {
             NETWORK: 'NETWORK_ERROR',
-            API: 'API_ERROR',
             PARSE: 'PARSE_ERROR',
-            VALIDATION: 'VALIDATION_ERROR'
+            VALIDATION: 'VALIDATION_ERROR',
+            API: 'API_ERROR'
         };
+
+        // Initialize
+        this.initialize();
     }
 
     /**
-     * Initialize the data manager and check API availability
+     * Initialize the data manager
      */
     async initialize() {
+        // Check API health
         try {
-            // Check public API health with timeout
-            const publicHealth = await Promise.race([
-                this._makeRequest(`${this.PUBLIC_API_URL}/api/health`),
-                new Promise((_, reject) => 
-                    setTimeout(() => reject(new Error('Timeout')), 5000)
-                )
-            ]);
-
-            if (publicHealth.ok) {
-                const healthData = await publicHealth.json();
-                this.isPublicApiAvailable = healthData.status === 'ok';
+            const healthCheck = await fetch(`${this.apiEndpoint}/health`);
+            if (healthCheck.ok) {
+                const health = await healthCheck.json();
+                this.apiHealthy = health.status === 'ok';
+                console.log(`API Status: ${this.apiHealthy ? 'Healthy' : 'Unhealthy'} (${health.region})`);
+            } else {
+                this.apiHealthy = false;
+                console.warn('API health check failed, falling back to JSON');
             }
         } catch (error) {
-            console.warn('Public API health check failed:', error);
-            this.isPublicApiAvailable = false;
-            this._trackError(this.ERROR_TYPES.NETWORK, error);
+            this.apiHealthy = false;
+            console.warn('API not available, falling back to JSON:', error);
         }
 
-        try {
-            // Check internal API health with timeout
-            const internalHealth = await Promise.race([
-                this._makeRequest(`${this.INTERNAL_API_URL}/api/health`),
-                new Promise((_, reject) => 
-                    setTimeout(() => reject(new Error('Timeout')), 5000)
-                )
-            ]);
+        // Load initial data into cache
+        await this._loadInitialData();
 
-            if (internalHealth.ok) {
-                const healthData = await internalHealth.json();
-                this.isInternalApiAvailable = healthData.status === 'ok';
+        // Set up periodic health checks
+        setInterval(() => this._checkApiHealth(), 30000); // Check every 30 seconds
+    }
+
+    /**
+     * Check API health periodically
+     * @private
+     */
+    async _checkApiHealth() {
+        try {
+            const response = await fetch(`${this.apiEndpoint}/health`);
+            const wasHealthy = this.apiHealthy;
+            this.apiHealthy = response.ok;
+            
+            if (wasHealthy !== this.apiHealthy) {
+                console.log(`API Status Changed: ${this.apiHealthy ? 'Healthy' : 'Unhealthy'}`);
+                if (this.apiHealthy) {
+                    await this._loadInitialData(); // Refresh data when API comes back
+                }
             }
         } catch (error) {
-            console.warn('Internal API health check failed:', error);
-            this.isInternalApiAvailable = false;
+            this.apiHealthy = false;
+        }
+    }
+
+    /**
+     * Load initial data from API or JSON files
+     * @private
+     */
+    async _loadInitialData() {
+        try {
+            if (this.apiHealthy) {
+                // Try loading from API first
+                try {
+                    const [tracks, downloads, races, rankings] = await Promise.allSettled([
+                        fetch(`${this.apiEndpoint}/tracks`).then(r => r.json()),
+                        fetch(`${this.apiEndpoint}/downloads`).then(r => r.json()),
+                        fetch(`${this.apiEndpoint}/races/upcoming`).then(r => r.json()),
+                        fetch(`${this.apiEndpoint}/ranked/top10`).then(r => r.json())
+                    ]);
+
+                    // Store successful API responses
+                    if (tracks.status === 'fulfilled') this.cache.set('tracks', tracks.value);
+                    if (downloads.status === 'fulfilled') this.cache.set('downloads', downloads.value);
+                    if (races.status === 'fulfilled') this.cache.set('races', races.value);
+                    if (rankings.status === 'fulfilled') this.cache.set('rankings', rankings.value);
+
+                    // Fall back to JSON for any failed requests
+                    if (tracks.status === 'rejected') await this._loadJsonFallback('tracks');
+                    if (downloads.status === 'rejected') await this._loadJsonFallback('downloads');
+                    if (races.status === 'rejected') await this._loadJsonFallback('races');
+                    if (rankings.status === 'rejected') await this._loadJsonFallback('rankings');
+
+                    return;
+                } catch (error) {
+                    console.warn('API data loading failed, falling back to JSON:', error);
+                    this.apiHealthy = false;
+                }
+            }
+
+            // Load from JSON fallbacks if API is unhealthy or failed
+            await Promise.all([
+                this._loadJsonFallback('tracks'),
+                this._loadJsonFallback('downloads'),
+                this._loadJsonFallback('races'),
+                this._loadJsonFallback('rankings')
+            ]);
+        } catch (error) {
+            console.error('Failed to load initial data:', error);
             this._trackError(this.ERROR_TYPES.NETWORK, error);
         }
-
-        // If both APIs are unavailable, throw error
-        if (!this.isPublicApiAvailable && !this.isInternalApiAvailable) {
-            throw new Error('All APIs are currently unavailable. Please try again later.');
-        }
     }
 
     /**
-     * Track error occurrence
+     * Load JSON fallback data
      * @private
      */
-    _trackError(type, error) {
-        const count = this.requestStats.errors.get(type) || 0;
-        this.requestStats.errors.set(type, count + 1);
-        
-        // Log detailed error information
-        console.error(`[${type}] Error:`, {
-            message: error.message,
-            stack: error.stack,
-            timestamp: new Date().toISOString()
-        });
-    }
-
-    /**
-     * Make a rate-limited request with retry logic
-     * @private
-     */
-    async _makeRequest(url, options = {}, retries = 3) {
-        if (!this._checkRateLimit()) {
-            throw new Error('Rate limit exceeded. Please try again later.');
-        }
-
-        this.requestStats.totalRequests++;
-        this.requestStats.lastRequestTime = Date.now();
-
-        for (let attempt = 0; attempt < retries; attempt++) {
-            try {
-                const response = await fetch(url, {
-                    ...options,
-                    headers: {
-                        ...options.headers,
-                        'X-Client-Version': '1.0.0',
-                        'X-Request-ID': this._generateRequestId()
-                    }
-                });
-
-                if (response.status === 429) { // Too Many Requests
-                    const retryAfter = parseInt(response.headers.get('Retry-After')) || Math.pow(2, attempt);
-                    await new Promise(resolve => setTimeout(resolve, retryAfter * 1000));
-                    continue;
-                }
-
-                // Handle specific error status codes
-                if (!response.ok) {
-                    this.requestStats.failedRequests++;
-                    
-                    // Try to get error details from response
-                    let errorDetails = 'Unknown error';
-                    try {
-                        const errorData = await response.json();
-                        errorDetails = errorData.message || errorData.error || errorDetails;
-                    } catch {
-                        // If can't parse error JSON, use status text
-                        errorDetails = response.statusText;
-                    }
-
-                    throw new Error(`API Error (${response.status}): ${errorDetails}`);
-                }
-
-                this.requestStats.successfulRequests++;
-                return response;
-            } catch (error) {
-                this.requestStats.failedRequests++;
-                
-                // Track error type
-                if (error.name === 'TypeError' && error.message.includes('Failed to fetch')) {
-                    this._trackError(this.ERROR_TYPES.NETWORK, error);
-                } else {
-                    this._trackError(this.ERROR_TYPES.API, error);
-                }
-
-                if (attempt === retries - 1) throw error;
-                
-                // Exponential backoff
-                await new Promise(resolve => setTimeout(resolve, Math.pow(2, attempt) * 1000));
-            }
+    async _loadJsonFallback(type) {
+        try {
+            const response = await fetch(`../static/data/${type}-fallback.json`);
+            const data = await response.json();
+            this.cache.set(type, data);
+        } catch (error) {
+            console.warn(`${type} fallback data not available:`, error);
         }
     }
 
     /**
-     * Check if request is within rate limits
-     * @private
-     */
-    _checkRateLimit() {
-        const now = Date.now();
-        const oneSecondAgo = now - 1000;
-
-        // Reset if last reset was more than a second ago
-        if (now - this.rateLimits.lastReset > 1000) {
-            this.rateLimits.requestHistory = [];
-            this.rateLimits.lastReset = now;
-        }
-
-        // Remove requests older than 1 second
-        this.rateLimits.requestHistory = this.rateLimits.requestHistory.filter(
-            time => time > oneSecondAgo
-        );
-
-        // Check limits
-        if (this.rateLimits.requestHistory.length >= this.rateLimits.burstLimit) {
-            return false;
-        }
-
-        // Add current request
-        this.rateLimits.requestHistory.push(now);
-        return true;
-    }
-
-    /**
-     * Generate unique request ID
-     * @private
-     */
-    _generateRequestId() {
-        return `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
-    }
-
-    /**
-     * Load data from appropriate API
-     * @param {string} type Data type to load (tracks, mods, races, etc.)
+     * Load data with search and filter support
+     * @param {string} type Data type to load (tracks, downloads, races, etc.)
      * @param {Object} options Optional parameters (search, filters, etc.)
      * @returns {Promise<Object>} The loaded data
      */
@@ -225,254 +153,95 @@ class DataManager {
             throw new Error('Invalid data type requested');
         }
 
-        // Check cache first
-        const cacheKey = this._getCacheKey(type, options);
-        if (this.cache.has(cacheKey)) {
-            return this.cache.get(cacheKey);
-        }
-
-        // Determine which API to use based on type
-        const useInternalApi = this._isInternalApiType(type);
-        const apiUrl = useInternalApi ? this.INTERNAL_API_URL : this.PUBLIC_API_URL;
-        const isAvailable = useInternalApi ? this.isInternalApiAvailable : this.isPublicApiAvailable;
-
-        if (!isAvailable) {
-            const apiType = useInternalApi ? 'Internal' : 'Public';
-            throw new Error(`${apiType} API is currently unavailable. Please try again later.`);
-        }
-
         try {
-            // Build API URL with proper error handling for malformed input
-            let url;
-            try {
-                url = this._buildApiUrl(apiUrl, type, options);
-            } catch (error) {
-                this._trackError(this.ERROR_TYPES.VALIDATION, error);
-                throw new Error(`Invalid request parameters: ${error.message}`);
+            if (this.apiHealthy) {
+                // Try loading from API with search/filter params
+                try {
+                    const queryParams = new URLSearchParams();
+                    if (options.search) queryParams.set('search', options.search);
+                    if (options.category) queryParams.set('category', options.category);
+
+                    const response = await fetch(`${this.apiEndpoint}/${type}?${queryParams}`);
+                    if (!response.ok) throw new Error(`API error: ${response.status}`);
+                    
+                    const data = await response.json();
+                    this.cache.set(type, data);
+                    this.requestStats.successfulRequests++;
+                    return this._filterData(data, type, options);
+                } catch (error) {
+                    console.warn('API request failed, using cached data:', error);
+                    this._trackError(this.ERROR_TYPES.API, error);
+                }
             }
 
-            // Add headers
-            const headers = {
-                'Accept': 'application/json',
-                'Accept-Encoding': 'gzip, deflate'
-            };
-
-            if (useInternalApi) {
-                headers['X-Racing-Port'] = this._getRacingPort(options.raceId);
+            // Get data from cache
+            const cachedData = this.cache.get(type);
+            if (!cachedData) {
+                throw new Error(`No data available for type: ${type}`);
             }
 
-            // Make request
-            const response = await this._makeRequest(url, {
-                credentials: useInternalApi ? 'include' : 'same-origin',
-                headers
-            });
-
-            // Parse response
-            let data;
-            try {
-                data = await response.json();
-            } catch (error) {
-                this._trackError(this.ERROR_TYPES.PARSE, error);
-                throw new Error('Failed to parse API response');
-            }
-
-            // Validate response data
-            if (!data) {
-                throw new Error('Empty response received from API');
-            }
-
-            // Transform data based on type
-            try {
-                const transformedData = this._transformData(data, type);
-                this.cache.set(cacheKey, transformedData);
-                return transformedData;
-            } catch (error) {
-                this._trackError(this.ERROR_TYPES.VALIDATION, error);
-                throw new Error(`Failed to process ${type} data: ${error.message}`);
-            }
+            // Apply search and filters
+            return this._filterData(cachedData, type, options);
         } catch (error) {
-            // Log the complete error
-            console.error(`Failed to load ${type} data:`, {
-                error,
-                type,
-                options,
-                timestamp: new Date().toISOString()
-            });
-
-            // Throw a user-friendly error
+            console.error(`Failed to load ${type} data:`, error);
             throw new Error(`Failed to load ${type}. Please try again later.`);
         }
     }
 
     /**
-     * Check if data type requires internal API
+     * Filter data based on search and options
      * @private
      */
-    _isInternalApiType(type) {
-        return [
-            'races',
-            'race_instances',
-            'race_results',
-            'riders',
-            'rankings',
-            'ranking_history'
-        ].includes(type);
-    }
+    _filterData(data, type, options) {
+        let items = [];
 
-    /**
-     * Get appropriate racing port based on race ID
-     * @private
-     */
-    _getRacingPort(raceId) {
-        if (!raceId) return this.RACING_PORTS.LIVE_INTERACTION;
-        
-        // For specific races, calculate port from ID to ensure consistent allocation
-        const portIndex = parseInt(raceId) % (this.RACING_PORTS.GAME_INSTANCES.end - this.RACING_PORTS.GAME_INSTANCES.start + 1);
-        return this.RACING_PORTS.GAME_INSTANCES.start + portIndex;
-    }
-
-    /**
-     * Transform API data to match frontend needs
-     * @private
-     */
-    _transformData(data, type) {
-        // Ensure data is an array
-        const dataArray = Array.isArray(data) ? data : [data];
-
-        // Validate data array
-        if (!dataArray.length) {
-            return [];
+        switch (type) {
+            case 'tracks':
+                items = data.tracks || [];
+                break;
+            case 'downloads':
+                items = data.downloads || [];
+                break;
+            case 'races':
+                items = data.races || [];
+                break;
+            case 'rankings':
+                items = data.top_10 || [];
+                break;
+            default:
+                items = Array.isArray(data) ? data : [];
         }
 
-        try {
-            switch (type) {
-                case 'tracks':
-                case 'mods':
-                    return dataArray.map(item => {
-                        if (!item) return null;
-                        
-                        return {
-                            id: item.id || null,
-                            name: item.title || item.name || `Unknown ${type.slice(0, -1)}`,
-                            creator: item.creator || 'Unknown Creator',
-                            description: item.description || '',
-                            thumbnail: item.images?.cover || item.thumbnail || '/static/assets/images/placeholder.jpg',
-                            additionalImages: item.images?.additional || item.additionalImages || [],
-                            downloads: {
-                                count: item.downloads?.download_count || item.downloads || 0,
-                                links: this._processDownloadLinks(item.downloads?.by_type || item.downloadLinks),
-                                hosts: item.downloads?.by_host || item.downloadHosts || {}
-                            },
-                            url: this._validateUrl(item.url),
-                            embeddedVideos: item.embedded_videos || item.embeddedVideos || [],
-                            createdAt: item.created_at || item.createdAt,
-                            updatedAt: item.updated_at || item.updatedAt
-                        };
-                    }).filter(item => item !== null); // Remove any invalid items
-
-                // ... [Other type transformations remain unchanged] ...
-
-                default:
-                    return dataArray;
-            }
-        } catch (error) {
-            this._trackError(this.ERROR_TYPES.VALIDATION, error);
-            throw new Error(`Data transformation failed: ${error.message}`);
-        }
-    }
-
-    /**
-     * Process download links
-     * @private
-     */
-    _processDownloadLinks(links) {
-        if (!links || typeof links !== 'object') {
-            return { primary: null, mirrors: [] };
-        }
-
-        try {
-            const allLinks = Array.isArray(links) ? links : Object.values(links).flat();
-            const validLinks = allLinks.filter(link => this._validateUrl(link));
-
-            return {
-                primary: validLinks[0] || null,
-                mirrors: validLinks.slice(1)
-            };
-        } catch (error) {
-            console.warn('Failed to process download links:', error);
-            return { primary: null, mirrors: [] };
-        }
-    }
-
-    /**
-     * Validate and clean URL
-     * @private
-     */
-    _validateUrl(url) {
-        if (!url || typeof url !== 'string') return null;
-
-        // Known download hosts
-        const validHosts = [
-            'mediafire.com',
-            'drive.google.com',
-            'mega.nz',
-            '1drv.ms'
-        ];
-
-        try {
-            const urlObj = new URL(url);
-            const isValidHost = validHosts.some(host => urlObj.hostname.includes(host));
-            return isValidHost ? url : null;
-        } catch {
-            return null;
-        }
-    }
-
-    /**
-     * Build API URL with validation
-     * @private
-     */
-    _buildApiUrl(baseUrl, type, options) {
-        if (!type || typeof type !== 'string') {
-            throw new Error('Invalid type parameter');
-        }
-
-        let url = `${baseUrl}/api/${type}`;
-        url = this._appendQueryParams(url, options);
-
-        try {
-            new URL(url);
-            return url;
-        } catch (error) {
-            throw new Error('Invalid URL construction');
-        }
-    }
-
-    /**
-     * Generate cache key from type and options
-     * @private
-     */
-    _getCacheKey(type, options) {
-        return `${type}-${JSON.stringify(options)}`;
-    }
-
-    /**
-     * Append query parameters to URL
-     * @private
-     */
-    _appendQueryParams(url, options) {
-        const params = new URLSearchParams();
-
+        // Apply search
         if (options.search) {
-            params.append('q', options.search);
+            const searchLower = options.search.toLowerCase();
+            items = items.filter(item => 
+                item.name?.toLowerCase().includes(searchLower) ||
+                item.description?.toLowerCase().includes(searchLower) ||
+                item.creator?.toLowerCase().includes(searchLower)
+            );
         }
 
+        // Apply category filter
         if (options.category && options.category !== 'all') {
-            params.append('category', options.category);
+            items = items.filter(item => 
+                item.category?.toLowerCase() === options.category.toLowerCase()
+            );
         }
 
-        const queryString = params.toString();
-        return queryString ? `${url}?${queryString}` : url;
+        return items;
+    }
+
+    /**
+     * Track error occurrence
+     * @private
+     */
+    _trackError(type, error) {
+        const count = this.requestStats.errors.get(type) || 0;
+        this.requestStats.errors.set(type, count + 1);
+        this.requestStats.failedRequests++;
+        this.requestStats.lastRequestTime = new Date();
+        console.error(`[${type}] Error:`, error);
     }
 
     /**
@@ -481,23 +250,11 @@ class DataManager {
      */
     clearCache(type = null) {
         if (type) {
-            // Clear all cache entries for the specified type
-            for (const key of this.cache.keys()) {
-                if (key.startsWith(type)) {
-                    this.cache.delete(key);
-                }
-            }
+            this.cache.delete(type);
         } else {
             this.cache.clear();
         }
-    }
-
-    /**
-     * Check if racing features are available
-     * @returns {boolean}
-     */
-    hasRacingAccess() {
-        return this.isInternalApiAvailable;
+        this._loadInitialData();
     }
 
     /**
@@ -507,16 +264,10 @@ class DataManager {
     getRequestStats() {
         return {
             ...this.requestStats,
-            errors: Object.fromEntries(this.requestStats.errors)
+            errors: Object.fromEntries(this.requestStats.errors),
+            apiStatus: this.apiHealthy ? 'healthy' : 'unhealthy',
+            lastCheck: this.requestStats.lastRequestTime
         };
-    }
-
-    /**
-     * Get error counts by type
-     * @returns {Object} Error counts
-     */
-    getErrorStats() {
-        return Object.fromEntries(this.requestStats.errors);
     }
 }
 

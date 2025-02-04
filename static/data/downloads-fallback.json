@@ -1,0 +1,31 @@
+{
+  "downloads": [
+    {
+      "id": "1",
+      "name": "MX Bikes Latest",
+      "version": "2024.1.1",
+      "size": "2.5GB",
+      "creator": "Created by Alex",
+      "description": "Latest version of MX Bikes",
+      "category": "Game",
+      "thumbnail": "../static/assets/images/placeholder.jpg",
+      "downloads": {
+        "count": 15000,
+        "links": {
+          "primary": "https://mxbikes.net/download/latest",
+          "mirrors": []
+        }
+      },
+      "requirements": {
+        "os": "Windows 10/11",
+        "cpu": "Intel i5/AMD Ryzen 5",
+        "gpu": "GTX 1060/RX 580",
+        "ram": "8GB"
+      },
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "updatedAt": "2024-01-01T00:00:00.000Z"
+    }
+  ],
+  "lastUpdate": "2024-01-01T00:00:00.000Z",
+  "totalDownloads": 1
+}

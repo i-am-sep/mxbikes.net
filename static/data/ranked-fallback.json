@@ -1,0 +1,42 @@
+{
+  "top_10": [
+    {
+      "rank": 1,
+      "player_id": "p1",
+      "name": "Champion",
+      "elo_rating": 2500,
+      "races_completed": 45,
+      "last_race": "2024-01-15T20:00:00.000Z"
+    },
+    {
+      "rank": 2,
+      "player_id": "p2",
+      "name": "Challenger",
+      "elo_rating": 2450,
+      "races_completed": 42,
+      "last_race": "2024-01-15T20:00:00.000Z"
+    },
+    {
+      "rank": 3,
+      "player_id": "p3",
+      "name": "Elite",
+      "elo_rating": 2400,
+      "races_completed": 40,
+      "last_race": "2024-01-14T20:00:00.000Z"
+    }
+  ],
+  "last_update": "2024-01-15T21:00:00.000Z",
+  "next_update": "2024-01-15T22:00:00.000Z",
+  "total_ranked_players": 156,
+  "season": {
+    "id": "s2024_1",
+    "name": "2024 Season 1",
+    "start_date": "2024-01-01T00:00:00.000Z",
+    "end_date": "2024-03-31T23:59:59.999Z",
+    "lan_qualification": {
+      "event": "Austin 2026",
+      "qualification_period_end": "2025-12-31T23:59:59.999Z",
+      "top_10_snapshots_recorded": 15
+    }
+  }
+}
