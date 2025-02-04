@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     // Store data globally for filtering
-    let productsData = [];
+    let tracksData = [];
     let currentCategory = 'All';
 
     // Get the current page from pathname
@@ -18,34 +18,83 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize based on current page
     if (isTracksPage || isDownloadsPage) {
-        loadProducts();
-        // Add search event listener
-        if (UI.trackSearch) {
-            UI.trackSearch.addEventListener('input', handleTrackSearch);
-        }
+        // Show loading state
+        showLoadingState();
+        
+        // Load tracks data
+        fetch('./data/tracks.json')
+            .then(response => {
+                if (!response.ok) throw new Error('Failed to load tracks data');
+                return response.json();
+            })
+            .then(data => {
+                if (!data.tracks || !Array.isArray(data.tracks)) {
+                    throw new Error('Invalid tracks data format');
+                }
+                tracksData = data.tracks;
+                renderTracks(tracksData);
+                initializeFilters();
+            })
+            .catch(error => {
+                console.error('Error loading tracks:', error);
+                showErrorState(error);
+            });
+    }
 
-        // Add category filter UI for tracks page
-        if (isTracksPage) {
-            initializeCategoryFilters();
+    function showLoadingState() {
+        if (UI.modContainer) {
+            UI.modContainer.innerHTML = `
+                <tr>
+                    <td colspan="4" class="p-4 text-center">
+                        <div class="animate-pulse">
+                            <div class="h-4 bg-gray-700 rounded w-3/4 mx-auto mb-4"></div>
+                            <div class="h-4 bg-gray-700 rounded w-1/2 mx-auto"></div>
+                        </div>
+                    </td>
+                </tr>
+            `;
         }
     }
 
-    /**
-     * Initializes category filter buttons
-     */
-    function initializeCategoryFilters() {
+    function showErrorState(error) {
+        if (UI.modContainer) {
+            UI.modContainer.innerHTML = `
+                <tr>
+                    <td colspan="4" class="p-4 text-center">
+                        <div class="bg-gray-800 rounded-lg p-6">
+                            <h3 class="text-xl font-bold mb-4">Content Temporarily Unavailable</h3>
+                            <p class="text-gray-400 mb-4">We're currently experiencing technical difficulties. Please try again later.</p>
+                            <div class="text-left text-gray-400 mt-4">
+                                <p>In the meantime, you can:</p>
+                                <ul class="list-disc list-inside mt-2">
+                                    <li>Check out our <a href="./downloads.html" class="text-blue-400 hover:underline">downloads page</a></li>
+                                    <li>Join our Discord community</li>
+                                    <li>Follow us on social media for updates</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            `;
+        }
+        if (UI.noModsMessage) {
+            UI.noModsMessage.classList.add('hidden');
+        }
+    }
+
+    function initializeFilters() {
+        // Initialize search
+        if (UI.trackSearch) {
+            UI.trackSearch.addEventListener('input', handleSearch);
+        }
+
+        // Initialize category filters
+        const categories = ['All', ...new Set(tracksData.map(track => track.category))];
         const searchContainer = document.querySelector('.search-container');
-        if (!searchContainer) return;
-
-        const categoryContainer = document.createElement('div');
-        categoryContainer.className = 'flex gap-2 mt-4 flex-wrap';
-        searchContainer.appendChild(categoryContainer);
-
-        // Add category buttons once data is loaded
-        loadProducts().then(() => {
-            // Get unique categories from products
-            const categories = ['All', ...new Set(productsData.map(p => p.category))];
-            
+        
+        if (searchContainer) {
+            const categoryContainer = document.createElement('div');
+            categoryContainer.className = 'flex gap-2 mt-4 flex-wrap';
             categoryContainer.innerHTML = categories.map(category => `
                 <button 
                     class="category px-4 py-2 rounded ${category === 'All' ? 'bg-blue-600' : 'bg-gray-700'} hover:bg-blue-500 transition-colors"
@@ -54,25 +103,20 @@ document.addEventListener('DOMContentLoaded', function() {
                     ${category}
                 </button>
             `).join('');
+            searchContainer.appendChild(categoryContainer);
 
             // Add event listeners to category buttons
-            document.querySelectorAll('.category').forEach(button => {
+            categoryContainer.querySelectorAll('.category').forEach(button => {
                 button.addEventListener('click', handleCategoryChange);
             });
-        });
+        }
     }
 
-    /**
-     * Handles track search input
-     */
-    function handleTrackSearch(event) {
+    function handleSearch(event) {
         const searchTerm = event.target.value.toLowerCase();
-        filterAndRenderProducts(searchTerm, currentCategory);
+        filterAndRenderTracks(searchTerm, currentCategory);
     }
 
-    /**
-     * Handles category button clicks
-     */
     function handleCategoryChange(event) {
         const button = event.target;
         currentCategory = button.dataset.category;
@@ -87,89 +131,71 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Filter and render
         const searchTerm = UI.trackSearch ? UI.trackSearch.value.toLowerCase() : '';
-        filterAndRenderProducts(searchTerm, currentCategory);
+        filterAndRenderTracks(searchTerm, currentCategory);
     }
 
-    /**
-     * Filters and renders products based on search term and category
-     */
-    function filterAndRenderProducts(searchTerm, category) {
-        let filteredProducts = productsData;
+    function filterAndRenderTracks(searchTerm, category) {
+        let filtered = tracksData;
 
         // Apply category filter
-        if (category !== 'All') {
-            filteredProducts = filteredProducts.filter(product => product.category === category);
+        if (category && category !== 'All') {
+            filtered = filtered.filter(track => track.category === category);
         }
 
         // Apply search filter
         if (searchTerm) {
-            filteredProducts = filteredProducts.filter(product =>
-                product.name?.toLowerCase().includes(searchTerm) ||
-                product.creator?.toLowerCase().includes(searchTerm)
+            filtered = filtered.filter(track =>
+                track.name?.toLowerCase().includes(searchTerm) ||
+                track.creator?.toLowerCase().includes(searchTerm)
             );
         }
 
-        if (filteredProducts.length === 0) {
-            showNoModsMessage();
+        if (filtered.length === 0) {
+            showNoTracksMessage();
         } else {
-            renderProducts(filteredProducts);
+            renderTracks(filtered);
         }
     }
 
-    /**
-     * Loads product data from API endpoint
-     */
-    async function loadProducts() {
-        try {
-            console.log('Attempting to load products from API...');
-            const response = await fetch('/api/products');
-            if (!response.ok) {
-                throw new Error('API not available');
-            }
-            const data = await response.json();
-            console.log('Products loaded from API');
-            
-            if (!Array.isArray(data) || data.length === 0) {
-                throw new Error('No products found in API');
-            }
-
-            productsData = data;
-            renderProducts(data);
-            return data;
-        } catch (error) {
-            console.error('Error loading data:', error);
-            handleError('Error loading content', error);
+    function showNoTracksMessage() {
+        if (UI.modContainer) {
+            UI.modContainer.innerHTML = `
+                <tr>
+                    <td colspan="4" class="p-4 text-center">
+                        <div class="bg-gray-800 rounded-lg p-6">
+                            <h3 class="text-xl font-bold mb-4">No Tracks Found</h3>
+                            <p class="text-gray-400">Try adjusting your search or filter criteria</p>
+                        </div>
+                    </td>
+                </tr>
+            `;
+        }
+        if (UI.noModsMessage) {
+            UI.noModsMessage.classList.remove('hidden');
         }
     }
 
-    /**
-     * Renders product data in a table format
-     * @param {Array} products - Array of product data to render
-     */
-    function renderProducts(products) {
-        if (!UI.modContainer) {
-            console.error('Mod container not found');
-            return;
-        }
-        
-        UI.modContainer.innerHTML = products.map(product => `
+    function renderTracks(tracks) {
+        if (!UI.modContainer) return;
+
+        UI.modContainer.innerHTML = tracks.map(track => `
             <tr class="track-row">
                 <td class="track-cell">
                     <div class="track-info">
-                        ${product.thumbnail ? `
-                            <img src="${product.thumbnail}" alt="${product.name}" class="track-thumbnail">
+                        ${track.thumbnail ? `
+                            <img src="${track.thumbnail}" alt="${track.name}" class="track-thumbnail">
                         ` : ''}
-                        <span class="track-title font-medium">${product.name || 'Untitled'}</span>
+                        <span class="track-title font-medium">${track.name || 'Untitled'}</span>
                     </div>
                 </td>
-                <td class="creator-cell">${product.creator || 'Unknown'}</td>
+                <td class="creator-cell">${track.creator || 'Unknown'}</td>
                 <td class="category-cell">
-                    <span class="category-badge">${product.category || 'Uncategorized'}</span>
+                    <span class="category-badge">${track.category || 'Uncategorized'}</span>
                 </td>
                 <td class="download-cell">
                     <div class="flex flex-col">
-                        ${product.downloads && product.downloads.length ? 
-                            product.downloads.map(download => `
+                        ${track.downloads && track.downloads.length ? 
+                            track.downloads.map(download => `
                                 <a href="${download.url}" target="_blank" class="download-button">
                                     ${download.type}
                                 </a>
@@ -184,35 +210,5 @@ document.addEventListener('DOMContentLoaded', function() {
         if (UI.noModsMessage) {
             UI.noModsMessage.classList.add('hidden');
         }
-    }
-
-    /**
-     * Shows the no mods found message
-     */
-    function showNoModsMessage() {
-        if (UI.noModsMessage) {
-            UI.noModsMessage.classList.remove('hidden');
-        }
-        if (UI.modContainer) {
-            UI.modContainer.innerHTML = '';
-        }
-    }
-
-    /**
-     * Handles errors by displaying them to the user
-     * @param {string} message - Error message
-     * @param {Error} error - Error object
-     */
-    function handleError(message, error) {
-        if (UI.modContainer) {
-            UI.modContainer.innerHTML = `
-                <tr>
-                    <td colspan="4" class="error-cell">
-                        ${message}: ${error.message || error}
-                    </td>
-                </tr>
-            `;
-        }
-        console.error(message, error);
     }
 });

@@ -1,0 +1,32 @@
+{
+  "tracks": [
+    {
+      "name": "Washougal National",
+      "creator": "Track Creator",
+      "category": "National",
+      "thumbnail": "./assets/images/placeholder.jpg",
+      "downloads": [
+        {
+          "type": "MediaFire",
+          "url": "https://www.mediafire.com/example"
+        },
+        {
+          "type": "Google Drive",
+          "url": "https://drive.google.com/example"
+        }
+      ]
+    },
+    {
+      "name": "RedBud",
+      "creator": "Track Creator",
+      "category": "National",
+      "thumbnail": "./assets/images/placeholder.jpg",
+      "downloads": [
+        {
+          "type": "MediaFire",
+          "url": "https://www.mediafire.com/example"
+        }
+      ]
+    }
+  ]
+}
