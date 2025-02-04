@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MXBikes.net - Home</title>
+    <meta name="description" content="MXBikes community hub for tracks, mods, racing, and rankings">
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="/static/assets/images/background.gif" as="image">
+    <link rel="preload" href="/static/js/app.js" as="script">
+    
+    <!-- Stylesheets -->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link href="/static/header-footer.css" rel="stylesheet">
+    <link href="/static/home.css" rel="stylesheet">
+    
+    <!-- Fallback for no JavaScript -->
+    <noscript>
+        <style>
+            .js-only { display: none !important; }
+            .no-js { display: block !important; }
+        </style>
+    </noscript>
+
+    <style>
+        /* Core styles that don't require JavaScript */
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('/static/assets/images/background.gif') no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
+        }
+
+        .page-break {
+            width: 100%;
+            height: auto;
+            margin: 2rem 0;
+        }
+
+        .hero-bg {
+            background: rgba(0,0,0,0.5);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .card {
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .bike-animation {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .download-button {
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            background: rgba(37, 99, 235, 0.8);
+        }
+
+        .download-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+        }
+
+        .discord-section {
+            background: rgba(47, 49, 54, 0.9);
+            backdrop-filter: blur(8px);
+            border-radius: 1rem;
+        }
+
+        .main-content {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow-y: auto;
+            background: rgba(0, 0, 0, 0.8);
+            padding-top: 4rem;
+        }
+
+        /* Loading state styles */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        /* Error state styles */
+        .error-container {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(239, 68, 68, 0.1);
+            border-radius: 1rem;
+            backdrop-filter: blur(8px);
+        }
+    </style>
+</head>
+<body class="text-white">
+    <!-- Navigation -->
+    <nav class="chrome-tabs">
+        <a href="index.html" class="chrome-tab">Home</a>
+        <a href="racing/index.html" class="chrome-tab">Racing</a>
+        <a href="ranked/index.html" class="chrome-tab">Ranked</a>
+        <a href="rider/index.html" class="chrome-tab">Rider</a>
+        <a href="bikes/index.html" class="chrome-tab">Bikes</a>
+        <a href="tracks/index.html" class="chrome-tab">Tracks</a>
+        <a href="downloads/index.html" class="chrome-tab">Downloads</a>
+    </nav>
+
+    <!-- Loading State -->
+    <div id="loading" class="loading-overlay" style="display: none;">
+        <div class="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-500"></div>
+    </div>
+
+    <!-- Error State -->
+    <div id="error" class="error-container" style="display: none;">
+        <h2 class="text-2xl font-bold text-red-500 mb-4">Something went wrong</h2>
+        <p class="text-gray-300 mb-4">We're having trouble loading the content. Please try again.</p>
+        <button onclick="window.location.reload()" class="bg-red-500 text-white px-6 py-2 rounded hover:bg-red-600 transition-colors">
+            Retry
+        </button>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container mx-auto px-4 py-12">
+            <!-- A-Kit Features Section -->
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-gray-800 rounded-lg p-6">
+                    <h2 class="text-3xl font-bold mb-8 cursor-pointer hover:text-blue-400">A-Kit Features</h2>
+                    <div class="card mb-6">
+                        <svg class="w-16 h-16 mb-4 bike-animation" viewBox="0 0 100 100">
+                            <path d="M20,80 Q30,70 40,80 T60,80 T80,80" stroke="white" fill="none" stroke-width="3"/>
+                            <circle cx="30" cy="80" r="15" stroke="white" fill="none" stroke-width="3"/>
+                            <circle cx="70" cy="80" r="15" stroke="white" fill="none" stroke-width="3"/>
+                        </svg>
+                        <h3 class="text-2xl font-bold mb-4">Factory Specifications</h3>
+                        <ul class="list-disc list-inside text-gray-400">
+                            <li>Balanced chassis mass distribution</li>
+                            <li>Factory-level customization options</li>
+                            <li>Multiple exhaust system choices</li>
+                            <li>Premium handlebar configurations</li>
+                        </ul>
+                    </div>
+
+                    <!-- Download Section -->
+                    <div id="download-section" class="download-links p-6 mt-8">
+                        <div class="flex flex-col space-y-4">
+                            <a href="https://www.mediafire.com/file/pb6bd6tonr1v4ho/bikes.zip/file" 
+                               target="_blank" 
+                               class="download-button text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center">
+                                MediaFire Download
+                            </a>
+                            <a href="https://drive.google.com/file/d/1PBV7P6FSVCamw27uhnps5FR0p0Go-cUp/view?usp=sharing" 
+                               target="_blank" 
+                               class="download-button text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center">
+                                Google Drive Download
+                            </a>
+                            <a href="https://mega.nz/file/MopEEKoa#sGcOKGtrJWmnQVgIeS8RnzIpDpGaaN-euP6sEFFBE-g" 
+                               target="_blank" 
+                               class="download-button text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center">
+                                MEGA Download
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Discord Section -->
+                <div class="discord-section p-6">
+                    <h2 class="text-3xl font-bold mb-6">Join Our Community</h2>
+                    <iframe src="https://discord.com/widget?id=1257678282787393667&theme=dark" 
+                            width="100%" 
+                            height="500" 
+                            allowtransparency="true" 
+                            frameborder="0" 
+                            sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+
+        <img src="/static/assets/images/page_break.gif" alt="Page Break" class="page-break">
+
+        <!-- Additional Sections -->
+        <div class="container mx-auto px-4 py-8">
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Two Strokes Section -->
+                <div class="bg-gray-800 rounded-lg p-6">
+                    <h2 class="text-3xl font-bold mb-8">Two Strokes</h2>
+                    <a href="https://drive.google.com/file/d/14Y6phEPrqgqLLS_5UcTLzTtCd9mnKZH8/view" 
+                       target="_blank" 
+                       class="download-button text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center w-full mb-8">
+                        Beta Test
+                    </a>
+                    
+                    <h2 class="text-3xl font-bold mb-4">PSD Files</h2>
+                    <div class="flex flex-col space-y-4">
+                        <a href="https://drive.google.com/file/d/1Rwt6l_xVH9KxqzuLYumYFqzHC1x3UCCI/view?usp=drive_link" 
+                           target="_blank" 
+                           class="download-button text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center">
+                            Kawasaki
+                        </a>
+                        <a href="https://drive.google.com/file/d/1FuJppCz2GJdwDpscPuvT9xNSq2F9Ec2Qv/view?usp=drive_link" 
+                           target="_blank" 
+                           class="download-button text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center">
+                            Yamaha
+                        </a>
+                        <a href="https://drive.google.com/file/d/1vo2B1cFGwCwYO5-_VaTJltSodpR5cl4A/view?usp=drive_link" 
+                           target="_blank" 
+                           class="download-button text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center">
+                            Fantic
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Additional Files Section -->
+                <div class="bg-gray-800 rounded-lg p-6">
+                    <h2 class="text-3xl font-bold mb-8">Additional Files</h2>
+                    <div class="flex flex-col space-y-4">
+                        <a href="https://www.mediafire.com/file/9lenok7rmszcvb3/AKit_Model_Files.zip/file" 
+                           target="_blank" 
+                           class="download-button text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center">
+                            Model Files
+                        </a>
+                        <a href="https://www.mediafire.com/file/advwhcejvidkg12/AK_mx.pkz/file" 
+                           target="_blank" 
+                           class="download-button text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center">
+                            Tyres (only required for tyre mismatch)
+                        </a>
+                        <a href="https://www.mediafire.com/file/ue78l1rpiwlcunn/bikes%2528server%2529.zip/file" 
+                           target="_blank" 
+                           class="download-button text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center">
+                            Server Version (not for players)
+                        </a>
+                        <a href="https://www.mediafire.com/file/cjjubzpl8fry9hs/TemplateDucati.zip/file" 
+                           target="_blank" 
+                           class="download-button text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center">
+                            A Kit Model Import Files
+                        </a>
+                        <a href="https://www.mediafire.com/file/ayyvxvdmhkm9hc6/TSX+-+AKit+Training+Grounds.zip/file" 
+                           target="_blank" 
+                           class="download-button text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center">
+                            TSX - Training Grounds for A-Kit bikes
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>Made for the MXB community by Alex Nagy (<a href="https://instagram.com/awulix" target="_blank">Scrallex</a>)</p>
+            <div class="social-links">
+                <a href="https://www.youtube.com/@awulix" target="_blank" class="social-link">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
+                </a>
+                <a href="https://instagram.com/awulix" target="_blank" class="social-link">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013 3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                </a>
+                <a href="https://www.tiktok.com/@scrallex" target="_blank" class="social-link">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="creator-support">
+                <a href="https://paypal.me/alexanderjnagy" target="_blank">Support the Creator</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="module" src="/static/js/app.js"></script>
+    <script nomodule>
+        // Fallback for browsers that don't support ES modules
+        document.getElementById('error').style.display = 'block';
+        document.getElementById('error').innerHTML = `
+            <h2 class="text-2xl font-bold text-red-500 mb-4">Browser Not Supported</h2>
+            <p class="text-gray-300 mb-4">Please use a modern browser to access all features.</p>
+        `;
+    </script>
+</body>
+</html>

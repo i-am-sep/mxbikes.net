@@ -1,0 +1,36 @@
+{
+  "lastUpdated": "2024-01-19T00:00:00Z",
+  "tracks": [
+    {
+      "id": "tsx-training-grounds",
+      "name": "TSX Training Grounds",
+      "description": "Professional training facility optimized for A-Kit bikes. Features multiple sections for practicing different techniques.",
+      "category": "training",
+      "difficulty": "intermediate",
+      "tags": ["Training", "Practice", "A-Kit"],
+      "image": "/static/assets/images/placeholder.jpg",
+      "downloadUrl": "https://www.mediafire.com/file/ayyvxvdmhkm9hc6/TSX+-+AKit+Training+Grounds.zip/file",
+          "url": "https://www.mediafire.com/example"
+        },
+        {
+          "type": "Google Drive",
+          "url": "https://drive.google.com/example"
+        }
+      ]
+    },
+    {
+      "id": "track_2",
+      "name": "RedBud",
+      "creator": "Track Creator",
+      "category": "National",
+      "thumbnail": "./assets/images/placeholder.jpg",
+      "downloadCount": 0,
+      "downloads": [
+        {
+          "type": "MediaFire",
+          "url": "https://www.mediafire.com/example"
+        }
+      ]
+    }
+  ]
+}

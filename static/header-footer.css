@@ -1,0 +1,133 @@
+/* Header/Navigation */
+.chrome-tabs {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4rem;
+    background: rgba(31, 41, 55, 0.95);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    z-index: 100;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.chrome-tab {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.2s;
+    white-space: nowrap;
+    font-weight: 500;
+}
+
+.chrome-tab:hover:not(.disabled) {
+    background: rgba(59, 130, 246, 0.5);
+}
+
+.chrome-tab.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Footer */
+.site-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(31, 41, 55, 0.95);
+    backdrop-filter: blur(8px);
+    padding: 1rem;
+    z-index: 100;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-link {
+    color: #fff;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.social-link:hover {
+    opacity: 1;
+}
+
+.creator-support a {
+    color: #60a5fa;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.creator-support a:hover {
+    color: #93c5fd;
+}
+
+/* Main Content Adjustments */
+.main-content {
+    padding-top: 4rem;
+    padding-bottom: 6rem; /* Increased to account for footer */
+    height: calc(100vh - 10rem); /* Adjusted to account for header and footer */
+    overflow-y: auto;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+    .chrome-tabs {
+        justify-content: flex-start;
+        padding: 0 0.5rem;
+    }
+
+    .chrome-tab {
+        padding: 0.5rem;
+        font-size: 0.875rem;
+    }
+
+    .footer-content {
+        padding: 0.5rem;
+    }
+
+    .social-links {
+        gap: 0.5rem;
+    }
+
+    .main-content {
+        padding-bottom: 8rem; /* Increased for mobile footer */
+    }
+}
+
+/* Ensure content doesn't get hidden under fixed elements */
+body {
+    padding-top: 4rem;
+    padding-bottom: 6rem;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* Hide scrollbar but allow scrolling */
+.chrome-tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.chrome-tabs {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}

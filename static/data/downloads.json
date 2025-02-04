@@ -1,0 +1,99 @@
+{
+  "lastUpdated": "2024-01-19T00:00:00Z",
+  "downloads": [
+    {
+      "id": "akit-bikes",
+      "name": "A-Kit Bikes Pack",
+      "description": "Factory-level bikes with balanced chassis mass distribution, customization options, and premium components.",
+      "category": "bikes",
+      "tags": ["A-Kit", "Factory", "Premium"],
+      "image": "/static/assets/images/placeholder.jpg",
+      "url": "https://www.mediafire.com/file/pb6bd6tonr1v4ho/bikes.zip/file",
+      "alternateUrls": {
+        "gdrive": "https://drive.google.com/file/d/1PBV7P6FSVCamw27uhnps5FR0p0Go-cUp/view?usp=sharing",
+        "mega": "https://mega.nz/file/MopEEKoa#sGcOKGtrJWmnQVgIeS8RnzIpDpGaaN-euP6sEFFBE-g"
+      }
+    },
+    {
+      "id": "two-strokes",
+      "name": "Two Strokes Beta",
+      "description": "Beta test version of the Two Strokes pack.",
+      "category": "bikes",
+      "tags": ["Two Stroke", "Beta", "Testing"],
+      "image": "/static/assets/images/placeholder.jpg",
+      "url": "https://drive.google.com/file/d/14Y6phEPrqgqLLS_5UcTLzTtCd9mnKZH8/view"
+    },
+    {
+      "id": "model-files",
+      "name": "A-Kit Model Files",
+      "description": "Model files for A-Kit bikes.",
+      "category": "tools",
+      "tags": ["Models", "A-Kit", "Development"],
+      "image": "/static/assets/images/placeholder.jpg",
+      "url": "https://www.mediafire.com/file/9lenok7rmszcvb3/AKit_Model_Files.zip/file"
+    },
+    {
+      "id": "tyres",
+      "name": "A-Kit Tyres",
+      "description": "Tyre package (only required for tyre mismatch).",
+      "category": "mods",
+      "tags": ["Tyres", "A-Kit", "Compatibility"],
+      "image": "/static/assets/images/placeholder.jpg",
+      "url": "https://www.mediafire.com/file/advwhcejvidkg12/AK_mx.pkz/file"
+    },
+    {
+      "id": "server-version",
+      "name": "Server Version",
+      "description": "Server version of bikes (not for players).",
+      "category": "tools",
+      "tags": ["Server", "Admin", "Development"],
+      "image": "/static/assets/images/placeholder.jpg",
+      "url": "https://www.mediafire.com/file/ue78l1rpiwlcunn/bikes%2528server%2529.zip/file"
+    },
+    {
+      "id": "ducati-template",
+      "name": "A-Kit Model Import Files",
+      "description": "Template files for importing A-Kit models.",
+      "category": "tools",
+      "tags": ["Templates", "Models", "Development"],
+      "image": "/static/assets/images/placeholder.jpg",
+      "url": "https://www.mediafire.com/file/cjjubzpl8fry9hs/TemplateDucati.zip/file"
+    },
+    {
+      "id": "training-grounds",
+      "name": "TSX Training Grounds",
+      "description": "Training Grounds track optimized for A-Kit bikes.",
+      "category": "tracks",
+      "tags": ["Track", "Training", "A-Kit"],
+      "image": "/static/assets/images/placeholder.jpg",
+      "url": "https://www.mediafire.com/file/ayyvxvdmhkm9hc6/TSX+-+AKit+Training+Grounds.zip/file"
+    },
+    {
+      "id": "kawasaki-psd",
+      "name": "Kawasaki PSD Files",
+      "description": "PSD files for Kawasaki customization.",
+      "category": "tools",
+      "tags": ["PSD", "Kawasaki", "Customization"],
+      "image": "/static/assets/images/placeholder.jpg",
+      "url": "https://drive.google.com/file/d/1Rwt6l_xVH9KxqzuLYumYFqzHC1x3UCCI/view?usp=drive_link"
+    },
+    {
+      "id": "yamaha-psd",
+      "name": "Yamaha PSD Files",
+      "description": "PSD files for Yamaha customization.",
+      "category": "tools",
+      "tags": ["PSD", "Yamaha", "Customization"],
+      "image": "/static/assets/images/placeholder.jpg",
+      "url": "https://drive.google.com/file/d/1FuJppCz2GJdwDpscPuvT9xNSq2F9Ec2Qv/view?usp=drive_link"
+    },
+    {
+      "id": "fantic-psd",
+      "name": "Fantic PSD Files",
+      "description": "PSD files for Fantic customization.",
+      "category": "tools",
+      "tags": ["PSD", "Fantic", "Customization"],
+      "image": "/static/assets/images/placeholder.jpg",
+      "url": "https://drive.google.com/file/d/1vo2B1cFGwCwYO5-_VaTJltSodpR5cl4A/view?usp=drive_link"
+    }
+  ]
+}

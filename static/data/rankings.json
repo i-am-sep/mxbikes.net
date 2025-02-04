@@ -1,0 +1,28 @@
+{
+  "lastUpdated": "2024-01-19T00:00:00Z",
+  "rankings": [
+    {
+      "position": 1,
+      "name": "Example Rider",
+      "rating": 1000,
+      "races": 10,
+      "wins": 3,
+      "podiums": 5
+    }
+  ],
+  "recentRaces": [
+    {
+      "id": "race-1",
+      "name": "Example Race",
+      "track": "Example Track",
+      "date": "2024-01-18T20:00:00Z",
+      "results": [
+        {
+          "position": 1,
+          "name": "Example Rider",
+          "time": "25:30.500"
+        }
+      ]
+    }
+  ]
+}
