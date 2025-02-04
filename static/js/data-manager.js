@@ -6,7 +6,7 @@
 class DataManager {
     constructor() {
         this.cache = new Map();
-        this.API_URL = 'http://localhost:3000/api';
+        this.API_URL = 'https://api.mxbikes.net';
         this.isApiAvailable = false;
     }
 
