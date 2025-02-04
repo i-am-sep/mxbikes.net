@@ -6,8 +6,13 @@
 class DataManager {
     constructor() {
         this.cache = new Map();
-        this.API_URL = 'https://api.mxbikes.net';
-        this.isApiAvailable = false;
+        // Production API for public endpoints
+        this.PUBLIC_API_URL = 'https://api.mxbikes.app';
+        // Development/Internal API for subscription features
+        this.INTERNAL_API_URL = 'https://api.mxbikes.xyz';
+        this.isPublicApiAvailable = false;
+        this.isInternalApiAvailable = false;
+        this.hasSubscription = false; // Will be set during initialization
     }
 
     /**
@@ -15,26 +20,50 @@ class DataManager {
      */
     async initialize() {
         try {
-            const response = await fetch(`${this.API_URL}/health`);
-            this.isApiAvailable = response.ok;
+            // Check public API health
+            const publicResponse = await fetch(`${this.PUBLIC_API_URL}/health`);
+            this.isPublicApiAvailable = publicResponse.ok;
+
+            // Check internal API health and subscription status
+            try {
+                const internalResponse = await fetch(`${this.INTERNAL_API_URL}/auth/status`, {
+                    credentials: 'include' // Send cookies for auth
+                });
+                if (internalResponse.ok) {
+                    const status = await internalResponse.json();
+                    this.isInternalApiAvailable = true;
+                    this.hasSubscription = status.hasSubscription;
+                }
+            } catch (error) {
+                console.warn('Internal API not available:', error);
+                this.isInternalApiAvailable = false;
+            }
         } catch (error) {
-            console.warn('API not available:', error);
-            this.isApiAvailable = false;
+            console.warn('Public API not available:', error);
+            this.isPublicApiAvailable = false;
         }
     }
 
     /**
-     * Load data from API
+     * Load data from appropriate API based on type and subscription status
      * @param {string} type Data type to load (tracks, downloads, etc.)
      * @param {Object} options Optional parameters (search, filters, etc.)
      * @returns {Promise<Object>} The loaded data
      */
     async loadData(type, options = {}) {
-        if (!this.isApiAvailable) {
-            throw new Error('API is not available');
+        // Determine which API to use based on type and subscription
+        const useInternalApi = this.hasSubscription && 
+                             this.isInternalApiAvailable && 
+                             options.premium;
+
+        const apiUrl = useInternalApi ? this.INTERNAL_API_URL : this.PUBLIC_API_URL;
+        const isAvailable = useInternalApi ? this.isInternalApiAvailable : this.isPublicApiAvailable;
+
+        if (!isAvailable) {
+            throw new Error(`API is not available (${useInternalApi ? 'Internal' : 'Public'})`);
         }
 
-        let url = `${this.API_URL}/${type}`;
+        let url = `${apiUrl}/${type}`;
 
         // Add search parameters if provided
         if (options.search) {
@@ -47,11 +76,21 @@ class DataManager {
             url += `${separator}category=${encodeURIComponent(options.category)}`;
         }
 
+        // Add premium flag for internal API
+        if (useInternalApi) {
+            const separator = url.includes('?') ? '&' : '?';
+            url += `${separator}premium=true`;
+        }
+
         try {
-            const response = await fetch(url);
+            const response = await fetch(url, {
+                credentials: useInternalApi ? 'include' : 'same-origin' // Include cookies for internal API
+            });
+            
             if (!response.ok) {
                 throw new Error(`API error: ${response.statusText}`);
             }
+            
             const data = await response.json();
             return data;
         } catch (error) {
@@ -70,6 +109,14 @@ class DataManager {
         } else {
             this.cache.clear();
         }
+    }
+
+    /**
+     * Check if user has access to premium features
+     * @returns {boolean}
+     */
+    hasPremiumAccess() {
+        return this.hasSubscription && this.isInternalApiAvailable;
     }
 }
 
