@@ -1,0 +1,66 @@
+name: mxbikes-api
+region: nyc1
+
+services:
+  - name: api
+    git:
+      branch: main
+      repo_clone_url: https://github.com/yourusername/mxbikes.net.git
+    
+    # Specify service type and size
+    instance_size_slug: basic-xxs
+    instance_count: 1
+    
+    # Build and run configuration
+    build_command: npm install
+    run_command: npm start
+    
+    # Environment configuration
+    envs:
+      - key: DATABASE_URL
+        value: postgres://mxbikes-net:${DB_PASSWORD}@private-dbaas-db-8731719-do-user-18540873-0.h.db.ondigitalocean.com:25060/defaultdb?sslmode=require
+      - key: NODE_ENV
+        value: production
+      - key: ALLOWED_ORIGINS
+        value: "https://mxbikes.app,http://localhost:3000"
+      
+    # HTTP port configuration
+    http_port: 3000
+    
+    # Health check configuration
+    health_check:
+      http_path: /api/health
+      initial_delay_seconds: 30
+      period_seconds: 10
+      timeout_seconds: 5
+      success_threshold: 1
+      failure_threshold: 3
+    
+    # Routes configuration
+    routes:
+      - path: /api
+        preserve_path_prefix: true
+    
+    # CORS configuration
+    cors:
+      allow_origins:
+        - "https://mxbikes.app"
+        - "http://localhost:3000"
+      allow_methods:
+        - GET
+        - POST
+        - OPTIONS
+      allow_headers:
+        - Content-Type
+        - Authorization
+    
+    # VPC configuration
+    private_network: true
+
+databases:
+  - name: mxbikes-db
+    cluster_name: dbaas-db-8731719
+    production: true
+    version: "14"
+    db_user: mxbikes-net
+    db_name: defaultdb

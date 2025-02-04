@@ -13,6 +13,7 @@
             background: url('static/assets/images/background.gif') no-repeat center center fixed;
             background-size: cover;
             min-height: 100vh;
+            overflow-y: hidden;
         }
 
         .page-break {
@@ -103,11 +104,14 @@
         }
 
         .main-content {
-            margin-top: 100vh;
-            position: relative;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow-y: auto;
             background: rgba(0, 0, 0, 0.8);
-            padding-top: 2rem;
-            transition: margin-top 1s ease;
+            padding-top: 4rem;
         }
 
         body::after {
@@ -327,20 +331,6 @@
             if (event.key === 'Escape') {
                 closeModal();
             }
-        });
-
-        document.addEventListener('DOMContentLoaded', function() {
-            // Auto-scroll to downloads section after 5 seconds
-            setTimeout(() => {
-                const mainContent = document.querySelector('.main-content');
-                if (mainContent) {
-                    mainContent.style.marginTop = '0';
-                    const downloadSection = document.getElementById('download-section');
-                    if (downloadSection) {
-                        downloadSection.scrollIntoView({ behavior: 'smooth' });
-                    }
-                }
-            }, 5000);
         });
     </script>
 </body>

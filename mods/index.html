@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MXBikes.net - Tracks</title>
+    <title>MXBikes.net - Mods</title>
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <link href="../static/header-footer.css" rel="stylesheet">
     <style>
@@ -59,47 +59,47 @@
             box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
         }
 
-        .track-grid {
+        .mod-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 2rem;
             padding: 1rem;
         }
 
-        .track-card {
+        .mod-card {
             background: rgba(31, 41, 55, 0.9);
             border-radius: 0.5rem;
             overflow: hidden;
             transition: transform 0.3s ease;
         }
 
-        .track-card:hover {
+        .mod-card:hover {
             transform: translateY(-5px);
         }
 
-        .track-image {
+        .mod-image {
             width: 100%;
             height: 200px;
             object-fit: cover;
         }
 
-        .track-info {
+        .mod-info {
             padding: 1rem;
         }
 
-        .track-name {
+        .mod-name {
             font-size: 1.25rem;
             font-weight: bold;
             margin-bottom: 0.5rem;
         }
 
-        .track-creator {
+        .mod-creator {
             color: #9ca3af;
             font-size: 0.875rem;
             margin-bottom: 0.5rem;
         }
 
-        .track-downloads {
+        .mod-downloads {
             color: #9ca3af;
             font-size: 0.875rem;
             margin-bottom: 1rem;
@@ -150,19 +150,19 @@
     <!-- Main Content -->
     <div class="content-wrapper">
         <div class="content-container">
-            <h1 class="page-title">Track Collection</h1>
+            <h1 class="page-title">Mod Collection</h1>
             
             <div class="search-container">
                 <input type="text" 
                        id="searchInput" 
                        class="search-input" 
-                       placeholder="Search tracks..."
-                       aria-label="Search tracks">
+                       placeholder="Search mods..."
+                       aria-label="Search mods">
             </div>
 
-            <div class="track-grid" id="trackGrid">
-                <!-- Track cards will be populated by JavaScript -->
-                <div class="loading">Loading tracks...</div>
+            <div class="mod-grid" id="modGrid">
+                <!-- Mod cards will be populated by JavaScript -->
+                <div class="loading">Loading mods...</div>
             </div>
         </div>
     </div>
@@ -200,52 +200,52 @@
         const API_URL = 'http://localhost:3000/api';
         let debounceTimeout;
 
-        async function fetchTracks(searchTerm = '') {
-            const trackGrid = document.getElementById('trackGrid');
-            trackGrid.innerHTML = '<div class="loading">Loading tracks...</div>';
+        async function fetchMods(searchTerm = '') {
+            const modGrid = document.getElementById('modGrid');
+            modGrid.innerHTML = '<div class="loading">Loading mods...</div>';
 
             try {
                 const url = searchTerm 
-                    ? `${API_URL}/tracks/search?q=${encodeURIComponent(searchTerm)}`
-                    : `${API_URL}/tracks`;
+                    ? `${API_URL}/mods/search?q=${encodeURIComponent(searchTerm)}`
+                    : `${API_URL}/mods`;
                 
                 const response = await fetch(url);
-                const tracks = await response.json();
+                const mods = await response.json();
 
-                if (!Array.isArray(tracks)) {
+                if (!Array.isArray(mods)) {
                     throw new Error('Invalid response format');
                 }
 
-                trackGrid.innerHTML = '';
+                modGrid.innerHTML = '';
                 
-                if (tracks.length === 0) {
-                    trackGrid.innerHTML = `
+                if (mods.length === 0) {
+                    modGrid.innerHTML = `
                         <div class="text-center text-gray-300 col-span-full">
-                            <p class="text-xl">No tracks found${searchTerm ? ' matching your search' : ''}</p>
+                            <p class="text-xl">No mods found${searchTerm ? ' matching your search' : ''}</p>
                         </div>
                     `;
                     return;
                 }
 
-                tracks.forEach(track => {
-                    const trackCard = document.createElement('div');
-                    trackCard.className = 'track-card';
-                    trackCard.innerHTML = `
-                        <img src="${track.thumbnail || '../static/assets/images/placeholder.jpg'}" alt="${track.name}" class="track-image">
-                        <div class="track-info">
-                            <h3 class="track-name">${track.name}</h3>
-                            <p class="track-creator">By ${track.creator || 'Unknown Creator'}</p>
-                            <p class="track-downloads">${track.downloads || 0} Downloads</p>
-                            <a href="${track.url}" class="download-button" target="_blank">Download Track</a>
+                mods.forEach(mod => {
+                    const modCard = document.createElement('div');
+                    modCard.className = 'mod-card';
+                    modCard.innerHTML = `
+                        <img src="${mod.thumbnail || '../static/assets/images/placeholder.jpg'}" alt="${mod.name}" class="mod-image">
+                        <div class="mod-info">
+                            <h3 class="mod-name">${mod.name}</h3>
+                            <p class="mod-creator">By ${mod.creator || 'Unknown Creator'}</p>
+                            <p class="mod-downloads">${mod.downloads || 0} Downloads</p>
+                            <a href="${mod.url}" class="download-button" target="_blank">Download Mod</a>
                         </div>
                     `;
-                    trackGrid.appendChild(trackCard);
+                    modGrid.appendChild(modCard);
                 });
             } catch (error) {
-                console.error('Error loading tracks:', error);
-                trackGrid.innerHTML = `
+                console.error('Error loading mods:', error);
+                modGrid.innerHTML = `
                     <div class="error col-span-full">
-                        <p class="text-xl">Error loading tracks</p>
+                        <p class="text-xl">Error loading mods</p>
                         <p class="mt-2">Please try again later</p>
                     </div>
                 `;
@@ -257,12 +257,12 @@
         searchInput.addEventListener('input', (e) => {
             clearTimeout(debounceTimeout);
             debounceTimeout = setTimeout(() => {
-                fetchTracks(e.target.value.trim());
+                fetchMods(e.target.value.trim());
             }, 300);
         });
 
         // Initial load
-        fetchTracks();
+        fetchMods();
     </script>
 </body>
 </html>

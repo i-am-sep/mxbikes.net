@@ -1,10 +1,12 @@
 {
   "tracks": [
     {
+      "id": "track_1",
       "name": "Washougal National",
       "creator": "Track Creator",
       "category": "National",
       "thumbnail": "./assets/images/placeholder.jpg",
+      "downloadCount": 0,
       "downloads": [
         {
           "type": "MediaFire",
@@ -17,10 +19,12 @@
       ]
     },
     {
+      "id": "track_2",
       "name": "RedBud",
       "creator": "Track Creator",
       "category": "National",
       "thumbnail": "./assets/images/placeholder.jpg",
+      "downloadCount": 0,
       "downloads": [
         {
           "type": "MediaFire",
