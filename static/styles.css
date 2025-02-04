@@ -2,8 +2,7 @@
 body {
     margin: 0;
     padding: 0;
-    background: url('./assets/images/background.gif') no-repeat center center fixed;
-    background-size: cover;
+    background: #1a1a1a; /* Solid color background instead of gif */
     min-height: 100vh;
 }
 
@@ -50,16 +49,28 @@ body {
 /* Footer */
 .footer-container {
     background: rgba(31, 41, 55, 0.95);
-    padding: 2rem;
-    text-align: center;
+    padding: 1rem;
     color: #9CA3AF;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .social-links {
     display: flex;
-    justify-content: center;
+    align-items: center;
     gap: 1rem;
-    margin: 1rem 0;
 }
 
 .social-icon {
@@ -80,8 +91,26 @@ body {
     color: #69C9D0;
 }
 
+.creator-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.creator-info::before {
+    content: '|';
+    color: #4B5563;
+}
+
 .support-link {
-    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.support-link::before {
+    content: '|';
+    color: #4B5563;
+    margin-right: 0.5rem;
 }
 
 .support-link a {
@@ -94,15 +123,16 @@ body {
     color: #93C5FD;
 }
 
-/* Common overlay */
+/* Main content adjustments */
+.main-content {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    min-height: calc(100vh - 8rem);
+    position: relative;
+    z-index: 1;
+}
+
+/* Remove overlay since we're using solid background */
 body::after {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.4);
-    z-index: 0;
-    pointer-events: none;
+    display: none;
 }

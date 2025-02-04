@@ -1,0 +1,27 @@
+{
+  "tracks": [
+    {
+      "id": "1",
+      "name": "Supercross 2024",
+      "creator": "Created by Alex",
+      "description": "Official 2024 Supercross track",
+      "category": "Supercross",
+      "thumbnail": "../static/assets/images/placeholder.jpg",
+      "downloads": {
+        "count": 1500,
+        "links": {
+          "primary": "https://mediafire.com/supercross2024",
+          "mirrors": []
+        }
+      },
+      "premium": false,
+      "rating": 4.5,
+      "difficulty": "Hard",
+      "length": "1:20",
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "updatedAt": "2024-01-01T00:00:00.000Z"
+    }
+  ],
+  "lastUpdate": "2024-01-01T00:00:00.000Z",
+  "totalTracks": 1
+}
