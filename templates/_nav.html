@@ -1,0 +1,11 @@
+<div class="header">
+    <div class="chrome-tabs">
+        <a href="/index.html" class="chrome-tab home {% if request.path == '/' %}active{% endif %}">Home</a>
+        <a href="/static/tracks.html" class="chrome-tab tracks {% if request.path == '/tracks' %}active{% endif %}">Tracks</a>
+        <a href="/static/bikes.html" class="chrome-tab bikes disabled {% if request.path == '/bikes' %}active{% endif %}">Bikes</a>
+        <a href="/static/rider.html" class="chrome-tab rider disabled {% if request.path == '/rider' %}active{% endif %}">Rider</a>
+        <a href="/static/ranked.html" class="chrome-tab ranked disabled {% if request.path == '/ranked' %}active{% endif %}">Ranked</a>
+        <a href="/static/championship.html" class="chrome-tab championship disabled {% if request.path == '/championship' %}active{% endif %}">Championship</a>
+        <a href="/static/downloads.html" class="chrome-tab downloads {% if request.path == '/downloads' %}active{% endif %}">Downloads</a>
+    </div>
+</div>
