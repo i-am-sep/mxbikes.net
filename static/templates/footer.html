@@ -1,6 +1,8 @@
 <footer class="site-footer">
     <div class="footer-content">
-        <p>Made for the MXB community by Alex Nagy (<a href="https://paypal.me/alexanderjnagy" target="_blank">Scrallex</a>)</p>
+        <div class="footer-text">
+            By Alex Nagy (<a href="https://paypal.me/alexanderjnagy" target="_blank">Scrallex</a>) for the Moto Community
+        </div>
         <div class="social-links">
             <a href="https://www.youtube.com/@awulix" target="_blank" class="social-link">
                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -20,3 +22,81 @@
         </div>
     </div>
 </footer>
+
+<style>
+.site-footer {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-text {
+    color: white;
+    text-align: center;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.footer-text a {
+    color: #60a5fa;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-text a:hover {
+    color: #93c5fd;
+}
+
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.social-link {
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.social-link:hover {
+    color: #60a5fa;
+}
+
+.social-link svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .site-footer {
+        padding: 0.75rem;
+    }
+    
+    .footer-content {
+        gap: 0.5rem;
+    }
+
+    .footer-text {
+        font-size: 0.85rem;
+    }
+
+    .social-link svg {
+        width: 1.25rem;
+        height: 1.25rem;
+    }
+}
+</style>

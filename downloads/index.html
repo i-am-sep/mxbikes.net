@@ -38,65 +38,25 @@
             color: #60a5fa;
         }
 
-        .category-tabs {
-            display: flex;
-            overflow-x: auto;
-            gap: 1rem;
-            padding: 1rem;
-            margin-bottom: 2rem;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-        }
-
-        .category-tabs::-webkit-scrollbar {
-            display: none;
-        }
-
-        .category-tab {
-            padding: 0.75rem 2rem;
-            background: rgba(59, 130, 246, 0.2);
-            border-radius: 0.5rem;
-            color: white;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-            font-weight: 600;
-        }
-
-        .category-tab.active {
-            background: rgba(59, 130, 246, 0.8);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 6px rgba(59, 130, 246, 0.2);
-        }
-
-        .category-tab:hover {
-            background: rgba(59, 130, 246, 0.5);
-            transform: translateY(-2px);
-        }
-
         .search-container {
             max-width: 600px;
             margin: 0 auto 2rem auto;
-            position: relative;
         }
 
         .search-input {
             width: 100%;
-            padding: 1rem 1.5rem;
-            border-radius: 0.75rem;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
             background: rgba(31, 41, 55, 0.9);
             border: 1px solid rgba(75, 85, 99, 0.4);
             color: white;
             transition: all 0.3s ease;
-            font-size: 1.1rem;
         }
 
         .search-input:focus {
             outline: none;
             border-color: #3b82f6;
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
-            background: rgba(31, 41, 55, 0.95);
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
         }
 
         .downloads-grid {
@@ -108,90 +68,86 @@
 
         .download-card {
             background: rgba(31, 41, 55, 0.9);
-            border-radius: 1rem;
+            border-radius: 0.5rem;
             overflow: hidden;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(75, 85, 99, 0.2);
+            transition: transform 0.3s ease;
         }
 
         .download-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            border-color: rgba(59, 130, 246, 0.4);
         }
 
         .download-image {
             width: 100%;
             height: 200px;
             object-fit: cover;
-            border-bottom: 1px solid rgba(75, 85, 99, 0.2);
         }
 
         .download-info {
-            padding: 1.5rem;
+            padding: 1rem;
         }
 
         .download-name {
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             font-weight: bold;
-            margin-bottom: 0.75rem;
-            color: #60a5fa;
+            margin-bottom: 0.5rem;
         }
 
-        .download-description {
+        .download-creator {
             color: #9ca3af;
-            font-size: 1rem;
-            margin-bottom: 1rem;
-            line-height: 1.5;
-        }
-
-        .download-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .tag {
-            background: rgba(59, 130, 246, 0.2);
-            padding: 0.35rem 1rem;
-            border-radius: 1rem;
             font-size: 0.875rem;
-            color: #93c5fd;
-            font-weight: 500;
-            transition: all 0.2s ease;
+            margin-bottom: 0.5rem;
         }
 
-        .tag:hover {
-            background: rgba(59, 130, 246, 0.3);
-            transform: translateY(-1px);
+        .download-count {
+            color: #9ca3af;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
         }
 
         .download-button {
             background: #3b82f6;
             color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
             text-decoration: none;
             display: inline-block;
-            transition: all 0.3s ease;
-            font-weight: 600;
-            text-align: center;
+            transition: background-color 0.3s ease;
             width: 100%;
+            text-align: center;
         }
 
         .download-button:hover {
             background: #2563eb;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
         }
 
         .loading {
             text-align: center;
-            padding: 3rem;
+            padding: 2rem;
             color: #9ca3af;
             grid-column: 1 / -1;
-            font-size: 1.25rem;
+        }
+
+        .error {
+            text-align: center;
+            padding: 2rem;
+            color: #ef4444;
+            grid-column: 1 / -1;
+        }
+
+        @media (max-width: 768px) {
+            .content-wrapper {
+                padding: 1rem;
+                margin-bottom: 6rem;
+            }
+
+            .downloads-grid {
+                gap: 1rem;
+            }
+
+            .download-card {
+                margin-bottom: 1rem;
+            }
         }
 
         .loading-spinner {
@@ -207,41 +163,6 @@
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
-
-        .error {
-            text-align: center;
-            padding: 3rem;
-            color: #ef4444;
-            grid-column: 1 / -1;
-            background: rgba(239, 68, 68, 0.1);
-            border-radius: 1rem;
-            margin: 1rem;
-        }
-
-        @media (max-width: 768px) {
-            .content-wrapper {
-                padding: 1rem;
-            }
-
-            .category-tabs {
-                padding: 0.75rem;
-                gap: 0.75rem;
-            }
-
-            .category-tab {
-                padding: 0.6rem 1.5rem;
-                font-size: 0.9rem;
-            }
-
-            .downloads-grid {
-                gap: 1.5rem;
-                padding: 0.75rem;
-            }
-
-            .download-name {
-                font-size: 1.25rem;
-            }
-        }
     </style>
 </head>
 <body class="text-white">
@@ -249,15 +170,6 @@
     <div class="content-wrapper">
         <div class="content-container">
             <h1 class="page-title">Downloads</h1>
-
-            <!-- Category Tabs -->
-            <div class="category-tabs">
-                <div class="category-tab active" data-category="all">All Downloads</div>
-                <div class="category-tab" data-category="tracks">Tracks</div>
-                <div class="category-tab" data-category="bikes">Bikes</div>
-                <div class="category-tab" data-category="mods">Mods</div>
-                <div class="category-tab" data-category="tools">Tools</div>
-            </div>
             
             <div class="search-container">
                 <input type="text" 
@@ -280,162 +192,82 @@
     <script type="module" src="../static/navigation.js"></script>
     <script type="module">
         import { dataManager } from '../static/js/data-manager.js';
-        import { UIComponents } from '../static/js/ui-components.js';
 
-        class DownloadsPage {
-            constructor() {
-                this.currentCategory = 'all';
-                this.searchTerm = '';
-                this.initialized = false;
-            }
+        let debounceTimeout;
 
-            async initialize() {
-                if (this.initialized) return;
+        async function fetchDownloads(searchTerm = '') {
+            const downloadsGrid = document.getElementById('downloadsGrid');
+            downloadsGrid.innerHTML = `
+                <div class="loading">
+                    <div class="loading-spinner"></div>
+                    <p>Loading downloads...</p>
+                </div>
+            `;
 
-                // Setup category tabs
-                document.querySelectorAll('.category-tab').forEach(tab => {
-                    tab.addEventListener('click', () => this.switchCategory(tab.dataset.category));
-                });
-
-                // Setup search with debounce
-                const searchInput = document.getElementById('searchInput');
-                searchInput.addEventListener('input', (e) => {
-                    clearTimeout(this.searchTimeout);
-                    this.searchTimeout = setTimeout(() => {
-                        this.searchTerm = e.target.value.trim().toLowerCase();
-                        this.loadDownloads();
-                    }, 300);
-                });
-
-                // Initialize data manager
-                await dataManager.initialize();
-
-                // Load initial data
-                await this.loadDownloads();
-
-                this.initialized = true;
-            }
-
-            async loadDownloads() {
-                const grid = document.getElementById('downloadsGrid');
-                grid.innerHTML = `
-                    <div class="loading">
-                        <div class="loading-spinner"></div>
-                        <p>Loading downloads...</p>
-                    </div>
-                `;
-
-                try {
-                    const data = await dataManager.loadData('downloads');
-                    let downloads = data.downloads || [];
-
-                    // Filter by category
-                    if (this.currentCategory !== 'all') {
-                        downloads = downloads.filter(item => item.category === this.currentCategory);
-                    }
-
-                    // Filter by search term
-                    if (this.searchTerm) {
-                        downloads = downloads.filter(item => 
-                            item.name.toLowerCase().includes(this.searchTerm) ||
-                            item.description.toLowerCase().includes(this.searchTerm) ||
-                            item.tags.some(tag => tag.toLowerCase().includes(this.searchTerm))
-                        );
-                    }
-
-                    grid.innerHTML = '';
-
-                    if (downloads.length === 0) {
-                        grid.innerHTML = `
-                            <div class="text-center text-gray-300 col-span-full">
-                                <p class="text-xl">No downloads found${this.searchTerm ? ' matching your search' : ''}</p>
-                            </div>
-                        `;
-                        return;
-                    }
-
-                    downloads.forEach(download => {
-                        const card = document.createElement('div');
-                        card.className = 'download-card';
-                        card.innerHTML = `
-                            <img src="${download.image || '../static/assets/images/placeholder.jpg'}" 
-                                 alt="${download.name}" 
-                                 class="download-image">
-                            <div class="download-info">
-                                <h3 class="download-name">${download.name}</h3>
-                                <p class="download-description">${download.description}</p>
-                                <div class="download-tags">
-                                    ${download.tags.map(tag => `
-                                        <span class="tag">${tag}</span>
-                                    `).join('')}
-                                </div>
-                                ${this.getDownloadButtons(download)}
-                            </div>
-                        `;
-                        grid.appendChild(card);
-                    });
-                } catch (error) {
-                    console.error('Error loading downloads:', error);
-                    grid.innerHTML = `
-                        <div class="error">
-                            <p class="text-xl mb-2">Error loading downloads</p>
-                            <p>Please try again later</p>
+            try {
+                const data = await dataManager.loadData('downloads', { search: searchTerm });
+                
+                downloadsGrid.innerHTML = '';
+                
+                if (!data || !data.length) {
+                    downloadsGrid.innerHTML = `
+                        <div class="text-center text-gray-300 col-span-full">
+                            <p class="text-xl">No downloads found${searchTerm ? ' matching your search' : ''}</p>
                         </div>
                     `;
+                    return;
                 }
-            }
 
-            getDownloadButtons(download) {
-                if (download.alternateUrls) {
-                    return `
-                        <div class="flex flex-col space-y-2">
+                data.forEach(download => {
+                    const card = document.createElement('div');
+                    card.className = 'download-card';
+                    card.innerHTML = `
+                        <img src="${download.thumbnail || '../static/assets/images/placeholder.jpg'}" 
+                             alt="${download.name}" 
+                             class="download-image"
+                             loading="lazy">
+                        <div class="download-info">
+                            <h3 class="download-name">${download.name}</h3>
+                            <p class="download-creator">By ${download.creator || 'Unknown Creator'}</p>
+                            <p class="download-count">${download.downloads || 0} Downloads</p>
                             <a href="${download.url}" 
                                class="download-button" 
                                target="_blank">
-                                MediaFire Download
+                                Download
                             </a>
-                            ${download.alternateUrls.gdrive ? `
-                                <a href="${download.alternateUrls.gdrive}" 
-                                   class="download-button" 
-                                   target="_blank">
-                                    Google Drive Download
-                                </a>
-                            ` : ''}
-                            ${download.alternateUrls.mega ? `
-                                <a href="${download.alternateUrls.mega}" 
-                                   class="download-button" 
-                                   target="_blank">
-                                    MEGA Download
-                                </a>
-                            ` : ''}
                         </div>
                     `;
-                }
-                
-                return `
-                    <a href="${download.url}" 
-                       class="download-button" 
-                       target="_blank">
-                        Download
-                    </a>
-                `;
-            }
-
-            switchCategory(category) {
-                // Update active tab
-                document.querySelectorAll('.category-tab').forEach(tab => {
-                    tab.classList.toggle('active', tab.dataset.category === category);
+                    downloadsGrid.appendChild(card);
                 });
-
-                this.currentCategory = category;
-                this.loadDownloads();
+            } catch (error) {
+                console.error('Error loading downloads:', error);
+                downloadsGrid.innerHTML = `
+                    <div class="error col-span-full">
+                        <p class="text-xl">Error loading downloads</p>
+                        <p class="mt-2">Please try again later</p>
+                        <p class="text-sm mt-2 text-gray-400">${error.message}</p>
+                    </div>
+                `;
             }
         }
 
-        // Initialize page when DOM is ready
-        document.addEventListener('DOMContentLoaded', () => {
-            const page = new DownloadsPage();
-            page.initialize().catch(console.error);
+        // Search functionality with debounce
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('input', (e) => {
+            clearTimeout(debounceTimeout);
+            debounceTimeout = setTimeout(() => {
+                fetchDownloads(e.target.value.trim());
+            }, 300);
+        });
+
+        // Initialize data manager and load downloads when DOM is ready
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                await dataManager.initialize();
+                await fetchDownloads();
+            } catch (error) {
+                console.error('Failed to initialize:', error);
+            }
         });
     </script>
 </body>
