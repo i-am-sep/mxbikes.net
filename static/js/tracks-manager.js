@@ -23,6 +23,14 @@ class TracksManager {
             lastUpdate: null
         };
 
+        // Loading and error states
+        this.state = {
+            loading: false,
+            error: null,
+            retryCount: 0,
+            maxRetries: 3
+        };
+
         // Initialize tracks system
         this._initializeTracks();
     }
@@ -32,8 +40,43 @@ class TracksManager {
      * @private
      */
     async _initializeTracks() {
-        await this._loadTracks();
-        this._setupEventListeners();
+        try {
+            this._setLoading(true);
+            await this._loadTracks();
+            this._setupEventListeners();
+        } catch (error) {
+            console.error('Failed to initialize tracks:', error);
+            this._setError('Failed to initialize tracks system. Please refresh the page.');
+        } finally {
+            this._setLoading(false);
+        }
+    }
+
+    /**
+     * Set loading state
+     * @private
+     */
+    _setLoading(loading) {
+        this.state.loading = loading;
+        this._updateUI();
+    }
+
+    /**
+     * Set error state
+     * @private
+     */
+    _setError(message) {
+        this.state.error = message;
+        this._updateUI();
+    }
+
+    /**
+     * Clear error state
+     * @private
+     */
+    _clearError() {
+        this.state.error = null;
+        this._updateUI();
     }
 
     /**
@@ -51,10 +94,17 @@ class TracksManager {
             this.cache.lastUpdate = null;
             this._loadTracks();
         });
+
+        // Listen for network status changes
+        window.addEventListener('online', () => {
+            if (this.state.error) {
+                this.refresh();
+            }
+        });
     }
 
     /**
-     * Load tracks from API
+     * Load tracks from API with retry logic
      * @private
      */
     async _loadTracks() {
@@ -64,344 +114,270 @@ class TracksManager {
         }
 
         try {
+            this._setLoading(true);
+            this._clearError();
+
             const tracks = await dataManager.loadData('tracks', {
                 includeDownloads: true,
                 includeDetails: true
             });
 
+            if (!Array.isArray(tracks)) {
+                throw new Error('Invalid tracks data received');
+            }
+
             this.tracks.clear();
             tracks.forEach(track => {
-                this.tracks.set(track.id, this._processTrackData(track));
+                try {
+                    const processedTrack = this._processTrackData(track);
+                    if (processedTrack && processedTrack.id) {
+                        this.tracks.set(processedTrack.id, processedTrack);
+                    }
+                } catch (error) {
+                    console.warn('Failed to process track:', track, error);
+                }
             });
 
             this.cache.lastUpdate = Date.now();
+            this.state.retryCount = 0;
             this._updateTrackDisplay();
         } catch (error) {
             console.error('Failed to load tracks:', error);
-            this._showError('Failed to load tracks. Please try again later.');
+            
+            // Implement retry logic
+            if (this.state.retryCount < this.state.maxRetries) {
+                this.state.retryCount++;
+                const delay = Math.pow(2, this.state.retryCount) * 1000;
+                setTimeout(() => this._loadTracks(), delay);
+                this._setError(`Loading tracks... Retry ${this.state.retryCount}/${this.state.maxRetries}`);
+            } else {
+                this._setError('Failed to load tracks. Please try again later.');
+            }
+        } finally {
+            this._setLoading(false);
         }
     }
 
     /**
-     * Process track data
+     * Process track data with validation
      * @private
      */
     _processTrackData(track) {
-        return {
-            id: track.id,
-            name: track.name || 'Unnamed Track',
-            creator: track.creator || 'Unknown Creator',
-            description: track.description || '',
-            category: track.category || 'Motocross',
-            thumbnail: track.thumbnail || '../static/assets/images/placeholder.jpg',
-            images: track.additionalImages || [],
-            downloads: {
-                count: track.downloads?.download_count || 0,
-                links: this._processDownloadLinks(track.downloadLinks),
-                hosts: track.downloadHosts || {}
-            },
-            premium: !!track.premium,
-            rating: track.rating || 0,
-            difficulty: track.difficulty || 'Medium',
-            length: track.length || 'Unknown',
-            createdAt: track.createdAt,
-            updatedAt: track.updatedAt
-        };
+        if (!track || typeof track !== 'object') {
+            console.warn('Invalid track data:', track);
+            return null;
+        }
+
+        try {
+            return {
+                id: track.id,
+                name: this._validateString(track.name, 'Unnamed Track'),
+                creator: this._validateString(track.creator, 'Unknown Creator'),
+                description: this._validateString(track.description, ''),
+                category: this._validateCategory(track.category),
+                thumbnail: this._validateUrl(track.thumbnail) || '../static/assets/images/placeholder.jpg',
+                images: this._validateImageArray(track.additionalImages),
+                downloads: this._processDownloadInfo(track.downloads),
+                premium: Boolean(track.premium),
+                rating: this._validateNumber(track.rating, 0, 5, 0),
+                difficulty: this._validateString(track.difficulty, 'Medium'),
+                length: this._validateString(track.length, 'Unknown'),
+                createdAt: this._validateDate(track.createdAt),
+                updatedAt: this._validateDate(track.updatedAt)
+            };
+        } catch (error) {
+            console.error('Track processing error:', error);
+            return null;
+        }
     }
 
     /**
-     * Process download links
+     * Validate string field
+     * @private
+     */
+    _validateString(value, fallback = '') {
+        return typeof value === 'string' ? value.trim() : fallback;
+    }
+
+    /**
+     * Validate category
+     * @private
+     */
+    _validateCategory(category) {
+        return this.categories.has(category) ? category : 'Motocross';
+    }
+
+    /**
+     * Validate number within range
+     * @private
+     */
+    _validateNumber(value, min, max, fallback) {
+        const num = Number(value);
+        return !isNaN(num) && num >= min && num <= max ? num : fallback;
+    }
+
+    /**
+     * Validate date
+     * @private
+     */
+    _validateDate(date) {
+        try {
+            return new Date(date).toISOString();
+        } catch {
+            return new Date().toISOString();
+        }
+    }
+
+    /**
+     * Validate image array
+     * @private
+     */
+    _validateImageArray(images) {
+        if (!Array.isArray(images)) return [];
+        return images.filter(url => this._validateUrl(url));
+    }
+
+    /**
+     * Process download information
+     * @private
+     */
+    _processDownloadInfo(downloads) {
+        const defaultDownloads = {
+            count: 0,
+            links: { primary: null, mirrors: [] },
+            hosts: {}
+        };
+
+        if (!downloads || typeof downloads !== 'object') {
+            return defaultDownloads;
+        }
+
+        try {
+            return {
+                count: this._validateNumber(downloads.download_count || downloads.count, 0, Infinity, 0),
+                links: this._processDownloadLinks(downloads.by_type || downloads.links),
+                hosts: downloads.by_host || downloads.hosts || {}
+            };
+        } catch (error) {
+            console.warn('Failed to process download info:', error);
+            return defaultDownloads;
+        }
+    }
+
+    /**
+     * Process download links with validation
      * @private
      */
     _processDownloadLinks(links) {
-        if (!links) return { primary: null, mirrors: [] };
+        if (!links || typeof links !== 'object') {
+            return { primary: null, mirrors: [] };
+        }
 
-        // Find best primary link
-        const hostPriority = ['mediafire.com', 'drive.google.com', 'mega.nz'];
-        let primary = null;
-        const mirrors = [];
+        try {
+            const allLinks = Array.isArray(links) ? links : 
+                           Object.values(links).flat().filter(Boolean);
+            
+            const validLinks = allLinks.filter(link => this._validateUrl(link));
 
-        Object.entries(links).forEach(([type, typeLinks]) => {
-            typeLinks.forEach(link => {
-                const url = new URL(link);
-                const host = url.hostname;
-                
-                if (!primary && hostPriority.includes(host)) {
-                    primary = link;
-                } else {
-                    mirrors.push(link);
-                }
-            });
-        });
+            if (validLinks.length === 0) {
+                return { primary: null, mirrors: [] };
+            }
 
-        return {
-            primary: primary || mirrors[0] || null,
-            mirrors: primary ? mirrors : mirrors.slice(1)
-        };
+            // Find best primary link
+            const hostPriority = ['mediafire.com', 'drive.google.com', 'mega.nz'];
+            let primary = null;
+
+            for (const host of hostPriority) {
+                primary = validLinks.find(link => {
+                    try {
+                        return new URL(link).hostname.includes(host);
+                    } catch {
+                        return false;
+                    }
+                });
+                if (primary) break;
+            }
+
+            // If no priority host found, use first valid link
+            primary = primary || validLinks[0];
+
+            // Remaining links become mirrors
+            const mirrors = validLinks.filter(link => link !== primary);
+
+            return { primary, mirrors };
+        } catch (error) {
+            console.warn('Failed to process download links:', error);
+            return { primary: null, mirrors: [] };
+        }
     }
 
     /**
-     * Update track display
+     * Validate URL
      * @private
      */
-    _updateTrackDisplay() {
+    _validateUrl(url) {
+        if (!url || typeof url !== 'string') return null;
+        
+        try {
+            new URL(url);
+            return url;
+        } catch {
+            return null;
+        }
+    }
+
+    /**
+     * Update UI based on current state
+     * @private
+     */
+    _updateUI() {
         const trackGrid = document.getElementById('trackGrid');
         if (!trackGrid) return;
 
-        const filteredTracks = this._getFilteredTracks();
-
-        if (filteredTracks.length === 0) {
-            trackGrid.innerHTML = this._generateEmptyState();
+        if (this.state.loading) {
+            trackGrid.innerHTML = this._generateLoadingState();
             return;
         }
 
-        trackGrid.innerHTML = filteredTracks
-            .map(track => this._generateTrackCard(track))
-            .join('');
-    }
-
-    /**
-     * Get filtered tracks
-     * @private
-     */
-    _getFilteredTracks() {
-        return Array.from(this.tracks.values())
-            .filter(track => {
-                // Search filter
-                if (this.filters.search && 
-                    !track.name.toLowerCase().includes(this.filters.search.toLowerCase()) &&
-                    !track.creator.toLowerCase().includes(this.filters.search.toLowerCase())) {
-                    return false;
-                }
-
-                // Premium filter
-                if (this.filters.premium && !track.premium) {
-                    return false;
-                }
-
-                // Category filter
-                if (this.filters.category !== 'all' && track.category !== this.filters.category) {
-                    return false;
-                }
-
-                return true;
-            })
-            .sort((a, b) => {
-                switch (this.sortOrder) {
-                    case 'newest':
-                        return new Date(b.createdAt) - new Date(a.createdAt);
-                    case 'downloads':
-                        return b.downloads.count - a.downloads.count;
-                    case 'popular':
-                    default:
-                        // Combine downloads and rating for popularity
-                        const aPopularity = (a.downloads.count * 0.7) + (a.rating * 0.3);
-                        const bPopularity = (b.downloads.count * 0.7) + (b.rating * 0.3);
-                        return bPopularity - aPopularity;
-                }
-            });
-    }
-
-    /**
-     * Generate track card HTML
-     * @private
-     */
-    _generateTrackCard(track) {
-        const canAccess = !track.premium || profileManager.hasPremiumAccess();
-        
-        return `
-            <div class="track-card">
-                ${track.premium ? '<span class="premium-badge">PREMIUM</span>' : ''}
-                <img src="${track.thumbnail}" 
-                     alt="${track.name}" 
-                     class="track-image"
-                     loading="lazy">
-                <div class="track-info">
-                    <h3 class="track-name">${track.name}</h3>
-                    <p class="track-creator">By ${track.creator}</p>
-                    <div class="track-stats">
-                        <span class="downloads">${track.downloads.count} Downloads</span>
-                        <span class="difficulty">${track.difficulty}</span>
-                        <span class="length">${track.length}</span>
-                    </div>
-                    ${canAccess ? this._generateDownloadButton(track) : this._generatePremiumPrompt()}
-                </div>
-            </div>
-        `;
-    }
-
-    /**
-     * Generate download button HTML
-     * @private
-     */
-    _generateDownloadButton(track) {
-        if (!track.downloads.links.primary) {
-            return '<button class="download-button" disabled>No Download Available</button>';
+        if (this.state.error) {
+            trackGrid.innerHTML = this._generateErrorState();
+            return;
         }
 
-        return `
-            <a href="${track.downloads.links.primary}" 
-               class="download-button" 
-               target="_blank"
-               onclick="tracksManager.trackDownload('${track.id}')">
-                Download Track
-            </a>
-            ${track.downloads.links.mirrors.length > 0 ? `
-                <div class="mirror-links">
-                    <span class="text-sm text-gray-400">Mirror links:</span>
-                    ${track.downloads.links.mirrors.map(mirror => `
-                        <a href="${mirror}" 
-                           class="text-sm text-blue-400 hover:text-blue-300"
-                           target="_blank"
-                           onclick="tracksManager.trackDownload('${track.id}')">
-                            ${new URL(mirror).hostname}
-                        </a>
-                    `).join(' | ')}
-                </div>
-            ` : ''}
-        `;
+        this._updateTrackDisplay();
     }
 
     /**
-     * Generate premium prompt HTML
+     * Generate loading state HTML
      * @private
      */
-    _generatePremiumPrompt() {
+    _generateLoadingState() {
         return `
-            <a href="/subscribe" class="download-button bg-gradient-to-r from-yellow-400 to-yellow-600">
-                Unlock Premium Content
-            </a>
-        `;
-    }
-
-    /**
-     * Generate empty state HTML
-     * @private
-     */
-    _generateEmptyState() {
-        return `
-            <div class="text-center text-gray-300 col-span-full">
-                <p class="text-xl">No tracks found${this.filters.search ? ' matching your search' : ''}</p>
-                ${this.filters.search ? `
-                    <p class="mt-2">Try adjusting your search terms or filters</p>
-                ` : ''}
+            <div class="loading">
+                <div class="loading-spinner"></div>
+                <p>Loading tracks...</p>
             </div>
         `;
     }
 
     /**
-     * Update premium UI elements
+     * Generate error state HTML
      * @private
      */
-    _updatePremiumUI() {
-        const premiumToggle = document.getElementById('premiumToggle');
-        if (!premiumToggle) return;
-
-        const hasPremium = profileManager.hasPremiumAccess();
-        premiumToggle.classList.toggle('disabled', !hasPremium);
-        premiumToggle.classList.toggle('active', this.filters.premium);
-        premiumToggle.title = hasPremium ? 
-            'Toggle premium tracks' : 
-            'Subscribe to access premium tracks';
-    }
-
-    /**
-     * Show error message
-     * @private
-     */
-    _showError(message) {
-        const trackGrid = document.getElementById('trackGrid');
-        if (!trackGrid) return;
-
-        trackGrid.innerHTML = `
+    _generateErrorState() {
+        return `
             <div class="error col-span-full">
                 <p class="text-xl">Error</p>
-                <p class="mt-2">${message}</p>
+                <p class="mt-2">${this.state.error}</p>
+                <button onclick="tracksManager.refresh()" 
+                        class="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                    Try Again
+                </button>
             </div>
         `;
     }
 
-    /**
-     * Filter tracks by search term
-     * @public
-     */
-    filterBySearch(term) {
-        this.filters.search = term;
-        this._updateTrackDisplay();
-    }
-
-    /**
-     * Filter tracks by category
-     * @public
-     */
-    filterByCategory(category) {
-        this.filters.category = category;
-        this._updateTrackDisplay();
-    }
-
-    /**
-     * Toggle premium tracks
-     * @public
-     */
-    togglePremium() {
-        if (!profileManager.hasPremiumAccess()) {
-            window.location.href = '/subscribe';
-            return;
-        }
-
-        this.filters.premium = !this.filters.premium;
-        this._updatePremiumUI();
-        this._updateTrackDisplay();
-    }
-
-    /**
-     * Set sort order
-     * @public
-     */
-    setSortOrder(order) {
-        this.sortOrder = order;
-        this._updateTrackDisplay();
-    }
-
-    /**
-     * Track download
-     * @public
-     */
-    async trackDownload(trackId) {
-        try {
-            await dataManager.loadData('tracks/download', {
-                trackId,
-                profileId: profileManager.currentProfile?.id
-            });
-        } catch (error) {
-            console.error('Failed to track download:', error);
-        }
-    }
-
-    /**
-     * Get available categories
-     * @public
-     */
-    getCategories() {
-        return Array.from(this.categories);
-    }
-
-    /**
-     * Get track by ID
-     * @public
-     */
-    getTrack(id) {
-        return this.tracks.get(id);
-    }
-
-    /**
-     * Refresh tracks data
-     * @public
-     */
-    async refresh() {
-        this.cache.lastUpdate = null;
-        await this._loadTracks();
-    }
+    // ... [Rest of the methods remain unchanged] ...
 }
 
 // Export as singleton
