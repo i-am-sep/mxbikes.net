@@ -4,10 +4,10 @@ const fs = require('fs');
 const path = require('path');
 
 const config = {
-    host: 'dbaas-db-8731719-do-user-18540873-0.h.db.ondigitalocean.com', // Using non-private hostname
+    host: 'dbaas-db-4409310-do-user-18540873-0.f.db.ondigitalocean.com', // Using non-private hostname
     port: 25060,
     database: 'defaultdb',
-    username: 'mxbikes-net',
+    username: 'doadmin',
     password: process.env.DB_PASSWORD
 };
 
