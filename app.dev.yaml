@@ -18,7 +18,7 @@ services:
     # Environment configuration
     envs:
       - key: DATABASE_URL
-        value: postgres://mxbikes-net:${DB_PASSWORD}@private-dbaas-db-8731719-do-user-18540873-0.h.db.ondigitalocean.com:25060/defaultdb?sslmode=require
+        value: postgres://doadmin:${DB_PASSWORD}@dbaas-db-4409310-do-user-18540873-0.f.db.ondigitalocean.com:25060/defaultdb?sslmode=require
       - key: NODE_ENV
         value: development
       - key: ALLOWED_ORIGINS

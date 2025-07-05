@@ -88,6 +88,14 @@ npx serve
 
 3. Visit `http://localhost:8000`
 
+### Environment Variables
+Create a `.env` file in the project root with your database credentials. The file is ignored by git.
+
+```
+DB_PASSWORD=YOUR_DB_PASSWORD
+DATABASE_URL=postgres://doadmin:${DB_PASSWORD}@dbaas-db-4409310-do-user-18540873-0.f.db.ondigitalocean.com:25060/defaultdb?sslmode=require
+```
+
 ### Making Changes
 1. **Static Content**
    - Edit HTML files directly
