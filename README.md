@@ -88,6 +88,24 @@ npx serve
 
 3. Visit `http://localhost:8000`
 
+#### API Environment Variables
+To run the API server locally, set the following environment variables:
+
+```bash
+export DB_HOST="<database host>"
+export DB_PORT=25060
+export DB_NAME=defaultdb
+export DB_USER="<database user>"
+export DB_PASSWORD="<database password>"
+export DATABASE_URL="postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}?sslmode=require"
+```
+
+With these variables set, you can test the connection with:
+
+```bash
+node api/test-db.js
+```
+
 ### Making Changes
 1. **Static Content**
    - Edit HTML files directly
