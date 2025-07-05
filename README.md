@@ -88,12 +88,22 @@ npx serve
 
 3. Visit `http://localhost:8000`
 
-### Environment Variables
-Create a `.env` file in the project root with your database credentials. The file is ignored by git.
+#### API Environment Variables
+To run the API server locally, set the following environment variables:
 
+```bash
+export DB_HOST="<database host>"
+export DB_PORT=25060
+export DB_NAME=defaultdb
+export DB_USER="<database user>"
+export DB_PASSWORD="<database password>"
+export DATABASE_URL="postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}?sslmode=require"
 ```
-DB_PASSWORD=YOUR_DB_PASSWORD
-DATABASE_URL=postgres://doadmin:${DB_PASSWORD}@dbaas-db-4409310-do-user-18540873-0.f.db.ondigitalocean.com:25060/defaultdb?sslmode=require
+
+With these variables set, you can test the connection with:
+
+```bash
+node api/test-db.js
 ```
 
 ### Making Changes
